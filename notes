@@ -1,0 +1,14 @@
+Using Years:
+  Get Each Race
+    Get Each Session
+      Get Session Info
+        Get Track Name, Date, Time, League
+        Get Track Conditions
+        Get Each Rider
+          Get Manufacturer
+          Get Team
+          Get Motorcycle Model
+          Get Engine Form, (Straight Four, or V-Four)
+          Get Starting Position
+          Get Total Race Time
+          Get Lap Times
