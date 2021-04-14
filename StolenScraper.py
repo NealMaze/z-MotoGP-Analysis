@@ -7,7 +7,7 @@ from collections import defaultdict
 from pprint import pprint
 import numpy as np
 import pandas as pd
-from SoupCleaners import *
+from StolenSoupCleaners import *
 
 # Temporary Variables
 yr = "2017"
