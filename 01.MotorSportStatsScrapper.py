@@ -16,40 +16,36 @@ import pandas as pd
 ########################################################################################################################
 
 seasonUrl = "https://results.motorsportstats.com/series/motogp/season/2020"
-raceClassUrl = "https://results.motorsportstats.com/results/2020-gran-premio-red-bull-de-espana-2/classification"
-raceFactUrl = "https://results.motorsportstats.com/results/2020-gran-premio-red-bull-de-espana-2/session-facts"
+RoundClassUrl = "https://results.motorsportstats.com/results/2020-gran-premio-red-bull-de-espana-2/classification"
+RoundFactUrl = "https://results.motorsportstats.com/results/2020-gran-premio-red-bull-de-espana-2/session-facts"
+sessionTimesUrl = "https://results.motorsportstats.com/results/2020-gran-premio-red-bull-de-espana-2/session-facts/427fa170-1f81-46cf-b28f-59a790cd605c?fact=LapTime"
 
-########################################################################################################################
-# getSessionUrls(url)
-########################################################################################################################
+##############################################################################################
+# getTables(url)
+##############################################################################################
 
-def getSessionUrls(url):
+def getSessionTables(url):
     soup = getSoup(url)
-    sessionUrls = []
-    sessionData = soup.find_all('div', class_="_1CDKX")
-    baseUrl = "https://results.motorsportstats.com"
-
-    for session in sessionData:
-        aTags = session.find_all("a")
-        for tag in aTags:
-            hrefTag = tag["href"]
-        if hasattr(session.a, "text") and "results" # STOPPED HERE
+    
 
 
-
-sessions = getSessionUrls(raceFactUrl)
-for session in sessions:
-    print(session)
-
-##############################################################################################
-# getTableData(url)
-##############################################################################################
-
-
-##############################################################################################
-#
-##############################################################################################
-
+    # sessionUrls = []
+    # hrefList = []
+    # actTags = []
+    # sessionData = soup.find_all('div', class_="_1CDKX")
+    # baseUrl = "https://results.motorsportstats.com"
+    # urlEnd = "?fact=LapTime"
+    #
+    # for session in sessionData:
+    #     aTags = session.find_all("a")
+    #     for tag in aTags:
+    #         hrefTag = tag["href"]
+    #         if "session-facts/" in hrefTag and hrefTag not in hrefList:
+    #             actTags.append(tag.text)
+    #             hrefList.append(hrefTag)
+    #             fullUrl = baseUrl + hrefTag + urlEnd
+    #             sessionUrls.append(fullUrl)
+    # return sessionUrls, actTags
 
 ##############################################################################################
 #
@@ -64,3 +60,40 @@ for session in sessions:
 ##############################################################################################
 #
 ##############################################################################################
+
+
+##############################################################################################
+#
+##############################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
