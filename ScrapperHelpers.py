@@ -2,6 +2,12 @@
 import requests
 from bs4 import BeautifulSoup
 
+##############################################################################################
+# getSoup()
+##############################################################################################
+
+# maybe make this private so that outside the helpers, you never use a soup object
+
 def getSoup(url):
     """ Returns a BeautifulSoup object for the provided url """
     # send get request to url and stores it in htmlReturn
@@ -13,17 +19,9 @@ def getSoup(url):
     # returns the soup variable
     return soup
 
-def getRiders(soup):
-    riders = []
-    ridersData = soup.find_all('td', class_="_2sWDi f4AjL")
-
-    for rider in ridersData:
-        aTags = rider.find_all("a")
-        for tag in aTags:
-            hrefTag = tag["href"]
-        if hasattr(rider.a, "text") and "drivers" in hrefTag and riderName.text not in riders:
-            riders.append(rider.a.text)
-    return riders
+##############################################################################################
+#
+##############################################################################################
 
 def getRaceUrls(url):
     soup = getSoup(url)
@@ -43,6 +41,28 @@ def getRaceUrls(url):
         newUrl = url.replace("classification","session-facts")
         raceFactsUrls.append(newUrl)
     return raceClassificationUrls, raceFactsUrls
+
+##############################################################################################
+#
+##############################################################################################
+
+def getRiders(soup):
+    riders = []
+    ridersData = soup.find_all('td', class_="_2sWDi f4AjL")
+
+    for rider in ridersData:
+        aTags = rider.find_all("a")
+        for tag in aTags:
+            hrefTag = tag["href"]
+        if hasattr(rider.a, "text") and "drivers" in hrefTag and rider.a.text not in riders:
+            riders.append(rider.a.text)
+    return riders
+
+##############################################################################################
+#
+##############################################################################################
+
+
 
 
 
