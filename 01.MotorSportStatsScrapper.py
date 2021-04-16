@@ -25,8 +25,11 @@ sessionTimesUrl = "https://results.motorsportstats.com/results/2020-gran-premio-
 ##############################################################################################
 
 def getSessionTables(url):
+
+    ### NEED TO LEARN/ADD Selenium here to activate the tables in the page before retrieving
+        # the HTML.
+
     soup = getSoup(url)
-    
 
 
     # sessionUrls = []
