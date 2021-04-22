@@ -7,13 +7,13 @@ from pprint import pprint
 import numpy as np
 import pandas as pd
 
+
 # Headers for all the data we will be scraping in this notebook
 headers = ['Year','TRK','Track','Category','Session','Date','Track_Condition','Track_Temp','Air_Temp',
            'Humidity','Position','Points','Rider_Number','Rider_Name','Nationality','Team_Name',
            'Bike','Avg_Speed','Time']
 
-years = ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010',
-         '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020']
+years = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
 
 base_url = 'http://www.motogp.com/en/Results+Statistics/'
 
