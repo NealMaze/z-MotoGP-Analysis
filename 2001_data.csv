@@ -1,0 +1,292 @@
+,Year,TRK,Track,Category,Session,Date,Track_Condition,Track_Temp,Air_Temp,Humidity,Position,Points,Rider_Number,Rider_Name,Nationality,Team_Name,Bike,Avg_Speed,Time
+0,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+1,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+2,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+3,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+4,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+5,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+6,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+7,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+8,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+9,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+10,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+11,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+12,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+13,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+14,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+15,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+16,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+17,2001,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+18,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+19,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+20,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+21,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+22,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+23,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+24,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+25,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+26,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+27,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+28,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+29,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+30,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+31,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+32,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+33,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+34,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+35,2001,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+36,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+37,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+38,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+39,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+40,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+41,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+42,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+43,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+44,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+45,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+46,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+47,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+48,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+49,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+50,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+51,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+52,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+53,2001,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+54,2001,FRA,FRENCH GRAND PRIX - Le Mans,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+55,2001,FRA,FRENCH GRAND PRIX - Le Mans,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+56,2001,FRA,FRENCH GRAND PRIX - Le Mans,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+57,2001,FRA,FRENCH GRAND PRIX - Le Mans,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+58,2001,FRA,FRENCH GRAND PRIX - Le Mans,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+59,2001,FRA,FRENCH GRAND PRIX - Le Mans,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+60,2001,FRA,FRENCH GRAND PRIX - Le Mans,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+61,2001,FRA,FRENCH GRAND PRIX - Le Mans,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+62,2001,FRA,FRENCH GRAND PRIX - Le Mans,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+63,2001,FRA,FRENCH GRAND PRIX - Le Mans,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+64,2001,FRA,FRENCH GRAND PRIX - Le Mans,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+65,2001,FRA,FRENCH GRAND PRIX - Le Mans,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+66,2001,FRA,FRENCH GRAND PRIX - Le Mans,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+67,2001,FRA,FRENCH GRAND PRIX - Le Mans,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+68,2001,FRA,FRENCH GRAND PRIX - Le Mans,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+69,2001,FRA,FRENCH GRAND PRIX - Le Mans,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+70,2001,FRA,FRENCH GRAND PRIX - Le Mans,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+71,2001,FRA,FRENCH GRAND PRIX - Le Mans,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+72,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+73,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+74,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+75,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+76,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+77,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+78,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,RACE2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+79,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+80,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+81,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+82,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+83,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+84,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+85,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+86,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+87,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+88,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+89,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+90,2001,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+91,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+92,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+93,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+94,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+95,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+96,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+97,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+98,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+99,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+100,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+101,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+102,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+103,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+104,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+105,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+106,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+107,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+108,2001,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+109,2001,NED,DUTCH TT - TT Circuit Assen,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+110,2001,NED,DUTCH TT - TT Circuit Assen,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+111,2001,NED,DUTCH TT - TT Circuit Assen,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+112,2001,NED,DUTCH TT - TT Circuit Assen,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+113,2001,NED,DUTCH TT - TT Circuit Assen,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+114,2001,NED,DUTCH TT - TT Circuit Assen,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+115,2001,NED,DUTCH TT - TT Circuit Assen,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+116,2001,NED,DUTCH TT - TT Circuit Assen,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+117,2001,NED,DUTCH TT - TT Circuit Assen,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+118,2001,NED,DUTCH TT - TT Circuit Assen,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+119,2001,NED,DUTCH TT - TT Circuit Assen,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+120,2001,NED,DUTCH TT - TT Circuit Assen,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+121,2001,NED,DUTCH TT - TT Circuit Assen,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+122,2001,NED,DUTCH TT - TT Circuit Assen,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+123,2001,NED,DUTCH TT - TT Circuit Assen,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+124,2001,NED,DUTCH TT - TT Circuit Assen,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+125,2001,NED,DUTCH TT - TT Circuit Assen,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+126,2001,NED,DUTCH TT - TT Circuit Assen,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+127,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+128,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+129,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+130,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+131,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+132,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+133,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+134,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+135,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+136,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+137,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+138,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+139,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+140,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+141,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+142,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+143,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+144,2001,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+145,2001,GER,GERMAN GRAND PRIX - Sachsenring,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+146,2001,GER,GERMAN GRAND PRIX - Sachsenring,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+147,2001,GER,GERMAN GRAND PRIX - Sachsenring,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+148,2001,GER,GERMAN GRAND PRIX - Sachsenring,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+149,2001,GER,GERMAN GRAND PRIX - Sachsenring,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+150,2001,GER,GERMAN GRAND PRIX - Sachsenring,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+151,2001,GER,GERMAN GRAND PRIX - Sachsenring,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+152,2001,GER,GERMAN GRAND PRIX - Sachsenring,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+153,2001,GER,GERMAN GRAND PRIX - Sachsenring,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+154,2001,GER,GERMAN GRAND PRIX - Sachsenring,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+155,2001,GER,GERMAN GRAND PRIX - Sachsenring,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+156,2001,GER,GERMAN GRAND PRIX - Sachsenring,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+157,2001,GER,GERMAN GRAND PRIX - Sachsenring,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+158,2001,GER,GERMAN GRAND PRIX - Sachsenring,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+159,2001,GER,GERMAN GRAND PRIX - Sachsenring,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+160,2001,GER,GERMAN GRAND PRIX - Sachsenring,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+161,2001,GER,GERMAN GRAND PRIX - Sachsenring,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+162,2001,GER,GERMAN GRAND PRIX - Sachsenring,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+163,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+164,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+165,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+166,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+167,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+168,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+169,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+170,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+171,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+172,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+173,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+174,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+175,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+176,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+177,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+178,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+179,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+180,2001,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+181,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+182,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+183,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+184,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+185,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+186,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+187,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+188,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+189,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+190,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+191,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+192,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+193,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+194,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+195,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+196,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+197,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+198,2001,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+199,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+200,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+201,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+202,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+203,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+204,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+205,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+206,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+207,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+208,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+209,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+210,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+211,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,RACE2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+212,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+213,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+214,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+215,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+216,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+217,2001,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+218,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+219,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+220,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+221,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+222,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+223,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+224,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+225,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+226,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+227,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+228,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+229,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+230,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+231,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+232,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+233,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+234,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+235,2001,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+236,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+237,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+238,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+239,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+240,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+241,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+242,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+243,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+244,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+245,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+246,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+247,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+248,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+249,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+250,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+251,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+252,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+253,2001,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+254,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+255,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+256,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+257,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+258,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+259,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+260,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+261,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+262,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+263,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+264,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+265,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+266,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+267,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+268,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+269,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+270,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+271,2001,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+272,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+273,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+274,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+275,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+276,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+277,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+278,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,RACE2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+279,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+280,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+281,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+282,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+283,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+284,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+285,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+286,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+287,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+288,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+289,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+290,2001,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a

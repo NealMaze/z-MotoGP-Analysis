@@ -1,0 +1,286 @@
+,Year,TRK,Track,Category,Session,Date,Track_Condition,Track_Temp,Air_Temp,Humidity,Position,Points,Rider_Number,Rider_Name,Nationality,Team_Name,Bike,Avg_Speed,Time
+0,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+1,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,QR2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+2,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+3,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+4,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+5,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+6,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+7,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+8,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+9,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+10,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+11,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+12,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+13,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+14,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+15,1999,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+16,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+17,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+18,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+19,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+20,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+21,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+22,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+23,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,250cc,LCP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+24,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+25,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+26,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+27,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+28,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+29,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+30,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+31,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+32,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+33,1999,JPN,JAPANESE GRAND PRIX - Twin Ring Motegi,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+34,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+35,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+36,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+37,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+38,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+39,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+40,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+41,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+42,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+43,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+44,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+45,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+46,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+47,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+48,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+49,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+50,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+51,1999,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+52,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+53,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+54,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+55,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+56,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+57,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+58,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+59,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+60,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+61,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+62,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+63,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+64,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+65,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+66,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+67,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+68,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+69,1999,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+70,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+71,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+72,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+73,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+74,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+75,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+76,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+77,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+78,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+79,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+80,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+81,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+82,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+83,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+84,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+85,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+86,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+87,1999,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+88,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+89,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+90,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+91,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+92,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+93,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+94,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+95,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+96,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+97,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+98,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+99,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+100,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+101,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+102,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+103,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+104,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+105,1999,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+106,1999,NED,DUTCH TT - TT Circuit Assen,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+107,1999,NED,DUTCH TT - TT Circuit Assen,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+108,1999,NED,DUTCH TT - TT Circuit Assen,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+109,1999,NED,DUTCH TT - TT Circuit Assen,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+110,1999,NED,DUTCH TT - TT Circuit Assen,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+111,1999,NED,DUTCH TT - TT Circuit Assen,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+112,1999,NED,DUTCH TT - TT Circuit Assen,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+113,1999,NED,DUTCH TT - TT Circuit Assen,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+114,1999,NED,DUTCH TT - TT Circuit Assen,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+115,1999,NED,DUTCH TT - TT Circuit Assen,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+116,1999,NED,DUTCH TT - TT Circuit Assen,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+117,1999,NED,DUTCH TT - TT Circuit Assen,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+118,1999,NED,DUTCH TT - TT Circuit Assen,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+119,1999,NED,DUTCH TT - TT Circuit Assen,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+120,1999,NED,DUTCH TT - TT Circuit Assen,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+121,1999,NED,DUTCH TT - TT Circuit Assen,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+122,1999,NED,DUTCH TT - TT Circuit Assen,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+123,1999,NED,DUTCH TT - TT Circuit Assen,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+124,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+125,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+126,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+127,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+128,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+129,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+130,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+131,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+132,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+133,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+134,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+135,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+136,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+137,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+138,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+139,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+140,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+141,1999,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+142,1999,GER,GERMAN GRAND PRIX - Sachsenring,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+143,1999,GER,GERMAN GRAND PRIX - Sachsenring,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+144,1999,GER,GERMAN GRAND PRIX - Sachsenring,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+145,1999,GER,GERMAN GRAND PRIX - Sachsenring,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+146,1999,GER,GERMAN GRAND PRIX - Sachsenring,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+147,1999,GER,GERMAN GRAND PRIX - Sachsenring,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+148,1999,GER,GERMAN GRAND PRIX - Sachsenring,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+149,1999,GER,GERMAN GRAND PRIX - Sachsenring,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+150,1999,GER,GERMAN GRAND PRIX - Sachsenring,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+151,1999,GER,GERMAN GRAND PRIX - Sachsenring,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+152,1999,GER,GERMAN GRAND PRIX - Sachsenring,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+153,1999,GER,GERMAN GRAND PRIX - Sachsenring,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+154,1999,GER,GERMAN GRAND PRIX - Sachsenring,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+155,1999,GER,GERMAN GRAND PRIX - Sachsenring,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+156,1999,GER,GERMAN GRAND PRIX - Sachsenring,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+157,1999,GER,GERMAN GRAND PRIX - Sachsenring,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+158,1999,GER,GERMAN GRAND PRIX - Sachsenring,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+159,1999,GER,GERMAN GRAND PRIX - Sachsenring,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+160,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+161,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+162,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+163,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+164,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+165,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+166,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+167,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+168,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+169,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+170,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+171,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+172,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+173,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+174,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+175,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+176,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+177,1999,CZE,Czech Republic Grand Prix - Automotodrom Brno,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+178,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+179,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+180,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+181,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+182,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+183,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+184,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+185,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+186,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+187,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+188,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+189,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+190,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+191,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+192,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+193,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+194,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+195,1999,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+196,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+197,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+198,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+199,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+200,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+201,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+202,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+203,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+204,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+205,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+206,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+207,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+208,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+209,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+210,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+211,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+212,1999,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+213,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+214,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+215,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+216,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+217,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+218,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+219,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+220,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+221,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+222,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+223,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+224,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+225,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+226,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+227,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+228,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+229,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+230,1999,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+231,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+232,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+233,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+234,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+235,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+236,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+237,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+238,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+239,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+240,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+241,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+242,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+243,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+244,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+245,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+246,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+247,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+248,1999,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+249,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+250,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+251,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+252,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+253,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+254,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+255,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+256,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+257,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+258,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+259,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+260,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+261,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+262,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+263,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+264,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+265,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+266,1999,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+267,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,500cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+268,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,500cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+269,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,500cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+270,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,500cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+271,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,500cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+272,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+273,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+274,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+275,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+276,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+277,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+278,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+279,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+280,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+281,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+282,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+283,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+284,1999,ARG,Argentinian Grand Prix - Autodromo Oscar A. Galvez,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a

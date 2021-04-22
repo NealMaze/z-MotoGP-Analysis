@@ -1,0 +1,289 @@
+,Year,TRK,Track,Category,Session,Date,Track_Condition,Track_Temp,Air_Temp,Humidity,Position,Points,Rider_Number,Rider_Name,Nationality,Team_Name,Bike,Avg_Speed,Time
+0,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+1,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+2,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+3,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+4,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+5,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+6,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+7,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+8,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+9,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+10,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+11,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+12,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+13,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+14,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+15,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+16,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+17,2002,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+18,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+19,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+20,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+21,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+22,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+23,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+24,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+25,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+26,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+27,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+28,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+29,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+30,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+31,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+32,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+33,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+34,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+35,2002,RSA,SOUTH AFRICAN GRAND PRIX - Phakisa Freeway,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+36,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+37,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+38,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+39,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+40,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+41,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+42,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+43,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+44,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+45,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+46,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+47,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+48,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+49,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+50,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+51,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+52,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+53,2002,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+54,2002,FRA,FRENCH GRAND PRIX - Le Mans,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+55,2002,FRA,FRENCH GRAND PRIX - Le Mans,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+56,2002,FRA,FRENCH GRAND PRIX - Le Mans,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+57,2002,FRA,FRENCH GRAND PRIX - Le Mans,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+58,2002,FRA,FRENCH GRAND PRIX - Le Mans,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+59,2002,FRA,FRENCH GRAND PRIX - Le Mans,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+60,2002,FRA,FRENCH GRAND PRIX - Le Mans,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+61,2002,FRA,FRENCH GRAND PRIX - Le Mans,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+62,2002,FRA,FRENCH GRAND PRIX - Le Mans,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+63,2002,FRA,FRENCH GRAND PRIX - Le Mans,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+64,2002,FRA,FRENCH GRAND PRIX - Le Mans,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+65,2002,FRA,FRENCH GRAND PRIX - Le Mans,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+66,2002,FRA,FRENCH GRAND PRIX - Le Mans,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+67,2002,FRA,FRENCH GRAND PRIX - Le Mans,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+68,2002,FRA,FRENCH GRAND PRIX - Le Mans,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+69,2002,FRA,FRENCH GRAND PRIX - Le Mans,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+70,2002,FRA,FRENCH GRAND PRIX - Le Mans,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+71,2002,FRA,FRENCH GRAND PRIX - Le Mans,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+72,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+73,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+74,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+75,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+76,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+77,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+78,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+79,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+80,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+81,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+82,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+83,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+84,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+85,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+86,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+87,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+88,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+89,2002,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+90,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+91,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+92,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+93,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+94,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+95,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+96,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+97,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+98,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+99,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+100,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+101,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+102,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+103,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+104,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+105,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+106,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+107,2002,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+108,2002,NED,DUTCH TT - TT Circuit Assen,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+109,2002,NED,DUTCH TT - TT Circuit Assen,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+110,2002,NED,DUTCH TT - TT Circuit Assen,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+111,2002,NED,DUTCH TT - TT Circuit Assen,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+112,2002,NED,DUTCH TT - TT Circuit Assen,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+113,2002,NED,DUTCH TT - TT Circuit Assen,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+114,2002,NED,DUTCH TT - TT Circuit Assen,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+115,2002,NED,DUTCH TT - TT Circuit Assen,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+116,2002,NED,DUTCH TT - TT Circuit Assen,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+117,2002,NED,DUTCH TT - TT Circuit Assen,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+118,2002,NED,DUTCH TT - TT Circuit Assen,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+119,2002,NED,DUTCH TT - TT Circuit Assen,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+120,2002,NED,DUTCH TT - TT Circuit Assen,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+121,2002,NED,DUTCH TT - TT Circuit Assen,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+122,2002,NED,DUTCH TT - TT Circuit Assen,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+123,2002,NED,DUTCH TT - TT Circuit Assen,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+124,2002,NED,DUTCH TT - TT Circuit Assen,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+125,2002,NED,DUTCH TT - TT Circuit Assen,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+126,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+127,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+128,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+129,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+130,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+131,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+132,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+133,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+134,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+135,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+136,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+137,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+138,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+139,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+140,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+141,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+142,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+143,2002,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+144,2002,GER,GERMAN GRAND PRIX - Sachsenring,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+145,2002,GER,GERMAN GRAND PRIX - Sachsenring,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+146,2002,GER,GERMAN GRAND PRIX - Sachsenring,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+147,2002,GER,GERMAN GRAND PRIX - Sachsenring,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+148,2002,GER,GERMAN GRAND PRIX - Sachsenring,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+149,2002,GER,GERMAN GRAND PRIX - Sachsenring,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+150,2002,GER,GERMAN GRAND PRIX - Sachsenring,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+151,2002,GER,GERMAN GRAND PRIX - Sachsenring,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+152,2002,GER,GERMAN GRAND PRIX - Sachsenring,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+153,2002,GER,GERMAN GRAND PRIX - Sachsenring,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+154,2002,GER,GERMAN GRAND PRIX - Sachsenring,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+155,2002,GER,GERMAN GRAND PRIX - Sachsenring,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+156,2002,GER,GERMAN GRAND PRIX - Sachsenring,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+157,2002,GER,GERMAN GRAND PRIX - Sachsenring,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+158,2002,GER,GERMAN GRAND PRIX - Sachsenring,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+159,2002,GER,GERMAN GRAND PRIX - Sachsenring,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+160,2002,GER,GERMAN GRAND PRIX - Sachsenring,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+161,2002,GER,GERMAN GRAND PRIX - Sachsenring,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+162,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+163,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+164,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+165,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+166,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+167,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+168,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+169,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+170,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+171,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+172,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+173,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+174,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+175,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+176,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+177,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+178,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+179,2002,CZE,Gauloises Grand Prix České republiky - Automotodrom Brno,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+180,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+181,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+182,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+183,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+184,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+185,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+186,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+187,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+188,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+189,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+190,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+191,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+192,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+193,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+194,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+195,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+196,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+197,2002,POR,PORTUGUESE GRAND PRIX - Estoril Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+198,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+199,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+200,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+201,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+202,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+203,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+204,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+205,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+206,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+207,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+208,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+209,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+210,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+211,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+212,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+213,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+214,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+215,2002,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+216,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+217,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+218,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+219,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+220,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+221,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+222,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+223,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+224,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+225,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+226,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+227,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+228,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+229,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+230,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+231,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+232,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+233,2002,PAC,PACIFIC GRAND PRIX - Twin Ring Motegi,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+234,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+235,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+236,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+237,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+238,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+239,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+240,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+241,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+242,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+243,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+244,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+245,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+246,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+247,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+248,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+249,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+250,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+251,2002,MAL,MALAYSIAN GRAND PRIX - Sepang International Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+252,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+253,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+254,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+255,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+256,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+257,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+258,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+259,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+260,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+261,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+262,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+263,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+264,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+265,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+266,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+267,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+268,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+269,2002,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+270,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,MotoGP,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+271,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,MotoGP,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+272,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,MotoGP,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+273,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,MotoGP,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+274,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,MotoGP,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+275,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,MotoGP,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+276,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+277,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+278,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+279,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+280,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+281,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+282,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,FP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+283,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,QP1,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+284,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,FP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+285,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,QP2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+286,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,WUP,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+287,2002,VAL,VALENCIA GRAND PRIX - Circuit Ricardo Tormo,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a

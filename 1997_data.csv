@@ -1,0 +1,46 @@
+,Year,TRK,Track,Category,Session,Date,Track_Condition,Track_Temp,Air_Temp,Humidity,Position,Points,Rider_Number,Rider_Name,Nationality,Team_Name,Bike,Avg_Speed,Time
+0,1997,MAL,MALAYSIAN GRAND PRIX - Shah Alam,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+1,1997,MAL,MALAYSIAN GRAND PRIX - Shah Alam,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+2,1997,MAL,MALAYSIAN GRAND PRIX - Shah Alam,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+3,1997,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+4,1997,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+5,1997,JPN,JAPANESE GRAND PRIX - Suzuka Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+6,1997,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+7,1997,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+8,1997,SPA,SPANISH GRAND PRIX - Circuito de Jerez - Angel Nieto,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+9,1997,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+10,1997,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+11,1997,ITA,ITALIAN GRAND PRIX - Autodromo Internazionale del Mugello,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+12,1997,AUT,AUSTRIAN GRAND PRIX - Red Bull Ring - Spielberg,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+13,1997,AUT,AUSTRIAN GRAND PRIX - Red Bull Ring - Spielberg,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+14,1997,AUT,AUSTRIAN GRAND PRIX - Red Bull Ring - Spielberg,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+15,1997,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+16,1997,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+17,1997,FRA,FRENCH GRAND PRIX - Paul Ricard Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+18,1997,NED,DUTCH TT - TT Circuit Assen,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+19,1997,NED,DUTCH TT - TT Circuit Assen,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+20,1997,NED,DUTCH TT - TT Circuit Assen,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+21,1997,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+22,1997,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+23,1997,IMO,IMOLA GRAND PRIX - Autodromo Enzo e Dino Ferrari,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+24,1997,GER,GERMAN GRAND PRIX - Nurburgring,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+25,1997,GER,GERMAN GRAND PRIX - Nurburgring,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+26,1997,GER,GERMAN GRAND PRIX - Nurburgring,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+27,1997,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+28,1997,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+29,1997,RIO,RIO GRAND PRIX - Nelson Piquet Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+30,1997,GBR,BRITISH GRAND PRIX - Donington Park Circuit,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+31,1997,GBR,BRITISH GRAND PRIX - Donington Park Circuit,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+32,1997,GBR,BRITISH GRAND PRIX - Donington Park Circuit,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+33,1997,CZE,Czech Republic Grand Prix - Automotodrom Brno,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+34,1997,CZE,Czech Republic Grand Prix - Automotodrom Brno,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+35,1997,CZE,Czech Republic Grand Prix - Automotodrom Brno,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+36,1997,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+37,1997,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+38,1997,CAT,CATALUNYA GRAND PRIX - Circuit de Barcelona-Catalunya,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+39,1997,INA,INDONESIAN GRAND PRIX - Sentul,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+40,1997,INA,INDONESIAN GRAND PRIX - Sentul,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+41,1997,INA,INDONESIAN GRAND PRIX - Sentul,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+42,1997,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,500cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+43,1997,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,250cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
+44,1997,AUS,AUSTRALIAN GRAND PRIX - Phillip Island,125cc,RACE,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
