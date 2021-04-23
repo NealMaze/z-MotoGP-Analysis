@@ -179,3 +179,33 @@ def get_GP_info(track_url_str):
         list_data.append(float(strs[4].split()[0]))
 
     return list_data
+
+# 3) function to get testing sessions
+def getTests()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
