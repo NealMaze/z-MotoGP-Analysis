@@ -105,6 +105,7 @@ for yr in years:
                 soupSSN = soup_special(url_ssn)
                 # data_list.extend(get_all_stats(soup_ssn, yr, TRK, Track, CAT, SSN)) ##################################
                 pdfLinks = getPDFs(soupSSN, yr)
+                
                 for link in pdfLinks:
                     write(link.content)
                 time.sleep(1 + np.random.random())
