@@ -74,12 +74,12 @@ def get_all_stats(soup, year, trk, track, cat, ssn):
             return stats_to_return
 
 for yr in years:
+    fileNum = 0
     # data_list = []
     url_yr = base_url + yr
     soupYr = soup_special(url_yr)
     weekends = get_all_races(soupYr)
-    print(yr)
-    print(url_yr)
+    print(f"\nyr")
     #tests = getAllTests(soupYr, yr)
     #
     # for tst in tests[0 : 1]:
@@ -98,17 +98,19 @@ for yr in years:
             soup_c = soup_special(url_c)
             sessions = get_all_sessions(soup_c)
 
-            for ssn in sessions[0 : 1]:
-                print(TRK + ssn)
+            for ssn in sessions:
+                fName = f"{yr}-{fileNum}{CAT}_{TRK}_{ssn}"
                 SSN = ssn
                 url_ssn = base_url + yr + '/' + TRK + '/' + CAT + '/' + SSN + '/Classification'
                 soupSSN = soup_special(url_ssn)
                 # data_list.extend(get_all_stats(soup_ssn, yr, TRK, Track, CAT, SSN)) ##################################
                 pdfLinks = getPDFs(soupSSN, yr)
-                
                 for link in pdfLinks:
-                    write(link.content)
+                    pdf = requests.get(link)
+                    with open(f"{fName}.pdf", "wb") as f:
+                        f.write(pdf.content)
                 time.sleep(1 + np.random.random())
+                fileNum += 1
 #
 
 
