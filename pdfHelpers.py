@@ -64,16 +64,6 @@ def get_humidity(soup):
         r = find.findNext().text.split()[1]
     return r
 
-def get_all_races(soup):
-    """ Returns all the races that took place in a particular season
-        for which the soup was passed in """
-    find = soup.find(id='event')
-    if find is None:
-        r = []
-    else:
-        r = find.find_all('option')
-    return r
-
 def get_all_cats(soup):
     """ Returns all the different categories (MotoGP, Moto2, etc.)
         that took place at a particular track in the provided soup """
@@ -180,8 +170,26 @@ def get_GP_info(track_url_str):
 
     return list_data
 
+def get_all_races(soup):
+    """ Returns all the races that took place in a particular season
+        for which the soup was passed in """
+    find = soup.find(id='event')
+    if find is None:
+        r = []
+    else:
+        r = find.find_all('option')
+    return r
+
+########################################################################################################################
 # 3) function to get testing sessions
-def getTests()
+def getAllTests(soup, yr):
+    """ Returns all the tests that took place during the season
+        of the soup object it's passed"""
+    r = []
+    offSeason = soup.find(id = f"testoffseason{yr}")
+
+
+    print(f" off season is: {offSeason}")
 
 
 
@@ -190,22 +198,39 @@ def getTests()
 
 
 
+    # midSeason = soup.find(id="testresults" + yr)
+    # if offSeason is None:
+    #     offR = []
+    # else:
+    #     offR = offSeason.find_all(href=True)
+    #     print("off season found")
+
+    # if midSeason is None:
+    #     midR = []
+    #
+    # else:
+    #     midR = midSeason.find_all(href=True)
+    #     print("off season found")
+    #
+    # r = offR + midR
+    # for i in r:
+    #     print(i)
+    # print(offSeason)
+########################################################################################################################
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def getPDFs(soup, yr):
+    """ Returns all the PDFs associated with the selected session"""
+    links = []
+    find = soup.find(id="results_menu")
+    if find is None:
+        links = []
+    else:
+        q = find.find_all(href=True)
+        for i in q:
+            x = i["href"]
+            if "https" in x:
+                links.append(x)
+    return links

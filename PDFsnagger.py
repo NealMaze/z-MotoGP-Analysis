@@ -20,7 +20,7 @@ headers = ['Year','TRK','Track','Category','Session','Date','Track_Condition','T
 yearsFull = ["2021", "2020", "2019", "2018", "2017", '2016', '2015', "2014", '2013', '2012', '2011', '2010', '2009', '2008',
          '2007', '2006','2005', "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
 
-years = ["2021"]
+years = ["2016"]
 
 allOffSeasonLinks = []
 
@@ -78,18 +78,19 @@ for yr in years:
     url_yr = base_url + yr
     soupYr = soup_special(url_yr)
     weekends = get_all_races(soupYr)
-    tests = getAllTests(soupYr)
-    print(f"\n{yr}")
-
-    for tst in tests[0 : 1]:
-
+    print(yr)
+    print(url_yr)
+    #tests = getAllTests(soupYr, yr)
+    #
+    # for tst in tests[0 : 1]:
+    #     x = 1
 
     for wk in weekends[0 : 1]:
-        TRK = rc['value']
-        Track = rc['title']
-        url_rc = base_url + yr + '/' + TRK + '/'
-        soup_rc = soup_special(url_rc)
-        categories = get_all_cats(soup_rc)
+        TRK = wk['value']
+        Track = wk['title']
+        urlWk = base_url + yr + '/' + TRK + '/'
+        soupWk = soup_special(urlWk)
+        categories = get_all_cats(soupWk)
 
         for cat in categories[0 : 1]:
             CAT = cat.text
@@ -98,12 +99,16 @@ for yr in years:
             sessions = get_all_sessions(soup_c)
 
             for ssn in sessions[0 : 1]:
+                print(TRK + ssn)
                 SSN = ssn
                 url_ssn = base_url + yr + '/' + TRK + '/' + CAT + '/' + SSN + '/Classification'
-                soup_ssn = soup_special(url_ssn)
+                soupSSN = soup_special(url_ssn)
                 # data_list.extend(get_all_stats(soup_ssn, yr, TRK, Track, CAT, SSN)) ##################################
-                getAnalysis(soup)
+                pdfLinks = getPDFs(soupSSN, yr)
+                for link in pdfLinks:
+                    write(link.content)
                 time.sleep(1 + np.random.random())
+#
 
 
 
