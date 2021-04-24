@@ -8,6 +8,7 @@ url_ssn = https://www.motogp.com/en/Results+Statistics/2020/QAT/Moto2/FP1/Classi
 """
 
 # import necessary modules
+from pprint import pprint
 from pdfHelpers import *
 
 
@@ -16,11 +17,10 @@ headers = ['Year','TRK','Track','Category','Session','Date','Track_Condition','T
            'Humidity','Position','Points','Rider_Number','Rider_Name','Nationality','Team_Name',
            'Bike','Avg_Speed','Time']
 
-# indepth analysis is only available as far back as 1998
-yearsFull = ["2021", "2020", "2019", "2018", "2017", '2016', '2015', "2014", '2013', '2012', '2011', '2010', '2009', '2008',
-         '2007', '2006','2005', "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+# in-depth analysis is only available as far back as 1998
+years = ['2009', '2008', '2007', '2006','2005', "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
 
-years = ["2016"]
+yearsF = ["2021", "2020", "2019", "2018", "2017", '2016', '2015', "2014", '2013', '2012', '2011', '2010', ]
 
 allOffSeasonLinks = []
 
@@ -74,44 +74,81 @@ def get_all_stats(soup, year, trk, track, cat, ssn):
             return stats_to_return
 
 for yr in years:
-    fileNum = 0
+    fileNum = 1
     # data_list = []
     url_yr = base_url + yr
     soupYr = soup_special(url_yr)
-    weekends = get_all_races(soupYr)
-    print(f"\nyr")
-    #tests = getAllTests(soupYr, yr)
+    round = get_all_races(soupYr)
+    print(f"\n{yr}")
+    # tests = getAllTests(soupYr, yr)
     #
     # for tst in tests[0 : 1]:
     #     x = 1
 
-    for wk in weekends[0 : 1]:
-        TRK = wk['value']
-        Track = wk['title']
+    for rn in round:
+        TRK = rn['value']
+        Track = rn['title']
         urlWk = base_url + yr + '/' + TRK + '/'
         soupWk = soup_special(urlWk)
         categories = get_all_cats(soupWk)
+        # print(f"{TRK}")
 
-        for cat in categories[0 : 1]:
+        for cat in categories:
             CAT = cat.text
             url_c = base_url + yr + '/' + TRK + '/' + CAT + '/'
             soup_c = soup_special(url_c)
             sessions = get_all_sessions(soup_c)
+            print(f"{CAT}")
 
             for ssn in sessions:
-                fName = f"{yr}-{fileNum}{CAT}_{TRK}_{ssn}"
                 SSN = ssn
                 url_ssn = base_url + yr + '/' + TRK + '/' + CAT + '/' + SSN + '/Classification'
                 soupSSN = soup_special(url_ssn)
-                # data_list.extend(get_all_stats(soup_ssn, yr, TRK, Track, CAT, SSN)) ##################################
+                # data_list.extend(get_all_stats(soup_ssn, yr, TRK, Track, CAT, SSN))
                 pdfLinks = getPDFs(soupSSN, yr)
+                x = f"{SSN}, "
+
+                # print(CAT)
+                # print(pdfLinks)
+
                 for link in pdfLinks:
+                    t = link.split("/")
+                    u = t[9].split(".")
+                    v = u[0]
                     pdf = requests.get(link)
+                    fName = f"{yr}-Round_{fileNum}-{CAT}-{TRK}-{ssn}_{v}"
                     with open(f"{fName}.pdf", "wb") as f:
                         f.write(pdf.content)
+                        x = x + f"{v}, "
+
+                print(x)
                 time.sleep(1 + np.random.random())
-                fileNum += 1
-#
+
+        fileNum += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -122,7 +159,7 @@ for yr in years:
 #     print(fn)
 #     time.sleep(1 + np.random.random())
 #
-# print('>> Scraping complete!')
+print('>> Scraping complete!')
 
 #######################################################################################################################
 #######################################################################################################################

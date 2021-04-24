@@ -225,8 +225,17 @@ def getPDFs(soup, yr):
     """ Returns all the PDFs associated with the selected session"""
     links = []
     find = soup.find(id="results_menu")
+
+
+
     if find is None:
         links = []
+        print("no PDFs Found")
+        find = soup.find_all(href=True)
+        for i in find:
+            x = i["href"]
+            if "resources" in x:
+                print(x)
     else:
         q = find.find_all(href=True)
         for i in q:
