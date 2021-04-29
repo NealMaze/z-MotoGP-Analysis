@@ -5,6 +5,8 @@ import time
 from collections import defaultdict
 import numpy as np
 import pandas as pd
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 # 1) function return a soup object
 def soup_special(url):
@@ -182,14 +184,19 @@ def get_all_races(soup):
 
 ########################################################################################################################
 # 3) function to get testing sessions
+# def changeHandleSeason():
+
+
 def getAllTests(soup, yr):
     """ Returns all the tests that took place during the season
         of the soup object it's passed"""
-    r = []
-    offSeason = soup.find(id = f"testoffseason{yr}")
-
-
-    print(f" off season is: {offSeason}")
+    find = soup.find(id = f"testoffseason{yr}")
+    if find is None:
+        r = []
+        print(f"no tests were found in {yr}")
+    else:
+        r = find.find_all(href = True)
+    return r
 
 
 
@@ -218,15 +225,31 @@ def getAllTests(soup, yr):
     # print(offSeason)
 ########################################################################################################################
 
-
-
-
-def getPDFs(soup, yr):
+def getRacePDFs(soup):
     """ Returns all the PDFs associated with the selected session"""
     links = []
     find = soup.find(id="results_menu")
 
+    if find is None:
+        links = []
+        print("no PDFs Found")
+        find = soup.find_all(href=True)
+        for i in find:
+            x = i["href"]
+            if "resources" in x:
+                print(x)
+    else:
+        q = find.find_all(href=True)
+        for i in q:
+            x = i["href"]
+            if "https" in x:
+                links.append(x)
+    return links
 
+def getPDFs(soup):
+    """ Returns all the PDFs associated with the selected session"""
+    links = []
+    find = soup.find(id="results_menu")
 
     if find is None:
         links = []
