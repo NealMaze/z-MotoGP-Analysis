@@ -37,7 +37,6 @@ def parseRacAnalysis(rc_file):
 
 
 
-
     # pdf_num = 0
     # for tb in text[pdf_num:]:
     #     print(f"{pdf_num}     {tb}")
