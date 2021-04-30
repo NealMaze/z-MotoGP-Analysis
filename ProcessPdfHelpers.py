@@ -1,5 +1,6 @@
 # imports
 from os import listdir
+import pdfplumber as plumb
 import fnmatch
 
 # 1) Get File Helpers
@@ -8,19 +9,35 @@ def getRacAnalysis(yr, dir):
     rc_files = [f"{dir}/{file}" for file in filter_files]
     return rc_files
 
-def getQualAnalysis(yr, dir):
-    filter_files = fnmatch.filter(listdir(dir), f"{yr}*QP1*nalysis.pdf")
-    filter_two = fnmatch.filter(listdir(dir), f"{yr}*QP2*nalysis.pdf")
-    filter_three = fnmatch.filter(listdir(dir), f"{yr}*QP3*nalysis.pdf")
-    filter_four = fnmatch.filter(listdir(dir), f"{yr}*QP4*nalysis.pdf")
-    # todo
+def getTxt(pages):
+    text = []
+    positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
+           "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
+           "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
+    pos = []
+    txts = []
 
+    for pg in pages:
+        words = pg.extract_words()
+        txt = []
+        for i in words:
+            txt.append(i["text"])
+            if i["text"] in positions:
+                pos.append(positions[0])
+                positions.remove(positions[0])
+        txts.append(txt)
 
-# 2) Parse File Helpers
+    for txt in txts:
+        x = 0
+        for t in txt[0:55]:
+            print(f"{x}   {t}")
+            x +=1
+        print("\n")
+        # stripBoilerPlate(txt)
+        # text.append("End_Page")
 
+    return text, pos
 
-
-# 3)
 def getIndex(lis, text):
     index = lis.index(text)
     return index
@@ -30,17 +47,18 @@ def getRiderName(lis):
     del lis[0:2]
     return rid_name
 
-def getRiderNat(lis):###################################################################################################
-########################################################################################################################
+def getRiderTeam(lis):
     ## create list of nationalities
     ## while working line != list of nationalities:
     ## append and remove team names
-########################################################################################################################
-########################################################################################################################
-    while lis[0]
+    nations = ["JPN", "ITA", "USA", "AUS", "SPA", "SWI", "NED", "GBR", "MAL", "INA", "THA", "GER", "RSA", "FRA", "POR"]
+    team = []
+    while lis[0] not in nations:
+        team.append(lis[0])
+        del lis[0]
     nat = lis[0]
-    lis.remove(lis[0])
-    return nat
+    del lis[0]
+    return team, nat
 
 def getSessionConstants(pages):
     words = pages[0].extract_words()
@@ -62,20 +80,42 @@ def getSessionConstants(pages):
     return sess_const
 
 def stripBoilerPlate(lis):
-    start_index = getIndex(lis, "Speed")
-    del lis[0:start_index]
-    end_index = getIndex(lis, "Fastest")
+    start = lis.index("Lap")
+    del lis[0:start]
+
+    # for i in lis[0:]:
+    #     x = 1
+    #     if "Speed" in i:
+    #         del lis[0:x]
+
+
+
+    # try:
+    #     start = lis.index("Speed") + 1
+    #     del lis[0:start]
+    #     start = lis.index("Speed") + 1
+    #     del lis[0:start]
+    # except:
+    #     start = lis.index("T4Speed") + 1
+    #     del lis[0:start]
+    #     start = lis.index("T4Speed") + 1
+    #     del lis[0:start]
+
+
+    end_index = lis.index("Fastest")
     del lis[end_index:]
 
 def getRiderInfo(lis, pos):
     x = 0
 
     rid_info = []
-    rid_info.append(getRiderName(lis))
-    rid_info.append(getTeamName(lis))
-    rid_info.append(getRiderNat(lis))
+    name = getRiderName(lis)
+    rid_info.append(name)
+    team, nat = getRiderTeam(lis)
+    rid_info.append(team)
+    rid_info.append(nat)
 
-    while lis[x]["text"] != pos[0]:
+    while lis[x] != pos[0]:
         x += 1
 
     lis.remove(lis[x])
@@ -86,7 +126,7 @@ def getRiderInfo(lis, pos):
     lis.remove(lis[x])
     lis.remove(lis[x])
     lis.remove(lis[x])
-    str_laps = lis[x]["text"]
+    str_laps = lis[x]
     lis.remove(lis[x])
     lis.remove(lis[x])
     lis.remove(lis[x])
@@ -106,28 +146,28 @@ def getLaps(lis, const, rider, race):
         const.append(i)
 
     for i in range(x, y):
-        lin = 9
+        x = 0
 
-        while lis[lin]["text"] != str(x):
-            lin += 1
+        while lis[x] != str(x):
+            x += 1
 
-        if lis[lin]["text"] == str(x):
+        if lis[x] == str(x):
             lap_data = []
             for i in const:
                 lap_data.append(i)
-            lap_data.append(x)                 # Lap Number
-            del lis[lin:lin+1]
-            lap_data.append(lis[lin]["text"])  # Lap Time
-            del lis[lin:lin+1]
-            lap_data.append(lis[lin]["text"])  # Sec1 Time
-            del lis[lin:lin+1]
-            lap_data.append(lis[lin]["text"])  # Sec2 Time
-            del lis[lin:lin+1]
-            lap_data.append(lis[lin]["text"])  # Sec3 Time
-            del lis[lin:lin+1]
-            lap_data.append(lis[lin]["text"])  # Sec4 Time
-            del lis[lin:lin+1]
-            lap_data.append(lis[lin]["text"])  # Lap Avg Speed
-            del lis[lin:lin+1]
+            lap_data.append(x)         # Lap Number
+            del lis[x:x+1]
+            lap_data.append(lis[x])  # Lap Time
+            del lis[x:x+1]
+            lap_data.append(lis[x])  # Sec1 Time
+            del lis[x:x+1]
+            lap_data.append(lis[x])  # Sec2 Time
+            del lis[x:x+1]
+            lap_data.append(lis[x])  # Sec3 Time
+            del lis[x:x+1]
+            lap_data.append(lis[x])  # Sec4 Time
+            del lis[x:x+1]
+            lap_data.append(lis[x])  # Lap Avg Speed
+            del lis[x:x+1]
             race.append(lap_data)
         x += 1
