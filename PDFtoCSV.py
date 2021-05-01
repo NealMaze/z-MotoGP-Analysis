@@ -17,19 +17,26 @@ def parseRacAnalysis(rc_file):
     pdf = plumb.open(rc_file)
     pages = pdf.pages
     const = getSessionConstants(pages)
-    race = []
+    session = []
     text, pos = getTxt(pages)
 
 
 
 
-
     # rider = getRiderInfo(text, pos[0])
+    # pos.remove(pos[0])
+    # getLaps(text, const, rider, session)
 
-    # for i in pos:
-    #     rider = getRiderInfo(text, pos[0])
-    #     getLaps(text, const, rider, race)
-    #     pos.remove(pos[0])
+    pdf_num = 0
+    for tb in text[pdf_num:20]:
+        print(f"{pdf_num}     {tb}")
+        pdf_num += 1
+
+    for i in pos:
+        rider = getRiderInfo(text, pos[0])
+        pos.remove(pos[0])
+        getLaps(text, const, rider, session)
+        pos.remove(pos[0])
 
 
 
@@ -37,10 +44,7 @@ def parseRacAnalysis(rc_file):
 
 
 
-    # pdf_num = 0
-    # for tb in text[pdf_num:]:
-    #     print(f"{pdf_num}     {tb}")
-    #     pdf_num += 1
+
 
 #     for i in const:
 #         print(i)

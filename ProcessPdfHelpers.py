@@ -9,35 +9,6 @@ def getRacAnalysis(yr, dir):
     rc_files = [f"{dir}/{file}" for file in filter_files]
     return rc_files
 
-def getTxt(pages):
-    text = []
-    positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
-           "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
-           "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
-    pos = []
-    txts = []
-
-    for pg in pages:
-        words = pg.extract_words()
-        txt = []
-        for i in words:
-            txt.append(i["text"])
-            if i["text"] in positions:
-                pos.append(positions[0])
-                positions.remove(positions[0])
-        txts.append(txt)
-
-    for txt in txts:
-        x = 0
-        for t in txt[0:55]:
-            print(f"{x}   {t}")
-            x +=1
-        print("\n")
-        # stripBoilerPlate(txt)
-        # text.append("End_Page")
-
-    return text, pos
-
 def getIndex(lis, text):
     index = lis.index(text)
     return index
@@ -79,35 +50,7 @@ def getSessionConstants(pages):
     sess_const.append(session)
     return sess_const
 
-def stripBoilerPlate(lis):
-    start = lis.index("Lap")
-    del lis[0:start]
-
-    # for i in lis[0:]:
-    #     x = 1
-    #     if "Speed" in i:
-    #         del lis[0:x]
-
-
-
-    # try:
-    #     start = lis.index("Speed") + 1
-    #     del lis[0:start]
-    #     start = lis.index("Speed") + 1
-    #     del lis[0:start]
-    # except:
-    #     start = lis.index("T4Speed") + 1
-    #     del lis[0:start]
-    #     start = lis.index("T4Speed") + 1
-    #     del lis[0:start]
-
-
-    end_index = lis.index("Fastest")
-    del lis[end_index:]
-
 def getRiderInfo(lis, pos):
-    x = 0
-
     rid_info = []
     name = getRiderName(lis)
     rid_info.append(name)
@@ -115,11 +58,12 @@ def getRiderInfo(lis, pos):
     rid_info.append(team)
     rid_info.append(nat)
 
-    while lis[x] != pos[0]:
+    x = 0
+    while lis[x] != pos:
         x += 1
 
     lis.remove(lis[x])
-    num = lis[x]["text"]
+    num = lis[x]
     rid_info.insert(0, num)
     lis.remove(lis[x])
     lis.remove(lis[x])
@@ -134,40 +78,88 @@ def getRiderInfo(lis, pos):
     laps = str_laps.replace("laps=", "")
     rid_info.insert(0, laps)
 
-    pos.remove(pos[0])
+
     return rid_info
 
-def getLaps(lis, const, rider, race):
+def getTxt(pages):
+    text = []
+    positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
+                 "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
+                 "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
+    pos = []
+    txts = []
+    x = 0
+
+    for pg in pages:
+        words = pg.extract_words()
+        txt = []
+        for i in words:
+            txt.append(i["text"])
+        txts.append(txt)
+
+    for txt in txts:
+        stripBoilerPlate(txt)
+        for t in txt:
+            if t in positions:
+                pos.append(positions[x])
+                x += 1
+            text.append(t)
+        text.append("End_Page")
+
+    return text, pos
+
+def stripBoilerPlate(lis):
+    x = 0
+    while "Speed" not in lis[x]:
+        x += 1
+    x += 1
+    del lis[0:x]
+    x = 0
+    while "Speed" not in lis[x]:
+        x += 1
+    x += 1
+    del lis[0:x]
+    end_index = lis.index("Fastest")
+    del lis[end_index:]
+
+def getLaps(lis, const, rider, session):
     x = 1
     y = int(rider[0])
     rider.remove(rider[0])
-
     for i in rider:
         const.append(i)
 
-    for i in range(x, y):
-        x = 0
+    for lap in range(0, y):
+        i = 0
 
-        while lis[x] != str(x):
-            x += 1
+        while lis[i] != str(x):
+            i += 1
+            if lis[0] == "End_Page":
+                del lis[0]
+                i = 0
+            if lis[i] == "End_Page":
+                print("hit end of page")
+                i = 0
 
-        if lis[x] == str(x):
+        if lis[i] == str(x):
             lap_data = []
-            for i in const:
-                lap_data.append(i)
+            for l in const:
+                lap_data.append(l)
             lap_data.append(x)         # Lap Number
-            del lis[x:x+1]
-            lap_data.append(lis[x])  # Lap Time
-            del lis[x:x+1]
-            lap_data.append(lis[x])  # Sec1 Time
-            del lis[x:x+1]
-            lap_data.append(lis[x])  # Sec2 Time
-            del lis[x:x+1]
-            lap_data.append(lis[x])  # Sec3 Time
-            del lis[x:x+1]
-            lap_data.append(lis[x])  # Sec4 Time
-            del lis[x:x+1]
-            lap_data.append(lis[x])  # Lap Avg Speed
-            del lis[x:x+1]
-            race.append(lap_data)
-        x += 1
+            del lis[i:i+1]
+            lap_data.append(lis[i])    # Lap Time
+            del lis[i:i+1]
+            lap_data.append(lis[i])    # Sec 1 Time
+            del lis[i:i+1]
+            lap_data.append(lis[i])    # Sec 2 Time
+            del lis[i:i+1]
+            lap_data.append(lis[i])    # Sec 3 Time
+            del lis[i:i+1]
+            lap_data.append(lis[i])    # Sec 4 Time
+            del lis[i:i+1]
+            lap_data.append(lis[i])    # Avg Speed
+            del lis[i:i+1]
+            session.append(lap_data)
+            x += 1
+            i += 1
+    print(f"Finished {lap_data[6]}'s laps")
