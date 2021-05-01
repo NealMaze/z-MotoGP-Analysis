@@ -3,6 +3,54 @@ from os import listdir
 import pdfplumber as plumb
 import fnmatch
 
+def parseRacAnalysis(rc_file):
+    pdf = plumb.open(rc_file)
+    pages = pdf.pages
+    const = getSessionConstants(pages)
+    session = []
+    sheets, endSig = getTxt(pages)
+
+    riderCount = getRiderCount(sheets)
+    print(riderCount)
+
+    ridEv = []
+    ridOd = []
+    rid = [ridEv, ridOd]
+    lapCntEv = []
+    lapCntOd = []
+    lapCnt = [lapCntEv, lapCntOd]
+    lapEv = []
+    lapOd = []
+    laps = [lapEv, lapOd]
+    numEv = []
+    numOd = []
+    nums = [numEv, numOd]
+    cats = [rid, lapCnt, nums, laps]
+
+    sheetCount = 0
+    for sheet in sheets:
+        sheetCount += 1
+        side = 0
+        while sheet[0] != endSig:
+            row, var = runRow(sheet)
+            if var == "rider":
+                riderCount -= 1
+            if riderCount > 0:
+                side += 1
+            else:
+                side = 0
+            cat = getCat(side, cats, var)
+            cat.append(row)
+        cats = emptyOddLists(cats)
+
+    emts = []
+    emts.append(const)
+
+    for i in cats:
+        emts.append(i[0])
+
+    return emts
+
 def getRacAnalysis(yr, dir):
     filter_files = fnmatch.filter(listdir(dir), f"{yr}*RAC*nalysis.pdf")
     rcFiles = [f"{dir}/{file}" for file in filter_files]
@@ -33,7 +81,6 @@ def getTxt(pages):
     positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
                  "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
                  "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
-    x = 0
 
     for pg in pages:
         words = pg.extract_words()
@@ -70,6 +117,15 @@ def getTxt(pages):
         sheets.append(sheet)
 
     return sheets, endSig
+
+def getRiderCount(sheets):
+    r = 0
+    for sheet in sheets:
+        for word in sheet:
+            if word == "Total":
+                r += 1
+
+    return r
 
 def stripBoilerPlate(lis):
     x = 0

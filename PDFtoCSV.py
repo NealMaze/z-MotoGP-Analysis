@@ -7,7 +7,7 @@ yrs = ["2020"]
 yr = yrs[0]
 
 headers = ["Year", "Date", "League","TRK", "Track", "Session", "Track_Condition", "Track_Temp", "Air_Temp",
-           "Humidity", "Position", "Rider_Number", "Rider_Name", "Nationality", "Team_Name", "Lap No.",
+           "Humidity", "Position", "Rider_Number", "Rider_Name", "Team_Name", "Nationality", "Lap No.",
            "Lap_Valid", "Pit", "Lap_Time", "Section_1_Time", "Section_2_Time", "Section_3_Time", "Section_4_Time",
            "Section_5_Time", "Section_6_Time", "Section_7_Time", "Section_8_Time", "Avg_Speed"]
 
@@ -15,56 +15,40 @@ rcFiles = getRacAnalysis(yr, dir)
 
 finFiles = []
 
-def parseRacAnalysis(rc_file):
-    pdf = plumb.open(rc_file)
-    pages = pdf.pages
-    const = getSessionConstants(pages)
-    session = []
-    sheets, endSig = getTxt(pages)
+def formatSession(cats):
+    const = cats[0]
 
-    finRiderCount = 0
+    const = []
+    while len(cats[0]) != 0:
+        const.append(cats[0][-1])
+        del cats[0][-1]
 
-    ridEv = []
-    ridOd = []
-    rid = [ridEv, ridOd]
-    lapCntEv = []
-    lapCntOd = []
-    lapCnt = [lapCntEv, lapCntOd]
-    lapEv = []
-    lapOd = []
-    laps = [lapEv, lapOd]
-    numEv = []
-    numOd = []
-    nums = [numEv, numOd]
-    cats = [rid, lapCnt, nums, laps]
+    riders = cats[1]
+    nums = cats[2]
+    lapCnts = cats[3]
+    laps = cats[4]
 
-    sheetCount = 0
-    for sheet in sheets:
-        sheetCount += 1
-        side = 0
-        while sheet[0] != endSig:
-            row, var = runRow(sheet)
-            cat = getCat(side, cats, var)
-            cat.append(row)
-            side += 1
-        cats = emptyOddLists(cats)
-        print(f"sheet number: {sheetCount}")
+    x = 0
+    for rider in riders:
+        c = const
+        rider.append(nums[x])
+        rider.insert(0, lapCnts[x])
+        x += 1
 
-    for rider in ridOd:
-        print(rider)
+    print("\n")
+    for i in const:
+        for rider in riders:
+            rider.insert(0, i)
 
 
 
-
-
-
-
-
-
-
+    for rider in riders:
+        print(rider[5] + ", laps: " + rider[-1])
 
 
 for file in rcFiles[0:1]:
     print(file)
+    cats = parseRacAnalysis(file)
 
-    parse = parseRacAnalysis(file)
+    matrix = formatSession(cats)
+    finFiles.append(file)
