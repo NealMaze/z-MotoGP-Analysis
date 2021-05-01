@@ -13,50 +13,54 @@ headers = ["Year", "Date", "League","TRK", "Track", "Session", "Track_Condition"
 
 rcFiles = getRacAnalysis(yr, dir)
 
+finFiles = []
+
 def parseRacAnalysis(rc_file):
     pdf = plumb.open(rc_file)
     pages = pdf.pages
     const = getSessionConstants(pages)
     session = []
-    text, pos = getTxt(pages)
+    sheets, endSig = getTxt(pages)
 
-    for i in text:
-        if type(i) is in
+    finRiderCount = 0
+
+    ridEv = []
+    ridOd = []
+    rid = [ridEv, ridOd]
+    lapCntEv = []
+    lapCntOd = []
+    lapCnt = [lapCntEv, lapCntOd]
+    lapEv = []
+    lapOd = []
+    laps = [lapEv, lapOd]
+    numEv = []
+    numOd = []
+    nums = [numEv, numOd]
+    cats = [rid, lapCnt, nums, laps]
+
+    sheetCount = 0
+    for sheet in sheets:
+        sheetCount += 1
+        side = 0
+        while sheet[0] != endSig:
+            row, var = runRow(sheet)
+            cat = getCat(side, cats, var)
+            cat.append(row)
+            side += 1
+        cats = emptyOddLists(cats)
+        print(f"sheet number: {sheetCount}")
+
+    for rider in ridOd:
+        print(rider)
 
 
 
-    # rider = getRiderInfo(text, pos[0])
-    # pos.remove(pos[0])
-    # getLaps(text, const, rider, session)
-
-    pdf_num = 0
-    for tb in text[pdf_num:20]:
-        print(f"{pdf_num}     {tb}")
-        pdf_num += 1
-
-    # for i in pos:
-    #     rider = getRiderInfo(text, pos[0])
-    #     pos.remove(pos[0])
-    #     getLaps(text, const, rider, session)
-    #     pos.remove(pos[0])
 
 
 
 
 
 
-
-
-
-#     for i in const:
-#         print(i)
-#
-#     l = 1
-#     for lap in race:
-#         print(f"{l}   {lap}")
-#         l += 1
-#
-#     print(f"Rider Count: {rider_count}")
 
 
 
