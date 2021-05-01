@@ -11,7 +11,6 @@ def parseRacAnalysis(rc_file):
     sheets, endSig = getTxt(pages)
 
     riderCount = getRiderCount(sheets)
-    print(riderCount)
 
     ridEv = []
     ridOd = []
@@ -30,16 +29,20 @@ def parseRacAnalysis(rc_file):
     sheetCount = 0
     for sheet in sheets:
         sheetCount += 1
-        side = 0
+        side = 2
         while sheet[0] != endSig:
             row, var = runRow(sheet)
-            if var == "rider":
-                riderCount -= 1
-            if riderCount > 0:
-                side += 1
-            else:
-                side = 0
+            side += 1
+            if var == "num" and row[0] == riderCount:
+                riderCount = 0
+
+
+            if riderCount == 0 and var == "bLap":
+                side = 2
+
+
             cat = getCat(side, cats, var)
+
             cat.append(row)
         cats = emptyOddLists(cats)
 
@@ -122,7 +125,7 @@ def getRiderCount(sheets):
     r = 0
     for sheet in sheets:
         for word in sheet:
-            if word == "Total":
+            if word == "Full":
                 r += 1
 
     return r
@@ -179,6 +182,7 @@ def runRow(lis):
 
     elif lis[0] in bLaps:                               # Bad Laps
         row = getBadLap(lis)
+        var = "bLap"
 
     elif str(lis[0]) in rLis:                           # Good Laps
         row = getGoodLap(lis)
@@ -201,6 +205,8 @@ def getCat(side, cats, var):
     elif var == "num":
         x = 2
     elif var == "lap":
+        x = 3
+    elif var == "bLap":
         x = 3
 
     y = 0
@@ -239,10 +245,15 @@ def getRiderTeam(lis):
     return team, nat
 
 def getNumber(lis):
+    z = lis[0]
+    z = z[:-2]
     num = lis[1]
+    t = []
+    t.append(z)
+    t.append(num)
     del lis[:2]
 
-    return num
+    return t
 
 def getBadLap(lis):
     lap = []

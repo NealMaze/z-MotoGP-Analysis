@@ -35,7 +35,6 @@ def formatSession(cats):
         rider.insert(0, lapCnts[x])
         x += 1
 
-    print("\n")
     for i in const:
         for rider in riders:
             rider.insert(0, i)
@@ -43,7 +42,7 @@ def formatSession(cats):
 
 
     for rider in riders:
-        print(rider[5] + ", laps: " + rider[-1])
+        print(f"{rider[5]}, laps: {rider[-1]}")
 
 
 for file in rcFiles[0:1]:
