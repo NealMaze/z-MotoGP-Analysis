@@ -77,8 +77,6 @@ def getRiderInfo(lis, pos):
 
     laps = str_laps.replace("laps=", "")
     rid_info.insert(0, laps)
-
-
     return rid_info
 
 def getTxt(pages):
@@ -104,6 +102,7 @@ def getTxt(pages):
                 pos.append(positions[x])
                 x += 1
             text.append(t)
+        text.append("End_Row")
         text.append("End_Page")
 
     return text, pos
@@ -163,3 +162,9 @@ def getLaps(lis, const, rider, session):
             x += 1
             i += 1
     print(f"Finished {lap_data[6]}'s laps")
+
+def getRider(lis):
+    rider = []
+    (f"{lis[0]} {lis[1]}")
+    del lis[0:2]
+    team = 

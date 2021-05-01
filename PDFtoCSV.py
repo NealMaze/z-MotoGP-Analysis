@@ -20,6 +20,8 @@ def parseRacAnalysis(rc_file):
     session = []
     text, pos = getTxt(pages)
 
+    for i in text:
+        if type(i) is in
 
 
 
@@ -32,11 +34,11 @@ def parseRacAnalysis(rc_file):
         print(f"{pdf_num}     {tb}")
         pdf_num += 1
 
-    for i in pos:
-        rider = getRiderInfo(text, pos[0])
-        pos.remove(pos[0])
-        getLaps(text, const, rider, session)
-        pos.remove(pos[0])
+    # for i in pos:
+    #     rider = getRiderInfo(text, pos[0])
+    #     pos.remove(pos[0])
+    #     getLaps(text, const, rider, session)
+    #     pos.remove(pos[0])
 
 
 
