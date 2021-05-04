@@ -24,26 +24,24 @@ def formatSession(cats):
         del cats[0][-1]
 
     riders = cats[1]
-    nums = cats[2]
-    lapCnts = cats[3]
+    lapCnts = cats[2]
+    nums = cats[3]
     laps = cats[4]
 
     x = 0
     for rider in riders:
         c = const
-        rider.append(nums[x])
-        rider.insert(0, lapCnts[x])
+        rider.append(lapCnts[x])
+        for i in nums[x]:
+            rider.insert(0, i)
         x += 1
 
     for i in const:
         for rider in riders:
             rider.insert(0, i)
 
-
-
     for rider in riders:
-        print(f"{rider[5]}, laps: {rider[-1]}")
-
+        print(f"{rider[6]}, laps: {rider[-1]}")
 
 for file in rcFiles[0:1]:
     print(file)

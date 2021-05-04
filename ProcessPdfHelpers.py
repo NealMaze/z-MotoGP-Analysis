@@ -7,10 +7,11 @@ def parseRacAnalysis(rc_file):
     pdf = plumb.open(rc_file)
     pages = pdf.pages
     const = getSessionConstants(pages)
-    session = []
     sheets, endSig = getTxt(pages)
 
     riderCount = getRiderCount(sheets)
+
+    # for sheet in sheets:
 
     ridEv = []
     ridOd = []
@@ -25,32 +26,39 @@ def parseRacAnalysis(rc_file):
     numOd = []
     nums = [numEv, numOd]
     cats = [rid, lapCnt, nums, laps]
+    columns = []
 
     sheetCount = 0
     for sheet in sheets:
+        tripWire = 1
         sheetCount += 1
-        side = 2
+        side = 4
         while sheet[0] != endSig:
-            row, var = runRow(sheet)
-            side += 1
-            if var == "num" and row[0] == riderCount:
-                riderCount = 0
+            row, var = runRow(sheet,tripWire)
 
-
-            if riderCount == 0 and var == "bLap":
-                side = 2
-
+            ###########################################################################################
+            # if riderCount > 0:
+            #     side += 1
+            # if var == "num":
+            #     if int(row[0]) == riderCount:
+            #         riderCount = 0
+            #
+            #
+            # if riderCount == 0:
+            #     if var == "bLap":
+            #         tripWire = 0
+            #         sid = 2
+            ###############################################################################################
 
             cat = getCat(side, cats, var)
-
             cat.append(row)
-        cats = emptyOddLists(cats)
+        cats = emptyEvenLists(cats)
 
     emts = []
     emts.append(const)
 
     for i in cats:
-        emts.append(i[0])
+        emts.append(i[1])
 
     return emts
 
@@ -164,7 +172,7 @@ def getCats():
 
     return cats
 
-def runRow(lis):
+def runRow(lis, rcnt):
     var = "lap"
     bLaps = ["unfinished", "PIT"]
     positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
@@ -174,7 +182,11 @@ def runRow(lis):
             "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37",
             "39", "40"]
 
-    if "Runs=" in lis[0]:                               # Lap Count
+    if int(rcnt) == 0:
+        row = None
+        var = "lap"
+
+    elif "Runs=" in lis[0]:                               # Lap Count
         strLaps = lis[2]
         row = strLaps.replace("laps=", "")
         var = "lapNum"
@@ -282,13 +294,12 @@ def getGoodLap(lis):
 
     return lap
 
-def emptyOddLists(cats):
+def emptyEvenLists(cats):
     x = 0
     y = 0
     for cat in cats:
-        for i in cat[1]:
-            cat[0].append(i)
-        cat[1] = []
+        for i in cat[0]:
+            cat[1].append(i)
+        cat[0] = []
     return cats
 
-#
