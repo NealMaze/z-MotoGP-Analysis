@@ -1,31 +1,26 @@
 # imports
-from ProcessPdfHelpers import *
+from helpers import *
 
 dir = ("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis")
+dest = ("C:/Users/LuciusFish/Desktop/csv/")
 
-yrs = ["2020"]
-yr = yrs[0]
+yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"]
 
-def parsePDF(rc_file):
-    sheets, const = openPDF(rc_file)
+finFiles = []
 
-    for sheet in sheets:
-        sideOne = []
-        sideTwo = []
-        
+for yr in yrs:
+    rcFiles = getRacAnalysis(yr, dir)
 
+    for file in rcFiles:
+        print(file)
+        g = file.replace(".pdf", ".csv")
+        h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
 
+        data, const = parsePDF(file)
+        mat = getMatrix(data, const)
 
+        z = dest + h
 
-
-
-
-
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-for file in rcFiles[0:1]:
-    print(file)
-    cats = parsePDF(file)
-
-    finFiles.append(file)
+        finFiles.append(h)
+        saveCSV(mat, z)
+        saveCSV(finFiles, "done")

@@ -4,7 +4,7 @@ import pdfplumber as plumb
 import fnmatch
 
 def openPDF(rcFile):
-    pdf = plumb.open(rc_file)
+    pdf = plumb.open(rcFile)
     pages = pdf.pages
     const = getSessionConstants(pages)
     sheets = getSheets(pages)
@@ -31,55 +31,54 @@ def getSessionConstants(pages):
     return sess_const
 
 def getSheets(pages):
-    sheets = []
     positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
                  "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
                  "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
 
+    sheets = []
+
     for pg in pages:
-        words = pg.extract_words()
-        txt = []
         sheet = []
+        words = pg.extract_words()
+
+        stripBoilerPlate(words)
         for i in words:
-            txt.append(i["text"])
-
-        stripBoilerPlate(txt)
-        for t in txt:
-            sheet.append(t)
-
-        x = 0
-        for i in sheet:
-            if sheet[x] == "*":
-                sheet[x-1] += " *"
-                del sheet[x]
-            elif sheet[x] == "P":
-                sheet[x-1] += " P"
-                del sheet[x]
-            else:
-                x += 1
+            sheet.append(i)
         sheets.append(sheet)
 
     return sheets
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# def getSheets(pages):
+#     sheets = []
+#     positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
+#                  "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
+#                  "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
+#
+#     for pg in pages:
+#         words = pg.extract_words()
+#         txt = []
+#         sheet = []
+#
+#         stripBoilerPlate(words)
+#         for i in words:
+#             txt.append(i["text"])
+#
+#         for t in txt:
+#             sheet.append(t)
+#
+#         x = 0
+#         for i in sheet:
+#             if sheet[x] == "*":
+#                 sheet[x-1] += " *"
+#                 del sheet[x]
+#             elif sheet[x] == "P":
+#                 sheet[x-1] += " P"
+#                 del sheet[x]
+#             else:
+#                 x += 1
+#         sheets.append(sheet)
+#
+#     return sheets
 
 def parseRacAnalysis(rc_file):
     pdf = plumb.open(rc_file)
@@ -199,17 +198,19 @@ def getRiderCount(sheets):
 
 def stripBoilerPlate(lis):
     x = 0
-    while "Speed" not in lis[x]:
+    while "Speed" not in lis[x]["text"]:
         x += 1
     x += 1
     del lis[0:x]
     x = 0
-    while "Speed" not in lis[x]:
+    while "Speed" not in lis[x]["text"]:
         x += 1
     x += 1
     del lis[0:x]
-    end_index = lis.index("Fastest")
-    del lis[end_index:]
+    x = 0
+    while "Fastest" not in lis[x]["text"]:
+        x += 1
+    del lis[:x]
 
 def getCats():
     ridEv = ["even riders"]
@@ -231,7 +232,7 @@ def getCats():
 
     return cats
 
-def runRow(lis, rcnt):
+def runRow(lis, skip):
     var = "lap"
     bLaps = ["unfinished", "PIT"]
     positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
@@ -241,22 +242,23 @@ def runRow(lis, rcnt):
             "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37",
             "39", "40"]
 
-    if int(rcnt) == 0:
-        row = None
-        var = "lap"
 
-    elif "Runs=" in lis[0]:                               # Lap Count
-        strLaps = lis[2]
-        row = strLaps.replace("laps=", "")
-        var = "lapNum"
-        del lis[:5]
-
-    elif lis[0] in bLaps:                               # Bad Laps
-        row = getBadLap(lis)
-        var = "bLap"
-
-    elif str(lis[0]) in rLis:                           # Good Laps
-        row = getGoodLap(lis)
+    # if int(rcnt) == 0:
+    #     row = None
+    #     var = "lap"
+    #
+    # elif "Runs=" in lis[0]:                               # Lap Count
+    #     strLaps = lis[2]
+    #     row = strLaps.replace("laps=", "")
+    #     var = "lapNum"
+    #     del lis[:5]
+    #
+    # elif lis[0] in bLaps:                               # Bad Laps
+    #     row = getBadLap(lis)
+    #     var = "bLap"
+    #
+    # elif str(lis[0]) in rLis:                           # Good Laps
+    #     row = getGoodLap(lis)
 
     elif lis[0] in positions:                           # Rider Number
         row = getNumber(lis)
