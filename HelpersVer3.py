@@ -103,21 +103,21 @@ def stripBoilerPlate(lis):
                 "Run", "#", "1", "Front", "Tyre", "Slick-Soft", "Rear", "New", "2'02.839", "3.392", "3.081", "28.555",
                 "31.811", "192.8"]
 
-    listicle = ["Yamaha", "SPA", "Ducati", "Yamaha",]
+    listicle = ["ITA", "SPA"]
 
     x0 = []
     qr = 0
 
     while qr < 25:
         for i in lis:
-            if i["x0"] < 500:
-                if i["text"] in listicle:
-                    if 322 > i["x0"] > 115:
-                        print(i["text"])
-                        print(i["x0"])
-                        print("")
-                        x0.append(i["x0"])
-                        qr += 1
+            # if i["x0"] < 500:
+            if i["text"] in listicle:
+                if 297 < i["x0"] < 800:
+                    print(i["text"])
+                    print(i["x0"])
+                    print("")
+                    x0.append(i["x0"])
+                    qr += 1
 
     for i in lis:
         iVal = float(i["x0"])
