@@ -39,7 +39,7 @@ def openPDF(rcFile):
         whole = []
         pages = pdf.pages
         const = getSessConst(pages)
-        for pg in pages:
+        for pg in pages[:1]:
             sheet = pg.extract_words()
             col = stripBoilerPlate(sheet)
             for i in col:
@@ -103,7 +103,7 @@ def stripBoilerPlate(lis):
                 "Run", "#", "1", "Front", "Tyre", "Slick-Soft", "Rear", "New", "2'02.839", "3.392", "3.081", "28.555",
                 "31.811", "192.8"]
 
-    listicle = ["Maverick", "Johann", "Fabio", "Alex", "Pol", "Jack", "Stefan"]
+    listicle = ["Yamaha", "SPA", "Ducati", "Yamaha",]
 
     x0 = []
     qr = 0
