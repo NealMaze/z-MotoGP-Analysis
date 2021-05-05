@@ -25,8 +25,3 @@ for yr in yrs:
         saveCSV(mat, z)
         saveCSV(finFiles, "done")
 
-        lapCount = "^(\d{1,2,3})$"
-        lapTime = "^\d[']\d\d[.]\d\d\d$"
-        sectionTime = "^\d\d[.]\d\d\d$"
-        avgSpeed = "^\d\d\d[.]\d$"
-        position = "^\d{1,2}(st|ndrd|th)$"
