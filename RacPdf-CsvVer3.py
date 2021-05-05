@@ -11,17 +11,20 @@ finFiles = []
 for yr in yrs:
     rcFiles = getRacAnFiles(yr, dir)
 
-    for file in rcFiles[2:3]:
+    f = 3
+    for file in rcFiles[f-1:f]: ####################################################################################
         print(file)
         g = file.replace(".pdf", ".csv")
         h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
 
-        data, const = parsePDF(file)
-        mat = getMatrix(data, const)
+        rows, date = parsePDF(file)
+        const = getConst(yr, h, date)
 
-        z = dest + h
+        mat = getMatrix(rows, const)
 
-        finFiles.append(h)
-        saveCSV(mat, z)
-        saveCSV(finFiles, "done")
+        # z = dest + h
+        #
+        # finFiles.append(h)
+        # saveCSV(mat, z)
+        # saveCSV(finFiles, "done")
 

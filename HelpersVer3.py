@@ -6,6 +6,18 @@ import pandas as pd
 import re
 import sys
 
+def getConst(yr, file, date):
+    r = file.replace(f"{yr}-", "")
+    o = r.replace(".csv", "")
+    u = o.split("-")
+    const = date
+    const.append(u[0])
+    const.append(u[1])
+    const.append(u[2])
+    const.append(u[3])
+
+    return const
+
 def getRacAnFiles(yr, dir):
     filter_files = fnmatch.filter(listdir(dir), f"{yr}*RAC*nalysis.pdf")
     rcFiles = [f"{dir}/{file}" for file in filter_files]
@@ -15,12 +27,9 @@ def parsePDF(rcFile):
     col, date = openPDF(rcFile)
     rows = []
 
-    for i in col:
-        print(i)
-
-    # while len(col) != 0:
-    #     row = runRow(col)
-    #     rows.append(row)
+    while len(col) != 0:
+        row = runRow(col)
+        rows.append(row)
 
     return rows, date
 
@@ -28,28 +37,28 @@ def openPDF(rcFile):
     with plumb.open(rcFile) as pdf:
         whole = []
         pages = pdf.pages
-        const = getSessConst(pages)
+        date = getDate(pages)
         for pg in pages:
             sheet = pg.extract_words()
             col = stripBoilerPlate(sheet)
             for i in col:
                 whole.append(i)
 
-    return whole, const
+    return whole, date
 
-def getSessConst(pages):
+def getDate(pages):
     words = pages[0].extract_words()
-    sess_const = []
+    date = []
 
     year = words[-5]["text"]
     day = words[-6]["text"]
     month = words[-7]["text"]
 
-    date = f"{month} {day}"
-    sess_const.append(date)
-    sess_const.append(year)
+    x = f"{month} {day}"
+    date.append(x)
+    date.append(year)
 
-    return sess_const
+    return date
 
 def stripBoilerPlate(lis):
     cols = []
@@ -99,68 +108,136 @@ def stripBoilerPlate(lis):
 def runRow(lis):
     row = []
 
-    wNum = re.compile("^\d{1,2}$")
-    lapTime = re.compile("^\d[']\d\d[.]\d\d\d")
-    secTime = re.compile("^\d\d[.]\d\d\d$")
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
     avgSpeed = re.compile("^\d\d\d[.]\d$")
-    position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-    rfName = re.compile("^[A-Z][a-zÀ-ÿ]+$")
 
-    bLap = ["unfinished", "PIT"]
-
-    if lis[0] in bLap:
+    if lis[0] == "unfinished" or lis[0] == "PIT":
         row = []
         row.append("dnf")
-        while re.match(avgSpeed, lis[0]):
+        while True:
             row.append(lis[0])
+            del lis[0]
+            if re.match(avgSpeed, lis[0]):
+                row.append(lis[0])
+                del lis[0]
+                break
 
-    elif (
-        re.match(wNum, lis[0]) and
-        re.match(lapTime, lis[1]) and
-        re.match(secTime, lis[2]) and
-        re.match(secTime, lis[3]) and
-        re.match(secTime, lis[4]) and
-        re.match(secTime, lis[5]) and
-        re.match(avgSpeed, lis[6])
-    ):
-        row = []
-        for i in lis[:7]:
-            row.append(i)
-        del lis[:7]
-
+    elif re.match(lapTime, lis[1]):
+        while True:
+            row.append(lis[0])
+            del lis[0]
+            if re.match(avgSpeed, lis[0]):
+                row.append(lis[0])
+                del lis[0]
+                break
 
     else:
-        row = getRider(lis)
+        row.append("Tyre")
+        while True:
+            row.append(lis[0])
+            if len(row) == 40:
+                for i in row:
+                    print(f"too long rider row: {i}")
+
+            del lis[0]
+            lt = lis[1]
+            if re.match(lapTime, lt):
+                break
+
     return row
 
-def getRider(lis):
-    
+def getMatrix(rows, const):
+    matrix = []
+    rider = []
+    head = []
+    tempRider = {"Number": "none", "First_Name": "none", "Last_Name": "none", "Manufacturer": "none", "Nation": "none",
+                 "Team": "none",
+                 "Total_Laps": "none", "Run_#": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
+                 "Front_Tyre_Age": "none",
+                 "Rear_Tyre_Age": "none"}
+
+    while len(rows) != 0:
+        for row in rows[:1]:#####################################################################################################
+            if row[0] == "Tyre":
+                rider = getRider(row)
+                head = getHead(const, rider)
+                del row[0]
+            # else:
+            #     lap = getLap(head, row[0])
+            #     matrix.append(lap)
+            #     del row[0]
+
+    return matrix
+
+def getRider(row):
+    r = []
+    for i in row:
+        r.append(i)
+
+    rider = {"Number": "none", "First_Name": "none", "Last_Name": "none", "Manufacturer": "none", "Nation": "none",
+             "Team": "none", "Total_Laps": "none", "Run_#": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
+             "Front_Tyre_Age": "none", "Rear_Tyre_Age": "none"}
+
+    if r[-1] == "Tyre":
+        rider["Rear_Tyre_Age"] = r[-2]
+        del r[-2:]
+        if r[-1] == "Tyre":
+            rider["Front_Tyre_Age"] = r[-2]
+            del r[-2:]
+
+    x = 0
+    trash = ["MotoGP", "Tyre", "Moto2", "Moto3"]
+    position = re.compile("^\d{1,2}(st|nd|rd|th)$")
+    nations = ["JPN", "ITA", "USA", "AUS", "SPA", "SWI", "NED", "GBR", "MAL", "INA", "THA", "GER", "RSA", "FRA", "POR",
+               "AUT", "ARG", "CZE", "TUR"]
+    manufacturers = ["YAMAHA", "HONDA", "DUCATI", "SUZUKI", "KTM", "APRILIA"]
+
+    while x < len(r):
+        if r[x] in trash:
+            del r[x]
+        elif re.match(position, r[x]):
+            del r[x]
+        elif r[x] == "Total":
+            strLaps = r[x+1]
+            laps = strLaps.replace("laps=", "")
+            rider["Total_Laps"] = laps
+            del r[x:x+3]
+        elif r[x] in nations:
+            rider["Nation"] = r[x]
+            del r[x]
+        elif r[x] == "Run":
+            rider["Run_#"] = r[x+2]
+            del r[x:x+3]
+        elif r[x] in manufacturers:
+            rider["Manufacturer"] = r[x]
+            del r[x]
+        else:
+            x += 1
+
+    x = 0
+    while x < len(r):
+        if re.match("^\d{1,2}$", r[x]):
+            rider["Number"] = r[x]
+            del r[x]
+        elif r[x] == "Front":
+            rider["Front_Tyre"] = r[x+1]
+            del r[x:x+2]
+        elif r[x] == "Rear":
+            rider["Rear_Tyre"] = r[x+1]
+            del r[x:x+2]
+        else:
+            x += 1
+
+    return rider
+
+def getHead(const, rider):
+    r = const
 
 
 
 
 
 
-
-
-
-
-#
-
-#
-
-#
-# def getSheets(pages):
-#     sheets = []
-#
-#     for pg in pages:
-#         words = pg.extract_words()
-#         stripBoilerPlate(words)
-#
-#     return sheets
-#
-#
-#
 
 
 
