@@ -3,6 +3,8 @@ from os import listdir
 import pdfplumber as plumb
 import fnmatch
 import pandas as pd
+import re
+import sys
 
 def getRacAnalysis(yr, dir):
     filter_files = fnmatch.filter(listdir(dir), f"{yr}*RAC*nalysis.pdf")
@@ -80,50 +82,126 @@ def getSheets(pages):
 
 def runRow(lis):
     col = ""
+    val = ""
     row = []
-    positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
-                 "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
-                 "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
-    lapList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
-            "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37",
-            "39", "40"]
+
+    lapCount = re.compile("^\d{1,2}$")
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+    secTime = re.compile("^\d\d[.]\d\d\d$")
+    avgSpeed = re.compile("^\d\d\d[.]\d$")
+    position = re.compile("^\d{1,2}(st|nd|rd|th)$")
+    rfName = re.compile("^[A-Z][a-zÀ-ÿ]+$")
+
+
     bLap = ["unfinished", "PIT"]
 
-    lisVal = float(lis[0]["x0"])
-    if lisVal < 175:
-        col = "L"
-    elif lisVal > 174:
-        col = "R"
+    tstTxt = lis[0]["text"]
 
-    if "Runs=" in lis[0]["text"]:
-        strLaps = lis[2]["text"]
-        row = strLaps.replace("laps=", "")
-        val = "lapsRun"
-        del lis[:5]
+    while len(row) < 1:
+        lisVal = float(lis[0]["x0"])
+        if lisVal < 175:
+            col = "L"
+        elif lisVal > 174:
+            col = "R"
 
-    elif lis[0]["text"] in bLap:
-        row = getBadLap(lis)
-        val = "lap"
+        if "Runs=" in tstTxt:
+            strLaps = lis[2]["text"]
+            row = strLaps.replace("laps=", "")
+            val = "lapsRun"
+            del lis[:5]
 
-    elif lis[0]["text"] in lapList:
-        row = getGoodLap(lis)
-        val = "lap"
+        elif re.match(position, tstTxt):
+            row = getNumber(lis)
+            val = "num"
 
-    elif lis[0]["text"] in positions:
-        row = getNumber(lis)
-        val = "num"
+        elif lis[0]["text"] in bLap:
+            row = getBadLap(lis)
+            val = "badlap"
 
-    else:
-        row = getRider(lis)
-        val = "rider"
+
+
+
+
+
+        elif re.match(lapCount, tstTxt):
+            row = getGoodLap(lis)
+            val = "goodlap"
+
+        elif re.match(rfName, tstTxt):
+            row = getRider(lis)
+            val = "rider"
+            print(f"{val} = {row}")
+            
+        else:
+            print("row prob")
+            print(lis[0:10])
+            sys.exit()
+
+
     return col, row
+
+# def runRow(lis):
+#     col = ""
+#     val = ""
+#     row = []
+#
+#     lapCount = re.compile("^\d{1,2}")
+#     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+#     sectionTime = re.compile("^\d\d[.]\d\d\d$")
+#     avgSpeed = re.compile("^\d\d\d[.]\d$")
+#     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
+#     rfName = re.compile("^[A-Z][a-zÀ-ÿ]+$")
+#
+#     positions = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th",
+#                  "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th",
+#                  "28th", "29th", "30th", "31st", "32nd", "33rd", "34th", "35th", "36th", "37th", "38th", "39th", "40th"]
+#     lapList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+#             "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37",
+#             "39", "40"]
+#     bLap = ["unfinished", "PIT"]
+#
+#     tstTxt = lis[0]["text"]
+#
+#     while len(row) < 1:
+#         lisVal = float(lis[0]["x0"])
+#         if lisVal < 175:
+#             col = "L"
+#         elif lisVal > 174:
+#             col = "R"
+#
+#         if "Runs=" in tstTxt:
+#             strLaps = lis[2]["text"]
+#             row = strLaps.replace("laps=", "")
+#             val = "lapsRun"
+#             del lis[:5]
+#
+#         elif re.match(position, tstTxt):
+#             row = getNumber(lis)
+#             val = "num"
+#
+#         elif lis[0]["text"] in bLap:
+#             row = getBadLap(lis)
+#             val = "badlap"
+#
+#         elif re.match(lapCount, tstTxt):
+#             row = getGoodLap(lis)
+#             val = "goodlap"
+#
+#         elif re.match(rfName, tstTxt):
+#             row = getRider(lis)
+#             val = "rider"
+#         else:
+#             print("row prob")
+#             print(lis[0])
+#
+#     print(f"{val} = {row}")
+#     return col, row
 
 def getRider(lis):
     rider = []
     rider.append("new")
     fName = lis[0]["text"]
     lName = lis[1]["text"]
-    print(fName)
     rider.append(fName)
     rider.append(lName)
     del lis[0:2]
@@ -158,9 +236,11 @@ def getRiderTeam(lis):
     return team, nat
 
 def getBadLap(lis):
-    lapList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
-            "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37",
-            "39", "40"]
+
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+    secTime = re.compile("^\d\d[.]\d\d\d$")
+    avgSpeed = re.compile("^\d\d\d[.]\d$")
+
     lap = []
     lap.append("dnf")
     lap.append(lis[0]["text"])
@@ -168,18 +248,58 @@ def getBadLap(lis):
 
 
 
-########################################################################################################################
-    while len(lap) < 8:
-        print(lap)
-        if lis[0]["text"] in lapList:
-            lap.append("none")
-        elif lis[0]["text"] 
 
-        if lis[0]["text"] not in lapList:
+########################################################################################################################
+
+
+
+    z = 0
+    while z == 0:
+        x = lis[0]["text"]
+        if re.match(lapTime, x):
             lap.append(lis[0]["text"])
             del lis[0]
+        elif re.match(secTime, x):
+            lap.append(lis[0]["text"])
+            del lis[0]
+        elif re.match(avgSpeed, x):
+            lap.append(lis[0]["text"])
+            del lis[0]
+            z = 1
         else:
-            lap.append("none")
+            z = 1
+
+
+
+
+
+
+
+
+    # ls = []
+    # x = 0
+    # while x != 1:
+    #     try:
+    #         if float(lis[0]["text"]) > 100:
+    #             lap.append(lis[0]["text"])
+    #             x = 1
+    #             print("try block")
+    #             print(lis[0]["text"])
+    #     except:
+    #         lap.append(lis[0]["text"])
+    #
+    #
+    # # while len(lap) < 8:
+    # #     print(lap)
+    # #     if lis[0]["text"] in lapList:
+    # #         lap.append("none")
+    # #     elif lis[0]["text"]
+    # #
+    # #     if lis[0]["text"] not in lapList:
+    # #         lap.append(lis[0]["text"])
+    # #         del lis[0]
+    # #     else:
+    # #         lap.append("none")
 ########################################################################################################################
 
 
