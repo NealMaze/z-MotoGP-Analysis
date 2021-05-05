@@ -14,9 +14,6 @@ def getRacAnFiles(yr, dir):
 def parsePDF(rcFile):
     col, const = openPDF(rcFile)
 
-    for sheet in col:
-        for word in sheet:
-            print(word["text"])
 
     # for sheet in col:
     #     left = []
@@ -97,8 +94,30 @@ def stripBoilerPlate(lis):
         y = lis[x]["text"]
         if y in nonDis:
             del lis[x]
+        elif "Runs=" in y:
+            del lis[x]
         else:
             x += 1
+
+    listicle = ["1st", "12", "Maverick", "VINALES", "Yamaha", "SPA", "Monster", "Energy", "MotoGP", "laps=22", "laps=20",
+                "Run", "#", "1", "Front", "Tyre", "Slick-Soft", "Rear", "New", "2'02.839", "3.392", "3.081", "28.555",
+                "31.811", "192.8"]
+
+    listicle = ["Maverick", "Johann", "Fabio", "Alex", "Pol", "Jack", "Stefan"]
+
+    x0 = []
+    qr = 0
+
+    while qr < 25:
+        for i in lis:
+            if i["x0"] < 500:
+                if i["text"] in listicle:
+                    if 322 > i["x0"] > 115:
+                        print(i["text"])
+                        print(i["x0"])
+                        print("")
+                        x0.append(i["x0"])
+                        qr += 1
 
     for i in lis:
         iVal = float(i["x0"])
@@ -107,10 +126,14 @@ def stripBoilerPlate(lis):
         elif iVal > 174:
             R.append(i["text"])
 
+    print("")
+    # for i in x0:
+    #     print(i)
+
     for i in R:
         L.append(i)
 
-    return R
+    return L
 
 
 
