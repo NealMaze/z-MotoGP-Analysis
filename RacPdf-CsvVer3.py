@@ -11,7 +11,7 @@ finFiles = []
 for yr in yrs:
     rcFiles = getRacAnalysis(yr, dir)
 
-    for file in rcFiles:
+    for file in rcFiles[2:3]:
         print(file)
         g = file.replace(".pdf", ".csv")
         h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")

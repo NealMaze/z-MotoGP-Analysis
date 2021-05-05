@@ -76,14 +76,40 @@ def getSheets(pages):
 
     return sheets
 
+def parsePDF(rcFile):
+    sheets, const = openPDF(rcFile)
+    columns = []
+    data = []
 
+    for sheet in sheets:
+        for word in sheet:
+            print(word["text"])
+
+    # for sheet in sheets:
+    #     left = []
+    #     right = []
+    #     while len(sheet) != 0:
+    #         col, row = runRow(sheet)
+    #         if col == "L":
+    #             left.append(row)
+    #         elif col == "R":
+    #             right.append(row)
+    #
+    #     columns.append(left)
+    #     columns.append(right)
+    #
+    # for col in columns:
+    #     for row in col:
+    #         data.append(row)
+
+    return data, const
 
 def runRow(lis):
     col = ""
     val = ""
     row = []
 
-    lapCount = re.compile("^\d{1,2}$")
+    wNum = re.compile("^\d{1,2}$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
     secTime = re.compile("^\d\d[.]\d\d\d$")
     avgSpeed = re.compile("^\d\d\d[.]\d$")
@@ -101,6 +127,7 @@ def runRow(lis):
         elif lisVal > 174:
             col = "R"
 
+
         if "Runs=" in tstTxt:
             strLaps = lis[2]["text"]
             row = strLaps.replace("laps=", "")
@@ -115,20 +142,20 @@ def runRow(lis):
             row = getBadLap(lis)
             val = "badlap"
 
-        elif re.match(lapCount, tstTxt):
+        elif re.match(wNum, tstTxt):
             row = getGoodLap(lis)
             val = "goodlap"
 
         elif re.match(rfName, tstTxt):
             row = getRider(lis)
             val = "rider"
-            print(f"{val} = {row}")
 
         else:
             print("row prob")
             print(lis[0:10])
             sys.exit()
 
+    print(f"{val} = {row}")
     return col, row
 
 
