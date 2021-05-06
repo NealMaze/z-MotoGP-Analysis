@@ -16,20 +16,12 @@ for yr in yrs[:1]:
         g = file.replace(".pdf", ".csv")
         h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
 
-        rows, date = parsePDF(file)
+        rows = parsePDF(file, yr, h)
 
-        const = getConst(yr, h, date)
+        matrix = getMatrix(rows, yr)
 
-        for row in rows:
-            if row[0] == "Tyre":
-                print(row)
-                rider = getRider(row)
-                print(rider)
-                head = getHead(const, rider)
-                row = head
-                print(row)
-                print("")
-                rider = []
+        for i in matrix:
+            print(i)
 
         z = dest + h
         a = dest + "finFiles.csv"

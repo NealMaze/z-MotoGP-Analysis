@@ -23,15 +23,16 @@ def getRacAnFiles(yr, dir):
     rcFiles = [f"{dir}/{file}" for file in filter_files]
     return rcFiles
 
-def parsePDF(rcFile):
+def parsePDF(rcFile, yr, h):
     col, date = openPDF(rcFile)
     rows = []
+    const = getConst(yr, h, date)
 
     while len(col) != 0:
-        row = runRow(col)
+        row = runRow(col, const)
         rows.append(row)
 
-    return rows, date
+    return rows
 
 def openPDF(rcFile):
     with plumb.open(rcFile) as pdf:
@@ -104,7 +105,7 @@ def stripBoilerPlate(lis):
 
     return L
 
-def runRow(lis):
+def runRow(lis, const):
     row = []
 
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
@@ -132,74 +133,43 @@ def runRow(lis):
                 del lis[0]
 
     else:
-        row.append("Tyre")
+        low = []
+        low.append("Tyre")
         while True:
             if re.match(lapTime, lis[1]) or \
                 lis[0] == "PIT" or \
                 lis[0] == "unfinished":
                 break
             else:
-                row.append(lis[0])
+                low.append(lis[0])
                 del lis[0]
+        rider = getRider(low)
+        row = getHead(const, rider)
 
+    # print(row)
     return row
 
-# def runRow(lis):
-#     row = []
-#
-#     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
-#     avgSpeed = re.compile("^\d\d\d[.]\d$")
-#
-#     for i in lis:
-#         print(i)
-#
-#     x = 0
-#     while len(lis) > 0:
-#
-#         if lis[0] == "unfinished" or lis[0] == "PIT":
-#             row = []
-#             row.append("dnf")
-#             while True:
-#                 row.append(lis[0])
-#                 del lis[0]
-#                 if re.match(avgSpeed, lis[0]):
-#                     row.append(lis[0])
-#                     del lis[0]
-#                     break
-#
-#         elif len(lis) > 0 and re.match(lapTime, lis[1]):
-#             while True:
-#                 row.append(lis[0])
-#                 del lis[0]
-#                 if re.match(avgSpeed, lis[0]):
-#                     row.append(lis[0])
-#                     del lis[0]
-#                     break
-#
-#         else:
-#             row.append("Tyre")
-#             while True:
-#                 row.append(lis[0])
-#                 if len(row) == 40:
-#                     for i in row:
-#                         print(f"too long rider row: {i}")
-#
-#                 del lis[0]
-#                 if lis[0] == "PIT" or lis[0] == "unfinished":
-#                     break
-#                 lt = lis[1]
-#                 if re.match(lapTime, lt):
-#                     break
-#     print(row)
-#     return row
+def getMatrix(rows, yr):
+    matrix = []
 
+    for row in rows:
+        if row[1] == yr:
+            rider = row
+        else:
+            lap = []
+            for i in rider:
+                lap.append(i)
+            for i in row:
+                lap.append(i)
+            matrix.append(lap)
+            
+    return matrix
 
-
-def getTheThing(rows, const):
-    rider = getRider(rows[0])
-    head = getHead(const, rider)
-
-    return head
+# def getTheThing(rows, const):
+#     rider = getRider(rows[0])
+#     head = getHead(const, rider)
+#
+#     return head
 
 def getRider(row):
     r = []
