@@ -61,7 +61,6 @@ def getDate(pages):
     return date
 
 def stripBoilerPlate(lis):
-    cols = []
     L = []
     R = []
     x = 0
@@ -112,62 +111,95 @@ def runRow(lis):
     avgSpeed = re.compile("^\d\d\d[.]\d$")
 
     if lis[0] == "unfinished" or lis[0] == "PIT":
-        row = []
         row.append("dnf")
         while True:
-            row.append(lis[0])
-            del lis[0]
             if re.match(avgSpeed, lis[0]):
                 row.append(lis[0])
                 del lis[0]
                 break
+            else:
+                row.append(lis[0])
+                del lis[0]
 
     elif re.match(lapTime, lis[1]):
         while True:
-            row.append(lis[0])
-            del lis[0]
             if re.match(avgSpeed, lis[0]):
                 row.append(lis[0])
                 del lis[0]
                 break
+            else:
+                row.append(lis[0])
+                del lis[0]
 
     else:
         row.append("Tyre")
         while True:
-            row.append(lis[0])
-            if len(row) == 40:
-                for i in row:
-                    print(f"too long rider row: {i}")
-
-            del lis[0]
-            lt = lis[1]
-            if re.match(lapTime, lt):
+            if re.match(lapTime, lis[1]) or \
+                lis[0] == "PIT" or \
+                lis[0] == "unfinished":
                 break
+            else:
+                row.append(lis[0])
+                del lis[0]
 
     return row
 
-def getMatrix(rows, const):
-    matrix = []
-    rider = []
-    head = []
-    tempRider = {"Number": "none", "First_Name": "none", "Last_Name": "none", "Manufacturer": "none", "Nation": "none",
-                 "Team": "none",
-                 "Total_Laps": "none", "Run_#": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
-                 "Front_Tyre_Age": "none",
-                 "Rear_Tyre_Age": "none"}
+# def runRow(lis):
+#     row = []
+#
+#     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+#     avgSpeed = re.compile("^\d\d\d[.]\d$")
+#
+#     for i in lis:
+#         print(i)
+#
+#     x = 0
+#     while len(lis) > 0:
+#
+#         if lis[0] == "unfinished" or lis[0] == "PIT":
+#             row = []
+#             row.append("dnf")
+#             while True:
+#                 row.append(lis[0])
+#                 del lis[0]
+#                 if re.match(avgSpeed, lis[0]):
+#                     row.append(lis[0])
+#                     del lis[0]
+#                     break
+#
+#         elif len(lis) > 0 and re.match(lapTime, lis[1]):
+#             while True:
+#                 row.append(lis[0])
+#                 del lis[0]
+#                 if re.match(avgSpeed, lis[0]):
+#                     row.append(lis[0])
+#                     del lis[0]
+#                     break
+#
+#         else:
+#             row.append("Tyre")
+#             while True:
+#                 row.append(lis[0])
+#                 if len(row) == 40:
+#                     for i in row:
+#                         print(f"too long rider row: {i}")
+#
+#                 del lis[0]
+#                 if lis[0] == "PIT" or lis[0] == "unfinished":
+#                     break
+#                 lt = lis[1]
+#                 if re.match(lapTime, lt):
+#                     break
+#     print(row)
+#     return row
 
-    while len(rows) != 0:
-        for row in rows[:1]:#####################################################################################################
-            if row[0] == "Tyre":
-                rider = getRider(row)
-                head = getHead(const, rider)
-                del row[0]
-            # else:
-            #     lap = getLap(head, row[0])
-            #     matrix.append(lap)
-            #     del row[0]
 
-    return matrix
+
+def getTheThing(rows, const):
+    rider = getRider(rows[0])
+    head = getHead(const, rider)
+
+    return head
 
 def getRider(row):
     r = []
@@ -175,8 +207,8 @@ def getRider(row):
         r.append(i)
 
     rider = {"Number": "none", "First_Name": "none", "Last_Name": "none", "Manufacturer": "none", "Nation": "none",
-             "Team": "none", "Total_Laps": "none", "Run_#": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
-             "Front_Tyre_Age": "none", "Rear_Tyre_Age": "none"}
+             "Team": "none", "Total_Laps": "none", "Runs": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
+             "Front_Tyre_Age": "none", "Rear_Tyre_Age": "none", "Extra" : "none"}
 
     if r[-1] == "Tyre":
         rider["Rear_Tyre_Age"] = r[-2]
@@ -206,7 +238,7 @@ def getRider(row):
             rider["Nation"] = r[x]
             del r[x]
         elif r[x] == "Run":
-            rider["Run_#"] = r[x+2]
+            rider["Runs"] = r[x+2]
             del r[x:x+3]
         elif r[x] in manufacturers:
             rider["Manufacturer"] = r[x]
@@ -228,14 +260,46 @@ def getRider(row):
         else:
             x += 1
 
+    str = ""
+    for i in r:
+        str += f" {i}"
+
+    rider["Extra"] = str
+
     return rider
 
 def getHead(const, rider):
     r = const
+    r.append(rider.get("Number"))
+    r.append(rider.get("First_Name"))
+    r.append(rider.get("Last_Name"))
+    r.append(rider.get("Manufacturer"))
+    r.append(rider.get("Nation"))
+    r.append(rider.get("Team"))
+    r.append(rider.get("Total_Laps"))
+    r.append(rider.get("Runs"))
+    r.append(rider.get("Front_Tyre"))
+    r.append(rider.get("Rear_Tyre"))
+    r.append(rider.get("Front_Tyre_Age"))
+    r.append(rider.get("Rear_Tyre_Age"))
+    r.append(rider.get("Extra"))
 
+    return r
 
+def getLap(head, row):
+    lap = []
+    header = head
+    lense = row
 
+    for item in header:
+        lap.append(item)
+    for j in lense:
+        lap.append(j)
+    return lap
 
+def saveCSV(mat, file):
+    df = pd.DataFrame(mat)
+    # df.to_csv(file, index=False)
 
 
 
