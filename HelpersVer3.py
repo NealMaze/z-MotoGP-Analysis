@@ -1,10 +1,25 @@
 # imports
-from os import listdir, mkdir()
+from os import listdir, mkdir
 import pdfplumber as plumb
 import fnmatch
 import pandas as pd
 import re
+import os
 import sys
+
+def mkGoalDirs():
+    try:
+        types = ["RAC", "RAC2", "Q2", "Q1", "WUP", "FP1", "FP2", "FP3", "FP4"]
+        desk = ("C:/Users/LuciusFish/Desktop/")
+        one = "csv"
+        path = os.path.join(desk, one)
+        os.mkdir(path)
+        for i in types:
+            deskOne = f"{desk}{one}/"
+            path = os.path.join(deskOne, i)
+            os.mkdir(path)
+    except:
+        directories ="already made"
 
 def getRacAnFiles(yr, dir, sesType):
     filter_files = fnmatch.filter(listdir(dir), f"{yr}*{sesType}*nalysis.pdf")
