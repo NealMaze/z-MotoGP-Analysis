@@ -2,41 +2,45 @@
 from HelpersVer3 import *
 
 dir = ("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis")
-dest = ("C:/Users/LuciusFish/Desktop/csv/")
 
 yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"]
 
-save = f"{dest}finishedFiles.csv"
+types = ["RAC", "Q2", "Q1", "WUP", "FP1", "FP2", "FP3", "FP4", ]
 
-try:
-    finFiles = []
-    with open(save) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        for row in csv_reader:
-            finFiles.append(row)
-except:
-    finFiles = []
+for sesType in types:
+    try:
+        finFiles = []
+        with open(save) as saveFile:
+            contents = saveFile.readlines()
+            for line in contents:
+                x = line[:-1]
+                finFiles.append(x)
 
-print("finished files: ")
-for file in finFiles:
-    print(file)
-print("\n\nrunning files:")
-
-for yr in yrs:
-    rcFiles = getRacAnFiles(yr, dir)
-
-    for file in rcFiles:
-        if file not in finFiles:
+        del finFiles[0]
+        print("finished files: ")
+        for file in finFiles:
             print(file)
-            g = file.replace(".pdf", ".csv")
-            h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
+        print("\n\nrunning files:")
+    except:
+        finFiles = []
 
-            rows = parsePDF(file, yr, h)
+    dest = (f"C:/Users/LuciusFish/Desktop/csv/{sesType}/")
+    save = f"{dest}finishedFiles.csv"
 
-            matrix = getMatrix(rows, yr)
+    for yr in yrs:
+        rcFiles = getRacAnFiles(yr, dir, sesType)
 
-            z = dest + h
+        for file in rcFiles:
+            if file not in finFiles:
+                print(file)
+                g = file.replace(".pdf", ".csv")
+                h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
+                z = dest + h
 
-            saveCSV(matrix, z)
-            saveCSV(finFiles, save)
-            finFiles.append(file)
+                rows = parsePDF(file, yr, h)
+
+                matrix = getMatrix(rows, yr)
+
+                saveCSV(matrix, z)
+                saveCSV(finFiles, save)
+                finFiles.append(file)

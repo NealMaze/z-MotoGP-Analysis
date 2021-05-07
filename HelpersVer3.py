@@ -4,11 +4,10 @@ import pdfplumber as plumb
 import fnmatch
 import pandas as pd
 import re
-import csv
 import sys
 
-def getRacAnFiles(yr, dir):
-    filter_files = fnmatch.filter(listdir(dir), f"{yr}*RAC*nalysis.pdf")
+def getRacAnFiles(yr, dir, sesType):
+    filter_files = fnmatch.filter(listdir(dir), f"{yr}*{sesType}*nalysis.pdf")
     rcFiles = [f"{dir}/{file}" for file in filter_files]
 
     return rcFiles
@@ -21,6 +20,7 @@ def parsePDF(rcFile, yr, h):
     while len(col) != 0:
         row = runRow(col, const)
         rows.append(row)
+
 
     return rows
 
@@ -73,7 +73,7 @@ def stripBoilerPlate(lis):
     del lis[x:]
 
     x = 0
-    nonDis = ["*", "Full"]
+    nonDis = ["*", "P", "Full"]
     while x < len(lis):
         y = lis[x]["text"]
         if y in nonDis:
@@ -107,6 +107,7 @@ def getConst(yr, file, date):
 
 def runRow(lis, const):
     row = []
+    tooMany = 0
 
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
     avgSpeed = re.compile("^\d\d\d[.]\d$")
@@ -115,6 +116,9 @@ def runRow(lis, const):
         if lis[0] == "unfinished" or lis[0] == "PIT":
             row.append("dnf")
             while True:
+                if tooMany == 500:
+                    print("runRow1")
+                tooMany += 1
                 if re.match(avgSpeed, lis[0]):
                     row.append(lis[0])
                     del lis[0]
@@ -125,6 +129,9 @@ def runRow(lis, const):
 
         elif re.match(lapTime, lis[1]):
             while True:
+                if tooMany == 500:
+                    print("runRow2")
+                tooMany += 1
                 if re.match(avgSpeed, lis[0]):
                     row.append(lis[0])
                     del lis[0]
@@ -137,6 +144,9 @@ def runRow(lis, const):
             low = []
             low.append("Tyre")
             while True:
+                if tooMany == 500:
+                    print("runRow3")
+                tooMany += 1
                 if re.match(lapTime, lis[1]) or \
                     lis[0] == "PIT" or \
                     lis[0] == "unfinished":
@@ -158,6 +168,7 @@ def runRow(lis, const):
 
 def getRider(row):
     r = []
+    tooMany = 0
     for i in row:
         r.append(i)
 
@@ -180,6 +191,9 @@ def getRider(row):
     manufacturers = ["YAMAHA", "HONDA", "DUCATI", "SUZUKI", "KTM", "APRILIA"]
 
     while x < len(r):
+        if tooMany == 500:
+            print("getRider")
+        tooMany += 1
         if r[x] in trash:
             del r[x]
         elif re.match(position, r[x]):
@@ -203,6 +217,9 @@ def getRider(row):
 
     x = 0
     while x < len(r):
+        if tooMany == 500:
+            print("getRider 2")
+        tooMany += 1
         if re.match("^\d{1,2}$", r[x]):
             rider[0] = r[x]
             del r[x]
@@ -231,6 +248,7 @@ def getMatrix(rows, yr):
     matrix = []
 
     for row in rows:
+        # print(row)
         if row[0] == yr:
             rider = row
         else:
