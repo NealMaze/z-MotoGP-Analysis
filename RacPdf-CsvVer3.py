@@ -18,10 +18,13 @@ for yr in yrs[:1]:
 
         rows = parsePDF(file, yr, h)
 
+        for row in rows:
+            print(row)
+
         matrix = getMatrix(rows, yr)
 
-        for i in matrix:
-            print(i)
+        # for i in matrix:
+        #     print(i)
 
         z = dest + h
         a = dest + "finFiles.csv"

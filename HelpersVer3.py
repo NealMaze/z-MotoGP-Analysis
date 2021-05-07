@@ -162,7 +162,7 @@ def getMatrix(rows, yr):
             for i in row:
                 lap.append(i)
             matrix.append(lap)
-            
+
     return matrix
 
 # def getTheThing(rows, const):
@@ -176,15 +176,19 @@ def getRider(row):
     for i in row:
         r.append(i)
 
-    rider = {"Number": "none", "First_Name": "none", "Last_Name": "none", "Manufacturer": "none", "Nation": "none",
-             "Team": "none", "Total_Laps": "none", "Runs": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
-             "Front_Tyre_Age": "none", "Rear_Tyre_Age": "none", "Extra" : "none"}
+    rider = ["number", "fName", "lName", "manufacturer", "nation",
+             "team", "tLaps", "runs", "fTyre", "rTyre",
+             "fAge", "rAge", "extra"]
+
+    # rider = {"Number": "none", "First_Name": "none", "Last_Name": "none", "Manufacturer": "none", "Nation": "none",
+    #          "Team": "none", "Total_Laps": "none", "Runs": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
+    #          "Front_Tyre_Age": "none", "Rear_Tyre_Age": "none", "Extra" : "none"}
 
     if r[-1] == "Tyre":
-        rider["Rear_Tyre_Age"] = r[-2]
+        rider[11] = r[-2]
         del r[-2:]
         if r[-1] == "Tyre":
-            rider["Front_Tyre_Age"] = r[-2]
+            rider[10] = r[-2]
             del r[-2:]
 
     x = 0
