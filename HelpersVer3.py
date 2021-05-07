@@ -4,23 +4,13 @@ import pdfplumber as plumb
 import fnmatch
 import pandas as pd
 import re
+import csv
 import sys
-
-def getConst(yr, file, date):
-    r = file.replace(f"{yr}-", "")
-    o = r.replace(".csv", "")
-    u = o.split("-")
-    const = date
-    const.append(u[0])
-    const.append(u[1])
-    const.append(u[2])
-    const.append(u[3])
-
-    return const
 
 def getRacAnFiles(yr, dir):
     filter_files = fnmatch.filter(listdir(dir), f"{yr}*RAC*nalysis.pdf")
     rcFiles = [f"{dir}/{file}" for file in filter_files]
+
     return rcFiles
 
 def parsePDF(rcFile, yr, h):
@@ -105,84 +95,75 @@ def stripBoilerPlate(lis):
 
     return L
 
+def getConst(yr, file, date):
+    r = file.replace(f"{yr}-", "")
+    o = r.replace(".csv", "")
+    u = o.split("-")
+    const = date
+    for i in u[:4]:
+        const.insert(0, i)
+
+    return const
+
 def runRow(lis, const):
     row = []
 
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
     avgSpeed = re.compile("^\d\d\d[.]\d$")
 
-    if lis[0] == "unfinished" or lis[0] == "PIT":
-        row.append("dnf")
-        while True:
-            if re.match(avgSpeed, lis[0]):
-                row.append(lis[0])
-                del lis[0]
-                break
-            else:
-                row.append(lis[0])
-                del lis[0]
+    try:
+        if lis[0] == "unfinished" or lis[0] == "PIT":
+            row.append("dnf")
+            while True:
+                if re.match(avgSpeed, lis[0]):
+                    row.append(lis[0])
+                    del lis[0]
+                    break
+                else:
+                    row.append(lis[0])
+                    del lis[0]
 
-    elif re.match(lapTime, lis[1]):
-        while True:
-            if re.match(avgSpeed, lis[0]):
-                row.append(lis[0])
-                del lis[0]
-                break
-            else:
-                row.append(lis[0])
-                del lis[0]
+        elif re.match(lapTime, lis[1]):
+            while True:
+                if re.match(avgSpeed, lis[0]):
+                    row.append(lis[0])
+                    del lis[0]
+                    break
+                else:
+                    row.append(lis[0])
+                    del lis[0]
 
-    else:
-        low = []
-        low.append("Tyre")
-        while True:
-            if re.match(lapTime, lis[1]) or \
-                lis[0] == "PIT" or \
-                lis[0] == "unfinished":
-                break
-            else:
-                low.append(lis[0])
-                del lis[0]
-        rider = getRider(low)
-        row = getHead(const, rider)
-
-    # print(row)
-    return row
-
-def getMatrix(rows, yr):
-    matrix = []
-
-    for row in rows:
-        if row[1] == yr:
-            rider = row
         else:
-            lap = []
-            for i in rider:
-                lap.append(i)
-            for i in row:
-                lap.append(i)
-            matrix.append(lap)
+            low = []
+            low.append("Tyre")
+            while True:
+                if re.match(lapTime, lis[1]) or \
+                    lis[0] == "PIT" or \
+                    lis[0] == "unfinished":
+                    break
+                else:
+                    low.append(lis[0])
+                    del lis[0]
+            row = getRider(low)
+            rowAddConst(row, const)
 
-    return matrix
+        lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        for i in lapLength:
+            if len(row) < i:
+                row.insert(-1, f"Tsec{i-3}")
+    except:
+        lmnop = 7
 
-# def getTheThing(rows, const):
-#     rider = getRider(rows[0])
-#     head = getHead(const, rider)
-#
-#     return head
+    return row
 
 def getRider(row):
     r = []
     for i in row:
         r.append(i)
 
-    rider = ["number", "fName", "lName", "manufacturer", "nation",
-             "team", "tLaps", "runs", "fTyre", "rTyre",
-             "fAge", "rAge", "extra"]
-
-    # rider = {"Number": "none", "First_Name": "none", "Last_Name": "none", "Manufacturer": "none", "Nation": "none",
-    #          "Team": "none", "Total_Laps": "none", "Runs": "none", "Front_Tyre": "none", "Rear_Tyre": "none",
-    #          "Front_Tyre_Age": "none", "Rear_Tyre_Age": "none", "Extra" : "none"}
+    rider = ["-number-", "-f_name-", "-l_name-", "-manufacturer-", "-nation-",
+             "-team-", "-t_laps-", "-runs-", "-f_Tyre-", "-r_Tyre-",
+             "-f_Age-", "-r_Age-", "-extra-"]
 
     if r[-1] == "Tyre":
         rider[11] = r[-2]
@@ -206,16 +187,16 @@ def getRider(row):
         elif r[x] == "Total":
             strLaps = r[x+1]
             laps = strLaps.replace("laps=", "")
-            rider["Total_Laps"] = laps
+            rider[6] = laps
             del r[x:x+3]
         elif r[x] in nations:
-            rider["Nation"] = r[x]
+            rider[4] = r[x]
             del r[x]
         elif r[x] == "Run":
-            rider["Runs"] = r[x+2]
+            rider[7] = r[x+2]
             del r[x:x+3]
         elif r[x] in manufacturers:
-            rider["Manufacturer"] = r[x]
+            rider[3] = r[x]
             del r[x]
         else:
             x += 1
@@ -223,13 +204,13 @@ def getRider(row):
     x = 0
     while x < len(r):
         if re.match("^\d{1,2}$", r[x]):
-            rider["Number"] = r[x]
+            rider[0] = r[x]
             del r[x]
         elif r[x] == "Front":
-            rider["Front_Tyre"] = r[x+1]
+            rider[8] = r[x+1]
             del r[x:x+2]
         elif r[x] == "Rear":
-            rider["Rear_Tyre"] = r[x+1]
+            rider[9] = r[x+1]
             del r[x:x+2]
         else:
             x += 1
@@ -238,78 +219,31 @@ def getRider(row):
     for i in r:
         str += f" {i}"
 
-    rider["Extra"] = str
+    rider[-1] = str
 
     return rider
 
-def getHead(const, rider):
-    r = const
-    r.append(rider.get("Number"))
-    r.append(rider.get("First_Name"))
-    r.append(rider.get("Last_Name"))
-    r.append(rider.get("Manufacturer"))
-    r.append(rider.get("Nation"))
-    r.append(rider.get("Team"))
-    r.append(rider.get("Total_Laps"))
-    r.append(rider.get("Runs"))
-    r.append(rider.get("Front_Tyre"))
-    r.append(rider.get("Rear_Tyre"))
-    r.append(rider.get("Front_Tyre_Age"))
-    r.append(rider.get("Rear_Tyre_Age"))
-    r.append(rider.get("Extra"))
+def rowAddConst(row, const):
+    for i in const:
+        row.insert(0, i)
 
-    return r
+def getMatrix(rows, yr):
+    matrix = []
 
-def getLap(head, row):
-    lap = []
-    header = head
-    lense = row
+    for row in rows:
+        if row[0] == yr:
+            rider = row
+        else:
+            lap = []
+            for i in rider[:-1]:
+                lap.append(i)
+            for i in row:
+                lap.append(i)
+            lap.append(rider[-1])
+            matrix.append(lap)
 
-    for item in header:
-        lap.append(item)
-    for j in lense:
-        lap.append(j)
-    return lap
+    return matrix
 
 def saveCSV(mat, file):
     df = pd.DataFrame(mat)
-    # df.to_csv(file, index=False)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    df.to_csv(file, index=False)

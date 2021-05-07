@@ -6,30 +6,37 @@ dest = ("C:/Users/LuciusFish/Desktop/csv/")
 
 yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"]
 
-finFiles = []
+save = f"{dest}finishedFiles.csv"
 
-for yr in yrs[:1]:
+try:
+    finFiles = []
+    with open(save) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for row in csv_reader:
+            finFiles.append(row)
+except:
+    finFiles = []
+
+print("finished files: ")
+for file in finFiles:
+    print(file)
+print("\n\nrunning files:")
+
+for yr in yrs:
     rcFiles = getRacAnFiles(yr, dir)
 
-    for file in rcFiles[1:2]:
-        print(file)
-        g = file.replace(".pdf", ".csv")
-        h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
+    for file in rcFiles:
+        if file not in finFiles:
+            print(file)
+            g = file.replace(".pdf", ".csv")
+            h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
 
-        rows = parsePDF(file, yr, h)
+            rows = parsePDF(file, yr, h)
 
-        for row in rows:
-            print(row)
+            matrix = getMatrix(rows, yr)
 
-        matrix = getMatrix(rows, yr)
+            z = dest + h
 
-        # for i in matrix:
-        #     print(i)
-
-        z = dest + h
-        a = dest + "finFiles.csv"
-
-        finFiles.append(h)
-        saveCSV(mat, z)
-        saveCSV(finFiles, a)
-
+            saveCSV(matrix, z)
+            saveCSV(finFiles, save)
+            finFiles.append(file)
