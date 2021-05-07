@@ -1,5 +1,5 @@
 # imports
-from os import listdir
+from os import listdir, mkdir()
 import pdfplumber as plumb
 import fnmatch
 import pandas as pd
@@ -246,9 +246,9 @@ def rowAddConst(row, const):
 
 def getMatrix(rows, yr):
     matrix = []
+    rider = ["none"]
 
     for row in rows:
-        # print(row)
         if row[0] == yr:
             rider = row
         else:
