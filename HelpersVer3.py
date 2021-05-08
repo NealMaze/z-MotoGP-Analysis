@@ -6,6 +6,7 @@ import pandas as pd
 import re
 import os
 import sys
+from winsound import Beep
 
 def mkGoalDirs():
     try:
@@ -27,16 +28,21 @@ def getRacAnFiles(yr, dir, sesType):
 
     return rcFiles
 
-def parsePDF(rcFile, yr, h):
+def parsePDF(rcFile, yr, h, file):
     col, date = openPDF(rcFile)
     rows = []
     const = getConst(yr, h, date)
+    counter = 0
 
     while len(col) != 0:
-        row = runRow(col, const)
-        rows.append(row)
-
-
+        ty = len(col)
+        row = runRow(col, const, file)
+        if row != []:
+            rows.append(row)
+        elif len(col) == ty:
+            counter += 1
+            if counter == 5:
+                sys.exit()
     return rows
 
 def openPDF(rcFile):
@@ -120,65 +126,34 @@ def getConst(yr, file, date):
 
     return const
 
-def runRow(lis, const):
+def runRow(lis, const, file):
     row = []
-    tooMany = 0
 
+    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
     avgSpeed = re.compile("^\d\d\d[.]\d$")
+    slowSpeed = re.compile("^\d\d[.]\d$")
 
-    try:
-        if lis[0] == "unfinished" or lis[0] == "PIT":
-            row.append("dnf")
-            while True:
-                if tooMany == 500:
-                    print("runRow1")
-                tooMany += 1
-                if re.match(avgSpeed, lis[0]):
-                    row.append(lis[0])
-                    del lis[0]
-                    break
-                else:
-                    row.append(lis[0])
-                    del lis[0]
+    # try:
+    if len(lis) == 0:
+        row = []
 
-        elif re.match(lapTime, lis[1]):
-            while True:
-                if tooMany == 500:
-                    print("runRow2")
-                tooMany += 1
-                if re.match(avgSpeed, lis[0]):
-                    row.append(lis[0])
-                    del lis[0]
-                    break
-                else:
-                    row.append(lis[0])
-                    del lis[0]
+    elif lis[0] == "unfinished" or lis[0] == "PIT":
+        row = getBLap(lis)
 
-        else:
-            low = []
-            low.append("Tyre")
-            while True:
-                if tooMany == 500:
-                    print("runRow3")
-                tooMany += 1
-                if re.match(lapTime, lis[1]) or \
-                    lis[0] == "PIT" or \
-                    lis[0] == "unfinished":
-                    break
-                else:
-                    low.append(lis[0])
-                    del lis[0]
-            row = getRider(low)
-            rowAddConst(row, const)
+    elif re.match(lapTime, lis[1]) or \
+        re.match(longLap, lis[1]):
+        row = getGLap(lis)
 
-        lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-        for i in lapLength:
-            if len(row) < i:
-                row.insert(-1, f"Tsec{i-3}")
-    except:
-        lmnop = 7
+    else:
+        row = getStats(lis)
+        rowAddConst(row, const)
 
+    # except:
+    #     print(f"bad file: {file}")
+    #     badSave(file)
+
+    print(row)
     return row
 
 def getRider(row):
@@ -207,7 +182,7 @@ def getRider(row):
 
     while x < len(r):
         if tooMany == 500:
-            print("getRider")
+            print("too many in getRider(1)")
         tooMany += 1
         if r[x] in trash:
             del r[x]
@@ -233,7 +208,7 @@ def getRider(row):
     x = 0
     while x < len(r):
         if tooMany == 500:
-            print("getRider 2")
+            print("too many in getRider(2)")
         tooMany += 1
         if re.match("^\d{1,2}$", r[x]):
             rider[0] = r[x]
@@ -280,3 +255,146 @@ def getMatrix(rows, yr):
 def saveCSV(mat, file):
     df = pd.DataFrame(mat)
     df.to_csv(file, index=False)
+
+def badSave(file):
+    badFiles = []
+    dest = "C:/Users/LuciusFish/Desktop/csv/mistakenFiles.csv"
+
+    with open(dest) as saveFile:
+        contents = saveFile.readlines()
+        for line in contents:
+            x = line
+            badFiles.append(x)
+
+    del badFiles[0]
+
+    badFiles.append(file)
+    saveCSV(badFiles, dest)
+
+def goodSave(file):
+    finFiles = []
+    dest = "C:/Users/LuciusFish/Desktop/csv/finishedFiles.csv"
+
+    with open(dest) as saveFile:
+        contents = saveFile.readlines()
+        for line in contents:
+            x = line
+            finFiles.append(x)
+    finFiles.append(file)
+
+    del finFiles[0]
+
+    saveCSV(finFiles, dest)
+
+def intSaveFiles():
+    try:
+        finFiles = []
+        badFiles = []
+
+        with open(save) as saveFile:
+            contents = saveFile.readlines()
+            for line in contents:
+                x = line[:-1]
+                finFiles.append(x)
+
+        with open(dest) as bFile:
+            contents = bFile.readlines()
+            for line in contents:
+                x = line
+                badFiles.append(x)
+        good = "C:/Users/LuciusFish/Desktop/csv/finishedFiles.csv"
+        bad = "C:/Users/LuciusFish/Desktop/csv/mistakenFiles.csv"
+
+        saveCSV(finFiles, good)
+        saveCSV(badFiles, bad)
+
+    except:
+        finFiles = []
+        badFiles = []
+        good = "C:/Users/LuciusFish/Desktop/csv/finishedFiles.csv"
+        bad = "C:/Users/LuciusFish/Desktop/csv/mistakenFiles.csv"
+        saveCSV(finFiles, good)
+        saveCSV(badFiles, bad)
+
+    return finFiles
+
+def getGLap(lis):
+    row = []
+    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+    avgSpeed = re.compile("^\d\d\d[.]\d$")
+    slowSpeed = re.compile("^\d\d[.]\d$")
+
+    row.append(lis[0])
+    del lis[0]
+    row.append(lis[0])
+    del lis[0]
+    while True:
+        if re.match(avgSpeed, lis[0]) or \
+            re.match(slowSpeed, lis[0]):
+            row.append(lis[0])
+            del lis[0]
+            break
+        if len(lis) > 2:
+            if re.match(lapTime, lis[2]) or \
+                re.match(longLap, lis[2]):
+                row.append(lis[0])
+                del lis[0]
+                break
+        row.append(lis[0])
+        del lis[0]
+
+    lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    for i in lapLength:
+        if len(row) < i:
+            row.insert(-1, f"Tsec{i - 3}")
+
+    return row
+
+def getBLap(lis):
+    row = []
+    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+    avgSpeed = re.compile("^\d\d\d[.]\d$")
+    slowSpeed = re.compile("^\d\d[.]\d$")
+
+    row.append("dnf")
+    while True:
+        if len(lis) == 0:
+            break
+        if re.match(avgSpeed, lis[0]) or \
+            re.match(slowSpeed, lis[0]):
+            row.append(lis[0])
+            del lis[0]
+            break
+        else:
+            row.append(lis[0])
+            del lis[0]
+
+    lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    for i in lapLength:
+        if len(row) < i:
+            row.insert(-1, f"Tsec{i - 3}")
+
+    return row
+
+def getStats(lis):
+    low = []
+    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+    avgSpeed = re.compile("^\d\d\d[.]\d$")
+    slowSpeed = re.compile("^\d\d[.]\d$")
+
+    low.append("Tyre")
+    while True:
+        if re.match(lapTime, lis[1]) or \
+                lis[0] == "PIT" or \
+                lis[0] == "unfinished" or \
+                re.match(longLap, lis[1]):
+            break
+        else:
+            low.append(lis[0])
+            del lis[0]
+    row = getRider(low)
+
+    return row
