@@ -8,12 +8,14 @@ types = ["RAC", "RAC2", "Q2", "Q1", "WUP", "FP1", "FP2", "FP3", "FP4"]
 mkGoalDirs()
 
 for sesType in types:
+    sleep(540)
     dest = (f"C:/Users/LuciusFish/Desktop/csv/{sesType}/")
     finFiles = intSaveFiles()
 
     for yr in yrs:
         rcFiles = getRacAnFiles(yr, dir, sesType)
         print(f"{yr}, {sesType}")
+        sleep(120)
 
         for file in rcFiles:
             if file not in finFiles:
@@ -31,4 +33,4 @@ for sesType in types:
                 frequency = 500
                 duration = 300
                 Beep(frequency, duration)
-                sleep(120)
+                sleep(20)
