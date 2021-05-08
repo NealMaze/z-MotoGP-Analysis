@@ -20,6 +20,7 @@ def mkGoalDirs():
             deskOne = f"{desk}{one}/"
             path = os.path.join(deskOne, i)
             os.mkdir(path)
+
     except:
         directories ="already made"
 
@@ -153,8 +154,6 @@ def runRow(lis, const, file):
     # except:
     #     print(f"bad file: {file}")
     #     badSave(file)
-
-    print(row)
     return row
 
 def getRider(row):
@@ -331,6 +330,8 @@ def getGLap(lis):
     row.append(lis[0])
     del lis[0]
     while True:
+        if len(lis) == 0:
+            break
         if re.match(avgSpeed, lis[0]) or \
             re.match(slowSpeed, lis[0]):
             row.append(lis[0])
@@ -388,14 +389,15 @@ def getStats(lis):
 
     low.append("Tyre")
     while True:
+        if len(lis) == 0:
+            break
         if re.match(lapTime, lis[1]) or \
                 lis[0] == "PIT" or \
                 lis[0] == "unfinished" or \
                 re.match(longLap, lis[1]):
             break
-        else:
-            low.append(lis[0])
-            del lis[0]
+        low.append(lis[0])
+        del lis[0]
     row = getRider(low)
 
     return row
