@@ -20,6 +20,8 @@ def mkGoalDirs():
             deskOne = f"{desk}{one}/"
             path = os.path.join(deskOne, i)
             os.mkdir(path)
+        with open("C:/Users/LuciusFish/Desktop/csv/finFiles.txt", "w") as f:
+            read = ""
 
     except:
         directories ="already made"

@@ -28,13 +28,12 @@ for sesType in types:
 
     for yr in yrs:
         rcFiles = getRacAnFiles(yr, dir, "RAC")
-        print(f"{yr}")
+        print(f"{yr}, {sesType}")
 
         for file in rcFiles:
             if file not in finFiles:
                 g = file.replace(".pdf", ".csv")
                 h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
-                print("")
                 print(h)
                 z = dest + h
 
@@ -47,7 +46,8 @@ for sesType in types:
                 Beep(frequency, duration)
                 finFiles.append(file)
                 with open("C:/Users/LuciusFish/Desktop/csv/finFiles.txt", "w") as f:
-                    f.write(f"{i}\n" for i in finFiles )
+                    for i in finFiles:
+                        f.write(i)
 
                 del rows
                 del matrix
