@@ -31,3 +31,4 @@ for sesType in types:
                 frequency = 500
                 duration = 300
                 Beep(frequency, duration)
+                sleep(120)

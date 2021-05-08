@@ -6,6 +6,7 @@ import pandas as pd
 import re
 import os
 import sys
+from time import sleep
 from winsound import Beep
 
 def mkGoalDirs():
