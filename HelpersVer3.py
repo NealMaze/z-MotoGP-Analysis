@@ -10,6 +10,8 @@ from time import sleep
 from winsound import Beep
 
 def mkGoalDirs():
+    """Verifies that the appropriate directories exist on the computer"""
+
     try:
         types = ["RAC", "RAC2", "Q2", "Q1", "WUP", "FP1", "FP2", "FP3", "FP4"]
         desk = ("C:/Users/LuciusFish/Desktop/")
@@ -27,12 +29,16 @@ def mkGoalDirs():
         directories ="already made"
 
 def getRacAnFiles(yr, dir, sesType):
+    """Searches the directory for appropriate files and creates a list to cycle through"""
+
     filter_files = fnmatch.filter(listdir(dir), f"{yr}*{sesType}*nalysis.pdf")
     rcFiles = [f"{dir}/{file}" for file in filter_files]
 
     return rcFiles
 
 def parsePDF(rcFile, yr, h, file):
+    """Turns the PDF list into  a list of rows, each either a lap, or rider"""
+
     col, date = openPDF(rcFile)
     rows = []
     const = getConst(yr, h, date)
@@ -50,6 +56,8 @@ def parsePDF(rcFile, yr, h, file):
     return rows
 
 def openPDF(rcFile):
+    """Opens the PDF as a list and returns the list and the date of the event"""
+
     with plumb.open(rcFile) as pdf:
         whole = []
         pages = pdf.pages
@@ -63,6 +71,8 @@ def openPDF(rcFile):
     return whole, date
 
 def getDate(pages):
+    """Gets the date of the event and returns it to the openPDF() function"""
+
     words = pages[0].extract_words()
     date = []
 
@@ -77,6 +87,8 @@ def getDate(pages):
     return date
 
 def stripBoilerPlate(lis):
+    """Strips the boiler plate off the PDF list"""
+
     L = []
     R = []
     x = 0
@@ -121,6 +133,7 @@ def stripBoilerPlate(lis):
     return L
 
 def getConst(yr, file, date):
+    """Gets the event data"""
     r = file.replace(f"{yr}-", "")
     o = r.replace(".csv", "")
     u = o.split("-")
@@ -131,6 +144,9 @@ def getConst(yr, file, date):
     return const
 
 def runRow(lis, const, file):
+    """Takes either the first item or second item out of the list,
+    determines what kind of data the following represents, removes it
+    from the list and returns that data.  Only returns one row at a time"""
     row = []
 
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
@@ -159,6 +175,10 @@ def runRow(lis, const, file):
     return row
 
 def getRider(row):
+    """Accepts a row, and extracts the rider data from that row.  Determining
+    if that data represents a needs to be performed before this function is
+    called""""
+
     r = []
     tooMany = 0
     for i in row:
@@ -233,10 +253,14 @@ def getRider(row):
     return rider
 
 def rowAddConst(row, const):
+    """Adds the event data to the row"""
     for i in const:
         row.insert(0, i)
 
 def getMatrix(rows, yr):
+    """Takes the list and removes the rider rows, and appends all the lap
+    rows with the appropriate rider data"""
+
     matrix = []
     rider = ["none"]
 
@@ -255,10 +279,15 @@ def getMatrix(rows, yr):
     return matrix
 
 def saveCSV(mat, file):
+    """accepts a matrix, and a file destination, and saves
+    the matrix as a csv file"""
+
     df = pd.DataFrame(mat)
     df.to_csv(file, index=False)
 
 def badSave(file):
+    """depricated???"""
+
     badFiles = []
     dest = "C:/Users/LuciusFish/Desktop/csv/mistakenFiles.csv"
 
@@ -274,6 +303,7 @@ def badSave(file):
     saveCSV(badFiles, dest)
 
 def goodSave(file):
+    """depricated???"""
     finFiles = []
     dest = "C:/Users/LuciusFish/Desktop/csv/finishedFiles.csv"
 
@@ -289,6 +319,7 @@ def goodSave(file):
     saveCSV(finFiles, dest)
 
 def intSaveFiles():
+    """depricated???"""
     try:
         finFiles = []
         badFiles = []
@@ -321,6 +352,8 @@ def intSaveFiles():
     return finFiles
 
 def getGLap(lis):
+    """After determinging that the following data represents a good lap, it
+    takes the applicable dat off that list, formats it as a lap and returns it."""
     row = []
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
@@ -356,6 +389,9 @@ def getGLap(lis):
     return row
 
 def getBLap(lis):
+    """After determing that the following data represents an unfinished lap, this
+    removes the applicable data, and formats it as a lap to return"""
+
     row = []
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
@@ -383,6 +419,9 @@ def getBLap(lis):
     return row
 
 def getStats(lis):
+    """Double checks that the following data represents a rider and there
+    hasn't been a mix-up.  Spaghetti code, I know."""
+
     low = []
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
