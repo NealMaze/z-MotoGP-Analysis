@@ -199,7 +199,7 @@ def getRider(row):
     trash = ["MotoGP", "Tyre", "Moto2", "Moto3"]
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
     nations = ["JPN", "ITA", "USA", "AUS", "SPA", "SWI", "NED", "GBR", "MAL", "INA", "THA", "GER", "RSA", "FRA", "POR",
-               "AUT", "ARG", "CZE", "TUR"]
+               "AUT", "ARG", "CZE", "TUR", "DER"]
     manufacturers = ["YAMAHA", "HONDA", "DUCATI", "SUZUKI", "KTM", "APRILIA"]
 
     while x < len(r):
