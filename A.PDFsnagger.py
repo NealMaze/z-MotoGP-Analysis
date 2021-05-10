@@ -8,17 +8,16 @@ url_ssn = https://www.motogp.com/en/Results+Statistics/2020/QAT/Moto2/FP1/Classi
 """
 
 # import necessary modules
-from pdfHelpers import *
+from A2.pdfHelpers import *
+from genGetters import *
 
 # in-depth analysis is only available as far back as 1998
-years = ["2021", "2020", "2019", "2018", "2017", '2016', '2015', "2014", '2013', '2012', '2011', '2010', '2009',
-          '2008', '2007', '2006', '2005', "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
-
-yearsF = []
+yrs = getYrs()
+categories = getCats()
 
 base_url = 'http://www.motogp.com/en/Results+Statistics/'
 
-for yr in years:
+for yr in yrs:
     fileNum = 1
     url_yr = base_url + yr
     soupYr = soup_special(url_yr)
@@ -32,8 +31,9 @@ for yr in years:
         soupWk = soup_special(urlWk)
         categories = get_all_cats(soupWk)
 
-        for cat in categories:
+        for cat in categories[:2]:
             CAT = cat.text
+            CAT = "RAC2"
             url_c = base_url + yr + '/' + TRK + '/' + CAT + '/'
             soup_c = soup_special(url_c)
             sessions = get_all_sessions(soup_c)
