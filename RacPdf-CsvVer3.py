@@ -9,7 +9,7 @@ types = ["RAC", "RAC2", "Q2", "Q1", "WUP", "FP1", "FP2", "FP3", "FP4", "Test"]
 mkGoalDirs()
 
 finFiles = []
-with open("C:/Users/LuciusFish/Desktop/csv/finFiles.txt", "r") as f:
+with open("C:/Users/LuciusFish/Desktop/moto/finFiles.txt", "r") as f:
     contents = f.readlines()
     for i in contents:
         finFiles.append(i)
