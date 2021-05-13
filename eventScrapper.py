@@ -8,12 +8,12 @@ url_ssn = https://www.motogp.com/en/Results+Statistics/2020/QAT/Moto2/FP1/Classi
 """
 
 # import necessary modules
-from A2.pdfHelpers import *
-from genGetters import *
+from A2_ScrappingHelpers import *
+from GenGetters import *
 
 # in-depth analysis is only available as far back as 1998
-yrs = getYrs()
-categories = getCats()
+yrs = getListFile("yrs")
+categories = getListFile("cats")
 
 base_url = 'http://www.motogp.com/en/Results+Statistics/'
 
@@ -21,7 +21,7 @@ for yr in yrs:
     fileNum = 1
     url_yr = base_url + yr
     soupYr = soup_special(url_yr)
-    round = get_all_races(soupYr)
+    round = getAllRounds(soupYr)
     print(f"\n{yr}")
 
     for rn in round:
@@ -31,38 +31,28 @@ for yr in yrs:
         soupWk = soup_special(urlWk)
         categories = get_all_cats(soupWk)
 
-        for cat in categories[:2]:
+        for cat in categories:
             CAT = cat.text
-            CAT = "RAC2"
             url_c = base_url + yr + '/' + TRK + '/' + CAT + '/'
             soup_c = soup_special(url_c)
             sessions = get_all_sessions(soup_c)
-            print(f"{CAT}")
 
             for ssn in sessions:
                 SSN = ssn
                 if ssn == "RACE":
                     SSN = "RAC"
+                if ssn == "RACE2":
+                    SSN = "RAC2"
                 url_ssn = base_url + yr + '/' + TRK + '/' + CAT + '/' + SSN + '/Classification'
                 soupSSN = soup_special(url_ssn)
-                pdfLinks = getPDFs(soupSSN)
-                x = f"{SSN}, "
 
-                for link in pdfLinks:
-                    t = link.split("/")
-                    u = t[9].split(".")
-                    v = u[0]
-                    pdf = requests.get(link)
-                    fName = f"{yr}-Round_{fileNum}-{CAT}-{TRK}-{ssn}_{v}"
-                    with open(f"{fName}.pdf", "wb") as f:
-                        f.write(pdf.content)
-                        x = x + f"{v}, "
+                weather, riders = getAllStats(soup_ssn, yr, TRK, Track, CAT, SSN)
 
-                print(x)
-                time.sleep(1 + np.random.random())
+                time.sleep(30 + np.random.random())
+
+            exit()
+
 
         fileNum += 1
 
 print('>> Scraping complete!')
-
-

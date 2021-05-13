@@ -83,7 +83,7 @@ def get_all_sessions(soup):
     find = soup.find(id='session')
     r = []
     if find is None:
-        print(f"\n - - - - - {TRK} No Sessions Found - - - - - ")
+        print(f"\n - - - - - No Sessions Found - - - - - ")
     else:
         r2 = find.find_all('option')
         for s in r2:
@@ -172,8 +172,8 @@ def get_GP_info(track_url_str):
 
     return list_data
 
-def get_all_races(soup):
-    """ Returns all the races that took place in a particular season
+def getAllRounds(soup):
+    """ Returns all the rounds that took place in a particular season
         for which the soup was passed in """
     find = soup.find(id='event')
     if find is None:
@@ -198,34 +198,127 @@ def getAllTests(soup, yr):
         r = find.find_all(href = True)
     return r
 
-
-
-
-
-
-
-
-    # midSeason = soup.find(id="testresults" + yr)
-    # if offSeason is None:
-    #     offR = []
-    # else:
-    #     offR = offSeason.find_all(href=True)
-    #     print("off season found")
-
-    # if midSeason is None:
-    #     midR = []
-    #
-    # else:
-    #     midR = midSeason.find_all(href=True)
-    #     print("off season found")
-    #
-    # r = offR + midR
-    # for i in r:
-    #     print(i)
-    # print(offSeason)
 ########################################################################################################################
 
-def getRacePDFs(soup):
+def get_date(soup):
+    """ Returns the date of the race, or 'n/a' if
+        information does not exist in the provided soup """
+    find = soup.find(class_='padbot5')
+    if find is None:
+        r = 'n/a'
+    else:
+        r = ','.join(find.text.replace(',',' ').split()[-3:])
+    return r
+
+def get_tr_con(soup):
+    """ Returns the track condition during a race, or 'n/a' if
+        information does not exist in the provided soup """
+    find = soup.find(class_='sprite_weather track_condition')
+    if find is None:
+        r = 'n/a'
+    elif len(find) < 3:
+        r = "n/a"
+    else:
+        r = find.findNext().text.split()[2]
+    return r
+
+def get_tr_tmp(soup):
+    """ Returns the track temperature during a race, or 'n/a' if
+        information does not exist in the provided soup """
+    find = soup.find(class_='sprite_weather ground')
+    if find is None:
+        r = 'n/a'
+    else:
+        r = find.findNext().text.split()[1]
+    return r
+
+def get_air_tmp(soup):
+    """ Returns the air temperature during a race, or 'n/a' if
+        information does not exist in the provided soup """
+    find = soup.find(class_='sprite_weather air')
+    if find is None:
+        r = 'n/a'
+    else:
+        r = find.findNext().text.split()[1]
+    return r
+
+def get_humidity(soup):
+    """ Returns the track humidity during a race, or 'n/a' if
+        information does not exist in the provided soup """
+    find = soup.find(class_='sprite_weather humidity')
+    if find is None:
+        r = 'n/a'
+    else:
+        r = find.findNext().text.split()[1]
+    return r
+
+def getAllStats(soup, year, trk, track, cat, ssn):
+    rHeaders = ["Year", "Number", "Name", "Nation", "Team", "Manufacturer"]
+    rdrs = []
+    wthr = []
+
+    if soup.find('tbody') is None:
+        return "failed Weather", "failed Rider"
+    else:
+        riders = soup.find('tbody').find_all('a')
+
+        # raceday stats
+        date = get_date(soup)
+        trCon = get_tr_con(soup)
+        trTmp = get_tr_tmp(soup)
+        airTmp = get_air_tmp(soup)
+        humid = get_humidity(soup)
+
+        wthr.append(year)
+        wthr.append(date)
+        wthr.append(track)
+        wthr.append(cat)
+        wthr.append(ssn)
+        wthr.append(trCon)
+        wthr.append(trTmp)
+        wthr.append(airTmp)
+        wthr.append(humid)
+
+        # rider stats
+        for r in riders:
+            pos = r.findPrevious().findPrevious().findPrevious().findPrevious().text
+            if pos == '':
+                pos = 'crash'
+            points = r.findPrevious().findPrevious().findPrevious().text
+            if points == '':
+                points = 0
+            else:
+                points = float(points)
+            r_num = r.findPrevious().findPrevious().text
+            if r_num != '':
+                r_num = int(r_num)
+            r_nam = r.text
+            r_nat = r.findNext().text
+            team = r.findNext().findNext().text
+            bike = r.findNext().findNext().findNext().text
+            avgspd = r.findNext().findNext().findNext().findNext().text
+            time = r.findNext().findNext().findNext().findNext().findNext().text
+
+            rdr = [year, cat, r_num, r_nam, r_nat, team, bike]
+            rdrs.append(rdr)
+
+        return wthr, rdrs
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################################################################################################################
+
+def getSessPDFs(soup):
     """ Returns all the PDFs associated with the selected session"""
     links = []
     find = soup.find(id="results_menu")
@@ -266,3 +359,10 @@ def getPDFs(soup):
             if "https" in x:
                 links.append(x)
     return links
+
+def saveCSV(mat, file):
+    # """accepts a matrix, and a file destination, and saves
+    # the matrix as a csv file"""
+
+    df = pd.DataFrame(mat)
+    df.to_csv(file, index = False)

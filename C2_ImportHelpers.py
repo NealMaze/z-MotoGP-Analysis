@@ -1,7 +1,7 @@
 # imports
 import csv
 import re
-from genGetters import *
+from GenGetters import *
 
 def testReader(csvReader):
     portFlg = True
@@ -30,8 +30,6 @@ def testReader(csvReader):
         if False in portLis:
             portFlg = False
             break
-
-
 
     return portFlg
 
@@ -94,6 +92,7 @@ def tstSeqLp(prevLap, rNum):
     return tst, rNum
 
 def tstTme(tme):
+    tmeFormat = re.compile
 
 
 def tstAvgSpd(r[0]):

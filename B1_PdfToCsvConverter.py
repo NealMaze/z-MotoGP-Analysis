@@ -1,5 +1,5 @@
 # imports
-from B2.HelpersVer3 import *
+from B2_ConverterHelpers import *
 
 dir = ("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis")
 yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014",
