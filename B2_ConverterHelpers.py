@@ -5,16 +5,68 @@ import fnmatch
 import pandas as pd
 import re
 import os
+import csv
 import sys
 from GenGetters import *
 from time import sleep
 from winsound import Beep
+from lists import *
+
+def getRidersData(yr):
+    data = []
+    rows = []
+    if int(yr) < 2006:
+        with open(f"{csvDir}{yr}_Riders.csv", "r", encoding="utf8") as yrFile:
+            i = csv.reader(yrFile, delimiter=",")
+            for r in i:
+                if r[0] != "f":
+                    rows.append(r)
+
+        del rows[0]
+        q = []
+
+        for r in rows:
+            q = []
+            x = r[0]
+            y = x.split(",")
+            for i in y:
+
+
+
+                q.append(i)
+            data.append(q)
+        print(f"yes!!!!!!!!!!!!!!! {yr}")
+
+
+
+    return data
+
+def getFinFiles(type):
+    finFiles = []
+    with open(f"{sveFiles}/{type}FinFiles.txt", "r") as f:
+        contents = f.readlines()
+        for i in contents:
+            finFiles.append(i)
+
+    for i in finFiles:
+        if i == 0 or i == []:
+            del i
+
+    print("finished files:")
+    if len(finFiles) == 0:
+        print("none")
+    else:
+        for i in finFiles:
+            print(i)
+    print("\n")
+
+    return finFiles
 
 def getAnalyFiles(yr, dir, string):
     # """Searches the directory for appropriate files and creates a list to cycle through"""
 
-    filter_files = fnmatch.filter(listdir(dir), f"{string}.pdf")
-    files = [f"{dir}/{file}" for file in filter_files]
+    filterFiles = fnmatch.filter(listdir(dir), f"{string}")
+    files = [f"{dir}/{file}" for file in filterFiles]
 
     return files
 
@@ -22,6 +74,7 @@ def addLists(file, nats, manus, riders, teams):
     whole, date = openPDF(file)
     for i in whole:
         if 115.319 < i["x0"] < 115.321:
+            print("###############################################################################################################################################################################################################################################################################################")
             print(i["text"])
 
 def openPDF(rcFile):
@@ -120,14 +173,8 @@ def parsePDF(col):
 
     while len(col) != 0:
         catch = len(col)
-        for i in col[:10]:
-            print(i)
-
         row = runRow(col)
-
-
-
-
+        rows.append(row)
 
 
         if len(col) == catch:
@@ -152,18 +199,20 @@ def parsePDF(col):
 
     return rows
 
-def runRow(lis, const, file):
+def runRow(lis):
     # """Takes either the first item or second item out of the list,
     # determines what kind of data the following represents, removes it
     # from the list and returns that data.  Only returns one row at a time"""
     row = []
+    for i in lis[:10]:
+        print(i)
+    print("\n\n")
 
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d$")
     avgSpeed = re.compile("^\d\d\d[.]\d$")
     slowSpeed = re.compile("^\d\d[.]\d$")
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
 
-    print(lis[0])
     if len(lis) == 0:
         row = []
 
@@ -173,7 +222,7 @@ def runRow(lis, const, file):
     elif re.match(lapTime, lis[1]["text"]):
         row = getGLap(lis)
 
-    # elif:
+    # elif :
     #     low = []
     #     while re.match(lapTime, lis[1]["text"]) != True:
     #         low.append(lis[0])
@@ -183,21 +232,102 @@ def runRow(lis, const, file):
 
     return row
 
-#
+def getMatrix(rows, yr):
+    # """Takes the list and removes the rider rows, and appends all the lap
+    # rows with the appropriate rider data"""
 
-#
+    matrix = []
+    rider = ["none"]
 
-#
+    for row in rows:
+        if row[0] == yr:
+            rider = row
+        else:
+            lap = []
+            for i in rider[:-1]:
+                lap.append(i)
+            for i in row:
+                lap.append(i)
+            lap.append(rider[-1])
+            matrix.append(lap)
 
-#
+    return matrix
 
-#
+def saveCSV(mat, file):
+    # """accepts a matrix, and a file destination, and saves
+    # the matrix as a csv file"""
 
-#
+    df = pd.DataFrame(mat)
+    df.to_csv(file, index=False)
 
-#
+def getGLap(lis):
+    # """After determinging that the following data represents a good lap, it
+    # takes the applicable dat off that list, formats it as a lap and returns it."""
+    row = []
+    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+    avgSpeed = re.compile("^\d\d\d[.]\d$")
+    slowSpeed = re.compile("^\d\d[.]\d$")
 
-#
+    row.append(lis[0])
+    del lis[0]
+    row.append(lis[0])
+    del lis[0]
+    while True:
+        if len(lis) == 0:
+            break
+        if re.match(avgSpeed, lis[0]) or \
+            re.match(slowSpeed, lis[0]):
+            row.append(lis[0])
+            del lis[0]
+            break
+        if len(lis) > 2:
+            if re.match(lapTime, lis[2]) or \
+                re.match(longLap, lis[2]):
+                row.append(lis[0])
+                del lis[0]
+                break
+        row.append(lis[0])
+        del lis[0]
+
+    lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    for i in lapLength:
+        if len(row) < i:
+            row.insert(-1, f"Tsec{i - 3}")
+
+    return row
+
+def getBLap(lis):
+    # """After determing that the following data represents an unfinished lap, this
+    # removes the applicable data, and formats it as a lap to return"""
+
+    row = []
+    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
+    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+    avgSpeed = re.compile("^\d\d\d[.]\d$")
+    slowSpeed = re.compile("^\d\d[.]\d$")
+
+    row.append("dnf")
+    while True:
+        if len(lis) == 0:
+            break
+        if re.match(avgSpeed, lis[0]) or \
+            re.match(slowSpeed, lis[0]):
+            row.append(lis[0])
+            del lis[0]
+            break
+        else:
+            row.append(lis[0])
+            del lis[0]
+
+    lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    for i in lapLength:
+        if len(row) < i:
+            row.insert(-1, f"Tsec{i - 3}")
+
+    return row
+
+
 # def getRiderRow(row):
 #     r = []
 #     print("")
@@ -289,33 +419,9 @@ def runRow(lis, const, file):
 #     for i in const:
 #         row.insert(0, i)
 #
-# def getMatrix(rows, yr):
-#     # """Takes the list and removes the rider rows, and appends all the lap
-#     # rows with the appropriate rider data"""
+
 #
-#     matrix = []
-#     rider = ["none"]
-#
-#     for row in rows:
-#         if row[0] == yr:
-#             rider = row
-#         else:
-#             lap = []
-#             for i in rider[:-1]:
-#                 lap.append(i)
-#             for i in row:
-#                 lap.append(i)
-#             lap.append(rider[-1])
-#             matrix.append(lap)
-#
-#     return matrix
-#
-# def saveCSV(mat, file):
-#     # """accepts a matrix, and a file destination, and saves
-#     # the matrix as a csv file"""
-#
-#     df = pd.DataFrame(mat)
-#     df.to_csv(file, index=False)
+
 #
 # def badSave(file):
 #     # """depricated???"""
@@ -383,72 +489,9 @@ def runRow(lis, const, file):
 #
 #     return finFiles
 #
-# def getGLap(lis):
-#     # """After determinging that the following data represents a good lap, it
-#     # takes the applicable dat off that list, formats it as a lap and returns it."""
-#     row = []
-#     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
-#     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
-#     avgSpeed = re.compile("^\d\d\d[.]\d$")
-#     slowSpeed = re.compile("^\d\d[.]\d$")
+
 #
-#     row.append(lis[0])
-#     del lis[0]
-#     row.append(lis[0])
-#     del lis[0]
-#     while True:
-#         if len(lis) == 0:
-#             break
-#         if re.match(avgSpeed, lis[0]) or \
-#             re.match(slowSpeed, lis[0]):
-#             row.append(lis[0])
-#             del lis[0]
-#             break
-#         if len(lis) > 2:
-#             if re.match(lapTime, lis[2]) or \
-#                 re.match(longLap, lis[2]):
-#                 row.append(lis[0])
-#                 del lis[0]
-#                 break
-#         row.append(lis[0])
-#         del lis[0]
-#
-#     lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-#     for i in lapLength:
-#         if len(row) < i:
-#             row.insert(-1, f"Tsec{i - 3}")
-#
-#     return row
-#
-# def getBLap(lis):
-#     # """After determing that the following data represents an unfinished lap, this
-#     # removes the applicable data, and formats it as a lap to return"""
-#
-#     row = []
-#     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
-#     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
-#     avgSpeed = re.compile("^\d\d\d[.]\d$")
-#     slowSpeed = re.compile("^\d\d[.]\d$")
-#
-#     row.append("dnf")
-#     while True:
-#         if len(lis) == 0:
-#             break
-#         if re.match(avgSpeed, lis[0]) or \
-#             re.match(slowSpeed, lis[0]):
-#             row.append(lis[0])
-#             del lis[0]
-#             break
-#         else:
-#             row.append(lis[0])
-#             del lis[0]
-#
-#     lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-#     for i in lapLength:
-#         if len(row) < i:
-#             row.insert(-1, f"Tsec{i - 3}")
-#
-#     return row
+
 #
 # def getStats(lis):
 #     # """Double checks that the following data represents a rider and there

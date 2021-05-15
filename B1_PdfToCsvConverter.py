@@ -1,44 +1,24 @@
 # imports
 from B2_ConverterHelpers import *
 
-dir = ("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis")
-yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014",
-       "2013", "2012", "2011", "2010"]
-types = getCats()
-finTypes = ["RAC"]
+csvFinFiles = getFinFils("csv")
 
-mkGoalDirs()
+for yr in yrs:
+    for lge in lges:
 
-finFiles = []
-with open("C:/Users/LuciusFish/Desktop/csv/finFiles.txt", "r") as f:
-    contents = f.readlines()
-    for i in contents:
-        finFiles.append(i)
 
-for i in finFiles:
-    if i == 0 or i ==[]:
-        del i
-
-print("finished files:")
-for i in finFiles:
-    print(i)
-print("")
-
-for sesType in types:
-    dest = (f"C:/Users/LuciusFish/Desktop/csv/{sesType}/")
-
-    for yr in yrs:
-        rcFiles = getRacAnFiles(yr, dir, sesType)
+        rcFiles = getAnalyFiles(yr, dir, f"{yr}*{sesType}*nalysis.pdf")
         print(f"{yr}, {sesType}")
 
         for file in rcFiles:
             if file not in finFiles:
                 g = file.replace(".pdf", ".csv")
-                h = g.replace("C:/Users/LuciusFish/Desktop/MotoGP_PDFs/Analysis/", "")
+                h = g.replace(f"{pdfFiles}", "")
                 print(h)
                 z = dest + h
+                col, date = openPDF(file)
 
-                rows = parsePDF(file, yr, h, file)
+                rows = parsePDF(col)
                 matrix = getMatrix(rows, yr)
                 saveCSV(matrix, z)
 
@@ -46,7 +26,7 @@ for sesType in types:
                 duration = 300
                 Beep(frequency, duration)
                 finFiles.append(file)
-                with open("C:/Users/LuciusFish/Desktop/csv/finFiles.txt", "w") as f:
+                with open(f"{sveFiles}csvFinFiles.txt", "w") as f:
                     for i in finFiles:
                         f.write(i)
 
