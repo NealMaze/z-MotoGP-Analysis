@@ -15,28 +15,26 @@ from lists import *
 def getRidersData(yr):
     data = []
     rows = []
-    if int(yr) < 2006:
-        with open(f"{csvDir}{yr}_Riders.csv", "r", encoding="utf8") as yrFile:
-            i = csv.reader(yrFile, delimiter=",")
-            for r in i:
-                if r[0] != "f":
-                    rows.append(r)
+    rem = ["'", "'", "'", "[", "'", "]", '"']
 
+    with open(f"{csvDir}{yr}_Riders.csv", "r", encoding="utf8") as yrFile:
+        i = csv.reader(yrFile, delimiter=",")
+        for r in i:
+            if r[0] != "f":
+                rows.append(r)
         del rows[0]
         q = []
 
-        for r in rows:
-            q = []
-            x = r[0]
-            y = x.split(",")
-            for i in y:
+    if len(rows[0]) < 3:
+        print(f"{yr}, fail")
+        for i in rows[0]:
+            print(i)
+            data.append(i)
 
-
-
-                q.append(i)
-            data.append(q)
-        print(f"yes!!!!!!!!!!!!!!! {yr}")
-
+    elif len(rows[0]) > 3:
+        print(f"{yr}, pass")
+        for row in rows:
+            data.append(row)
 
 
     return data
