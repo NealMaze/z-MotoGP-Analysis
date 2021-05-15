@@ -13,6 +13,7 @@ from winsound import Beep
 from lists import *
 
 def getRidersData(yr):
+    print("/n")
     data = []
     rows = []
     rem = ["'", "'", "'", "[", "'", "]", '"']
@@ -26,17 +27,16 @@ def getRidersData(yr):
         q = []
 
     if len(rows[0]) < 3:
-        print(f"{yr}, fail")
+        print(f"{yr}")
         for i in rows[0]:
             print(i)
             data.append(i)
 
     elif len(rows[0]) > 3:
-        print(f"{yr}, pass")
+        print(f"{yr}")
         for row in rows:
             data.append(row)
-
-
+    print("")
     return data
 
 def getFinFiles(type):
