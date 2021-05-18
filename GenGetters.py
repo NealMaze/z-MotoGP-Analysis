@@ -2,7 +2,7 @@
 import fnmatch
 from os import listdir, mkdir
 
-saveDir = "C:/Users/LuciusFish/Desktop/motoFiles/listFiles/"
+saveDir = "C:/Users/LuciusFish/Desktop/motoFiles/sveFiles/"
 
 def getImportFinFiles():
     finFiles = []

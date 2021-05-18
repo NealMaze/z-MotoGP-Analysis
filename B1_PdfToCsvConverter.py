@@ -1,34 +1,64 @@
 # imports
 from B2_ConverterHelpers import *
 
-csvFinFiles = getFinFils("csv")
+csvFinFiles = getFinFiles("csv")
+
+ses = ["FP1", "QP1", "Q1", "WUP", "RACE"]
 
 for yr in yrs:
     for lge in lges:
+        for sesType in ses:
+
+            rcFiles = getAnalyFiles(pdfDir, f"{yr}-Round_1*{lge}*{sesType}*nalysis.pdf")
+
+            for file in rcFiles[:1]:
+                if file not in csvFinFiles:
+                    g = file.replace(".pdf", ".csv")
+                    h = g.replace(f"{pdfDir}", "")
+                    z = csvDir + h
+                    col, date = openPDF(file)
+                    const = getConst(yr, h, date)
 
 
-        rcFiles = getAnalyFiles(yr, dir, f"{yr}*{sesType}*nalysis.pdf")
-        print(f"{yr}, {sesType}")
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
 
-        for file in rcFiles:
-            if file not in finFiles:
-                g = file.replace(".pdf", ".csv")
-                h = g.replace(f"{pdfFiles}", "")
-                print(h)
-                z = dest + h
-                col, date = openPDF(file)
+                    # print("")
+                    # print(f" - - - {yr}, {lge}, {sesType} - - - ")
+                    # if re.match("^\d{1,2}(st|nd|rd|th)$", col[0]["text"]) or re.match("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$", line[0]["text"]):
+                    #     print("all good")
+                    #
+                    # else:
+                    #     print("##################################################################")
+                    #     for i in col[:4]:
+                    #         txt = i["text"]
+                    #         loq = i["x0"]
+                    #         print(f"{txt}       {loq}")
+                    #     print("##################################################################")
 
-                rows = parsePDF(col)
-                matrix = getMatrix(rows, yr)
-                saveCSV(matrix, z)
+                    rows = parsePDF(col, const)
+                    # matrix = getMatrix(rows, yr)
+                    # saveCSV(matrix, z)
+                    #
+                    # frequency = 500
+                    # duration = 300
+                    # Beep(frequency, duration)
+                    # csvFinFiles.append(file)
+                    # with open(f"{sveFiles}csvFinFiles.txt", "w") as f:
+                    #     for i in finFiles:
+                    #         f.write(i)
+                    #
+                    # del rows
+                    # del matrix
 
-                frequency = 500
-                duration = 300
-                Beep(frequency, duration)
-                finFiles.append(file)
-                with open(f"{sveFiles}csvFinFiles.txt", "w") as f:
-                    for i in finFiles:
-                        f.write(i)
-
-                del rows
-                del matrix
+    # exit()

@@ -12,36 +12,9 @@ from time import sleep
 from winsound import Beep
 from lists import *
 
-def getRidersData(yr):
-    print("/n")
-    data = []
-    rows = []
-    rem = ["'", "'", "'", "[", "'", "]", '"']
-
-    with open(f"{csvDir}{yr}_Riders.csv", "r", encoding="utf8") as yrFile:
-        i = csv.reader(yrFile, delimiter=",")
-        for r in i:
-            if r[0] != "f":
-                rows.append(r)
-        del rows[0]
-        q = []
-
-    if len(rows[0]) < 3:
-        print(f"{yr}")
-        for i in rows[0]:
-            print(i)
-            data.append(i)
-
-    elif len(rows[0]) > 3:
-        print(f"{yr}")
-        for row in rows:
-            data.append(row)
-    print("")
-    return data
-
 def getFinFiles(type):
     finFiles = []
-    with open(f"{sveFiles}/{type}FinFiles.txt", "r") as f:
+    with open(f"{sveDir}/{type}FinFiles.txt", "r") as f:
         contents = f.readlines()
         for i in contents:
             finFiles.append(i)
@@ -60,24 +33,13 @@ def getFinFiles(type):
 
     return finFiles
 
-def getAnalyFiles(yr, dir, string):
-    # """Searches the directory for appropriate files and creates a list to cycle through"""
-
+def getAnalyFiles(dir, string):
     filterFiles = fnmatch.filter(listdir(dir), f"{string}")
     files = [f"{dir}/{file}" for file in filterFiles]
 
     return files
 
-def addLists(file, nats, manus, riders, teams):
-    whole, date = openPDF(file)
-    for i in whole:
-        if 115.319 < i["x0"] < 115.321:
-            print("###############################################################################################################################################################################################################################################################################################")
-            print(i["text"])
-
 def openPDF(rcFile):
-    # """Opens the PDF as a list and returns the list and the date of the event"""
-
     with plumb.open(rcFile) as pdf:
         whole = []
         pages = pdf.pages
@@ -157,21 +119,48 @@ def getConst(yr, file, date):
     r = file.replace(f"{yr}-", "")
     o = r.replace(".csv", "")
     u = o.split("-")
-    const = date
-    for i in u[:4]:
-        const.insert(0, i)
+    x = u[-1]
+    y = x.split("_")
+    j = u[0]
+    k = j.replace("/", "")
+    track = u[3]
+    trk = track.strip()
+    const = []
+
+    const.insert(0, date[1])
+    const.insert(0, date[0])
+    const.insert(0, u[1])
+    const.insert(0, k)
+    const.insert(0, trk)
+    const.insert(0, y[0])
 
     return const
 
-def parsePDF(col):
-    # """Turns the PDF list into  a list of rows, and each row, either a lap, or rider or a new run"""
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+def parsePDF(col, const):
+    # """Turns the PDF list into a list of rows, and each row, either a lap, or rider or a new run"""
 
     rows = []
     counter = 0
 
     while len(col) != 0:
         catch = len(col)
-        row = runRow(col)
+        row = runRow(col, const)
+        print("\n#############################################################################\n")
+        print("add names, team, and tire ages")
+        print("\n#############################################################################\n")
         rows.append(row)
 
 
@@ -184,238 +173,305 @@ def parsePDF(col):
                     print(row)
                 sys.exit()
 
-
-    # while len(col) != 0:
-    #     ty = len(col)
-    #     row = runRow(col, const, file)
-    #     r = []
-    #     for i in row:
-    #         r.append(i[text])
-    #     if r != []:
-    #         rows.append(r)
-
-
     return rows
 
-def runRow(lis):
+def runRow(lis, const):
     # """Takes either the first item or second item out of the list,
     # determines what kind of data the following represents, removes it
     # from the list and returns that data.  Only returns one row at a time"""
-    row = []
-    for i in lis[:10]:
-        print(i)
-    print("\n\n")
 
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d$")
     avgSpeed = re.compile("^\d\d\d[.]\d$")
     slowSpeed = re.compile("^\d\d[.]\d$")
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
+    name = re.compile("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
 
-    if len(lis) == 0:
+    if len(lis) < 1:
         row = []
 
+    elif len(lis) < 2:
+        print("line 180, helpers #####################################################################################################################################################################")
+        print(lis)
+        exit()
+
     elif lis[0]["text"] == "unfinished" or lis[0]["text"] == "PIT":
+        print("bad lap")
         row = getBLap(lis)
 
     elif re.match(lapTime, lis[1]["text"]):
+        print("good lap")
         row = getGLap(lis)
 
-    # elif :
-    #     low = []
-    #     while re.match(lapTime, lis[1]["text"]) != True:
-    #         low.append(lis[0])
-    #         del lis[0]
-    #     row = getRiderRow(low)
-    #     rowAddConst(row, const)
-
-    return row
-
-def getMatrix(rows, yr):
-    # """Takes the list and removes the rider rows, and appends all the lap
-    # rows with the appropriate rider data"""
-
-    matrix = []
-    rider = ["none"]
-
-    for row in rows:
-        if row[0] == yr:
-            rider = row
-        else:
-            lap = []
-            for i in rider[:-1]:
-                lap.append(i)
-            for i in row:
-                lap.append(i)
-            lap.append(rider[-1])
-            matrix.append(lap)
-
-    return matrix
-
-def saveCSV(mat, file):
-    # """accepts a matrix, and a file destination, and saves
-    # the matrix as a csv file"""
-
-    df = pd.DataFrame(mat)
-    df.to_csv(file, index=False)
-
-def getGLap(lis):
-    # """After determinging that the following data represents a good lap, it
-    # takes the applicable dat off that list, formats it as a lap and returns it."""
-    row = []
-    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
-    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
-    avgSpeed = re.compile("^\d\d\d[.]\d$")
-    slowSpeed = re.compile("^\d\d[.]\d$")
-
-    row.append(lis[0])
-    del lis[0]
-    row.append(lis[0])
-    del lis[0]
-    while True:
-        if len(lis) == 0:
-            break
-        if re.match(avgSpeed, lis[0]) or \
-            re.match(slowSpeed, lis[0]):
-            row.append(lis[0])
+    elif re.match(position, lis[0]["text"]) or re.match(name, lis[0]["text"]):
+        print("rider")
+        yr = const[-1]
+        low = []
+        while True:
+            low.append(lis[0])
             del lis[0]
-            break
-        if len(lis) > 2:
-            if re.match(lapTime, lis[2]) or \
-                re.match(longLap, lis[2]):
-                row.append(lis[0])
-                del lis[0]
+            if len(lis) < 1:
                 break
-        row.append(lis[0])
-        del lis[0]
+            if re.match(lapTime, lis[1]["text"]):
+                break
+        row = getRiderRow(low, yr)
+        rowAddConst(row, const)
 
-    lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    for i in lapLength:
-        if len(row) < i:
-            row.insert(-1, f"Tsec{i - 3}")
+    else:
+        print("")
+        print(f" - - - {yr}, {lge}, {sesType} - - - ")
+        print("Line 196 Helpers ###########################################################################################################################################")
+        for i in line[:4]:
+            txt = i["text"]
+            loq = i["x0"]
+            print(f"{txt}       {loq}")
+        print("##################################################################")
 
+    # print(f"And now this:\n{row}\n")
+    lmn = 0
+    for i in row:
+        print(f"line 228, index: {lmn},   {i}")
+        lmn += 1
     return row
 
-def getBLap(lis):
-    # """After determing that the following data represents an unfinished lap, this
-    # removes the applicable data, and formats it as a lap to return"""
+def getRiderRow(row, yr):
+    rider = ["-0-number-", "-1-f_name-", "-2-l_name-", "-3-manufacturer-", "-4-nation-",
+             "-5-team-", "-6-t_laps-", "-7-runs-", "-8-f_Tire-", "-9-r_Tire-",
+             "-10-f_Age-", "-11-r_Age-", "-12-extra-"]
+    trash = ["MotoGP", "Tyre", "Moto2", "Moto3"]
+    position = re.compile("^\d{1,2}(st|nd|rd|th)$")
 
-    row = []
-    longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
-    lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
-    avgSpeed = re.compile("^\d\d\d[.]\d$")
-    slowSpeed = re.compile("^\d\d[.]\d$")
-
-    row.append("dnf")
-    while True:
-        if len(lis) == 0:
-            break
-        if re.match(avgSpeed, lis[0]) or \
-            re.match(slowSpeed, lis[0]):
-            row.append(lis[0])
-            del lis[0]
-            break
+    x = 0
+    while x < len(row):
+        val = row[x]["text"]
+        if val in trash:
+            del row[x]
+        elif re.match(position, val):
+            del row[x]
+        elif val == "Total":
+            strLaps = row[x+1]["text"]
+            laps = strLaps.replace("laps=", "")
+            rider[6] = laps
+            del row[x:x+3]
+        elif val in nats:
+            rider[4] = val
+            del row[x]
+        elif val == "Run":
+            rider[7] = row[x+2]["text"]
+            del row[x:x+3]
+        elif val in manus:
+            rider[3] = val
+            del row[x]
         else:
-            row.append(lis[0])
-            del lis[0]
+            x += 1
 
-    lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    for i in lapLength:
-        if len(row) < i:
-            row.insert(-1, f"Tsec{i - 3}")
+    x = 0
+    while x < len(row):
+        val = row[x]["text"]
+        if re.match("^\d{1,2}$", val) and rider[0] == "-0-number-":
+            rider[0] = val
+            del row[x]
+        elif val == "Front":
+            rider[8] = row[x+1]["text"]
+            del row[x:x+2]
+        elif val == "Rear":
+            rider[9] = row[x+1]["text"]
+            del row[x:x+2]
+        else:
+            x += 1
 
-    return row
+    x = 0
+    while x < len(rider):
+        val = rider[x]
+        if "Tyre" in val:
+            rider[x] = val.replace("Tyre", "")
+        else:
+            x += 1
+
+    string = ""
+    for i in row:
+        val = i["text"]
+        string += f" {val}"
+
+    rider[-1] = string.strip()
+
+    return rider
 
 
-# def getRiderRow(row):
-#     r = []
-#     print("")
-#     for i in row:
-#         print(i)
-#         r.append(i)
+
+
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+def getRidersData(yr):
+    data = []
+    rows = []
+
+    with open(f"{csvDir}{yr}_Riders.csv", "r", encoding="utf8") as yrFile:
+        i = csv.reader(yrFile, delimiter=",")
+        for r in i:
+            if r[0] != "f":
+                rows.append(r)
+        del rows[0]
+        q = []
+
+    if len(rows[0]) < 3:
+        for i in rows[0]:
+            print(i)
+            data.append(i)
+
+    elif len(rows[0]) > 3:
+        for row in rows:
+            data.append(row)
+
+    return data
 #
-#     rider = ["-pos-", "-number-", "-f_name-", "-l_name-", "-manufacturer-", "-nation-",
-#              "-team-", "-t_laps-", "-runs-", "-f_Tyre-", "-r_Tyre-",
-#              "-f_Age-", "-r_Age-", "-extra-"]
+def rowAddConst(row, const):
+    yr = const[-1]
+    for i in const:
+        row.insert(0, i)
+
+    rData = getRidersData(yr)
+
+    for i in rData:
+        m = i[6]
+        manu = m.upper()
+        if i[1] == row[2] and i[2] == row[6] and i[4] == row[10] and manu == row[9]:
+            print(f"Applicable rData: {i}")
+            name = i[3]
+            team = i[5]
+            x = name.split(" ", 1)
+            row[7] = x[0]
+            row[8] = x[1]
+            row[11] = team
+
 #
-#     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
+
 #
-#     while len(r) !=0:
-#         i = r[0]
-#         if re.match(position, i):
-#             rider[0] = i
-#         # elif i[""]
+# def addLists(file, nats, manus, riders, teams):
+#     whole, date = openPDF(file)
+#     for i in whole:
+#         if 115.319 < i["x0"] < 115.321:
+#             print("###############################################################################################################################################################################################################################################################################################")
+#             print(i["text"])
 #
+
 #
+
 #
+
 #
+
 #
-#     # if r[-1] == "Tyre":
-#     #     rider[11] = r[-2]
-#     #     del r[-2:]
-#     #     if r[-1] == "Tyre":
-#     #         rider[10] = r[-2]
-#     #         del r[-2:]
-#     #
-#     # x = 0
-#     # trash = ["MotoGP", "Tyre", "Moto2", "Moto3"]
-#     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-#     # nats = getListFils
-#     # manufacturers = ["YAMAHA", "HONDA", "DUCATI", "SUZUKI", "KTM", "APRILIA"]
-#     #
-#     # while x < len(r):
-#     #     if tooMany == 500:
-#     #         print("too many in getRider(1)")
-#     #     tooMany += 1
-#     #     if r[x] in trash:
-#     #         del r[x]
-#     #     elif re.match(position, r[x]):
-#     #         del r[x]
-#     #     elif r[x] == "Total":
-#     #         strLaps = r[x+1]
-#     #         laps = strLaps.replace("laps=", "")
-#     #         rider[6] = laps
-#     #         del r[x:x+3]
-#     #     elif r[x] in nations:
-#     #         rider[4] = r[x]
-#     #         del r[x]
-#     #     elif r[x] == "Run":
-#     #         rider[7] = r[x+2]
-#     #         del r[x:x+3]
-#     #     elif r[x] in manufacturers:
-#     #         rider[3] = r[x]
-#     #         del r[x]
-#     #     else:
-#     #         x += 1
-#     #
-#     # x = 0
-#     # while x < len(r):
-#     #     if tooMany == 500:
-#     #         print("too many in getRider(2)")
-#     #     tooMany += 1
-#     #     if re.match("^\d{1,2}$", r[x]):
-#     #         rider[0] = r[x]
-#     #         del r[x]
-#     #     elif r[x] == "Front":
-#     #         rider[8] = r[x+1]
-#     #         del r[x:x+2]
-#     #     elif r[x] == "Rear":
-#     #         rider[9] = r[x+1]
-#     #         del r[x:x+2]
-#     #     else:
-#     #         x += 1
-#     #
-#     # str = ""
-#     # for i in r:
-#     #     str += f" {i}"
-#     #
-#     # rider[-1] = str
-#     print(rider)
-#     return rider
+
 #
-# def rowAddConst(row, const):
-#     # """Adds the event data to the row"""
-#     for i in const:
-#         row.insert(0, i)
+
+
+# def getMatrix(rows, yr):
+#     # """Takes the list and removes the rider rows, and appends all the lap
+#     # rows with the appropriate rider data"""
+#
+#     matrix = []
+#     rider = ["none"]
+#
+#     for row in rows:
+#         if row[0] == yr:
+#             rider = row
+#         else:
+#             lap = []
+#             for i in rider[:-1]:
+#                 lap.append(i)
+#             for i in row:
+#                 lap.append(i)
+#             lap.append(rider[-1])
+#             matrix.append(lap)
+#
+#     return matrix
+#
+# def saveCSV(mat, file):
+#     df = pd.DataFrame(mat)
+#     df.to_csv(file, index=False)
+#
+# def getGLap(lis):
+#     # """After determinging that the following data represents a good lap, it
+#     # takes the applicable dat off that list, formats it as a lap and returns it."""
+#     row = []
+#     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
+#     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+#     avgSpeed = re.compile("^\d\d\d[.]\d$")
+#     slowSpeed = re.compile("^\d\d[.]\d$")
+#
+#     row.append(lis[0])
+#     del lis[0]
+#     row.append(lis[0])
+#     del lis[0]
+#     while True:
+#         if len(lis) == 0:
+#             break
+#         if re.match(avgSpeed, lis[0]) or \
+#             re.match(slowSpeed, lis[0]):
+#             row.append(lis[0])
+#             del lis[0]
+#             break
+#         if len(lis) > 2:
+#             if re.match(lapTime, lis[2]) or \
+#                 re.match(longLap, lis[2]):
+#                 row.append(lis[0])
+#                 del lis[0]
+#                 break
+#         row.append(lis[0])
+#         del lis[0]
+#
+#     lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+#     for i in lapLength:
+#         if len(row) < i:
+#             row.insert(-1, f"Tsec{i - 3}")
+#
+#     return row
+#
+# def getBLap(lis):
+#     # """After determing that the following data represents an unfinished lap, this
+#     # removes the applicable data, and formats it as a lap to return"""
+#
+#     row = []
+#     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
+#     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
+#     avgSpeed = re.compile("^\d\d\d[.]\d$")
+#     slowSpeed = re.compile("^\d\d[.]\d$")
+#
+#     row.append("dnf")
+#     while True:
+#         if len(lis) == 0:
+#             break
+#         if re.match(avgSpeed, lis[0]) or \
+#             re.match(slowSpeed, lis[0]):
+#             row.append(lis[0])
+#             del lis[0]
+#             break
+#         else:
+#             row.append(lis[0])
+#             del lis[0]
+#
+#     lapLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+#     for i in lapLength:
+#         if len(row) < i:
+#             row.insert(-1, f"Tsec{i - 3}")
+#
+#     return row
+
+
+
+#
+
 #
 
 #
