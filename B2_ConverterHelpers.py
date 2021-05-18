@@ -237,7 +237,7 @@ def getRiderRow(row, yr):
     rider = ["-0-number-", "-1-f_name-", "-2-l_name-", "-3-manufacturer-", "-4-nation-",
              "-5-team-", "-6-t_laps-", "-7-runs-", "-8-f_Tire-", "-9-r_Tire-",
              "-10-f_Age-", "-11-r_Age-", "-12-extra-"]
-    trash = ["MotoGP", "Tyre", "Moto2", "Moto3"]
+    trash = ["MotoGP", "Tyre", "Moto2", "Moto3", "500cc", "125cc", "250cc"]
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
 
     x = 0
@@ -334,7 +334,7 @@ def getRidersData(yr):
             data.append(row)
 
     return data
-#
+
 def rowAddConst(row, const):
     yr = const[-1]
     for i in const:
@@ -349,9 +349,30 @@ def rowAddConst(row, const):
             print(f"Applicable rData: {i}")
             name = i[3]
             team = i[5]
-            x = name.split(" ", 1)
-            row[7] = x[0]
-            row[8] = x[1]
+            if name in row[18]:
+                y = row[18].replace(name, "")
+                row[18] = y.strip()
+                x = name.split(" ", 1)
+                row[7] = x[0]
+                row[8] = x[1]
+            if team in row[18]:
+                y = row[18].replace(team, "")
+                y.strip()
+                row[18] = y.split()
+                row[11] = team
+            if len(row[18]) == 2:
+                if row[18][0] == "New":
+                    row[16] = 0
+                else:
+                    row[16] = int(row[18][0])
+                if row[18][1] == "New":
+                    row[17] = 0
+                else:
+                    row[17] = int(row[18][1])
+                del row[18]
+
+
+
             row[11] = team
 
 #
