@@ -9,16 +9,36 @@ for yr in yrs:
     for lge in lges:
         for sesType in ses:
 
-            rcFiles = getAnalyFiles(pdfDir, f"{yr}-Round_1*{lge}*{sesType}*nalysis.pdf")
+            rcFiles = getAnalyFiles(pdfDir, f"{yr}*{lge}*{sesType}*nalysis.pdf")
 
-            for file in rcFiles[:1]:
+            for file in rcFiles:
+
                 if file not in csvFinFiles:
-                    g = file.replace(".pdf", ".csv")
-                    h = g.replace(f"{pdfDir}", "")
-                    z = csvDir + h
+                    saveName, track = getSaveName(file, sesType)
                     col, date = openPDF(file)
-                    const = getConst(yr, h, date)
+                    rows = parsePDF(col, yr)
+                    const = [yr, date, lge, track, sesType]
 
+                    for i in rows: print(i)
+
+                    matrix = getMatrix(rows, const)
+                    print("\n##########################################################################\n")
+
+
+                    # saveCSV(matrix, saveName)
+                    #
+                    # frequency = 500
+                    # duration = 300
+                    # Beep(frequency, duration)
+                    # csvFinFiles.append(file)
+                    # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
+                    #     for i in csvFinFiles:
+                    #         f.write(i + "\\n")
+                    #
+                    # del rows
+                    # del matrix
+
+                    exit()
 
 ########################################################################################################################
 ########################################################################################################################
@@ -46,19 +66,9 @@ for yr in yrs:
                     #         print(f"{txt}       {loq}")
                     #     print("##################################################################")
 
-                    rows = parsePDF(col, const)
-                    # matrix = getMatrix(rows, yr)
-                    # saveCSV(matrix, z)
-                    #
-                    # frequency = 500
-                    # duration = 300
-                    # Beep(frequency, duration)
-                    # csvFinFiles.append(file)
-                    # with open(f"{sveFiles}csvFinFiles.txt", "w") as f:
-                    #     for i in finFiles:
-                    #         f.write(i)
-                    #
-                    # del rows
-                    # del matrix
 
-    # exit()
+
+
+                    #
+
+
