@@ -196,6 +196,7 @@ def getRow(lis, yr):
     name = re.compile("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
 
     if len(lis) < 1:
+        print("empty row")
         row = []
 
     elif len(lis) < 2:
@@ -310,14 +311,24 @@ def rowAddRdrData(row, yr):
     rData = getRidersData(yr)
     found = False
 
+    print("")
+    rNum = row[0]
+    rNat = row[4]
+    rManu = row[3]
+    print(row)
+
     while found == False:
+
         for i in rData:
+            num = i[2]
             name = i[3]
-            team = i[5]
             nat = i[4]
+            team = i[5]
             m = i[6]
             manu = m.upper()
-            if i[2] == row[0] and nat == row[4] and manu == row[3]:
+
+            if num == row[0]:
+                print(i[2:])
                 y = row[12].replace(name, "")
                 row[12] = y.strip()
                 x = name.split(" ", 1)
@@ -424,7 +435,7 @@ def saveCSV(mat, file):
     df = pd.DataFrame(mat)
     df.to_csv(file, index=False)
 
-def fixRows(rows):
+def fixRow(row):
 
     inte = re.compile("^\d{1,2}$")
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
@@ -439,23 +450,23 @@ def fixRows(rows):
     nats = ["JPN", "ITA", "USA", "AUS", "SPA", "SWI", "NED", "GBR", "MAL", "INA", "THA", "GER", "RSA", "FRA", "POR",
             "AUT", "ARG", "CZE", "TUR"]
 
-    for row in rows:
-        if row[0] == "lap":
-            if re.match(inte, row[1]) == None:
-                row.insert(1, "dnf")
-            if row[2] == "PIT":
-                row[2] = "unfinished"
-            if row[3] != "P":
-                row.insert(3, "did not pit")
-            else: row[3] = "pit"
-            if re.match(avgSpeed, row[-1]) == None:
-                row.insert(-1, "missing speed")
-            while len(row) != 13:
-                row.insert(-1, "no section time")
+    if row[0] == "lap":
+        if re.match(inte, row[1]) == None:
+            row.insert(1, "dnf")
+        if row[2] == "PIT":
+            row[2] = "unfinished"
+        if row[3] != "P":
+            row.insert(3, "did not pit")
+        else:
+            row[3] = "pit"
+        if re.match(avgSpeed, row[-1]) == None:
+            row.append("missing speed")
+        while len(row) != 13:
+            row.insert(-1, "no section time")
 
-    return rows
+    return row
 
-def chekRows(rows):
+def chekRows(rows, file):
     inte = re.compile("^\d{1,2}$")
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
@@ -471,13 +482,13 @@ def chekRows(rows):
 
     for i in rows:
         if i[0] == "rider":
-            if len(i) != 13: print(i)
-            if re.match(inte, i[1]) == None: print(i)
-            if re.match(name, i[2]) == None: print(i)
-            if re.match(name, i[3]) == None: print(i)
-            if i[4] not in manus: print(i)
-            if i[5] not in nats: print(i)
-            if "laps=" not in i[7]: print(i)
+            if len(i) != 13: print(f"{file}\n{i}")
+            if re.match(inte, i[1]) == None: print(f"{file}\n{i}")
+            if re.match(name, i[2]) == None: print(f"{file}\n{i}")
+            if re.match(name, i[3]) == None: print(f"{file}\n{i}")
+            if i[4] not in manus: print(f"{file}\n{i}")
+            if i[5] not in nats: print(f"{file}\n{i}")
+            if "laps=" not in i[7] and i[7] != "-6-t_laps-" : print(f"{file}\n{i}")
 
             assert len(i) == 13
             assert re.match(inte, i[1])
@@ -485,15 +496,15 @@ def chekRows(rows):
             assert re.match(name, i[3])
             assert i[4] in manus
             assert i[5] in nats
-            assert "laps=" in i[7]
+            assert "laps=" in i[7] or i[7] == "-6-t_laps-"
 
         elif i[0] == "run":
-            if len(i) != 6: print(i)
-            if re.match(inte, i[1]) == None: print(i)
-            if i[2] not in tires: print(i)
-            if i[3] not in tires: print(i)
-            if re.match(inte, i[4]) == None and i[4] != "missing": print(i)
-            if re.match(inte, i[5]) == None and i[4] != "missing": print(i)
+            if len(i) != 6: print(f"{file}\n{i}")
+            if re.match(inte, i[1]) == None: print(f"{file}\n{i}")
+            if i[2] not in tires: print(f"{file}\n{i}")
+            if i[3] not in tires: print(f"{file}\n{i}")
+            if re.match(inte, i[4]) == None and i[4] != "missing": print(f"{file}\n{i}")
+            if re.match(inte, i[5]) == None and i[4] != "missing": print(f"{file}\n{i}")
 
             assert len(i) == 6
             assert re.match(inte, i[1])
@@ -503,18 +514,16 @@ def chekRows(rows):
             assert re.match(inte, i[5]) or i[4] == "missing"
 
         elif i[0] == "lap":
-            if len(i) != 13:
-                print(i)
-                print(len(i))
-            if re.match(inte, i[1]) == None and i[1] != "dnf": print(i)
-            if re.match(lapTime, i[2]) == None and i[2] != "unfinished": print(i)
-            if i[3] != "P" and i[3] != "did not pit" and i[3] != "pit": print(i)
+            if len(i) != 13: print(f"{file}\n{len(i)}\n{i}")
+            if re.match(inte, i[1]) == None and i[1] != "dnf": print(f"{file}\n{i}")
+            if re.match(lapTime, i[2]) == None and i[2] != "unfinished": print(f"{file}\n{i}")
+            if i[3] != "P" and i[3] != "did not pit" and i[3] != "pit": print(f"{file}\n{i}")
             for j in i[4:-1]:
                 if re.match(lapTime, j) == None and re.match(secTime, j) == None and j != "no section time":
                     print("")
                     print(j)
-                    print(i)
-            if re.match(avgSpeed, i[-1]) == None and i[-1] != "missing speed": print(i)
+                    print(f"{file}\n{i}")
+            if re.match(avgSpeed, i[-1]) == None and i[-1] != "missing speed": print(f"{file}\n{i}")
 
             assert len(i) == 13
             assert re.match(inte, i[1]) or i[1] == "dnf"

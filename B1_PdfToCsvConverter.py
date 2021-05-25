@@ -7,19 +7,24 @@ for yr in yrs:
     for lge in lges:
         print("")
         print(f" - - - {yr}, {lge} - - - ")
-        rcFiles = getAnalyFiles(pdfDir, f"{yr}*{lge}*nalysis.pdf")
+        rcFiles = getAnalyFiles(pdfDir, f"{yr}*Round_1*{lge}*RAC*nalysis.pdf")
 
         for file in rcFiles:
             for i in ses:
                 if i in file:
                     sesType = i
             saveName, track = getSaveName(file, sesType)
-            print(saveName)
             col, date = openPDF(file)
             rows = parsePDF(col, yr)
             const = [yr, date, lge, track, sesType]
-            fRows = fixRows(rows)
-            chekRows(fRows)
+
+            fRows = []
+            for row in rows:
+                fRow = fixRow(row)
+                fRows.append(fRow)
+
+            # fRows = fixRows(rows)
+            chekRows(fRows, file)
 
 ########################################################################################################################
 ########################################################################################################################
@@ -36,12 +41,11 @@ for yr in yrs:
 
 
             matrix = getMatrix(fRows, const)
-
             saveCSV(matrix, saveName)
-
             frequency = 500
             duration = 300
             Beep(frequency, duration)
+            print(saveName)
             # csvFinFiles.append(file)
             # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
             #     for i in csvFinFiles:
