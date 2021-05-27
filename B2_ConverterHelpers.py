@@ -101,6 +101,12 @@ def stripBoilerPlate(lis):
     x = 0
     while "Fastest" not in lis[x]["text"]:
         x += 1
+        if lis[x]["text"] == "These":
+            break
+        if lis[x]["text"] == "FIM" and lis[x+1]["text"] == "ROAD":
+            break
+        if lis[x]["text"] == "MotoGP" and lis[x+1]["text"] == "MotoGP":
+            break
     del lis[x:]
 
     x = 0
@@ -191,7 +197,7 @@ def getLap(lis):
 
 def getRow(lis, yr):
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
-    secTime = re.compile("^\d{0,1}[.]\d\d\d[*]{0,1}$")
+    secTime = re.compile("^\d{1,2}[.]\d\d\d[*]{0,1}$")
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
     name = re.compile("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
 
@@ -233,6 +239,8 @@ def getRow(lis, yr):
         print("Line 196 Helpers ###########################################################################################################################################")
         for i in lis[:4]:
             print(f"{i}")
+        if re.match(secTime, i[1]):
+            print("success")
         print("##################################################################")
         row = []
 

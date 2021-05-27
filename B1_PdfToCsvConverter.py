@@ -3,14 +3,15 @@ from B2_ConverterHelpers import *
 
 # csvFinFiles = getFinFiles("csv")
 
-yrs = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008",
-       "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+# yrs = ["2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
 
 for yr in yrs:
     for lge in lges:
-        print("")
-        print(f" - - - {yr}, {lge} - - - ")
-        rcFiles = getAnalyFiles(pdfDir, f"{yr}*{lge}*Q*nalysis.pdf")
+        rcFiles = getAnalyFiles(pdfDir, f"{yr}*{lge}*nalysis.pdf")
+
+        if len(rcFiles) != 0:
+            print("")
+            print(f" - - - {yr}, {lge} - - - ")
 
         for file in rcFiles:
             for i in ses:
@@ -22,17 +23,8 @@ for yr in yrs:
             rows = parsePDF(col, yr)
             const = ["const", yr, date, lge, track, sesType]
             rows.insert(0, const)
-
-            for row in rows:
-                print(row)
-
-            # fRows = []
-            # for row in rows:
-            #     fRow = fixRow(row)
-            #     fRows.append(fRow)
-
-            # fRows = fixRows(rows)
-            # chekRows(fRows, file)
+            for i in rows:
+                print(i)
 
 ########################################################################################################################
 ########################################################################################################################
@@ -49,10 +41,10 @@ for yr in yrs:
 
 
             # matrix = getMatrix(fRows, const)
-            saveCSV(rows, saveName)
-            frequency = 500
-            duration = 300
-            Beep(frequency, duration)
+            # saveCSV(rows, saveName)
+            # frequency = 500
+            # duration = 300
+            # Beep(frequency, duration)
             # csvFinFiles.append(file)
             # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
             #     for i in csvFinFiles:
