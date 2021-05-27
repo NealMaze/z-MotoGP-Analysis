@@ -3,28 +3,36 @@ from B2_ConverterHelpers import *
 
 # csvFinFiles = getFinFiles("csv")
 
+yrs = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008",
+       "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+
 for yr in yrs:
     for lge in lges:
         print("")
         print(f" - - - {yr}, {lge} - - - ")
-        rcFiles = getAnalyFiles(pdfDir, f"{yr}*Round_1*{lge}*RAC*nalysis.pdf")
+        rcFiles = getAnalyFiles(pdfDir, f"{yr}*{lge}*Q*nalysis.pdf")
 
         for file in rcFiles:
             for i in ses:
                 if i in file:
                     sesType = i
+            print(f"\n{file}")
             saveName, track = getSaveName(file, sesType)
             col, date = openPDF(file)
             rows = parsePDF(col, yr)
-            const = [yr, date, lge, track, sesType]
+            const = ["const", yr, date, lge, track, sesType]
+            rows.insert(0, const)
 
-            fRows = []
             for row in rows:
-                fRow = fixRow(row)
-                fRows.append(fRow)
+                print(row)
+
+            # fRows = []
+            # for row in rows:
+            #     fRow = fixRow(row)
+            #     fRows.append(fRow)
 
             # fRows = fixRows(rows)
-            chekRows(fRows, file)
+            # chekRows(fRows, file)
 
 ########################################################################################################################
 ########################################################################################################################
@@ -40,19 +48,18 @@ for yr in yrs:
 ########################################################################################################################
 
 
-            matrix = getMatrix(fRows, const)
-            saveCSV(matrix, saveName)
+            # matrix = getMatrix(fRows, const)
+            saveCSV(rows, saveName)
             frequency = 500
             duration = 300
             Beep(frequency, duration)
-            print(saveName)
             # csvFinFiles.append(file)
             # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
             #     for i in csvFinFiles:
             #         f.write(i + "\\n")
 
             del rows
-            del matrix
+            # del matrix
 
 ########################################################################################################################
 ########################################################################################################################

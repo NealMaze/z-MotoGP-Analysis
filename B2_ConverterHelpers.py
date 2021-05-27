@@ -190,13 +190,14 @@ def getLap(lis):
     return row
 
 def getRow(lis, yr):
-    val = "none"
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
+    secTime = re.compile("^\d{0,1}[.]\d\d\d[*]{0,1}$")
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
     name = re.compile("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
 
     if len(lis) < 1:
         print("empty row")
+        print("##########################################################################################################")
         row = []
 
     elif len(lis) < 2:
@@ -208,6 +209,10 @@ def getRow(lis, yr):
         val = "lap"
         row = getLap(lis)
 
+    elif lis[1]["text"] == "unfinished" or lis[1]["text"] == "PIT" or re.match(secTime, lis[1]["text"]):
+        val = "lap"
+        row = getLap(lis)
+
     elif re.match(lapTime, lis[1]["text"]):
         val = "lap"
         row = getLap(lis)
@@ -216,37 +221,37 @@ def getRow(lis, yr):
         val = "run"
         row = getRun(lis)
 
-    elif re.match(position, lis[0]["text"]) or re.match(name, lis[0]["text"]):
+    elif re.match(position, lis[0]["text"]) or re.match(name, lis[0]["text"]) or re.match(name, lis[1]["text"]):
         val = "rider"
-        low = getRiderRow(lis)
-        row = formatRiderRow(low)
-        rowAddRdrData(row, yr)
+        row = getRiderRow(lis)
+        # row = formatRiderRow(low)
+        # rowAddRdrData(row, yr)
 
     else:
         print("")
-        print(f" - - - {yr}, {lge}, {sesType} - - - ")
+        print(f" - - - {yr} - - - ")
         print("Line 196 Helpers ###########################################################################################################################################")
-        for i in line[:4]:
+        for i in lis[:4]:
             print(f"{i}")
         print("##################################################################")
-
-    x = row[0].lower()
-    row[0] = x
+        row = []
 
     return row
 
 def getRiderRow(lis):
-    runs = ["Run", "run", "Run#", "run#"]
-    row = []
+    lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
+    runs = ["Run", "run", "Run#", "run#", "unfinished", "PIT"]
+    row = ["rider"]
     while True:
-        row.append(lis[0]["text"])
-        del lis[0]
         if len(lis) < 2:
             row.append(lis[0]["text"])
             del lis[0]
             break
-        if lis[0]["text"] in runs:
+        elif lis[0]["text"] in runs or re.match(lapTime, lis[1]["text"]):
             break
+        else:
+            row.append(lis[0]["text"])
+            del lis[0]
 
     return row
 
