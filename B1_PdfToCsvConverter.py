@@ -41,10 +41,12 @@ for yr in yrs:
 
 
             # matrix = getMatrix(fRows, const)
-            # saveCSV(rows, saveName)
-            # frequency = 500
-            # duration = 300
-            # Beep(frequency, duration)
+
+            saveCSV(rows, saveName)
+            frequency = 500
+            duration = 300
+            Beep(frequency, duration)
+
             # csvFinFiles.append(file)
             # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
             #     for i in csvFinFiles:

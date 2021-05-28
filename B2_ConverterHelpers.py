@@ -196,6 +196,7 @@ def getLap(lis):
     return row
 
 def getRow(lis, yr):
+    jokeLap = re.compile("^\d{1}[:]\d\d[']\d\d[.]\d\d\d[*]{0,1}$")
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
     secTime = re.compile("^\d{1,2}[.]\d\d\d[*]{0,1}$")
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
@@ -219,7 +220,7 @@ def getRow(lis, yr):
         val = "lap"
         row = getLap(lis)
 
-    elif re.match(lapTime, lis[1]["text"]):
+    elif re.match(lapTime, lis[1]["text"]) or re.match(jokeLap, lis[1]["text"]):
         val = "lap"
         row = getLap(lis)
 
