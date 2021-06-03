@@ -308,6 +308,34 @@ def getCRows(rows, yr, lge):
         if row[0] == "lap":
             template = ["lap", "lapNum", "lap time", "pit boolean", "sec time", "sec time", "sec time",
                         "sec time", "sec time", "sec time", "sec time", "sec time", "avg speed"]
+            nuRow = []
+            for i in row:
+                if i[0] == "P" and len(i) > 1 and i != "PIT":
+                    print("\n")
+                    print(i)
+                    print("\n")
+                    i.replace("P", "")
+                    nuRow.append("P")
+                    nuRow.append(i)
+                    print("\n")
+                    print(i)
+                    print(nuRow)
+                    print("\n")
+                    exit()
+                elif i[-1] == "P" and len(i) > 1 and i != "PIT":
+                    print("\n")
+                    print(i)
+                    print("\n")
+                    i.replace("P", "")
+                    nuRow.append(i)
+                    nuRow.append("P")
+                    print("\n")
+                    print(i)
+                    print(nuRow)
+                    print("\n")
+                    exit()
+                else:
+                    nuRow.append(i)
             nuRow = row
             nuLap = []
             ########################################################################################################################
