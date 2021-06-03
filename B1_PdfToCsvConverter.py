@@ -34,7 +34,6 @@ for yr in yrs:
                     j = str(i)
                     row[x] = j
                     x += 1
-                print(row)
 
                 if row[0] == "lap":
                     chkLap(row)

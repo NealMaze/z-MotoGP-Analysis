@@ -334,7 +334,6 @@ def getCRows(rows, yr, lge):
                     print(badLap)
                     lapNum += 1
                     if re.match(inte, nuRow[1]) != None and nuRow[1] == str(lapNum):
-                        print(nuRow)
                         break
 
             elif nuRow[1] < str(lapNum) and re.match(inte, nuRow[1]) != None:
@@ -369,7 +368,8 @@ def getCRows(rows, yr, lge):
 
             else:
                 if nuRow[0] == "40.927":
-                    del nuRow
+                    nuRow = ["lap", lapNum, "missing", "missing", "missing", "missing", "missing", "missing",
+                              "missing", "missing", "missing", "missing", "missing"]
                 else:
                     print("\n")
                     print(f"line 96 - {nuRow[0]}")
