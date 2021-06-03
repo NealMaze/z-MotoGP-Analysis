@@ -322,8 +322,6 @@ def getCRows(rows, yr, lge):
 
             elif re.match(inte, nuRow[1]) != None and nuRow[1] > str(lapNum):
                 alNum = nuRow[1]
-                print("\n")
-                print(row)
                 print("lap number in row higher than expected lap number")
                 print(f"expected lap number = {lapNum}")
                 print(f"actual lap number =   {alNum}")
@@ -331,7 +329,6 @@ def getCRows(rows, yr, lge):
                     badLap = ["lap", lapNum, "missing", "missing", "missing", "missing", "missing", "missing",
                               "missing", "missing", "missing", "missing", "missing"]
                     cRows.append(badLap)
-                    print(badLap)
                     lapNum += 1
                     if re.match(inte, nuRow[1]) != None and nuRow[1] == str(lapNum):
                         break
@@ -368,8 +365,13 @@ def getCRows(rows, yr, lge):
 
             else:
                 if nuRow[0] == "40.927":
-                    nuRow = ["lap", lapNum, "missing", "missing", "missing", "missing", "missing", "missing",
-                              "missing", "missing", "missing", "missing", "missing"]
+                    print("\n")
+                    print(nuRow)
+                    print(nuLap)
+                    print("\n")
+
+                    nuRow = []
+                    nuLap.append("0")
                 else:
                     print("\n")
                     print(f"line 96 - {nuRow[0]}")
@@ -388,6 +390,7 @@ def getCRows(rows, yr, lge):
             else:
                 print(f"line 114 - {nuRow[0]}")
                 print(nuRow)
+                print(nuLap)
                 exit()
             ########################################################################################################################
             # manage pit booleon
