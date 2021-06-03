@@ -196,6 +196,12 @@ def getAllTests(soup, yr):
         print(f"no tests were found in {yr}")
     else:
         r = find.find_all(href = True)
+
+    print("")
+    for i in r:
+        print(i)
+    print("")
+
     return r
 
 ########################################################################################################################

@@ -4906,3 +4906,612 @@ JavaScript error: https://www.motogp.com/en/Results+Statistics/2021/QAT/MotoGP/,
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1622694635773	geckodriver	INFO	Listening on 127.0.0.1:53244
+1622694638827	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileqEPD9J"
+1622694639410	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622694641421	Marionette	INFO	Listening on port 53255
+1622694641508	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622694645914	Marionette	INFO	Stopped listening on port 53255
+1622694654827	geckodriver	INFO	Listening on 127.0.0.1:53311
+1622694657860	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofiletCbiH5"
+1622694658194	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622694659908	Marionette	INFO	Listening on port 53323
+1622694659929	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622694670589	Marionette	INFO	Stopped listening on port 53323
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622694812877	geckodriver	INFO	Listening on 127.0.0.1:53474
+1622694815913	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileA8nwSH"
+1622694816248	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622694817787	Marionette	INFO	Listening on port 53484
+1622694817974	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622694823704	Marionette	INFO	Stopped listening on port 53484
+1622694868100	geckodriver	INFO	Listening on 127.0.0.1:53590
+1622694871155	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileglZosR"
+1622694871471	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622694873030	Marionette	INFO	Listening on port 53601
+1622694873221	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622694874095	Marionette	INFO	Stopped listening on port 53601
+1622694879390	geckodriver	INFO	Listening on 127.0.0.1:53672
+1622694882419	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilexieVDw"
+1622694882743	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622694884265	Marionette	INFO	Listening on port 53682
+1622694884477	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622694885461	Marionette	INFO	Stopped listening on port 53682
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\LuciusFish\AppData\Local\Temp\rust_mozprofilexieVDw\protections.sqlite
+1622694918539	geckodriver	INFO	Listening on 127.0.0.1:53770
+1622694921619	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileJ857LG"
+1622694921946	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622694923504	Marionette	INFO	Listening on port 53779
+1622694923675	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622694924715	Marionette	INFO	Stopped listening on port 53779
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\LuciusFish\AppData\Local\Temp\rust_mozprofileJ857LG\protections.sqlite
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622694962785	geckodriver	INFO	Listening on 127.0.0.1:53866
+1622694965830	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile01E1Ib"
+1622694966157	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622694967994	Marionette	INFO	Listening on port 53875
+1622694968491	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622695001841	Marionette	INFO	Stopped listening on port 53875
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622695125296	geckodriver	INFO	Listening on 127.0.0.1:54035
+1622695128336	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilehVZfod"
+1622695128671	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695130291	Marionette	INFO	Listening on port 54045
+1622695130399	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622695132188	Marionette	INFO	Stopped listening on port 54045
+1622695176268	geckodriver	INFO	Listening on 127.0.0.1:54131
+1622695179324	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile9G0Tas"
+1622695179649	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695181215	Marionette	INFO	Listening on port 54140
+1622695181366	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622695182542	Marionette	INFO	Stopped listening on port 54140
+1622695437639	geckodriver	INFO	Listening on 127.0.0.1:54518
+1622695440679	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilebsCj4f"
+1622695441001	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695442563	Marionette	INFO	Listening on port 54528
+1622695442738	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622695444634	Marionette	INFO	Stopped listening on port 54528
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\LuciusFish\AppData\Local\Temp\rust_mozprofilebsCj4f\protections.sqlite
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622695571026	geckodriver	INFO	Listening on 127.0.0.1:54682
+1622695574076	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilepgEZnl"
+1622695574399	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695575942	Marionette	INFO	Listening on port 54691
+1622695576129	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622695600015	Marionette	INFO	Stopped listening on port 54691
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622695619560	geckodriver	INFO	Listening on 127.0.0.1:54809
+1622695622610	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilepQOcFv"
+1622695622931	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695624468	Marionette	INFO	Listening on port 54819
+1622695624667	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622695626562	Marionette	INFO	Stopped listening on port 54819
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+1622695886481	geckodriver	INFO	Listening on 127.0.0.1:55099
+1622695889544	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileWFa9EV"
+1622695889867	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695891432	Marionette	INFO	Listening on port 55109
+1622695891601	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622695900629	Marionette	INFO	Stopped listening on port 55109
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622695909740	geckodriver	INFO	Listening on 127.0.0.1:55188
+1622695912803	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileay32av"
+1622695913127	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695914671	Marionette	INFO	Listening on port 55197
+1622695914866	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622695916600	Marionette	INFO	Stopped listening on port 55197
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622695935498	geckodriver	INFO	Listening on 127.0.0.1:55278
+1622695938567	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilekPLf3z"
+1622695938887	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695940418	Marionette	INFO	Listening on port 55287
+1622695940625	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622695948913	Marionette	INFO	Stopped listening on port 55287
+1622695983988	geckodriver	INFO	Listening on 127.0.0.1:55380
+1622695987036	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilev8ovVP"
+1622695987353	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622695988920	Marionette	INFO	Listening on port 55389
+1622695989090	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622695996504	Marionette	INFO	Stopped listening on port 55389
+1622696000660	geckodriver	INFO	Listening on 127.0.0.1:55469
+1622696003716	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileJldj7k"
+1622696004036	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696005744	Marionette	INFO	Listening on port 55480
+1622696005782	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622696012640	Marionette	INFO	Stopped listening on port 55480
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696050223	geckodriver	INFO	Listening on 127.0.0.1:55572
+1622696053283	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileQyHTAw"
+1622696053632	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696055417	Marionette	INFO	Listening on port 55581
+1622696055438	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696074907	Marionette	INFO	Stopped listening on port 55581
+1622696085597	geckodriver	INFO	Listening on 127.0.0.1:55671
+1622696088671	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileXQyNxM"
+1622696088989	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696090480	Marionette	INFO	Listening on port 55682
+1622696090724	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622696092299	Marionette	INFO	Stopped listening on port 55682
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\LuciusFish\AppData\Local\Temp\rust_mozprofileXQyNxM\protections.sqlite
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696121378	geckodriver	INFO	Listening on 127.0.0.1:55775
+1622696124445	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileT8oNPs"
+1622696124761	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696126367	Marionette	INFO	Listening on port 55787
+1622696126512	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696128587	Marionette	INFO	Stopped listening on port 55787
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696153628	geckodriver	INFO	Listening on 127.0.0.1:55867
+1622696156702	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilevY4gPZ"
+1622696157018	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696158531	Marionette	INFO	Listening on port 55877
+1622696158755	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622696164248	Marionette	INFO	Stopped listening on port 55877
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696172468	geckodriver	INFO	Listening on 127.0.0.1:55968
+1622696175527	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileT8lu2Z"
+1622696175866	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696177579	Marionette	INFO	Listening on port 55977
+1622696177689	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622696179800	geckodriver	INFO	Listening on 127.0.0.1:56043
+1622696182844	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileFsZUoi"
+1622696183161	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696184721	Marionette	INFO	Listening on port 56052
+1622696184901	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696186704	Marionette	INFO	Stopped listening on port 56052
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696215698	geckodriver	INFO	Listening on 127.0.0.1:56137
+1622696218744	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileQb8kaT"
+1622696219060	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696220624	Marionette	INFO	Listening on port 56146
+1622696220802	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622696222479	Marionette	INFO	Stopped listening on port 56146
+1622696298723	geckodriver	INFO	Listening on 127.0.0.1:56304
+1622696301772	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilefbLZCG"
+1622696302095	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696303613	Marionette	INFO	Listening on port 56313
+1622696303830	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696314436	Marionette	INFO	Stopped listening on port 56313
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696325417	geckodriver	INFO	Listening on 127.0.0.1:56399
+1622696328441	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileti144F"
+1622696328763	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696330306	Marionette	INFO	Listening on port 56408
+1622696330494	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622696338328	Marionette	INFO	Stopped listening on port 56408
+1622696443822	geckodriver	INFO	Listening on 127.0.0.1:56594
+1622696446840	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile0KqMFz"
+1622696447160	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696448700	Marionette	INFO	Listening on port 56603
+1622696448913	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696456210	Marionette	INFO	Stopped listening on port 56603
+1622696547084	geckodriver	INFO	Listening on 127.0.0.1:56722
+1622696550129	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilezEtp3W"
+1622696550455	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696552321	Marionette	INFO	Listening on port 56731
+1622696552786	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696557278	Marionette	INFO	Stopped listening on port 56731
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696563130	geckodriver	INFO	Listening on 127.0.0.1:56820
+1622696566188	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilewKjVtp"
+1622696566544	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696568284	Marionette	INFO	Listening on port 56829
+1622696568350	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696569195	Marionette	INFO	Stopped listening on port 56829
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696585375	geckodriver	INFO	Listening on 127.0.0.1:56900
+1622696588436	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilejPQ8J8"
+1622696588753	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696590257	Marionette	INFO	Listening on port 56911
+1622696590480	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622696601361	Marionette	INFO	Stopped listening on port 56911
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622696732336	geckodriver	INFO	Listening on 127.0.0.1:57072
+1622696735383	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileLF6rPM"
+1622696735703	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622696737253	Marionette	INFO	Listening on port 57082
+1622696737431	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622696754833	Marionette	INFO	Stopped listening on port 57082
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622698143776	geckodriver	INFO	Listening on 127.0.0.1:53886
+1622698146801	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilex66qZ0"
+1622698147293	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698148970	Marionette	INFO	Listening on port 53895
+1622698149474	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622698160359	Marionette	INFO	Stopped listening on port 53895
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622698164740	geckodriver	INFO	Listening on 127.0.0.1:53978
+1622698167771	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilekj9SqY"
+1622698168092	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698169891	Marionette	INFO	Listening on port 53988
+1622698169940	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622698416963	Marionette	INFO	Stopped listening on port 53988
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilePt6uSZ"
+1622698191440	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698192993	Marionette	INFO	Listening on port 54086
+1622698193175	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622698237970	Marionette	INFO	Stopped listening on port 54086
+2698234087	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileqLhD5v"
+1622698234422	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698235962	Marionette	INFO	Listening on port 54190
+1622698236155	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622698351106	Marionette	INFO	Stopped listening on port 54190
+2698346761	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilezAWeeA"
+1622698347088	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698348626	Marionette	INFO	Listening on port 54366
+1622698348823	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622698356346	Marionette	INFO	Stopped listening on port 54366
+1622698403119	geckodriver	INFO	Listening on 127.0.0.1:54473
+1622698406170	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileYHsXbe"
+1622698406490	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698408111	Marionette	INFO	Listening on port 54482
+1622698408214	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622698417977	Marionette	INFO	Stopped listening on port 54482
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622698693687	geckodriver	INFO	Listening on 127.0.0.1:54703
+1622698696756	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilekfSTcv"
+1622698697082	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698698822	Marionette	INFO	Listening on port 54712
+1622698698923	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+1622698706449	Marionette	INFO	Stopped listening on port 54712
+1622698741471	geckodriver	INFO	Listening on 127.0.0.1:54814
+1622698744509	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileNDbwC2"
+1622698744831	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698746350	Marionette	INFO	Listening on port 54823
+1622698746569	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622698747675	Marionette	INFO	Stopped listening on port 54823
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\LuciusFish\AppData\Local\Temp\rust_mozprofileNDbwC2\protections.sqlite
+1622698816127	geckodriver	INFO	Listening on 127.0.0.1:54924
+1622698819183	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilekw8U6m"
+1622698819508	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622698821100	Marionette	INFO	Listening on port 54935
+1622698821242	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622698822930	Marionette	INFO	Stopped listening on port 54935
+JavaScript error: chrome://global/content/elements/browser-custom-element.js, line 1709: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622699111286	geckodriver	INFO	Listening on 127.0.0.1:55164
+1622699114321	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilelTPYWz"
+1622699114653	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622699116392	Marionette	INFO	Listening on port 55173
+1622699116487	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622699128411	Marionette	INFO	Stopped listening on port 55173
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622699167670	geckodriver	INFO	Listening on 127.0.0.1:55282
+1622699170715	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileiUnwik"
+1622699171037	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622699172662	Marionette	INFO	Listening on port 55291
+1622699172772	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622699174937	Marionette	INFO	Stopped listening on port 55291
+1622699619052	geckodriver	INFO	Listening on 127.0.0.1:55566
+1622699622120	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileUYIdIN"
+1622699622444	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622699623990	Marionette	INFO	Listening on port 55575
+1622699624165	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622699638639	Marionette	INFO	Stopped listening on port 55575
+1622699666105	geckodriver	INFO	Listening on 127.0.0.1:55665
+1622699669149	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileHXk9oq"
+1622699669463	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622699671026	Marionette	INFO	Listening on port 55675
+1622699671220	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622699681707	Marionette	INFO	Stopped listening on port 55675
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622699691743	geckodriver	INFO	Listening on 127.0.0.1:55763
+1622699694792	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileUWzfsm"
+1622699695107	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622699696732	Marionette	INFO	Listening on port 55776
+1622699696852	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622699706700	Marionette	INFO	Stopped listening on port 55776
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622699727936	geckodriver	INFO	Listening on 127.0.0.1:55863
+1622699730974	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileNPolEk"
+1622699731296	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622699732991	Marionette	INFO	Listening on port 55873
+1622699733045	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622699749477	Marionette	INFO	Stopped listening on port 55873
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622700165869	geckodriver	INFO	Listening on 127.0.0.1:56190
+1622700168899	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileWkO1SV"
+1622700169225	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700170977	Marionette	INFO	Listening on port 56200
+1622700171049	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622700184064	Marionette	INFO	Stopped listening on port 56200
+1622700202500	geckodriver	INFO	Listening on 127.0.0.1:56287
+1622700205545	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileVkAuZ0"
+1622700205884	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700207449	Marionette	INFO	Listening on port 56297
+1622700207604	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622700398308	Marionette	INFO	Stopped listening on port 56297
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileNTqJie"
+1622700241895	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700243398	Marionette	INFO	Listening on port 56391
+1622700243659	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622700398972	Marionette	INFO	Stopped listening on port 56391
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile74ZvPP"
+1622700278155	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700279900	Marionette	INFO	Listening on port 56500
+1622700279998	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+1622700399471	Marionette	INFO	Stopped listening on port 56500
+2700291632	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile31Mbep"
+1622700291953	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700293773	Marionette	INFO	Listening on port 56593
+1622700293804	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622700399941	Marionette	INFO	Stopped listening on port 56593
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilePeAhBK"
+1622700324749	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700326315	Marionette	INFO	Listening on port 56690
+1622700326470	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622700400416	Marionette	INFO	Stopped listening on port 56690
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilefPLn08"
+1622700370474	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700372071	Marionette	INFO	Listening on port 56802
+1622700372205	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622700377539	Marionette	INFO	Stopped listening on port 56802
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622700386027	geckodriver	INFO	Listening on 127.0.0.1:56886
+1622700389045	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileLfRURF"
+1622700389378	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700391044	Marionette	INFO	Listening on port 56896
+1622700391100	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622700402642	Marionette	INFO	Stopped listening on port 56896
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622700463332	geckodriver	INFO	Listening on 127.0.0.1:57016
+1622700466392	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile7Sm2yN"
+1622700466752	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700468555	Marionette	INFO	Listening on port 57025
+1622700469056	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622700486576	Marionette	INFO	Stopped listening on port 57025
+1622700498788	geckodriver	INFO	Listening on 127.0.0.1:57113
+1622700501819	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofileG1sPPu"
+1622700502136	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700503668	Marionette	INFO	Listening on port 57123
+1622700503878	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622700515072	Marionette	INFO	Stopped listening on port 57123
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622700522828	geckodriver	INFO	Listening on 127.0.0.1:57202
+1622700525862	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilecV4HP1"
+1622700526192	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700527731	Marionette	INFO	Listening on port 57212
+1622700527917	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622700537911	Marionette	INFO	Stopped listening on port 57212
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622700543473	geckodriver	INFO	Listening on 127.0.0.1:57289
+1622700546545	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile27WtoW"
+1622700546852	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700548368	Marionette	INFO	Listening on port 57299
+1622700548593	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622700573177	Marionette	INFO	Stopped listening on port 57299
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622700881743	geckodriver	INFO	Listening on 127.0.0.1:57716
+1622700884800	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofilejXwR6I"
+1622700885121	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700886747	Marionette	INFO	Listening on port 57726
+1622700886867	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+1622700948515	geckodriver	INFO	Listening on 127.0.0.1:57837
+1622700951584	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\LUCIUS~1\\AppData\\Local\\Temp\\rust_mozprofile4Vk5Tg"
+1622700951909	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622700953487	Marionette	INFO	Listening on port 57846
+1622700953633	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.motogp.com/en/Results+Statistics/, line 215: TypeError: ptype is undefined
+JavaScript error: https://adsx.motogp.com/2018_videopass/RegForm/Responsive/en/assets_vp/js/current-src.min.js, line 1: TypeError: hud is null
+1622701122728	Marionette	INFO	Stopped listening on port 57846
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
