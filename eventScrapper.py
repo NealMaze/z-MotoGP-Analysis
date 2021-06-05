@@ -34,7 +34,7 @@ knob.send_keys(Keys.ARROW_RIGHT)
 yr = 2021
 count = 50
 
-while yr != 1997:
+while yr != 2007:
     print(str(yr))
 
     count = count + 1
@@ -43,13 +43,44 @@ while yr != 1997:
         WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.TAG_NAME, "a")))
         c = c + 1
 
-    time.sleep(5)
+    time.sleep(3)
 
     for i in driver.find_elements_by_xpath(".//a"):
         x = i.get_attribute("href")
         if "TestResults" in x:
-            print(x)
-            gLnks.append(x)
+            pdfs = soup_special(x)
+            time.sleep(0 + np.random.random())
+            r = pdfs.find_all(href=True)
+            time.sleep(1 + np.random.random())
+            for i in r:
+                x = i["href"]
+                if "classification" in x.lower() or "analysis" in x.lower():
+                    y = x.split("_")
+                    sesCount = y[-1]
+                    nuCount = sesCount.split(".")
+                    fixCount = nuCount[0]
+                    sName = str(yr)
+
+                    j = []
+                    for t in y:
+                        if t != "":
+                            j.append(t)
+
+                    if j[3] in lges:
+                        del j[3]
+
+                    for t in j[1:-1]:
+                        if t not in lges:
+                            t = t.lower()
+                        sName = sName + "-" + t
+
+                    sName = sName + "-" + fixCount
+                    pdf = requests.get(x)
+                    fName = f"{pdfDir}{sName}.pdf"
+                    with open(f"{fName}.pdf", "wb") as pdfFile:
+                        print(sName)
+                        pdfFile.write(pdf.content)
+
 
     knob.send_keys(Keys.ARROW_LEFT)
 
@@ -57,15 +88,9 @@ while yr != 1997:
 
 driver.quit()
 
-for link in gLnks:
-    pdfs = soup_special(link)
-    time.sleep(0 + np.random.random())
-    r = pdfs.find_all(href=True)
-
-    time.sleep(1 + np.random.random())
 
 
-for
+
 
 # for yr in yrs:
 #     fileNum = 1
