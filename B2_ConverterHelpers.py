@@ -337,11 +337,13 @@ def getLap(lis):
             fRow[4] = nwRow[3]
 
         else:
+            # print("")
             for i in sections:
                 t = str(i["text"])
+                iLoq = int(i["x0"])
+                # print(f"{t}     {iLoq}")
                 if re.match(lapTime, t) or re.match(secTime, t) or re.match(pitTime, t):
-                    iLoq = int(i["x0"])
-                    if iLoq in range(117, 153) or iLoq in range(389, 415):
+                    if iLoq in range(117, 153) or iLoq in range(380, 415):
                         fRow[1] = t
                     elif iLoq in range(154, 193) or iLoq in range(416, 453):
                         fRow[2] = t
@@ -350,6 +352,7 @@ def getLap(lis):
                     elif iLoq in range(230, 269) or iLoq in range(492, 530):
                         fRow[4] = t
                     else:
+                        print("")
                         print(f"{t}     {iLoq}")
                         exit("\nline 371")
 
