@@ -140,6 +140,7 @@ def parsePDF(col, yr):
     counter = 0
 
     while len(col) != 0:
+
         catch = len(col)
         row = getRow(col)
         if row != []:
@@ -153,43 +154,25 @@ def parsePDF(col, yr):
                 print("looping")
                 for row in rows[-5:]:
                     print(row)
-                print("line 156")
-                exit()
+                exit("\nline 156")
 
     return rows
 
 def getRow(lis):
-    jokeLap = re.compile("^\d{1}[:]\d\d[']\d\d[.]\d\d\d[*]{0,1}$")
-    lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
-    secTime = re.compile("^\d{1,2}[.]\d\d\d[*]{0,1}$")
-    position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-    name = re.compile("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
 
-    if len(lis) < 1:
-        print("empty row")
-        print("##########################################################################################################")
-        row = []
+    if len(lis) < 1: exit("\nempty row\nline 179")
 
-    elif len(lis) < 2:
-        print("line 177, helpers #####################################################################################################################################################################")
-        print(lis[:10]["text"])
-        print("line 177")
-        exit()
+    elif len(lis) < 2: exit("line 177, helpers\nline 177")
 
-    elif lis[0]["text"] == "unfinished" or lis[0]["text"] == "PIT":
-        val = "lap"
-        row = getLap(lis)
+    elif lis[0]["text"] == "unfinished" or lis[0]["text"] == "PIT": row = getLap(lis)
 
     elif lis[1]["text"] == "unfinished" or lis[1]["text"] == "PIT" or re.match(secTime, lis[1]["text"]):
-        val = "lap"
         row = getLap(lis)
 
-    elif re.match(lapTime, lis[1]["text"]) or re.match(jokeLap, lis[1]["text"]):
-        val = "lap"
-        row = getLap(lis)
+    elif re.match(lapTime, lis[1]["text"]) or re.match(pitTime, lis[1]["text"]) or \
+            re.match(pitTime, str(lis[0]["text"])): row = getLap(lis)
 
     elif lis[0]["text"] == "Run" or lis[0]["text"] == "Run#" or lis[0]["text"] == "run" or lis[0]["text"] == "run#":
-        val = "run"
         row = getRun(lis)
 
     elif re.match(position, lis[0]["text"]) or re.match(name, lis[0]["text"]) or re.match(name, lis[1]["text"]):
@@ -211,8 +194,8 @@ def getRiderRow(lis):
             row.append(lis[0]["text"])
             del lis[0]
             break
-        elif lis[0]["text"] in runs or re.match(lapTime, lis[1]["text"]):
-            break
+        elif lis[0]["text"] in runs or re.match(lapTime, lis[1]["text"]): break
+        elif "laps=" in row[-1] and "laps=" in row[-2]: break
         else:
             row.append(lis[0]["text"])
             del lis[0]
@@ -268,10 +251,13 @@ def getRun(lis):
     return row
 
 def getLap(lis):
+
+    mashUp = False
     nSplit = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}[*]\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
     oSplit = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}[*]\d{1,2}[.]\d{3}[*]{0,1}$")
     pSplit = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}[*]\d{1,2}[.]\d{3}[*]{0,1}$")
     qSplit = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}[*]\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
+    headerPass = ["unfinished", "P", "b", "PIT"]
     loq = lis[0]["top"]
     hi = loq + 1
     lo = loq - 1
@@ -294,64 +280,80 @@ def getLap(lis):
             del lis[0]
 
     for i in row:
-        if int(i["x0"]) < 116 or int(i["x0"]) in range(305, 388):
+        iLoq = int(i["x0"])
+        txt = str(i["text"])
+        if txt in headerPass:
+            header.append(txt)
+        elif iLoq < 116 or int(i["x0"]) in range(305, 379):
             header.append(i["text"])
-        elif i["text"] == "P" or i["text"] == "b":
-            header.append(i["text"])
-
-        elif int(i["x0"]) in range(117, 269) or int(i["x0"]) in range(389, 530):
+        elif int(i["x0"]) in range(117, 269) or int(i["x0"]) in range(380, 530):
             sections.append(i)
-
         elif int(i["x0"]) in range(270, 388) or int(i["x0"]) > 530:
             footer.append(i["text"])
-        else:
-            print("fuck fuck fuck")
-            exit()
+        else: exit("\nline 310")
 
-    for i in sections:
-        if re.match(lapTime, i["text"]) or re.match(secTime, i["text"]) or re.match(pitTime, i["text"]):
-            iLoq = int(i["x0"])
-            if iLoq in range(117, 153) or iLoq in range(389, 415):
-                fRow[1] = i["text"]
-            elif iLoq in range(154, 193) or i["x0"] in range(416, 453):
-                fRow[2] = i["text"]
-            elif iLoq in range(194, 229) or i["x0"] in range(454, 491):
-                fRow[3] = i["text"]
-            elif iLoq in range(230, 269) or i["x0"] in range(492, 530):
-                fRow[4] = i["text"]
+    # printer = []
+    # for i in row: printer.append(i["text"])
+    # print("")
+    # print(f"row = {printer}")
+    # print(f"header = {header}")
+    # printer = []
+    # for i in sections: printer.append(i["text"])
+    # print(f"sections = {printer}")
+    # print(f"footer = {footer}")
 
-    if "missing" in fRow:
+########################################################################################################################
+
+    if len(sections) == 4:
+        fRow[1] = sections[0]["text"]
+        fRow[2] = sections[1]["text"]
+        fRow[3] = sections[2]["text"]
+        fRow[4] = sections[3]["text"]
+
+    elif len(sections) > 4: exit("\nline 328")
+
+    else:
+        nwRow = []
         for i in sections:
-            print("")
-            for i in row:
-                print(i)
-            print("")
-            print(fRow)
-            print(i)
             if re.match(nSplit, i["text"]) or re.match(oSplit, i["text"]) \
                     or re.match(pSplit, i["text"]) or re.match(qSplit, i["text"]):
+                mashUp = True
                 txt = i["text"]
                 print(txt)
-                j = i.split("*", 1)
+                j = i["text"].split("*", 1)
                 k = j[0]
                 l = k + "*"
                 m = j[1]
+                nwRow.append(l)
+                nwRow.append(m)
 
-                count = 0
-                while count < (len(fRow) + 1):
-                    lDone = False
-                    mDone = False
-                    if fRow[count] == "missing" and lDone == False:
-                        fRow[count] = l
-                    elif fRow[count] == "missing" and mDone == False:
-                        fRow[count] = m
-                    count = count + 1
-            print("\nline 343")
-            print(sections)
-            print(fRow)
-            exit()
+            elif re.match(lapTime, i["text"]) or re.match(secTime, i["text"]) or re.match(pitTime, i["text"]):
+                nwRow.append(i["text"])
 
+        if mashUp == True and len(nwRow) == 4:
+            fRow[1] = nwRow[0]
+            fRow[2] = nwRow[1]
+            fRow[3] = nwRow[2]
+            fRow[4] = nwRow[3]
 
+        else:
+            for i in sections:
+                t = str(i["text"])
+                if re.match(lapTime, t) or re.match(secTime, t) or re.match(pitTime, t):
+                    iLoq = int(i["x0"])
+                    if iLoq in range(117, 153) or iLoq in range(389, 415):
+                        fRow[1] = t
+                    elif iLoq in range(154, 193) or iLoq in range(416, 453):
+                        fRow[2] = t
+                    elif iLoq in range(194, 229) or iLoq in range(454, 491):
+                        fRow[3] = t
+                    elif iLoq in range(230, 269) or iLoq in range(492, 530):
+                        fRow[4] = t
+                    else:
+                        print(f"{t}     {iLoq}")
+                        exit("\nline 371")
+
+########################################################################################################################
 
     if len(fRow) != 5:
         print("")
@@ -359,24 +361,30 @@ def getLap(lis):
             print(i)
         print("")
         print(fRow)
-        print("line 310")
-        exit()
+        exit("\nline 381")
 
     for i in header: cRow.append(i)
     for i in fRow: cRow.append(i)
     for i in footer: cRow.append(i)
 
-    print(cRow)
+    printer = []
+    for i in row: printer.append(i["text"])
+
     return cRow
 
-def getCRows(rows, yr, lge, file):
+def getCRows(rows, yr, lge):
     cRows = []
-    for row in rows:
+    for xRow in rows:
+        row = []
+        for i in xRow:
+            row.append(i.lstrip("*"))
+
         if len(cRows) != 0 and row[1] == cRows[-1][1] and row[2] == cRows[-1][2]:
             del cRows[-1]
             lapNum -= 1
 
         row[0] = row[0].lower()
+
         if row[0] == "rider":
             lapNum = 1
             mRdr = matchRider(row, yr, lge)
@@ -385,8 +393,7 @@ def getCRows(rows, yr, lge, file):
             if len(cRider) < 9 or len(cRider) > 9:
                 print("")
                 print(cRider)
-                print("line 334")
-                exit()
+                exit("\nline 413")
 
         elif row[0] == "run":
             cRun = cleanRun(row)
@@ -394,8 +401,7 @@ def getCRows(rows, yr, lge, file):
             if len(cRun) < 6 or len(cRun) > 6:
                 print("")
                 print(cRun)
-                print("line 343")
-                exit()
+                exit("\nline 421")
 
         if row[0] == "lap":
             nuRow = row
@@ -403,10 +409,9 @@ def getCRows(rows, yr, lge, file):
             
             cLap.append(nuRow[0])
             del nuRow[0]
-            
+
 ########################################################################################################################
             # manage lapNum
-
 
             if len(nuRow) > 0:
                 x = nuRow[0].lstrip("0")
@@ -414,19 +419,22 @@ def getCRows(rows, yr, lge, file):
 
             if len(nuRow) < 1:
                 cLap.append("missing")
+
+            elif re.match(pitTime, nuRow[0]):
+                cLap.append(nuRow[0][0])
                 
             elif nuRow[0] == "unfinished":
                 cLap.append("0")
 
-            elif re.match(integ, nuRow[0]):
+            elif nuRow[0] == "PIT":
+                cLap.append(lapNum)
+
+            elif int(nuRow[0]) > -1:
                 cLap.append(nuRow[0])
                 del nuRow[0]
 
             elif re.match(pitTime, nuRow[0]):
                 cLap.append(nuRow[0][0])
-
-            elif nuRow[0] == "PIT":
-                cLap.append(lapNum)
 
             elif nuRow[0] == "-1":
                 cLap.append("0")
@@ -436,41 +444,7 @@ def getCRows(rows, yr, lge, file):
                 print("\n")
                 print(f"{nuRow[0]}")
                 print(nuRow)
-                print("line 384")
-                exit()
-
-########################################################################################################################
-            # manage lap declaration and if lapNum doesn't match
-
-            if len(nuRow) < 1:
-                print("line 391")
-                exit()
-
-            if row[1] == "unfinished":
-                lapNum -= 1
-
-            elif re.match(inte, nuRow[1]) != None and nuRow[1] > str(lapNum):
-                alNum = nuRow[1]
-                print("lap number in row higher than expected lap number")
-                print(f"expected lap number = {lapNum}")
-                print(f"actual lap number =   {alNum}")
-                while True:
-                    badLap = ["lap", lapNum, "missing", "missing", "missing", "missing", "missing", "missing",
-                              "missing", "missing", "missing", "missing", "missing"]
-                    cRows.append(badLap)
-                    lapNum += 1
-                    if re.match(inte, nuRow[1]) != None and nuRow[1] == str(lapNum):
-                        break
-
-            elif nuRow[1] < str(lapNum) and re.match(inte, nuRow[1]) != None:
-                alNum = nuRow[1]
-                print("\n")
-                print(row)
-                print("lap number in row lower than expected lap number")
-                print(f"expected lap number = {lapNum}")
-                print(f"actual lap number =   {alNum}")
-                print("line 417")
-                exit()
+                exit("\nline 461")
 
 ########################################################################################################################
             # manage lapTime
@@ -478,17 +452,17 @@ def getCRows(rows, yr, lge, file):
             if len(nuRow) < 1:
                 cLap.append("missing")
 
-            elif re.match(lapTime, nuRow[0]) or re.match(secTime, nuRow[0]) or re.match(pitTime, nuRow[0]) or nuRow[0] == "PIT" or nuRow[
-                0] == "unfinished":
+            elif re.match(lapTime, nuRow[0]) or re.match(secTime, nuRow[0]) or re.match(pitTime, nuRow[0]) or \
+                    nuRow[0] == "PIT" or nuRow[0] == "unfinished":
                 cLap.append(nuRow[0])
                 del nuRow[0]
 
             else:
                 print(f"line 114 - {nuRow[0]}")
+                print(lapNum)
                 print(nuRow)
                 print(cLap)
-                print("line 438")
-                exit()
+                exit("\nline 508")
 
 ########################################################################################################################
             # manage pit booleon
@@ -496,126 +470,100 @@ def getCRows(rows, yr, lge, file):
             if len(nuRow) < 1:
                 cLap.append("missing")
 
-            elif nuRow[0] == "P" or "b":
+            elif cLap[-1] == "PIT" and nuRow[0] == "sect":
+                cLap.append("P")
+
+            elif nuRow[0] == "P" or nuRow[0] == "b":
                 cLap.append("P")
                 del nuRow[0]
 
-            elif "P" in nuRow[1]:
-                print(nuRow)
-                print("line 453")
-                exit()
+            elif nuRow[1][0] == "P":
+                nuRow[1] = nuRow[1].lstrip("P")
+                cLap.append("P")
 
             elif nuRow[0] == "sect":
                 cLap.append("did not pit")
 
             elif re.match(secTime, nuRow[0]) or re.match(lapTime, nuRow[0]) or re.match(avgSpeed, nuRow[0]):
                 cLap.append("did not pit")
-                print(cLap)
-                exit()
+                exit(f"\n{cLap}\n{nuRow}\nline 538")
 
             else:
                 print(f"line 461 - {nuRow[0]}")
                 print(nuRow)
                 print(cLap)
-                exit()
+                exit("\nline 544")
+
+########################################################################################################################
+            # grab sect marker
+
+            if nuRow[0] == "sect":
+                cLap.append(nuRow[0])
+                del nuRow[0]
+
+            else: exit("\nline 553")
 
 ########################################################################################################################
             # manage section times
 
-            # while True:
-            #     nSplit = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}[*]\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
-            #     oSplit = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}[*]\d{1,2}[.]\d{3}[*]{0,1}$")
-            #     pSplit = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}[*]\d{1,2}[.]\d{3}[*]{0,1}$")
-            #     qSplit = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}[*]\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
-            #     if len(nuRow) < 1 and len(cLap) < 12:
-            #         cLap.append("missing")
-            #
-            #     elif len(cLap) == 12:
-            #         break
-            #
-            #     elif re.match(secTime, nuRow[0]) or re.match(lapTime, nuRow[0]):
-            #         cLap.append(nuRow[0])
-            #         del nuRow[0]
-            #
-            #     elif re.match(nSplit, nuRow[0]) or re.match(oSplit, nuRow[0]) \
-            #             or re.match(pSplit, nuRow[0]) or re.match(qSplit, nuRow[0]):
-            #         i = nuRow[0]
-            #         print(i)
-            #         j = i.split("*", 1)
-            #         k = j[0]
-            #         l = k + "*"
-            #         m = j[1]
-            #         del nuRow[0]
-            #         cLap.append(l)
-            #         cLap.append(m)
-            #
-            #     elif re.match(avgSpeed, nuRow[0]):
-            #         break
-            #
-            #     else:
-            #         print(f"line 156 - {nuRow[0]}")
-            #         print(nuRow)
-            #         exit()
+            while True:
+                if len(cLap) == 13:
+                    break
+
+                if len(nuRow) < 1:
+                    cLap.append("missing")
+
+                elif re.match(avgSpeed, nuRow[0]):
+                    cLap.append("missing")
+
+                elif re.match(secTime, nuRow[0]) or re.match(lapTime, nuRow[0]) or re.match(pitTime, nuRow[0]):
+                    cLap.append(nuRow[0])
+                    del nuRow[0]
+
+                elif nuRow[0] == "missing":
+                    cLap.append(nuRow[0])
+                    del nuRow[0]
+
+                else:
+                    print(f"line 591 - {nuRow[0]}")
+                    print(nuRow)
+                    exit("\nline 579")
 
 
 ########################################################################################################################
+            # manage avgSpeed
+
+            if len(nuRow) < 1 and len(cLap) < 14:
+                cLap.append("missing")
+
+            elif re.match(avgSpeed, nuRow[0]):
+                cLap.append(nuRow[0])
+                del nuRow[0]
+
+            else:
+                print(f"line 191 - {nuRow[0]}")
+                print(nuRow)
+                exit("\nline 595")
+
+            if len(cLap) > 14: exit("\nline 599")
+
+            if len(nuRow) > 0: exit("\nline 603")
 
 ########################################################################################################################
-
-########################################################################################################################
+            if cLap[2] == "PIT" and cLap[3] != "P": exit(f"\nline 620\nproblem\n{cLap}\n")
             cRows.append(cLap)
             lapNum += 1
-            
-
-            # cLap = []
-            # ########################################################################################################################
-
-            # ########################################################################################################################
-
-            # ########################################################################################################################
-
-            # ########################################################################################################################
-
-            # ########################################################################################################################
-
-            # ########################################################################################################################
-            # # add times for missing sections
-            # 
-            # while True:
-            #     if len(cLap) == 12:
-            #         break
-            #     elif len(cLap) > 12:
-            #         print(f"line 179 - {nuRow[0]}")
-            #         print(nuRow)
-            #         exit()
-            #     else:
-            #         cLap.append("no sec time")
-            # ########################################################################################################################
-            # # manage avgSpeed
-            # 
-            # if len(nuRow) < 1:
-            #     cLap.append("missing")
-            # 
-            # elif re.match(avgSpeed, nuRow[0]):
-            #     cLap.append(nuRow[0])
-            #     del nuRow[0]
-            # 
-            # else:
-            #     print(f"line 191 - {nuRow[0]}")
-            #     print(nuRow)
-            #     exit()
-            # 
-            # if len(cLap) > 13:
-            #     print("line 223")
-            #     exit()
-            # 
-            # cRows.append(cLap)
 
     return cRows
 
 def saveCSV(mat, file):
+    headers = ["Year", "Date", "League", "Track", "Session", "Position", "Rider_Number", "First_Name", "Last_Name",
+               "Nation", "Team", "Manufacturer", "Number_of_Laps", "Run_Number", "Front_Tire", "Rear_Tire",
+               "Laps_on_Front", "Laps_on_Rear", "Lap_Number", "Lap_Time", "Pit", "Sec1", "Sec2", "Sec3", "Sec4", "Sec5",
+               "Sec6", "Sec7", "Sec8", "Average_Speed"]
+
     df = pd.DataFrame(mat)
-    df.to_csv(file, index=False)
+    df.to_csv(file, index=False, header = headers)
 
 def matchRider(row, yr, lge):
     yrRiders = getRidersData(yr)
@@ -676,6 +624,7 @@ def matchRider(row, yr, lge):
 
         except:
             print("\n")
+            print(row)
             print(f"best matches = {bMatches}")
             print(f"fName = {b_fName}")
             print(f"lName = {b_lName}")
@@ -685,8 +634,7 @@ def matchRider(row, yr, lge):
             print("")
             print(f"row = {row}")
             print(f"bRdr  = {bRdr}")
-            print("line 634")
-            exit()
+            exit("\nline 681")
 
     return bRdr
 
@@ -704,7 +652,7 @@ def getRidersData(yr):
         for i in rows[0]:
             print(i)
             data.append(i)
-        exit()
+        exit("\nline 699")
 
     elif len(rows[0]) > 3:
         for row in rows:
@@ -719,7 +667,7 @@ def getCRider(row, mRdr):
     if mRdr == []:
         print("wrong mRdr")
         print("getCRider() fail")
-        exit()
+        exit("\nline 714")
 
     cRdr[1] = mRdr[2]
     name = mRdr[3].split()
@@ -790,36 +738,42 @@ def chkRider(row, yr):
         print(row[1])
         print(row)
         exit()
+
     if re.match(inte, row[2]) == None and int(yr) > 2006:
         print("")
         print("B2_ConverterHelpers.py chkRider(row) - 1")
         print(row[2])
         print(row)
         exit()
+
     if re.match(name, row[3]) == None:
         print("")
         print("B2_ConverterHelpers.py chkRider(row) - 2")
         print(row[3])
         print(row)
         exit()
+
     if re.match(name, row[4]) == None:
         print("")
         print("B2_ConverterHelpers.py chkRider(row) - 3")
         print(row[4])
         print(row)
         exit()
+
     if row[5] not in nats:
         print("")
         print("B2_ConverterHelpers.py chkRider(row) - 4")
         print(row[5])
         print(row)
         exit()
+
     if row[7] not in manus:
         print("")
         print("B2_ConverterHelpers.py chkRider(row) - 5")
         print(row[7])
         print(row)
         exit()
+
     if re.match(inte, row[8]) == None and row[8] != "missing":
         print("")
         print("B2_ConverterHelpers.py chkRider(row) - 6")
@@ -827,66 +781,78 @@ def chkRider(row, yr):
         print(row)
         exit()
 
-def chkLap(row):
-    if row[1] != "missing" and re.match(inte, row[1]) == None:
-        print("")
-        print("chkLap(row)")
-        print("row[1]")
-        print(row[1])
-        print("line 782")
-        exit()
+def chkLap(row, lapNum):
+    # print(row)
+
+    # check the length of the lap row
+    if len(row) != 14:
+        exit(f"\n{row}\nline 814")
+
+    # check that the lap number is sequential and that row[1] can be turned into an int
+    intRow = int(row[1])
+    lapNum = int(lapNum)
+    if intRow != 0:
+        lapNum += 1
+
+    # check that row[2] is some type of lap time
     if re.match(lapTime, str(row[2])) == None and \
             re.match(secTime, str(row[2])) == None and \
             re.match(pitTime, str(row[2])) == None and \
             row[2] != "missing" and row[2] != "PIT" and\
             row[2] != "unfinished":
-
         print("")
         print("chkLap(row)")
         print("row[2]")
         print(row[2])
         print(row)
-        print("line 790")
-        exit()
+        exit("\nline 840")
+
+    # check that row[3] represents a pit boolean
     if row[3] != "P" and row[3] != "did not pit" and row[3] != "missing":
         print("")
         print("chkLap(row)")
         print("row[3]")
         print(row[3])
-        print("line 797")
+        exit("\nline 847")
+
+    # check that row[4] == "sect"
+    if row[4] != "sect": exit(f"\n{row}\nline 849")
+
+    # check that the following 8 positions represent section times
+    for i in row[5:13]:
+        if re.match(secTime, i) or re.match(lapTime, i) or re.match(pitTime, i) or i == "missing": pass
+        else:
+            print("")
+            print("chkLap(row)")
+            print("sec times")
+            print(i)
+            print(row[5:13])
+            exit()
+
+    # check that the avgSpeed value matches formatting
+    if re.match(avgSpeed, row[12]) == None and row[12] != "missing":
+        print("")
+        print("chkLap(row)")
+        print("row[12]")
+        print(row[12])
+        print(row)
         exit()
 
-    # for i in row[4:12]:
-    #     if re.match(secTime, i) and re.match(lapTime, i) \
-    #             and i == "no sec time" and i == "missing":
-    #         print("")
-    #         print("chkLap(row)")
-    #         print("sec times")
-    #         print(i)
-    #         print(row)
-    #         exit()
-
-    # if re.match(avgSpeed, row[12]) == None and row[12] != "missing":
-    #     print("")
-    #     print("chkLap(row)")
-    #     print("row[12]")
-    #     print(row[12])
-    #     print(row)
-    #     exit()
+    if row[1] != "0": lapNum = row[1]
+    return lapNum
 
 def chkRun(row):
     if len(row) != 6:
         print("B2_ConverterHelpers.py chkRun(row) - 1")
         print("row wrong length")
         print(row)
-        exit()
+        exit("\nline 874")
 
     if re.match(inte, row[1]) == None and row[1] != "missing":
         print("B2_ConverterHelpers.py chkRun(row) - 2")
         print("row[1]")
         print(row[1])
         print(row)
-        exit()
 
 
     if row[2] not in tires:
@@ -918,7 +884,7 @@ def getMatrix(rows, const):
     if len(const) != 6:
         print("const length prob")
         print(f"len(const) = {len(const)}")
-        exit()
+        exit("\nline 912")
 
     irider = ["position", "num", "fName", "lName", "nat", "team", "manu", "laps"]
     irun = ["runNum", "fTire", "rTire", "fAge", "rAge"]
@@ -937,391 +903,47 @@ def getMatrix(rows, const):
             for i in const[1:]: xLap.append(i)
             for j in rider: xLap.append(j)
             for k in run: xLap.append(k)
-            for l in lap: xLap.append(l)
+            for l in lap:
+                if l == "sect": pass
+                else: xLap.append(l)
             if len(xLap) != 30:
                 print("xLap length problem")
+                print(len(xLap))
                 print(xLap)
-                exit()
+                exit("\nline 935")
             matrix.append(xLap)
         else:
             print("B2_ConverterHelpers.py line 415")
-            exit()
-
-
-
-
+            exit("\nline 939")
 
     return matrix
 
+def rMisLaps(cRows):
+    nuRows = []
+    for row in cRows:
+        if row[0] == "rider":
+            lapNum = 0
+            nuRows.append(row)
+        if row[0] == "run":
+            nuRows.append(row)
+        if row[0] == "lap":
+            if row[2] != "unfinished":
+                lapNum += 1
 
+            if int(row[1]) == lapNum:
+                nuRows.append(row)
 
+            elif int(row[1]) > lapNum:
+                while True:
+                    badLap = ["lap", lapNum, "missing", "missing", "sect", "missing", "missing", "missing",
+                              "missing", "missing", "missing", "missing", "missing", "missing"]
+                    if int(row[1]) == lapNum:
+                        break
+                    nuRows.append(badLap)
+                    lapNum += 1
+                nuRows.append(row)
 
+            elif int(row[1]) < lapNum and row[1] != "0":
+                exit(f"\n{row}\nline 944")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def getFinFiles(type):
-#     finFiles = []
-#     with open(f"{sveDir}/{type}FinFiles.txt", "r") as f:
-#         contents = f.readlines()
-#         for i in contents:
-#             finFiles.append(i)
-#
-#     for i in finFiles:
-#         if i == 0 or i == []:
-#             del i
-#
-#     print("finished files:")
-#     if len(finFiles) == 0:
-#         print("none")
-#         y = finFiles
-#     else:
-#         y = finFiles[0].split("|")
-#         for i in y:
-#             print(i)
-#
-#     return y
-#
-# def formatRiderRow(row):
-#     rider = ["-0-number-", "-1-f_name-", "-2-l_name-", "-3-manufacturer-", "-4-nation-",
-#              "-5-team-", "-6-t_laps-", "-7-run_number-", "-8-f_Tire-", "-9-r_Tire-",
-#              "-10-f_Age-", "-11-r_Age-", "-12-extra-"]
-#     trash = ["MotoGP", "Tyre", "Moto2", "Moto3", "500cc", "125cc", "250cc"]
-#     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-#
-#     x = 0
-#     while x < len(row):
-#         val = row[x]
-#         if val in trash:
-#             del row[x]
-#         elif re.match(position, val):
-#             del row[x]
-#         elif val == "Total":
-#             strLaps = row[x+1]
-#             rider[6] = strLaps
-#             del row[x:x+3]
-#         elif val in nats:
-#             rider[4] = val
-#             del row[x]
-#         elif val == "Run":
-#             rider[7] = row[x+2]
-#             del row[x:x+3]
-#         elif val in manus:
-#             rider[3] = val
-#             del row[x]
-#         else:
-#             x += 1
-#
-#     x = 0
-#     while x < len(row):
-#         val = row[x]
-#         if re.match("^\d{1,2}$", val) and rider[0] == "-0-number-":
-#             rider[0] = val
-#             del row[x]
-#         else:
-#             x += 1
-#
-#     x = 0
-#
-#     while x < len(row):
-#         val = row[x]
-#         if "Tyre" in val:
-#             row[x] = val.replace("Tyre", "")
-#         else:
-#             x += 1
-#
-#     string = ""
-#
-#     for i in row:
-#         val = i
-#         string += f" {val}"
-#     rider[-1] = string.strip()
-#
-#     return rider
-#
-# def rowAddRdrData(row, yr):
-#     rData = getRidersData(yr)
-#     found = False
-#
-#     print("")
-#     rNum = row[0]
-#     rNat = row[4]
-#     rManu = row[3]
-#     print(row)
-#
-#     while found == False:
-#
-#         for i in rData:
-#             num = i[2]
-#             name = i[3]
-#             nat = i[4]
-#             team = i[5]
-#             m = i[6]
-#             manu = m.upper()
-#
-#             if num == row[0]:
-#                 print(i[2:])
-#                 y = row[12].replace(name, "")
-#                 row[12] = y.strip()
-#                 x = name.split(" ", 1)
-#                 row[1] = x[0]
-#                 row[2] = x[1]
-#                 row[5] = team
-#                 found = True
-#     del row[12]
-#     row.insert(0, "rider")
-#
-
-#
-
-#
-
-#
-# def fixRow(row):
-#
-#     inte = re.compile("^\d{1,2}$")
-#     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
-#     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-#     name = re.compile(
-#         "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
-#     secTime = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}$")
-#     avgSpeed = re.compile("^\d{2,3}[.]\d{1}$")
-#
-#     tires = ["Slick-Soft", "Slick-Medium", "Slick-Hard", "Wet-Soft", "Wet-Medium", "Wet-Hard", "missing"]
-#     manus = ["YAMAHA", "HONDA", "DUCATI", "SUZUKI", "KTM", "APRILIA", "KAWASAKI", "BMW", "TRIUMPH"]
-#     nats = ["JPN", "ITA", "USA", "AUS", "SPA", "SWI", "NED", "GBR", "MAL", "INA", "THA", "GER", "RSA", "FRA", "POR",
-#             "AUT", "ARG", "CZE", "TUR"]
-#
-#     if row[0] == "lap":
-#         if re.match(inte, row[1]) == None:
-#             row.insert(1, "dnf")
-#         if row[2] == "PIT":
-#             row[2] = "unfinished"
-#         if row[3] != "P":
-#             row.insert(3, "did not pit")
-#         else:
-#             row[3] = "pit"
-#         if re.match(avgSpeed, row[-1]) == None:
-#             row.append("missing speed")
-#         while len(row) != 13:
-#             row.insert(-1, "no section time")
-#
-#     return row
-#
-# def chekRows(rows, file):
-#     inte = re.compile("^\d{1,2}$")
-#     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
-#     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-#     name = re.compile(
-#         "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
-#     secTime = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}$")
-#     avgSpeed = re.compile("^\d{2,3}[.]\d{1}$")
-#
-#     tires = ["Slick-Soft", "Slick-Medium", "Slick-Hard", "Wet-Soft", "Wet-Medium", "Wet-Hard", "missing"]
-#     manus = ["YAMAHA", "HONDA", "DUCATI", "SUZUKI", "KTM", "APRILIA", "KAWASAKI", "BMW", "TRIUMPH"]
-#     nats = ["JPN", "ITA", "USA", "AUS", "SPA", "SWI", "NED", "GBR", "MAL", "INA", "THA", "GER", "RSA", "FRA", "POR",
-#             "AUT", "ARG", "CZE", "TUR"]
-#
-#     for i in rows:
-#         if i[0] == "rider":
-#             if len(i) != 13: print(f"{file}\n{i}")
-#             if re.match(inte, i[1]) == None: print(f"{file}\n{i}")
-#             if re.match(name, i[2]) == None: print(f"{file}\n{i}")
-#             if re.match(name, i[3]) == None: print(f"{file}\n{i}")
-#             if i[4] not in manus: print(f"{file}\n{i}")
-#             if i[5] not in nats: print(f"{file}\n{i}")
-#             if "laps=" not in i[7] and i[7] != "-6-t_laps-" : print(f"{file}\n{i}")
-#
-#             assert len(i) == 13
-#             assert re.match(inte, i[1])
-#             assert re.match(name, i[2])
-#             assert re.match(name, i[3])
-#             assert i[4] in manus
-#             assert i[5] in nats
-#             assert "laps=" in i[7] or i[7] == "-6-t_laps-"
-#
-#         elif i[0] == "run":
-#             if len(i) != 6: print(f"{file}\n{i}")
-#             if re.match(inte, i[1]) == None: print(f"{file}\n{i}")
-#             if i[2] not in tires: print(f"{file}\n{i}")
-#             if i[3] not in tires: print(f"{file}\n{i}")
-#             if re.match(inte, i[4]) == None and i[4] != "missing": print(f"{file}\n{i}")
-#             if re.match(inte, i[5]) == None and i[4] != "missing": print(f"{file}\n{i}")
-#
-#             assert len(i) == 6
-#             assert re.match(inte, i[1])
-#             assert i[2] in tires
-#             assert i[3] in tires
-#             assert re.match(inte, i[4]) or i[4] == "missing"
-#             assert re.match(inte, i[5]) or i[4] == "missing"
-#
-#         elif i[0] == "lap":
-#             if len(i) != 13: print(f"{file}\n{len(i)}\n{i}")
-#             if re.match(inte, i[1]) == None and i[1] != "dnf": print(f"{file}\n{i}")
-#             if re.match(lapTime, i[2]) == None and i[2] != "unfinished": print(f"{file}\n{i}")
-#             if i[3] != "P" and i[3] != "did not pit" and i[3] != "pit": print(f"{file}\n{i}")
-#             for j in i[4:-1]:
-#                 if re.match(lapTime, j) == None and re.match(secTime, j) == None and j != "no section time":
-#                     print("")
-#                     print(j)
-#                     print(f"{file}\n{i}")
-#             if re.match(avgSpeed, i[-1]) == None and i[-1] != "missing speed": print(f"{file}\n{i}")
-#
-#             assert len(i) == 13
-#             assert re.match(inte, i[1]) or i[1] == "dnf"
-#             assert re.match(lapTime, i[2]) or i[2] == "unfinished"
-#             assert i[3] == "P" or i[3] == "did not pit" or i[3] == "pit"
-#             for j in i[4:-1]:
-#                 assert re.match(lapTime, j) or re.match(secTime, j) or j == "no section time"
-#             assert re.match(avgSpeed, i[-1]) or i[-1] == "missing speed"
-#
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-# ########################################################################################################################
-#
-
-#
-
-#
-
-#
-
-#
-#
-#
-#
-#
-# def fixLapNum(row, lapNum):
-#     try:
-#         row[1] = int(row[1])
-#     except:
-#         passRow = True
-#
-#     if row[1] == lapNum:
-#         passRow = True
-#
-#     elif row[1] == "unfinished":
-#         row.insert(1, "0")
-#
-#     elif row[1] == "PIT":
-#         row.insert(1, lapNum)
-#
-#     else:
-#         print("\n\nrow[1] - stop")
-#         print(row[1])
-#         print(row)
-#         print("\n")
-#         exit()
-#
-#     return row
-#
-# def fixLapTime(row):
-#     if re.match(lapTime, row[2]) or row[2] == "PIT" or row[2] == "unfinished": pass
-#     elif re.match(secTime, row[2]): pass
-#
-#     else:
-#         print("\n\nrow[2] - stop")
-#         print(row[2])
-#         print(row)
-#         print("\n")
-#         exit()
-#
-#     return row
-#
-# def fixLapPit(row):
-#     if len(row) < 4:
-#         row.append("no pit")
-#         row.append("missing")
-#         row.append("missing")
-#
-#     elif row[3] == "P":
-#         passRow = True
-#
-#     elif row[3] == "b" or row[3] == "B":
-#         row[3] = "P"
-#
-#     else:
-#         row.insert(3, "no pit")
-#
-#     return row
-#
-# def fixAvgSpeed(row):
-#     nuRow = []
-#     nSplit = re.compile("\d[*]\d")
-#
-#     if re.match(avgSpeed, row[-1]):
-#         nuAvgSpeed = row[-1]
-#         del row[-1]
-#     else: nuAvgSpeed = "missing"
-#
-#     for i in row[:4]:
-#         nuRow.append(i)
-#
-#     if re.match(avgSpeed, row[-1]):
-#         nuRow.append(row[-1])
-#
-#     else:
-#         nuRow.insert(-1, "missing")
-#
-#     for i in row[4:]:
-#         if re.match(secTime, i) or re.match(lapTime, i) or i == "missing":
-#             nuRow.append(i)
-#
-#         elif re.match(nSplit, i):
-#             j = i.split("*", 1)
-#             k = j[0]
-#             l = k + "*"
-#             m = j[1]
-#             nuRow.insert(-1, l)
-#             nuRow.insert(-1, m)
-#             frequency = 500
-#             duration = 300
-#             Beep(frequency, duration)
-#
-#         else:
-#             print("\n\nrow[i] - stop")
-#             print(i)
-#             print(row)
-#             print("\n")
-#             exit()
-#
-#     nuRow.append(nuAvgSpeed)
-#
-#     return nuRow
-#
-# def fixSections(row):
-#     while len(row) < 14:
-#         row.insert(-1, "no sec time")
-#
-#     return row
-#
-
-#
-
-
-
-
+    return nuRows
