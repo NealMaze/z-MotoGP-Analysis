@@ -1,10 +1,9 @@
 # imports
 from B2_ConverterHelpers import *
 
-yrs = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008",
-       "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
-# lges = ["MotoGP"]
-# rnd = "5"
+# yrs = ["2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+# lges = ["Moto3"]
+# rnd = "11"
 
 for yr in yrs:
     for lge in lges:
@@ -22,11 +21,11 @@ for yr in yrs:
             sesType = sesType.replace("_", "")
             sesType = sesType.replace("RACE2", "RAC2")
 
-            saveName, track = getSaveName(file, sesType)
+            saveName, track, round = getSaveName(file, sesType)
             print(saveName.replace(csvDir, ""))
             col, date = openPDF(file)
             rows = parsePDF(col, yr)
-            const = ["const", yr, date, lge, track, sesType]
+            const = ["const", yr, lge, round, sesType, date, track,]
 
             rows.insert(0, const)
 

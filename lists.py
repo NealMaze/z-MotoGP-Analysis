@@ -18,7 +18,7 @@ csvDir = (f"{rootDir}csvFiles/")
 sveDir = (f"{rootDir}sveFiles/")
 
 position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-name = re.compile("^[\-a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.]+$")
+name = re.compile("^[\-a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.']+$")
 avgSpeed = re.compile("^\d{2,3}[.]\d{1}$")
 inte = re.compile("^\d{1,2}$")
 integ = re.compile("^\d{1,2}\d{0,1}$")

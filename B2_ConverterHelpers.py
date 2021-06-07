@@ -22,7 +22,7 @@ def getSaveName(file, sesType):
     yr = t[0].replace("/", "")
     saveName = f"{yr}-{lge}-{round}-{fTrack}-{sesType}-Analysis.csv"
     z = csvDir + saveName
-    return z, fTrack
+    return z, fTrack, round
 
 def getAnalyFiles(dir, string):
     filterFiles = fnmatch.filter(listdir(dir), f"{string}")
@@ -89,6 +89,18 @@ def stripBoilerPlate(lis):
         if lis[x]["text"] == "DORNA" and lis[x+1]["text"] == "MotoGP":
             break
     del lis[x:]
+
+    x = 0
+    for i in lis:
+        if i["text"] == "T4Speed":
+            before = len(lis)
+            del lis[:x + 1]
+            after = len(lis)
+            elim = before - after
+            print(f"lines eliminated = {elim}")
+            print("")
+            x = 0
+        else: x += 1
 
     x = 0
     nonDis = ["**", "*", "Full"]
@@ -290,7 +302,7 @@ def getLap(lis):
             sections.append(i)
         elif int(i["x0"]) in range(270, 388) or int(i["x0"]) > 530:
             footer.append(i["text"])
-        else: exit("\nline 310")
+        else: exit(f"\n{row}\n{txt}    {iLoq}\nline 310")
 
     # printer = []
     # for i in row: printer.append(i["text"])
@@ -319,7 +331,6 @@ def getLap(lis):
                     or re.match(pSplit, i["text"]) or re.match(qSplit, i["text"]):
                 mashUp = True
                 txt = i["text"]
-                print(txt)
                 j = i["text"].split("*", 1)
                 k = j[0]
                 l = k + "*"
@@ -425,6 +436,10 @@ def getCRows(rows, yr, lge):
 
             elif re.match(pitTime, nuRow[0]):
                 cLap.append(nuRow[0][0])
+
+            elif nuRow[0] == "cancelled":
+                nuRow[0] = "unfinished"
+                cLap.append("0")
                 
             elif nuRow[0] == "unfinished":
                 cLap.append("0")
@@ -560,7 +575,7 @@ def getCRows(rows, yr, lge):
     return cRows
 
 def saveCSV(mat, file):
-    headers = ["Year", "Date", "League", "Track", "Session", "Position", "Rider_Number", "First_Name", "Last_Name",
+    headers = ["Year", "League", "Round", "Session", "Date", "Track", "Position", "Rider_Number", "First_Name", "Last_Name",
                "Nation", "Team", "Manufacturer", "Number_of_Laps", "Run_Number", "Front_Tire", "Rear_Tire",
                "Laps_on_Front", "Laps_on_Rear", "Lap_Number", "Lap_Time", "Pit", "Sec1", "Sec2", "Sec3", "Sec4", "Sec5",
                "Sec6", "Sec7", "Sec8", "Average_Speed"]
@@ -777,12 +792,8 @@ def chkRider(row, yr):
         print(row)
         exit()
 
-    if re.match(inte, row[8]) == None and row[8] != "missing":
-        print("")
-        print("B2_ConverterHelpers.py chkRider(row) - 6")
-        print(row[8])
-        print(row)
-        exit()
+    if re.match(integ, row[8]) == None and row[8] != "missing":
+        exit(f"\nB2_ConverterHelpers.py chkRider(row) - 6\n{row[8]}\n{row}")
 
 def chkLap(row, lapNum):
     # print(row)
@@ -884,7 +895,7 @@ def chkRun(row):
 
 def getMatrix(rows, const):
     matrix = []
-    if len(const) != 6:
+    if len(const) != 7:
         print("const length prob")
         print(f"len(const) = {len(const)}")
         exit("\nline 912")
@@ -909,11 +920,12 @@ def getMatrix(rows, const):
             for l in lap:
                 if l == "sect": pass
                 else: xLap.append(l)
-            if len(xLap) != 30:
+            if len(xLap) != 31:
                 print("xLap length problem")
                 print(len(xLap))
                 print(xLap)
                 exit("\nline 935")
+
             matrix.append(xLap)
         else:
             print("B2_ConverterHelpers.py line 415")
@@ -946,7 +958,13 @@ def rMisLaps(cRows):
                     lapNum += 1
                 nuRows.append(row)
 
+            elif int(row[1]) == 1:
+                lapNum = 1
+                nuRows.append(row)
+
             elif int(row[1]) < lapNum and row[1] != "0":
-                exit(f"\n{row}\nline 944")
+                row[1] = lapNum
+                nuRows.append(row)
+                exit(f"row number less than expected\n{row}\nline 944")
 
     return nuRows
