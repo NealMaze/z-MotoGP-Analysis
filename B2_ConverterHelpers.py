@@ -581,7 +581,7 @@ def saveCSV(mat, file):
                "Sec6", "Sec7", "Sec8", "Average_Speed"]
 
     df = pd.DataFrame(mat)
-    df.to_csv(file, index=False, header = headers)
+    df.to_csv(file, index = True, header = headers)
 
 def matchRider(row, yr, lge):
     yrRiders = getRidersData(yr)
