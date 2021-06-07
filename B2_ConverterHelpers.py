@@ -93,12 +93,7 @@ def stripBoilerPlate(lis):
     x = 0
     for i in lis:
         if i["text"] == "T4Speed":
-            before = len(lis)
             del lis[:x + 1]
-            after = len(lis)
-            elim = before - after
-            print(f"lines eliminated = {elim}")
-            print("")
             x = 0
         else: x += 1
 
