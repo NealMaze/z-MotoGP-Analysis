@@ -14,10 +14,7 @@ for yr in yrs:
             print(f" - - - {yr}, {lge} - - - ")
 
         for file in fLis:
-            with open(file, "r") as f:
+            with open(file, "r", encoding='utf-8') as f:
                 df = pd.read_csv(f)
             df.to_sql("gp_times", con = engine, index = False, if_exists = "replace")
             print(file)
-
-
-
