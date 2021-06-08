@@ -13,6 +13,7 @@ intes = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "1
         "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39"]
 tires = ["Slick-Soft", "Slick-Medium", "Slick-Hard", "Wet-Soft", "Wet-Medium", "Wet-Hard", "missing", "Wet-ExtraSof"]
 rootDir = "C:/Users/LuciusFish/Desktop/motoFiles/"
+
 pdfDir = (f"{rootDir}pdfFiles/")
 csvDir = (f"{rootDir}csvFiles/")
 sveDir = (f"{rootDir}sveFiles/")
@@ -23,6 +24,8 @@ avgSpeed = re.compile("^\d{2,3}[.]\d{1}$")
 inte = re.compile("^\d{1,2}$")
 integ = re.compile("^\d{1,2}\d{0,1}$")
 yrReg = re.compile("^\d{4}$")
+
+wLap = re.compile("^\d{0,1}\d{0,1}[']{0,1}[']{0,1}\d\d\d\d[.][.]\d\d\d\d\d\d")
 
 secTime = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}$")
 lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")

@@ -24,7 +24,7 @@ def getSaveName(file, sesType):
     z = csvDir + saveName
     return z, fTrack, round
 
-def getAnalyFiles(dir, string):
+def getFileNames(dir, string):
     filterFiles = fnmatch.filter(listdir(dir), f"{string}")
     files = [f"{dir}{file}" for file in filterFiles]
 
@@ -80,6 +80,8 @@ def stripBoilerPlate(lis):
     x = 0
     while "Fastest" not in lis[x]["text"]:
         x += 1
+        if len(lis) == x:
+            break
         if lis[x]["text"] == "These":
             break
         if lis[x]["text"] == "FIM" and lis[x+1]["text"] == "ROAD":
@@ -142,7 +144,7 @@ def stripBoilerPlate(lis):
 
     return L
 
-def parsePDF(col, yr):
+def parsePDF(col):
     rows = []
     counter = 0
 
@@ -166,12 +168,22 @@ def parsePDF(col, yr):
     return rows
 
 def getRow(lis):
+    # printer = []
+    # for i in lis[:10]:
+    #     printer.append(i["text"])
+    # print(printer)
 
     if len(lis) < 1: exit("\nempty row\nline 179")
 
     elif len(lis) < 2: exit("line 177, helpers\nline 177")
 
-    elif lis[0]["text"] == "unfinished" or lis[0]["text"] == "PIT": row = getLap(lis)
+    elif lis[0]["text"] == "DATA" or lis[0]["text"] == "DORNA":
+        del lis[:]
+        row = ["bad"]
+
+    elif re.match(wLap, lis[1]["text"]):
+        row = getLap(lis)
+        row[0] = "bad"
 
     elif lis[1]["text"] == "unfinished" or lis[1]["text"] == "PIT" or re.match(secTime, lis[1]["text"]):
         row = getLap(lis)
@@ -183,7 +195,6 @@ def getRow(lis):
         row = getRun(lis)
 
     elif re.match(position, lis[0]["text"]) or re.match(name, lis[0]["text"]) or re.match(name, lis[1]["text"]):
-        val = "rider"
         row = getRiderRow(lis)
 
     else:
@@ -317,7 +328,11 @@ def getLap(lis):
         fRow[3] = sections[2]["text"]
         fRow[4] = sections[3]["text"]
 
-    elif len(sections) > 4: exit("\nline 328")
+    elif len(sections) > 4:
+        printer = []
+        for i in sections:
+            printer.append(i["text"])
+        exit(f"\n{printer}\nline 328")
 
     else:
         nwRow = []
@@ -426,7 +441,7 @@ def getCRows(rows, yr, lge):
                 x = nuRow[0].lstrip("0")
                 nuRow[0] = x
 
-            if len(nuRow) < 1:
+            if len(nuRow) < 1 or nuRow[0] == "b":
                 cLap.append("missing")
 
             elif re.match(pitTime, nuRow[0]):
@@ -441,6 +456,9 @@ def getCRows(rows, yr, lge):
 
             elif nuRow[0] == "PIT":
                 cLap.append(lapNum)
+
+            elif nuRow[0] == "sect":
+                cLap.append("0")
 
             elif int(nuRow[0]) > -1:
                 cLap.append(nuRow[0])
@@ -463,6 +481,9 @@ def getCRows(rows, yr, lge):
             # manage lapTime
 
             if len(nuRow) < 1:
+                cLap.append("missing")
+
+            elif nuRow[0] == "sect":
                 cLap.append("missing")
 
             elif re.match(lapTime, nuRow[0]) or re.match(secTime, nuRow[0]) or re.match(pitTime, nuRow[0]) or \
@@ -930,13 +951,14 @@ def getMatrix(rows, const):
 
 def rMisLaps(cRows):
     nuRows = []
+
     for row in cRows:
         if row[0] == "rider":
             lapNum = 0
             nuRows.append(row)
-        if row[0] == "run":
+        elif row[0] == "run":
             nuRows.append(row)
-        if row[0] == "lap":
+        elif row[0] == "lap":
             if row[2] != "unfinished":
                 lapNum += 1
 
