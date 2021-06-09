@@ -9,7 +9,6 @@ url_ssn = https://www.motogp.com/en/Results+Statistics/2020/QAT/Moto2/FP1/Classi
 
 # import necessary modules
 from A2_ScrappingHelpers import *
-from GenGetters import *
 from lists import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait

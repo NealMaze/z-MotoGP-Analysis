@@ -7,7 +7,6 @@ import re
 import os
 import csv
 import sys
-from GenGetters import *
 from time import sleep
 from winsound import Beep
 from lists import *
@@ -253,7 +252,7 @@ def getRun(lis):
             row[p] = "0"
             p += 1
         elif q == "**":
-            row[p] = "missing"
+            row[p] = None
             p += 1
         else: p += 1
 
@@ -262,7 +261,7 @@ def getRun(lis):
         val = row[count]
         if val == "":
             del row[count]
-            row.insert(count, "missing")
+            row.insert(count, None)
         else:
             count += 1
 
@@ -283,7 +282,7 @@ def getLap(lis):
     header = []
     footer = []
     cRow = ["lap"]
-    fRow = ["sect", "missing", "missing", "missing", "missing"]
+    fRow = ["sect", None, None, None, None]
     sections = []
 
     while True:
@@ -442,7 +441,7 @@ def getCRows(rows, yr, lge):
                 nuRow[0] = x
 
             if len(nuRow) < 1 or nuRow[0] == "b":
-                cLap.append("missing")
+                cLap.append(None)
 
             elif re.match(pitTime, nuRow[0]):
                 cLap.append(nuRow[0][0])
@@ -481,10 +480,10 @@ def getCRows(rows, yr, lge):
             # manage lapTime
 
             if len(nuRow) < 1:
-                cLap.append("missing")
+                cLap.append(None)
 
             elif nuRow[0] == "sect":
-                cLap.append("missing")
+                cLap.append(None)
 
             elif re.match(lapTime, nuRow[0]) or re.match(secTime, nuRow[0]) or re.match(pitTime, nuRow[0]) or \
                     nuRow[0] == "PIT" or nuRow[0] == "unfinished":
@@ -502,7 +501,7 @@ def getCRows(rows, yr, lge):
             # manage pit booleon
 
             if len(nuRow) < 1:
-                cLap.append("missing")
+                cLap.append(None)
 
             elif cLap[-1] == "PIT" and nuRow[0] == "sect":
                 cLap.append("P")
@@ -516,10 +515,10 @@ def getCRows(rows, yr, lge):
                 cLap.append("P")
 
             elif nuRow[0] == "sect":
-                cLap.append("did not pit")
+                cLap.append(None)
 
             elif re.match(secTime, nuRow[0]) or re.match(lapTime, nuRow[0]) or re.match(avgSpeed, nuRow[0]):
-                cLap.append("did not pit")
+                cLap.append(None)
                 exit(f"\n{cLap}\n{nuRow}\nline 538")
 
             else:
@@ -545,16 +544,16 @@ def getCRows(rows, yr, lge):
                     break
 
                 if len(nuRow) < 1:
-                    cLap.append("missing")
+                    cLap.append(None)
 
                 elif re.match(avgSpeed, nuRow[0]):
-                    cLap.append("missing")
+                    cLap.append(None)
 
                 elif re.match(secTime, nuRow[0]) or re.match(lapTime, nuRow[0]) or re.match(pitTime, nuRow[0]):
                     cLap.append(nuRow[0])
                     del nuRow[0]
 
-                elif nuRow[0] == "missing":
+                elif nuRow[0] == None:
                     cLap.append(nuRow[0])
                     del nuRow[0]
 
@@ -568,7 +567,7 @@ def getCRows(rows, yr, lge):
             # manage avgSpeed
 
             if len(nuRow) < 1 and len(cLap) < 14:
-                cLap.append("missing")
+                cLap.append(None)
 
             elif re.match(avgSpeed, nuRow[0]):
                 cLap.append(nuRow[0])
@@ -591,10 +590,10 @@ def getCRows(rows, yr, lge):
     return cRows
 
 def saveCSV(mat, file):
-    headers = ["Year", "League", "Round", "Session", "Date", "Track", "Position", "Rider_Number", "First_Name", "Last_Name",
-               "Nation", "Team", "Manufacturer", "Number_of_Laps", "Run_Number", "Front_Tire", "Rear_Tire",
-               "Laps_on_Front", "Laps_on_Rear", "Lap_Number", "Lap_Time", "Pit", "Sec1", "Sec2", "Sec3", "Sec4", "Sec5",
-               "Sec6", "Sec7", "Sec8", "Average_Speed"]
+    headers = ["index", "yr", "lge", "rnd", "session", "date", "trk", "pos", "rdr_num", "f_name", "l_name", "nat",
+               "team", "manu", "num_of_laps", "run_num", "f_tire", "r_tire", "laps_on_f", "laps_on_r", "lap_num",
+               "lap_time", "pit", "sec_one", "sec_two", "sec_thr", "sec_four", "sec_fiv", "sec_six", "sec_sev",
+               "sec_eig", "avg_spd"]
 
     df = pd.DataFrame(mat)
     df.to_csv(file, index = True, header = headers)
@@ -696,7 +695,7 @@ def getRidersData(yr):
 
 def getCRider(row, mRdr):
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-    cRdr = ["0-pos", "1-num", "2-fName", "3-lName", "4-nat", "5-team", "6-manu", "missing"]
+    cRdr = ["0-pos", "1-num", "2-fName", "3-lName", "4-nat", "5-team", "6-manu", None]
 
     if mRdr == []:
         print("wrong mRdr")
@@ -724,24 +723,24 @@ def getCRider(row, mRdr):
     return cRdr
 
 def cleanRun(row):
-    while len(row) < 6: row.append("missing")
+    while len(row) < 6: row.append(None)
 
     if row[1] == "-":
-        row[1] = "missing"
+        row[1] = None
     if row[2] == "-":
-        row[2] = "missing"
+        row[2] = None
     if row[3] == "-":
-        row[3] = "missing"
+        row[3] = None
 
     if row[2] not in tires:
-        row[2] = "missing"
+        row[2] = None
     if row[3] not in tires:
-        row[3] = "missing"
+        row[3] = None
 
     if re.match(inte, row[4]) == None \
             and re.match(inte, row[5]) == None \
-            and row[4] != "missing" \
-            and row[5] != "missing":
+            and row[4] != None \
+            and row[5] != None:
         print(row)
         print(
             "ages ########################################################################################################################################################################################################")
@@ -808,7 +807,7 @@ def chkRider(row, yr):
         print(row)
         exit()
 
-    if re.match(integ, row[8]) == None and row[8] != "missing":
+    if re.match(integ, row[8]) == None and row[8] != None:
         exit(f"\nB2_ConverterHelpers.py chkRider(row) - 6\n{row[8]}\n{row}")
 
 def chkLap(row, lapNum):
@@ -828,7 +827,7 @@ def chkLap(row, lapNum):
     if re.match(lapTime, str(row[2])) == None and \
             re.match(secTime, str(row[2])) == None and \
             re.match(pitTime, str(row[2])) == None and \
-            row[2] != "missing" and row[2] != "PIT" and\
+            row[2] != None and row[2] != "PIT" and\
             row[2] != "unfinished":
         print("")
         print("chkLap(row)")
@@ -838,7 +837,7 @@ def chkLap(row, lapNum):
         exit("\nline 840")
 
     # check that row[3] represents a pit boolean
-    if row[3] != "P" and row[3] != "did not pit" and row[3] != "missing":
+    if row[3] != "P" and row[3] != "did not pit" and row[3] != None:
         print("")
         print("chkLap(row)")
         print("row[3]")
@@ -850,7 +849,7 @@ def chkLap(row, lapNum):
 
     # check that the following 8 positions represent section times
     for i in row[5:13]:
-        if re.match(secTime, i) or re.match(lapTime, i) or re.match(pitTime, i) or i == "missing": pass
+        if re.match(secTime, i) or re.match(lapTime, i) or re.match(pitTime, i) or i == None: pass
         else:
             print("")
             print("chkLap(row)")
@@ -860,7 +859,7 @@ def chkLap(row, lapNum):
             exit()
 
     # check that the avgSpeed value matches formatting
-    if re.match(avgSpeed, row[12]) == None and row[12] != "missing":
+    if re.match(avgSpeed, row[12]) == None and row[12] != None:
         print("")
         print("chkLap(row)")
         print("row[12]")
@@ -878,7 +877,7 @@ def chkRun(row):
         print(row)
         exit("\nline 874")
 
-    if re.match(inte, row[1]) == None and row[1] != "missing":
+    if re.match(inte, row[1]) == None and row[1] != None:
         print("B2_ConverterHelpers.py chkRun(row) - 2")
         print("row[1]")
         print(row[1])
@@ -897,13 +896,13 @@ def chkRun(row):
         print(row)
         exit()
 
-    if re.match(inte, row[4]) and row[4] == "missing":
+    if re.match(inte, row[4]) and row[4] == None:
         print("B2_ConverterHelpers.py chkRun(row) - 2")
         print(row[4])
         print(row)
         exit()
 
-    if re.match(inte, row[5]) and row[5] == "missing":
+    if re.match(inte, row[5]) and row[5] == None:
         print("B2_ConverterHelpers.py chkRun(row) - 2")
         print(row[5])
         print(row)
@@ -967,8 +966,8 @@ def rMisLaps(cRows):
 
             elif int(row[1]) > lapNum:
                 while True:
-                    badLap = ["lap", lapNum, "missing", "missing", "sect", "missing", "missing", "missing",
-                              "missing", "missing", "missing", "missing", "missing", "missing"]
+                    badLap = ["lap", lapNum, None, None, "sect", None, None, None,
+                              None, None, None, None, None, None]
                     if int(row[1]) == lapNum:
                         break
                     nuRows.append(badLap)
@@ -985,3 +984,52 @@ def rMisLaps(cRows):
                 exit(f"row number less than expected\n{row}\nline 944")
 
     return nuRows
+
+def lowerRows(rows):
+    lRows = []
+
+    for row in rows:
+        lRow = []
+        for i in row:
+            l = i.str.lower()
+            lRow.append(l)
+        lRows.append(lRow)
+
+    return lRows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

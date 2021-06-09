@@ -1,7 +1,7 @@
 # imports
 from B2_ConverterHelpers import *
 
-yrs = ["2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+yrs = ["2021", "2020"]
 # lges = ["250cc"]
 # rnd = "3"
 
@@ -57,7 +57,9 @@ for yr in yrs:
                         print("line 228")
                         exit()
 
-                matrix = getMatrix(cRows, const)
+                dRows = lowerRows(cRows)
+
+                matrix = getMatrix(dRows, const)
                 saveCSV(matrix, saveName)
                 # frequency = 500
                 # duration = 300

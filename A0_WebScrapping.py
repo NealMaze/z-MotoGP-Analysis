@@ -9,12 +9,8 @@ url_ssn = https://www.motogp.com/en/Results+Statistics/2020/QAT/Moto2/FP1/Classi
 
 # import necessary modules
 from A2_ScrappingHelpers import *
-from GenGetters import *
 
 # in-depth analysis is only available as far back as 1998
-yrs = getListFile("yrs")
-yrs = ["2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000",
-       "1999", "1998"]
 
 base_url = 'http://www.motogp.com/en/Results+Statistics/'
 
