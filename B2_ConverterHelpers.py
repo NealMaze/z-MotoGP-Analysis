@@ -48,7 +48,7 @@ def openPDF(rcFile):
 
 def getDate(pages):
     # Gets the date of the event and returns it to the openPDF() function
-
+    month = None
     words = pages[0].extract_words()
     date = []
 
@@ -63,6 +63,9 @@ def getDate(pages):
             break
         count += 1
 
+    if month == None:
+        printer(words[-20:])
+
     date.append(month)
     date.append(day)
 
@@ -74,7 +77,7 @@ def stripBoilerPlate(lis):
     # appends the right side to the left side
     L = []
     R = []
-    nonGrata = ["Speed", "T4Speed"]
+    nonGrata = ["T4", "T4Speed"]
 
     x = 0
     for i in lis:
@@ -84,6 +87,9 @@ def stripBoilerPlate(lis):
         else:
             x += 1
     del lis[:y]
+
+    if lis[0]["text"] == "Speed":
+        del lis[0]
 
     x = 0
     while "Fastest" not in lis[x]["text"]:
@@ -331,7 +337,10 @@ def getLap(lis):
         fRow[3] = sections[2]["text"]
         fRow[4] = sections[3]["text"]
 
-    elif len(sections) > 4: exit("\nline 328")
+    elif len(sections) > 4:
+        print(sections)
+        printer(sections)
+        exit("\nline 328")
 
     else:
         nwRow = []
@@ -389,9 +398,6 @@ def getLap(lis):
     for i in header: cRow.append(i)
     for i in fRow: cRow.append(i)
     for i in footer: cRow.append(i)
-
-    printer = []
-    for i in row: printer.append(i["text"])
 
     return cRow
 
@@ -464,6 +470,10 @@ def getCRows(rows, yr, lge):
 
             elif nuRow[0] == "unfinished":
                 cLap.append("0")
+
+            elif nuRow[0] == "cancelled":
+                cLap.append("0")
+                nuRow[0] = "unfinished"
 
             elif nuRow[0] == "PIT":
                 cLap.append(lapNum)
@@ -980,7 +990,3 @@ def printer(lis):
     for i in lis:
         printer.append(i["text"])
     print(printer)
-
-
-
-

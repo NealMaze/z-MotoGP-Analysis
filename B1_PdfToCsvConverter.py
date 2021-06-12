@@ -1,10 +1,9 @@
 # imports
 from B2_ConverterHelpers import *
 
-yrs = ["2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008",
-       "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
-# lges = ["Moto3"]
-# rnd = "1"
+yrs = ["2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+# # lges = ["Moto3"]
+# rnd = "2"
 
 now = datetime.now()
 startTime = now.strftime("%H:%M:%S")
@@ -16,10 +15,13 @@ for yr in yrs:
 
         if len(rcFiles) != 0:
             print("")
-            print(f" - - - {yr}, {lge} - - - ")
+            cur = datetime.now()
+            curTime = cur.strftime("%H:%M:%S")
+            print(f"   start time = {startTime}")
+            print(f" current time = {curTime}")
+            print(f"   - - - {yr},  {lge} - - - ")
 
         for file in rcFiles:
-
             for i in ses:
                 if i in file:
                     sesType = i
@@ -83,6 +85,7 @@ for yr in yrs:
             del matrix
 
 end = datetime.now()
-endTime = now.strftime("%H:%M:%S")
+endTime = end.strftime("%H:%M:%S")
+print("\nparsing finished")
 print(f"start time = {startTime}")
 print(f"end time = {endTime}")
