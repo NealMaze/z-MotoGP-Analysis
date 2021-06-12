@@ -14,65 +14,65 @@ for yr in yrs:
             print(f" - - - {yr}, {lge} - - - ")
 
         for file in rcFiles:
-            try:
-                for i in ses:
-                    if i in file:
-                        sesType = i
+            # try:
+            for i in ses:
+                if i in file:
+                    sesType = i
 
-                sesType = sesType.replace("_", "")
-                sesType = sesType.replace("RACE2", "RAC2")
+            sesType = sesType.replace("_", "")
+            sesType = sesType.replace("RACE2", "RAC2")
 
-                saveName, track, round = getSaveName(file, sesType)
-                print(saveName.replace(csvDir, ""))
-                col, date = openPDF(file)
-                lRows = parsePDF(col)
+            saveName, track, round = getSaveName(file, sesType)
+            print(saveName.replace(csvDir, ""))
+            col, date = openPDF(file)
+            lRows = parsePDF(col)
 
-                rows = []
-                for row in lRows:
-                    if row[0] != "bad":
-                        rows.append(row)
+            rows = []
+            for row in lRows:
+                if row[0] != "bad":
+                    rows.append(row)
 
-                const = ["const", yr, lge, round, sesType, date, track,]
+            const = ["const", yr, lge, round, sesType, date, track,]
 
-                cRows = getCRows(rows, yr, lge)
+            cRows = getCRows(rows, yr, lge)
 
-                cRows = rMisLaps(cRows)
+            cRows = rMisLaps(cRows)
 
-                for row in cRows:
-                    x = 0
-                    while x < len(row):
-                        i = row[x]
-                        j = str(i)
-                        row[x] = j
-                        x += 1
+            for row in cRows:
+                x = 0
+                while x < len(row):
+                    i = row[x]
+                    j = str(i)
+                    row[x] = j
+                    x += 1
 
-                    if row[0] == "lap":
-                        lapNum = chkLap(row, lapNum)
-                    elif row[0] == "rider":
-                        lapNum = 0
-                        chkRider(row, yr)
-                    elif row[0] == "run":
-                        chkRun(row)
-                    else:
-                        print("line 228")
-                        exit()
+                if row[0] == "lap":
+                    lapNum = chkLap(row, lapNum)
+                elif row[0] == "rider":
+                    lapNum = 0
+                    chkRider(row, yr)
+                elif row[0] == "run":
+                    chkRun(row)
+                else:
+                    print("line 228")
+                    exit()
 
-                dRows = lowerRows(cRows)
+            dRows = lowerRows(cRows)
 
-                matrix = getMatrix(dRows, const)
-                saveCSV(matrix, saveName)
-                # frequency = 500
-                # duration = 300
-                # Beep(frequency, duration)
-                #
-                # csvFinFiles.append(file)
-                # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
-                #     for i in csvFinFiles:
-                #         f.write(i + "\\n")
+            matrix = getMatrix(dRows, const)
+            saveCSV(matrix, saveName)
+            # frequency = 500
+            # duration = 300
+            # Beep(frequency, duration)
 
-                del rows
-                del cRows
-                del matrix
-            except:
-                x = saveName.replace(csvDir, "")
-                print(f"FAIL: {x}")
+            # csvFinFiles.append(file)
+            # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
+            #     for i in csvFinFiles:
+            #         f.write(i + "\\n")
+
+            del rows
+            del cRows
+            del matrix
+            # except:
+            #     x = saveName.replace(csvDir, "")
+            #     print(f"FAIL: {x}")

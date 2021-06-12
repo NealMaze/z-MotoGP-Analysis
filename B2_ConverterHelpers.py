@@ -1,5 +1,6 @@
 # imports
 from os import listdir, mkdir
+from datetime import datetime
 import pdfplumber as plumb
 import fnmatch
 import pandas as pd
@@ -11,7 +12,14 @@ from time import sleep
 from winsound import Beep
 from lists import *
 
+def getFiles(dir, string):
+    # gets Files from the dir matching the string provided
+    filterFiles = fnmatch.filter(listdir(dir), f"{string}")
+    files = [f"{dir}{file}" for file in filterFiles]
+    return files
+
 def getSaveName(file, sesType):
+    # calculates a new file name, round, and track name for the csv file
     y = file.replace(pdfDir, "")
     t = y.split("-")
     round = t[1]
@@ -20,16 +28,12 @@ def getSaveName(file, sesType):
     fTrack = track.replace(" Marco Simoncelli", "")
     yr = t[0].replace("/", "")
     saveName = f"{yr}-{lge}-{round}-{fTrack}-{sesType}-Analysis.csv"
-    z = csvDir + saveName
+    z = csvSesDir + saveName
+
     return z, fTrack, round
 
-def getFileNames(dir, string):
-    filterFiles = fnmatch.filter(listdir(dir), f"{string}")
-    files = [f"{dir}{file}" for file in filterFiles]
-
-    return files
-
 def openPDF(rcFile):
+    # opens the pdf as a list of dictionaries and also returns the date for the session
     with plumb.open(rcFile) as pdf:
         whole = []
         pages = pdf.pages
@@ -40,47 +44,50 @@ def openPDF(rcFile):
             for i in col:
                 whole.append(i)
 
-    x = date[0].replace(",", "")
-
-    return whole, x
+    return whole, date
 
 def getDate(pages):
-    # """Gets the date of the event and returns it to the openPDF() function"""
+    # Gets the date of the event and returns it to the openPDF() function
 
     words = pages[0].extract_words()
     date = []
 
-    year = words[-5]["text"]
-    day = words[-6]["text"]
-    month = words[-7]["text"]
+    count = 0
+    for i in words:
+        x = i["text"].replace(",", "").lower()
+        if x in months:
+            month = x.capitalize()
+            day = words[count+1]["text"]
+            day = day.replace(",", "")
+            day = day.lstrip("0")
+            break
+        count += 1
 
-    x = f"{month} {day}"
-    date.append(x)
-    date.append(year)
+    date.append(month)
+    date.append(day)
 
     return date
 
 def stripBoilerPlate(lis):
+    # removes any dictionaries that represent the header and footer of each page of the pdf
+    # then it separates the remaining dictionaries into the left and right columns and then
+    # appends the right side to the left side
     L = []
     R = []
-    x = 0
-
-    while "Speed" not in lis[x]["text"]:
-        x += 1
-    x += 1
-    del lis[0:x]
+    nonGrata = ["Speed", "T4Speed"]
 
     x = 0
-    while "Speed" not in lis[x]["text"]:
-        x += 1
-    x += 1
-    del lis[0:x]
+    for i in lis:
+        if i["text"] in nonGrata:
+            x += 1
+            y = x
+        else:
+            x += 1
+    del lis[:y]
 
     x = 0
     while "Fastest" not in lis[x]["text"]:
         x += 1
-        if len(lis) == x:
-            break
         if lis[x]["text"] == "These":
             break
         if lis[x]["text"] == "FIM" and lis[x+1]["text"] == "ROAD":
@@ -90,13 +97,6 @@ def stripBoilerPlate(lis):
         if lis[x]["text"] == "DORNA" and lis[x+1]["text"] == "MotoGP":
             break
     del lis[x:]
-
-    x = 0
-    for i in lis:
-        if i["text"] == "T4Speed":
-            del lis[:x + 1]
-            x = 0
-        else: x += 1
 
     x = 0
     nonDis = ["**", "*", "Full"]
@@ -144,6 +144,8 @@ def stripBoilerPlate(lis):
     return L
 
 def parsePDF(col):
+    # cycles through the pdf dictionaries, and turns it into a list of lists representing riders, runs, and laps.
+    # also deletes bad data returns
     rows = []
     counter = 0
 
@@ -153,7 +155,6 @@ def parsePDF(col):
         row = getRow(col)
         if row != []:
             rows.append(row)
-
 
         if len(col) == catch:
             counter += 1
@@ -167,22 +168,11 @@ def parsePDF(col):
     return rows
 
 def getRow(lis):
-    # printer = []
-    # for i in lis[:10]:
-    #     printer.append(i["text"])
-    # print(printer)
-
+    # examins the first couple items of the list and, passes the list to the appropriate row parser
+    # then deletes the parsed row from the list and returns the row to the parsePdf() function
     if len(lis) < 1: exit("\nempty row\nline 179")
-
     elif len(lis) < 2: exit("line 177, helpers\nline 177")
-
-    elif lis[0]["text"] == "DATA" or lis[0]["text"] == "DORNA":
-        del lis[:]
-        row = ["bad"]
-
-    elif re.match(wLap, lis[1]["text"]):
-        row = getLap(lis)
-        row[0] = "bad"
+    elif lis[0]["text"] == "unfinished" or lis[0]["text"] == "PIT": row = getLap(lis)
 
     elif lis[1]["text"] == "unfinished" or lis[1]["text"] == "PIT" or re.match(secTime, lis[1]["text"]):
         row = getLap(lis)
@@ -195,14 +185,19 @@ def getRow(lis):
 
     elif re.match(position, lis[0]["text"]) or re.match(name, lis[0]["text"]) or re.match(name, lis[1]["text"]):
         row = getRiderRow(lis)
+        # print(row)
 
     else:
         row = getLap(lis)
         row[0] = "bad"
 
+    if row[0] != "bad":
+        row = delBadTimes(row)
+
     return row
 
 def getRiderRow(lis):
+    # parses a rider row and returns it to the getRow() function
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
     runs = ["Run", "run", "Run#", "run#", "unfinished", "PIT"]
     row = ["rider"]
@@ -219,7 +214,26 @@ def getRiderRow(lis):
 
     return row
 
+def delBadTimes(items):
+    # deletes bad lap times or bad section times and also marks bad rider rows for deletion
+    x = []
+    count = 0
+
+    for i in items:
+        if re.match(bSecTime, i) or re.match(bLapTime, i):
+            x.insert(0, count)
+        count += 1
+
+    if len(x) != 0:
+        if items[0] == "rider":
+            items[0] = "bad"
+        for i in x:
+            del items[int(i)]
+
+    return items
+
 def getRun(lis):
+    # parses a run row and returns it to the getRow() function
     lapTime = re.compile("^\d{1,2}[']\d\d[.]\d\d\d$")
     row = []
     while True:
@@ -252,7 +266,7 @@ def getRun(lis):
             row[p] = "0"
             p += 1
         elif q == "**":
-            row[p] = None
+            row[p] = "missing"
             p += 1
         else: p += 1
 
@@ -261,14 +275,14 @@ def getRun(lis):
         val = row[count]
         if val == "":
             del row[count]
-            row.insert(count, None)
+            row.insert(count, "missing")
         else:
             count += 1
 
     return row
 
 def getLap(lis):
-
+    # parses a lap row and returns it to the getRow() function
     mashUp = False
     nSplit = re.compile("^\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}[*]\d{1,2}[']\d\d[.]\d\d\d[*]{0,1}$")
     oSplit = re.compile("^\d{1,2}[.]\d{3}[*]{0,1}[*]\d{1,2}[.]\d{3}[*]{0,1}$")
@@ -282,7 +296,7 @@ def getLap(lis):
     header = []
     footer = []
     cRow = ["lap"]
-    fRow = ["sect", None, None, None, None]
+    fRow = ["sect", "missing", "missing", "missing", "missing"]
     sections = []
 
     while True:
@@ -307,17 +321,7 @@ def getLap(lis):
             sections.append(i)
         elif int(i["x0"]) in range(270, 388) or int(i["x0"]) > 530:
             footer.append(i["text"])
-        else: exit(f"\n{row}\n{txt}    {iLoq}\nline 310")
-
-    # printer = []
-    # for i in row: printer.append(i["text"])
-    # print("")
-    # print(f"row = {printer}")
-    # print(f"header = {header}")
-    # printer = []
-    # for i in sections: printer.append(i["text"])
-    # print(f"sections = {printer}")
-    # print(f"footer = {footer}")
+        else: exit("\nline 310")
 
 ########################################################################################################################
 
@@ -327,11 +331,7 @@ def getLap(lis):
         fRow[3] = sections[2]["text"]
         fRow[4] = sections[3]["text"]
 
-    elif len(sections) > 4:
-        printer = []
-        for i in sections:
-            printer.append(i["text"])
-        exit(f"\n{printer}\nline 328")
+    elif len(sections) > 4: exit("\nline 328")
 
     else:
         nwRow = []
@@ -395,7 +395,23 @@ def getLap(lis):
 
     return cRow
 
+def chkConst(const, yr):
+    # checks that the date values in the Const variable match
+    lMonth = const[1].lower()
+    day = const[2]
+
+    if lMonth not in months:
+        print(f"\n\n{const}\nmonth = {const[1]}")
+        exit()
+    if day not in days:
+        print(f"\n\n{const}\nday = {const[2]}")
+        exit()
+    if const[3] != yr:
+        print(f"\n\n{const}\nyear = {const[3]}\nexpected yr = {yr}")
+        exit()
+
 def getCRows(rows, yr, lge):
+    # cleans the rows
     cRows = []
     for xRow in rows:
         row = []
@@ -429,7 +445,7 @@ def getCRows(rows, yr, lge):
         if row[0] == "lap":
             nuRow = row
             cLap = []
-            
+
             cLap.append(nuRow[0])
             del nuRow[0]
 
@@ -440,24 +456,17 @@ def getCRows(rows, yr, lge):
                 x = nuRow[0].lstrip("0")
                 nuRow[0] = x
 
-            if len(nuRow) < 1 or nuRow[0] == "b":
-                cLap.append(None)
+            if len(nuRow) < 1:
+                cLap.append("missing")
 
             elif re.match(pitTime, nuRow[0]):
                 cLap.append(nuRow[0][0])
 
-            elif nuRow[0] == "cancelled":
-                nuRow[0] = "unfinished"
-                cLap.append("0")
-                
             elif nuRow[0] == "unfinished":
                 cLap.append("0")
 
             elif nuRow[0] == "PIT":
                 cLap.append(lapNum)
-
-            elif nuRow[0] == "sect":
-                cLap.append("0")
 
             elif int(nuRow[0]) > -1:
                 cLap.append(nuRow[0])
@@ -480,10 +489,7 @@ def getCRows(rows, yr, lge):
             # manage lapTime
 
             if len(nuRow) < 1:
-                cLap.append(None)
-
-            elif nuRow[0] == "sect":
-                cLap.append(None)
+                cLap.append("missing")
 
             elif re.match(lapTime, nuRow[0]) or re.match(secTime, nuRow[0]) or re.match(pitTime, nuRow[0]) or \
                     nuRow[0] == "PIT" or nuRow[0] == "unfinished":
@@ -501,7 +507,7 @@ def getCRows(rows, yr, lge):
             # manage pit booleon
 
             if len(nuRow) < 1:
-                cLap.append(None)
+                cLap.append("missing")
 
             elif cLap[-1] == "PIT" and nuRow[0] == "sect":
                 cLap.append("P")
@@ -515,10 +521,10 @@ def getCRows(rows, yr, lge):
                 cLap.append("P")
 
             elif nuRow[0] == "sect":
-                cLap.append(None)
+                cLap.append("did not pit")
 
             elif re.match(secTime, nuRow[0]) or re.match(lapTime, nuRow[0]) or re.match(avgSpeed, nuRow[0]):
-                cLap.append(None)
+                cLap.append("did not pit")
                 exit(f"\n{cLap}\n{nuRow}\nline 538")
 
             else:
@@ -544,16 +550,16 @@ def getCRows(rows, yr, lge):
                     break
 
                 if len(nuRow) < 1:
-                    cLap.append(None)
+                    cLap.append("missing")
 
                 elif re.match(avgSpeed, nuRow[0]):
-                    cLap.append(None)
+                    cLap.append("missing")
 
                 elif re.match(secTime, nuRow[0]) or re.match(lapTime, nuRow[0]) or re.match(pitTime, nuRow[0]):
                     cLap.append(nuRow[0])
                     del nuRow[0]
 
-                elif nuRow[0] == None:
+                elif nuRow[0] == "missing":
                     cLap.append(nuRow[0])
                     del nuRow[0]
 
@@ -567,7 +573,7 @@ def getCRows(rows, yr, lge):
             # manage avgSpeed
 
             if len(nuRow) < 1 and len(cLap) < 14:
-                cLap.append(None)
+                cLap.append("missing")
 
             elif re.match(avgSpeed, nuRow[0]):
                 cLap.append(nuRow[0])
@@ -589,26 +595,16 @@ def getCRows(rows, yr, lge):
 
     return cRows
 
-def saveCSV(mat, file):
-    headers = ["index", "yr", "lge", "rnd", "session", "date", "trk", "pos", "rdr_num", "f_name", "l_name", "nat",
-               "team", "manu", "num_of_laps", "run_num", "f_tire", "r_tire", "laps_on_f", "laps_on_r", "lap_num",
-               "lap_time", "pit", "sec_one", "sec_two", "sec_thr", "sec_four", "sec_fiv", "sec_six", "sec_sev",
-               "sec_eig", "avg_spd"]
-
-    df = pd.DataFrame(mat)
-    df.to_csv(file, index = True, header = headers)
-
 def matchRider(row, yr, lge):
+    # matches rider to rider in rider csv file
     yrRiders = getRidersData(yr)
     bMatches = []
     bRdr = []
 
     rStr = ""
     for i in row[1:]:
-        if "laps=" in i:
-            lps = True
-        else:
-            rStr = rStr + " " + i
+        if "laps=" in i: pass
+        else: rStr = rStr + " " + i
 
     for rdr in yrRiders:
         if rdr[1] == lge:
@@ -672,10 +668,11 @@ def matchRider(row, yr, lge):
     return bRdr
 
 def getRidersData(yr):
+    # opens the rider csv file and returns contents to the matchRider() function
     data = []
     rows = []
 
-    with open(f"{csvDir}{yr}RidersV2.csv", "r", encoding="utf8") as yrFile:
+    with open(f"{csvRidersDir}{yr}RidersV2.csv", "r", encoding="utf8") as yrFile:
         i = csv.reader(yrFile, delimiter=",")
         for r in i:
             rows.append(r)
@@ -694,8 +691,9 @@ def getRidersData(yr):
     return data
 
 def getCRider(row, mRdr):
+    # returns a cleaned rider row
     position = re.compile("^\d{1,2}(st|nd|rd|th)$")
-    cRdr = ["0-pos", "1-num", "2-fName", "3-lName", "4-nat", "5-team", "6-manu", None]
+    cRdr = ["0-pos", "1-num", "2-fName", "3-lName", "4-nat", "5-team", "6-manu", "missing"]
 
     if mRdr == []:
         print("wrong mRdr")
@@ -723,32 +721,34 @@ def getCRider(row, mRdr):
     return cRdr
 
 def cleanRun(row):
-    while len(row) < 6: row.append(None)
+    # returns a cleaned run row
+    while len(row) < 6: row.append("missing")
 
     if row[1] == "-":
-        row[1] = None
+        row[1] = "missing"
     if row[2] == "-":
-        row[2] = None
+        row[2] = "missing"
     if row[3] == "-":
-        row[3] = None
+        row[3] = "missing"
 
     if row[2] not in tires:
-        row[2] = None
+        row[2] = "missing"
     if row[3] not in tires:
-        row[3] = None
+        row[3] = "missing"
 
     if re.match(inte, row[4]) == None \
             and re.match(inte, row[5]) == None \
-            and row[4] != None \
-            and row[5] != None:
+            and row[4] != "missing" \
+            and row[5] != "missing":
         print(row)
         print(
-            "ages ########################################################################################################################################################################################################")
-        exit()
+            "ages")
+        exit("line 730")
     else:
         return row
 
 def chkRider(row, yr):
+    # checks a rider row and tests that the values are appropriate to their position
     rdrData = getRidersData(yr)
     nats = []
     manus = []
@@ -807,77 +807,22 @@ def chkRider(row, yr):
         print(row)
         exit()
 
-    if re.match(integ, row[8]) == None and row[8] != None:
-        exit(f"\nB2_ConverterHelpers.py chkRider(row) - 6\n{row[8]}\n{row}")
-
-def chkLap(row, lapNum):
-    # print(row)
-
-    # check the length of the lap row
-    if len(row) != 14:
-        exit(f"\n{row}\nline 814")
-
-    # check that the lap number is sequential and that row[1] can be turned into an int
-    intRow = int(row[1])
-    lapNum = int(lapNum)
-    if intRow != 0:
-        lapNum += 1
-
-    # check that row[2] is some type of lap time
-    if re.match(lapTime, str(row[2])) == None and \
-            re.match(secTime, str(row[2])) == None and \
-            re.match(pitTime, str(row[2])) == None and \
-            row[2] != None and row[2] != "PIT" and\
-            row[2] != "unfinished":
+    if re.match(inte, row[8]) == None and row[8] != "missing":
         print("")
-        print("chkLap(row)")
-        print("row[2]")
-        print(row[2])
-        print(row)
-        exit("\nline 840")
-
-    # check that row[3] represents a pit boolean
-    if row[3] != "P" and row[3] != "did not pit" and row[3] != None:
-        print("")
-        print("chkLap(row)")
-        print("row[3]")
-        print(row[3])
-        exit("\nline 847")
-
-    # check that row[4] == "sect"
-    if row[4] != "sect": exit(f"\n{row}\nline 849")
-
-    # check that the following 8 positions represent section times
-    for i in row[5:13]:
-        if re.match(secTime, i) or re.match(lapTime, i) or re.match(pitTime, i) or i == None: pass
-        else:
-            print("")
-            print("chkLap(row)")
-            print("sec times")
-            print(i)
-            print(row[5:13])
-            exit()
-
-    # check that the avgSpeed value matches formatting
-    if re.match(avgSpeed, row[12]) == None and row[12] != None:
-        print("")
-        print("chkLap(row)")
-        print("row[12]")
-        print(row[12])
+        print("B2_ConverterHelpers.py chkRider(row) - 6")
+        print(row[8])
         print(row)
         exit()
 
-    if row[1] != "0": lapNum = row[1]
-    return lapNum
-
 def chkRun(row):
+    # checks a run row and verifies values
     if len(row) != 6:
         print("B2_ConverterHelpers.py chkRun(row) - 1")
         print("row wrong length")
         print(row)
         exit("\nline 874")
 
-    if re.match(inte, row[1]) == None and row[1] != None:
+    if re.match(inte, row[1]) == None and row[1] != "missing":
         print("B2_ConverterHelpers.py chkRun(row) - 2")
         print("row[1]")
         print(row[1])
@@ -896,29 +841,84 @@ def chkRun(row):
         print(row)
         exit()
 
-    if re.match(inte, row[4]) and row[4] == None:
+    if re.match(inte, row[4]) and row[4] == "missing":
         print("B2_ConverterHelpers.py chkRun(row) - 2")
         print(row[4])
         print(row)
         exit()
 
-    if re.match(inte, row[5]) and row[5] == None:
+    if re.match(inte, row[5]) and row[5] == "missing":
         print("B2_ConverterHelpers.py chkRun(row) - 2")
         print(row[5])
         print(row)
         exit()
 
-def getMatrix(rows, const):
-    matrix = []
-    if len(const) != 7:
-        print("const length prob")
-        print(f"len(const) = {len(const)}")
-        exit("\nline 912")
+def chkLap(row, lapNum):
+    # check the length of the lap row
+    if len(row) != 14:
+        exit(f"\n{row}\nline 814")
 
-    irider = ["position", "num", "fName", "lName", "nat", "team", "manu", "laps"]
-    irun = ["runNum", "fTire", "rTire", "fAge", "rAge"]
-    ilap = ["lapNum", "lapTime", "pitBoolean", "secTime", "secTime", "secTime", "secTime",
-           "secTime", "secTime", "secTime", "secTime", "avgSpeed"]
+    # check that the lap number is sequential and that row[1] can be turned into an int
+    intRow = int(row[1])
+    lapNum = int(lapNum)
+    if intRow != 0:
+        lapNum += 1
+
+    # check that row[2] is some type of lap time
+    if re.match(lapTime, str(row[2])) == None and \
+            re.match(secTime, str(row[2])) == None and \
+            re.match(pitTime, str(row[2])) == None and \
+            row[2] != "missing" and row[2] != "PIT" and\
+            row[2] != "unfinished":
+        print("")
+        print("chkLap(row)")
+        print("row[2]")
+        print(row[2])
+        print(row)
+        exit("\nline 840")
+
+    # check that row[3] represents a pit boolean
+    if row[3] != "P" and row[3] != "did not pit" and row[3] != "missing":
+        print("")
+        print("chkLap(row)")
+        print("row[3]")
+        print(row[3])
+        exit("\nline 847")
+
+    # check that row[4] == "sect"
+    if row[4] != "sect": exit(f"\n{row}\nline 849")
+
+    # check that the following 8 positions represent section times
+    for i in row[5:13]:
+        if re.match(secTime, i) or re.match(lapTime, i) or re.match(pitTime, i) or i == "missing": pass
+        else:
+            print("")
+            print("chkLap(row)")
+            print("sec times")
+            print(i)
+            print(row[5:13])
+            exit()
+
+    # check that the avgSpeed value matches formatting
+    if re.match(avgSpeed, row[12]) == None and row[12] != "missing":
+        print("")
+        print("chkLap(row)")
+        print("row[12]")
+        print(row[12])
+        print(row)
+        exit()
+
+    if row[1] != "0": lapNum = row[1]
+    return lapNum
+
+def getMatrix(rows, const):
+    # combines the const, and rows into one single type of row
+    matrix = []
+    if len(const) != 8:
+        print(f"len(const) = {len(const)}")
+        print(f"const = {const}")
+        exit("\nline 912")
+    irun = ["runNum", "fTire", "rTire", "0", "0"]
 
     for row in rows:
         xLap = []
@@ -935,12 +935,11 @@ def getMatrix(rows, const):
             for l in lap:
                 if l == "sect": pass
                 else: xLap.append(l)
-            if len(xLap) != 31:
+            if len(xLap) != 32:
                 print("xLap length problem")
                 print(len(xLap))
                 print(xLap)
                 exit("\nline 935")
-
             matrix.append(xLap)
         else:
             print("B2_ConverterHelpers.py line 415")
@@ -948,87 +947,39 @@ def getMatrix(rows, const):
 
     return matrix
 
-def rMisLaps(cRows):
-    nuRows = []
+def matFormat(mat):
+    # replaces place holders with null values, and removes the "Round_" lead from round values
+    fMat = []
+    nulls = ["missing", "did not pit", "runNum", "runnum"]
 
-    for row in cRows:
-        if row[0] == "rider":
-            lapNum = 0
-            nuRows.append(row)
-        elif row[0] == "run":
-            nuRows.append(row)
-        elif row[0] == "lap":
-            if row[2] != "unfinished":
-                lapNum += 1
-
-            if int(row[1]) == lapNum:
-                nuRows.append(row)
-
-            elif int(row[1]) > lapNum:
-                while True:
-                    badLap = ["lap", lapNum, None, None, "sect", None, None, None,
-                              None, None, None, None, None, None]
-                    if int(row[1]) == lapNum:
-                        break
-                    nuRows.append(badLap)
-                    lapNum += 1
-                nuRows.append(row)
-
-            elif int(row[1]) == 1:
-                lapNum = 1
-                nuRows.append(row)
-
-            elif int(row[1]) < lapNum and row[1] != "0":
-                row[1] = lapNum
-                nuRows.append(row)
-                exit(f"row number less than expected\n{row}\nline 944")
-
-    return nuRows
-
-def lowerRows(rows):
-    lRows = []
-
-    for row in rows:
-        lRow = []
+    for row in mat:
+        fRow = []
         for i in row:
-            l = i.str.lower()
-            lRow.append(l)
-        lRows.append(lRow)
+            if i in nulls:
+                fRow.append(None)
+            elif i == row[9] or i == row[10]:
+                x = i.lower()
+                fRow.append(x)
+            elif "Round_" in i:
+                j = i.replace("Round_", "")
+                fRow.append(j)
+            else:fRow.append(i)
+        fMat.append(fRow)
 
-    return lRows
+    return fMat
 
+def saveCSV(mat, file, headers):
+    # saves the matrix to a csv file using the headers as column headers
+    df = pd.DataFrame(mat)
+    df.to_csv(file, index=True, header = headers)
+    print(file.replace(csvSesDir, ""))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def printer(lis):
+    # takes the text value out of each dicionary in the argued list and prints them in a list
+    printer = []
+    for i in lis:
+        printer.append(i["text"])
+    print(printer)
 
 
 
