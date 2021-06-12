@@ -2,13 +2,13 @@
 from sqlalchemy import create_engine
 import pandas as pd
 from lists import *
-from B2_ConverterHelpers import getFileNames
+from B2_ConverterHelpers import getFiles
 
 engine = create_engine("postgresql://postgres:7158@localhost:5432/MotoGP")
 
 for yr in yrs:
     for lge in lges:
-        fLis = getFileNames(csvDir, f"{yr}-{lge}*.csv")
+        fLis = getFiles(csvSesDir, f"{yr}-{lge}*.csv")
 
         if len(fLis) != 0:
             print("")
