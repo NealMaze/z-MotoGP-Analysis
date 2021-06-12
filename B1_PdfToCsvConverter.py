@@ -1,9 +1,9 @@
 # imports
 from B2_ConverterHelpers import *
 
-yrs = ["2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+yrs = ["2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
 # # lges = ["Moto3"]
-# rnd = "2"
+# rnd = "8"
 
 now = datetime.now()
 startTime = now.strftime("%H:%M:%S")
@@ -28,6 +28,7 @@ for yr in yrs:
                     sesType = sesType.replace("_", "")
                     sesType = sesType.replace("RACE2", "RAC2")
 
+            print(file)
             saveName, track, round = getSaveName(file, sesType)
             col, date = openPDF(file)
             rows = parsePDF(col)

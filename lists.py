@@ -28,7 +28,8 @@ tires = ["Slick-Soft", "Slick-Medium", "Slick-Hard", "Wet-Soft", "Wet-Medium", "
 days = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32"]
 months = ["january" "february", "march", "april", "may", "june", "july", "august", "september", "october",
-          "november", "december"]
+          "november", "december", "January", "February", "March", "April", "May", "June", "july", "August",
+          "September", "October", "November", "December"]
 
 rootDir = "C:/Users/LuciusFish/Desktop/motoFiles/"
 pdfDir = (f"{rootDir}pdfFiles/")
@@ -41,7 +42,7 @@ csvTracksDir = (f"{csvDir}tracks/")
 position = re.compile("^\d{1,2}(st|nd|rd|th)$")
 name = re.compile("^[\-a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.']+$")
 avgSpeed = re.compile("^\d{2,3}[.]\d{1}$")
-inte = re.compile("^\d{1,2}$")
+inte = re.compile("^\d{1,2}\d{0,1}$")
 integ = re.compile("^\d{1,2}\d{0,1}$")
 yrReg = re.compile("^\d{4}$")
 bSecTime = re.compile("^\d\d\d\d[.][.]\d\d\d\d\d\d$")

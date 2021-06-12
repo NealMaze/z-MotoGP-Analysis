@@ -61,10 +61,21 @@ def getDate(pages):
             day = day.replace(",", "")
             day = day.lstrip("0")
             break
+
+        x = i["text"].replace(",", "")
+        if x in months:
+            month = x.capitalize()
+            day = words[count + 1]["text"]
+            day = day.replace(",", "")
+            day = day.lstrip("0")
+            break
+
         count += 1
 
     if month == None:
-        printer(words[-20:])
+        print(month)
+        print(day)
+        exit()
 
     date.append(month)
     date.append(day)
@@ -403,17 +414,14 @@ def getLap(lis):
 
 def chkConst(const, yr):
     # checks that the date values in the Const variable match
-    lMonth = const[1].lower()
+    lMonth = const[1]
     day = const[2]
 
-    if lMonth not in months:
-        print(f"\n\n{const}\nmonth = {const[1]}")
-        exit()
     if day not in days:
-        print(f"\n\n{const}\nday = {const[2]}")
+        print(f"\n\nline 428\n{const}\nday = {const[2]}")
         exit()
     if const[3] != yr:
-        print(f"\n\n{const}\nyear = {const[3]}\nexpected yr = {yr}")
+        print(f"\n\nline 431\n{const}\nyear = {const[3]}\nexpected yr = {yr}")
         exit()
 
 def getCRows(rows, yr, lge):
@@ -474,6 +482,10 @@ def getCRows(rows, yr, lge):
             elif nuRow[0] == "cancelled":
                 cLap.append("0")
                 nuRow[0] = "unfinished"
+
+            elif nuRow[0] == "sect":
+                cLap.append("0")
+                nuRow.insert(0, "unfinished")
 
             elif nuRow[0] == "PIT":
                 cLap.append(lapNum)
@@ -982,7 +994,7 @@ def saveCSV(mat, file, headers):
     # saves the matrix to a csv file using the headers as column headers
     df = pd.DataFrame(mat)
     df.to_csv(file, index=True, header = headers)
-    print(file.replace(csvSesDir, ""))
+    # print(file.replace(csvSesDir, ""))
 
 def printer(lis):
     # takes the text value out of each dicionary in the argued list and prints them in a list
