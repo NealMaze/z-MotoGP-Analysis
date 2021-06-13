@@ -19,3 +19,6 @@ for yr in yrs:
                 df = pd.read_csv(f)
             df.to_sql("gp_times", con = engine, index = True, index_label = "index", if_exists = "append")
             print(file)
+
+engine.dispose()
+print("\n\n   - - - data ingested - - -   \n\n")
