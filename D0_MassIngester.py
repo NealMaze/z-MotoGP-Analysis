@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine
 import pandas as pd
 from lists import *
-from B2_ConverterHelpers import getFiles
+from B2_ConverterHelpers import *
 
 engine = create_engine("postgresql://postgres:7158@localhost:5432/MotoGP")
 
@@ -17,5 +17,5 @@ for yr in yrs:
         for file in fLis:
             with open(file, "r", encoding='utf-8') as f:
                 df = pd.read_csv(f)
-            df.to_sql("gp_times", con = engine, index = False, if_exists = "replace")
+            df.to_sql("gp_times", con = engine, index = True, index_label = "index", if_exists = "append")
             print(file)

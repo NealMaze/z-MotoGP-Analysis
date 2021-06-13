@@ -13,7 +13,7 @@ from winsound import Beep
 from lists import *
 
 def getFiles(dir, string):
-    # gets Files from the dir matching the string provided
+    # gets Files from the provided dir matching the provided string
     filterFiles = fnmatch.filter(listdir(dir), f"{string}")
     files = [f"{dir}{file}" for file in filterFiles]
     return files
@@ -993,8 +993,8 @@ def matFormat(mat):
 def saveCSV(mat, file, headers):
     # saves the matrix to a csv file using the headers as column headers
     df = pd.DataFrame(mat)
-    df.to_csv(file, index=True, header = headers)
-    # print(file.replace(csvSesDir, ""))
+    df.to_csv(file, index=False, header = headers)
+    print(file.replace(csvSesDir, ""))
 
 def printer(lis):
     # takes the text value out of each dicionary in the argued list and prints them in a list

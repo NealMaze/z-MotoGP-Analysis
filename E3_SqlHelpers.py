@@ -5,7 +5,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 import pandas as pd
 from lists import *
-from B2_ConverterHelpers import getFileNames
+from B2_ConverterHelpers import getFiles
 
 def getEvents(srchCol, srchVal, lge):
     if srchCol == "rdr":
