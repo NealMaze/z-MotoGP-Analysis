@@ -7,6 +7,7 @@ from B2_ConverterHelpers import *
 
 now = datetime.now()
 startTime = now.strftime("%H:%M:%S")
+badFiles = []
 print("B1_PdfToCsvConverter.py")
 
 for yr in yrs:
@@ -86,10 +87,15 @@ for yr in yrs:
                 del rows
                 del cRows
                 del matrix
-            except: print(f"\nFailed Parsing:\n{fileName}\n")
+            except:
+                print(f"\nFailed Parsing:\n{fileName}\n")
+                badFiles.append(fileName)
 
 end = datetime.now()
 endTime = end.strftime("%H:%M:%S")
 print("\nparsing finished")
 print(f"start time = {startTime}")
 print(f"end time = {endTime}")
+print("\nFailed Files: ")
+for i in badFiles:
+    print(i)
