@@ -4,19 +4,32 @@ import pandas as pd
 from lists import *
 from B2_ConverterHelpers import *
 import psycopg2
+from SQL_Strings import *
 
-conn = psycopg2.connect("host=localhost dbname=postgres user=postgres")
-cur = con.cursor()
+password = input("\n\nPassword: ")
+print("\n\n")
 
+conn = psycopg2.connect(f"host=localhost dbname=postgres user=postgres password={password}")
+cur = conn.cursor()
 
+# cur.execute(createTimesTable)
+# conn.commit()
 
+for yr in yrs:
+    for lge in lges:
+        fLis = getFiles(csvSesDir, f"{yr}-{lge}*.csv")
 
+        if len(fLis) != 0:
+            print("")
+            print(f" - - - {yr}, {lge} - - - ")
 
+        for file in fLis:
+            with open(file, "r", encoding="utf-8") as f:
+                next(f)
+                print(f)
+                # cur.copy_from(f, "gp_times", sep=",")
 
-
-
-
-
+conn.commit()
 
 
 

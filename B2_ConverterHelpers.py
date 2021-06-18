@@ -969,7 +969,7 @@ def getMatrix(rows, const):
 
     return matrix
 
-def matFormat(mat):
+def matFormat(mat, id):
     # replaces place holders with null values, and removes the "Round_" lead from round values
     fMat = []
     nulls = ["missing", "did not pit", "runNum", "runnum"]
@@ -988,7 +988,16 @@ def matFormat(mat):
             else:fRow.append(i)
         fMat.append(fRow)
 
-    return fMat
+    lineNum = 1000
+    gMat = []
+    for row in fMat:
+        gRow = row
+        rID = id + str(lineNum)
+        gRow.insert(0, rID)
+        gMat.append(gRow)
+        lineNum += 1
+
+    return gMat
 
 def saveCSV(mat, file, headers):
     # saves the matrix to a csv file using the headers as column headers
@@ -1002,3 +1011,9 @@ def printer(lis):
     for i in lis:
         printer.append(i["text"])
     print(printer)
+
+
+
+
+
+
