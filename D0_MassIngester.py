@@ -12,8 +12,8 @@ print("\n\n")
 conn = psycopg2.connect(f"host=localhost dbname=postgres user=postgres password={password}")
 cur = conn.cursor()
 
-# cur.execute(createTimesTable)
-# conn.commit()
+cur.execute(createTimesTable)
+conn.commit()
 
 for yr in yrs:
     for lge in lges:
@@ -25,9 +25,12 @@ for yr in yrs:
 
         for file in fLis:
             with open(file, "r", encoding="utf-8") as f:
-                next(f)
-                print(f)
-                # cur.copy_from(f, "gp_times", sep=",")
+                frame = pd.read_csv(f)
+                next(frame)
+
+
+
+                cur.copy_from(f, "gp_times", sep=",")
 
 conn.commit()
 

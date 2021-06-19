@@ -3,7 +3,7 @@
 
 
 createTimesTable = """
-    CREATE TABLE accounts(
+    CREATE TABLE gp_times(
         index text PRIMARY KEY,
         month text,
         day text,

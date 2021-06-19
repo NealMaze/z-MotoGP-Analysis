@@ -1012,7 +1012,32 @@ def printer(lis):
         printer.append(i["text"])
     print(printer)
 
+def strToSec(strTime):
+    totalSec = 0
+    subString = strTime
 
+    if ":" in subString:
+        hours, subString = subString.split(':')
+        totalSec = int(hours) * 3600
+    if "'" in subString:
+        minutes, subString = subString.split("'")
+        totalSec = int(minutes) * 60
+    totalSec += float(subString)
+
+    return totalSec
+
+def secToStr(totSec):
+    hours = int(totSec) // 3600
+    minutes = (int(totSec) % 3600) // 60
+    seconds = totSec % 60
+
+    if hours > 0:
+        strTime = f"{hours}:{minutes:02}'{seconds}"
+    elif minutes > 0:
+        strTime = f"{minutes:02}'{seconds}"
+    else: strTime = f"{seconds}"
+
+    return strTime
 
 
 
