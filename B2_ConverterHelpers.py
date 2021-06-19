@@ -568,7 +568,7 @@ def getCRows(rows, yr, lge):
             # manage section times
 
             while True:
-                if len(cLap) == 13:
+                if len(cLap) == 9:
                     break
 
                 if len(nuRow) < 1:
@@ -877,8 +877,8 @@ def chkRun(row):
 
 def chkLap(row, lapNum):
     # check the length of the lap row
-    if len(row) != 14:
-        exit(f"\n{row}\nline 814")
+    if len(row) != 10:
+        exit(f"\n{len(row)}\n{row}\nline 814")
 
     # check that the lap number is sequential and that row[1] can be turned into an int
     intRow = int(row[1])
@@ -911,24 +911,14 @@ def chkLap(row, lapNum):
     if row[4] != "sect": exit(f"\n{row}\nline 849")
 
     # check that the following 8 positions represent section times
-    for i in row[5:13]:
+    for i in row[5:9]:
         if re.match(secTime, i) or re.match(lapTime, i) or re.match(pitTime, i) or i == "missing": pass
         else:
-            print("")
-            print("chkLap(row)")
-            print("sec times")
-            print(i)
-            print(row[5:13])
-            exit()
+            exit(f"\nchkLap(row)\nline 917\n{i}\n{row[5:9]}")
 
     # check that the avgSpeed value matches formatting
-    if re.match(avgSpeed, row[12]) == None and row[12] != "missing":
-        print("")
-        print("chkLap(row)")
-        print("row[12]")
-        print(row[12])
-        print(row)
-        exit()
+    if re.match(avgSpeed, row[9]) == None and row[9] != "missing":
+        exit(f"\nchkLap(row)\nline 921\n{row[9]}")
 
     if row[1] != "0": lapNum = row[1]
     return lapNum
@@ -957,7 +947,7 @@ def getMatrix(rows, const):
             for l in lap:
                 if l == "sect": pass
                 else: xLap.append(l)
-            if len(xLap) != 32:
+            if len(xLap) != 28:
                 print("xLap length problem")
                 print(len(xLap))
                 print(xLap)
@@ -1013,20 +1003,37 @@ def printer(lis):
     print(printer)
 
 def strToSec(strTime):
-    totalSec = 0
-    subString = strTime
+    timeAsString = strTime
+    secList = [timeAsString, None, False]
+    passables = [None, "PIT", "unfinished"]
 
-    if ":" in subString:
-        hours, subString = subString.split(':')
-        totalSec = int(hours) * 3600
-    if "'" in subString:
-        minutes, subString = subString.split("'")
-        totalSec = int(minutes) * 60
-    totalSec += float(subString)
+    if strTime in passables: pass
 
-    return totalSec
+    else:
+        totalSec = 0
+        subString = strTime
+
+        if "*" in subString:
+            subString = subString.replace("*", "")
+            secList[2] = True
+
+        if ":" in subString:
+            hours, subString = subString.split(':')
+            totalSec = int(hours) * 3600
+
+        if "'" in subString:
+            minutes, subString = subString.split("'")
+            totalSec = int(minutes) * 60
+
+        totalSec += float(subString)
+        totSec = round(totalSec, 3)
+
+        secList[1] = totSec
+
+    return secList
 
 def secToStr(totSec):
+    # ended up not needing this but leaving it incase it becomes useful later
     hours = int(totSec) // 3600
     minutes = (int(totSec) % 3600) // 60
     seconds = totSec % 60
@@ -1039,6 +1046,36 @@ def secToStr(totSec):
 
     return strTime
 
+def getSeconds(row):
+    nuRow = []
 
+    index = row[0].replace("Moto", "").replace("*", "")
+    nuRow.append(index)
+
+    for i in row[1:22]:
+        nuRow.append(i)
+
+    lapList = strToSec(row[22])
+    for i in lapList: nuRow.append(i)
+
+    if row[23] == "P": nuRow.append(True)
+    else: nuRow.append(False)
+
+    for i in row[24:-1]:
+        secList = strToSec(i)
+        for i in secList: nuRow.append(i)
+
+    nuRow.append(row[-1])
+
+    return nuRow
+
+def processSeconds(matrix):
+    nuMatrix = []
+
+    for row in matrix:
+        nuRow = getSeconds(row)
+        nuMatrix.append(nuRow)
+
+    return nuMatrix
 
 
