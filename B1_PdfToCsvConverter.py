@@ -25,75 +25,76 @@ for yr in yrs:
 
         for file in rcFiles:
             fileName = file.replace(pdfDir, "")
-            # try:
-            for i in ses:
-                if i in file:
-                    sesType = i
-                    sesType = sesType.replace("_", "")
-                    sesType = sesType.replace("RACE2", "RAC2")
+            try:
+                for i in ses:
+                    if i in file:
+                        sesType = i
+                        sesType = sesType.replace("_", "")
+                        sesType = sesType.replace("RACE2", "RAC2")
 
-            saveName, track, round = getSaveName(file, sesType)
-            col, date = openPDF(file)
-            rows = parsePDF(col)
+                saveName, track, round = getSaveName(file, sesType)
+                col, date = openPDF(file)
+                rows = parsePDF(col)
 
-            month = date[0]
-            month = month.lower()
-            month = month.capitalize()
-            day = date[1]
-            rndNum = round.replace("Round_", "")
-            id = f"{yr}-{lge}-{rndNum}-{sesType}-"
+                month = date[0]
+                month = month.lower()
+                month = month.capitalize()
+                day = date[1]
+                rndNum = round.replace("Round_", "")
+                id = f"{yr}-{lge}-{rndNum}-{sesType}-"
 
-            const = ["const", month, day, yr, lge, round, sesType, track,]
-            chkConst(const, yr)
+                const = ["const", month, day, yr, lge, round, sesType, track,]
+                chkConst(const, yr)
 
-            rows.insert(0, const)
+                rows.insert(0, const)
 
-            cRows = getCRows(rows, yr, lge)
+                cRows = getCRows(rows, yr, lge)
 
-            for row in cRows:
-                x = 0
-                while x < len(row):
-                    i = row[x]
-                    j = str(i)
-                    row[x] = j
-                    x += 1
+                for row in cRows:
+                    x = 0
+                    while x < len(row):
+                        i = row[x]
+                        j = str(i)
+                        row[x] = j
+                        x += 1
 
-                if row[0] == "lap":
-                    lapNum = chkLap(row, lapNum)
-                elif row[0] == "rider":
-                    lapNum = 0
-                    chkRider(row, yr)
-                elif row[0] == "run":
-                    chkRun(row)
-                else:
-                    print("line 228")
-                    exit()
+                    if row[0] == "lap":
+                        lapNum = chkLap(row, lapNum)
+                    elif row[0] == "rider":
+                        lapNum = 0
+                        chkRider(row, yr)
+                    elif row[0] == "run":
+                        chkRun(row)
+                    else:
+                        print("line 228")
+                        exit()
 
-            matrix = getMatrix(cRows, const)
-            mat = matFormat(matrix, id)
-            secMat = processSeconds(mat)
+                matrix = getMatrix(cRows, const)
+                mat = matFormat(matrix, id)
+                secMat = processSeconds(mat)
 
-            headers = ["index", "month", "day", "yr", "lge", "rnd", "session", "trk",
-                       "pos", "rdr_num", "f_name", "l_name", "nat", "team", "manu", "num_of_laps",
-                       "run_num", "f_tire", "r_tire", "laps_on_f", "laps_on_r", "lap_num", "lap_time", "lap_seconds",
-                       "lap_val", "pit", "sec_one", "one_seconds", "one_val", "sec_two", "two_seconds", "two_val",
-                       "sec_thr", "thr_seconds", "thr_val", "sec_four", "four_seconds", "four_val", "avg_spd"]
-            saveCSV(secMat, saveName, headers)
-            # frequency = 500
-            # duration = 300
-            # Beep(frequency, duration)
-            #
-            # csvFinFiles.append(file)
-            # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
-            #     for i in csvFinFiles:
-            #         f.write(i + "\\n")
+                headers = ["index", "month", "day", "yr", "lge", "rnd", "session", "trk",
+                           "pos", "rdr_num", "f_name", "l_name", "nat", "team", "manu", "num_of_laps",
+                           "run_num", "f_tire", "r_tire", "laps_on_f", "laps_on_r", "lap_num", "lap_time", "lap_seconds",
+                           "lap_val", "pit", "sec_one", "one_seconds", "one_val", "sec_two", "two_seconds", "two_val",
+                           "sec_thr", "thr_seconds", "thr_val", "sec_four", "four_seconds", "four_val", "avg_spd"]
+                saveCSV(secMat, saveName, headers)
+                # frequency = 500
+                # duration = 300
+                # Beep(frequency, duration)
+                #
+                # csvFinFiles.append(file)
+                # with open(f"{sveDir}csvFinFiles.txt", "w") as f:
+                #     for i in csvFinFiles:
+                #         f.write(i + "\\n")
 
-            del rows
-            del cRows
-            del matrix
-            # except:
-            #     print(f"\nFailed Parsing:\n{fileName}\n")
-            #     badFiles.append(fileName)
+                del rows
+                del cRows
+                del matrix
+
+            except:
+                print(f"\nFailed Parsing:\n{fileName}\n")
+                badFiles.append(fileName)
 
 end = datetime.now()
 endTime = end.strftime("%H:%M:%S")
