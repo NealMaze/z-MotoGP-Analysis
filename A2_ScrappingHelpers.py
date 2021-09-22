@@ -186,7 +186,6 @@ def getAllRounds(soup):
 # 3) function to get testing sessions
 # def changeHandleSeason():
 
-
 def getAllTests(soup, yr):
     """ Returns all the tests that took place during the season
         of the soup object it's passed"""
@@ -309,17 +308,6 @@ def getAllStats(soup, year, trk, track, cat, ssn):
             rdrs.append(rdr)
 
         return wthr, rdrs
-
-
-
-
-
-
-
-
-
-
-
 
 
 ########################################################################################################################
