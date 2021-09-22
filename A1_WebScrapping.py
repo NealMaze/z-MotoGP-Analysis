@@ -9,11 +9,13 @@ url_ssn = https://www.motogp.com/en/Results+Statistics/2020/QAT/Moto2/FP1/Classi
 
 # import necessary modules
 from A2_ScrappingHelpers import *
+from lists import *
 
 # in-depth analysis is only available as far back as 1998
 
-base_url = 'http://www.motogp.com/en/Results+Statistics/'
+yrs = ["2021"]
 
+base_url = 'http://www.motogp.com/en/Results+Statistics/'
 dest = "C:/Users/LuciusFish/Desktop/motoFiles/"
 
 for yr in yrs:
@@ -27,7 +29,7 @@ for yr in yrs:
     rounds = getAllRounds(soupYr)
     print(f"\n")
 
-    for rn in rounds:
+    for rn in rounds[0:5]:
         time.sleep(0 + np.random.random())
         TRK = rn['value']
         Track = rn['title']
@@ -68,7 +70,7 @@ for yr in yrs:
                     u = t[9].split(".")
                     v = u[0]
                     pdf = requests.get(link)
-                    fName = f"{dest}moto_pdf/{yr}-Round_{fileNum}-{CAT}-{Track}-{ssn}_{v}"
+                    fName = f"{dest}pdfFiles/{yr}-Round_{fileNum}-{CAT}-{Track}-{ssn}_{v}"
                     with open(f"{fName}.pdf", "wb") as f:
                         f.write(pdf.content)
                         x = x + f"{v}, "
@@ -78,11 +80,11 @@ for yr in yrs:
         fileNum += 1
 
     heads = ["Year", "Date", "Track", "League", "Session_Type", "Track_Conditions", "Track_Temp", "Air_Temp", "Humidity"]
-    yName = f"{dest}moto_csv/{yr}_EventWeather.csv"
+    yName = f"{csvWeatherDir}{yr}_EventWeather.csv"
     saveCSV(eventWeather, yName)
 
     rHeader = ["Year", "League", "Number", "Name", "Nation", "Team", "Bike"]
-    rName = f"{dest}moto_csv/{yr}_Riders.csv"
+    rName = f"{csvRidersDir}{yr}_Riders.csv"
     saveCSV(seasonRiders, rName)
 
 print('>> Scraping complete!')

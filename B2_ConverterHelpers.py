@@ -694,7 +694,7 @@ def getRidersData(yr):
     data = []
     rows = []
 
-    with open(f"{csvRidersDir}{yr}RidersV2.csv", "r", encoding="utf8") as yrFile:
+    with open(f"{csvRidersDir}{yr}RidersV2.csv", "r", encoding = "utf8") as yrFile:
         i = csv.reader(yrFile, delimiter=",")
         for r in i:
             rows.append(r)
