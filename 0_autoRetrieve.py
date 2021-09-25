@@ -16,7 +16,7 @@ while yr not in yrs:
     yr = input("\nretrieve files from year: ")
     if yr not in yrs:
         print("invalid entry")
-        print("please enter a number between 1998-2021 or 'all'")
+        print("please enter a year between 1998-2021 or 'all'")
 
 # retrieve PDFs
 getFiles(yr)
