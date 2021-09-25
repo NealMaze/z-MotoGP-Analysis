@@ -6,14 +6,19 @@ def getRoundFiles(yr, rn, fileNum):
 
     # open csv for year
     eventWeather = []
-    with open(f"{csvWeatherDir}{yr}_EventWeather.csv", "r", encoding = "utf8") as workFile:
-        i = csv.reader(workFile, delimiter = ",")
-        for r in i: eventWeather.append(r)
+    with open(f"{csvWeatherDir}{yr}_EventWeather.csv", "r", encoding = "utf8") as werkFile:
+        i = csv.reader(werkFile, delimiter=",")
+        for r in i:
+            eventWeather.append(r)
 
     seasonRiders = []
     with open(f"{csvRidersDir}{yr}_Riders.csv", "r", encoding = "utf8") as workFile:
-        i = csv.reader(workFile, delimiter = ",")
-        for r in i: eventWeather.append(r)
+        i = csv.reader(workFile, delimiter=",")
+        for r in i:
+            seasonRiders.append(r)
+
+    eventWeather.pop(0)
+    seasonRiders.pop(0)
 
     base_url = 'http://www.motogp.com/en/Results+Statistics/'
     dest = "C:/Users/LuciusFish/Desktop/motoFiles/"
@@ -64,13 +69,13 @@ def getRoundFiles(yr, rn, fileNum):
                     x = x + f"{v}, "
             print(x)
 
-    heads = ["Year", "Date", "Track", "League", "Session_Type", "Track_Conditions", "Track_Temp", "Air_Temp", "Humidity"]
+    wHeader = ["Year", "Date", "Track", "League", "Session_Type", "Track_Conditions", "Track_Temp", "Air_Temp", "Humidity"]
     yName = f"{dest}moto_csv/{yr}_EventWeather.csv"
-    saveCSV(eventWeather, yName)
+    saveCSV(eventWeather, yName, wHeader)
 
     rHeader = ["Year", "League", "Number", "Name", "Nation", "Team", "Bike"]
     rName = f"{dest}moto_csv/{yr}_Riders.csv"
-    saveCSV(seasonRiders, rName)
+    saveCSV(seasonRiders, rName, rHeader)
 
 def getFiles(yr):
 
