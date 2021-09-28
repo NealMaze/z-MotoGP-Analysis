@@ -32,6 +32,8 @@ def getEvents(srchCol, srchVal, lge):
         """
     )
 
+ # 67
+
     events.drop_duplicates()
 
 

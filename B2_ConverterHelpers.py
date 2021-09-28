@@ -202,7 +202,6 @@ def getRow(lis):
 
     elif re.match(position, lis[0]["text"]) or re.match(name, lis[0]["text"]) or re.match(name, lis[1]["text"]):
         row = getRiderRow(lis)
-        # print(row)
 
     else:
         row = getLap(lis)
@@ -377,11 +376,9 @@ def getLap(lis):
             fRow[4] = nwRow[3]
 
         else:
-            # print("")
             for i in sections:
                 t = str(i["text"])
                 iLoq = int(i["x0"])
-                # print(f"{t}     {iLoq}")
                 if re.match(lapTime, t) or re.match(secTime, t) or re.match(pitTime, t):
                     if iLoq in range(117, 153) or iLoq in range(380, 415):
                         fRow[1] = t
@@ -993,6 +990,7 @@ def saveCSV(mat, file, headers):
     # saves the matrix to a csv file using the headers as column headers
     df = pd.DataFrame(mat)
     df.to_csv(file, index=False, header = headers)
+    print("\nsaving file:")
     print(file.replace(csvSesDir, ""))
 
 def printer(lis):

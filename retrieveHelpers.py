@@ -3,8 +3,6 @@ from A2_ScrappingHelpers import *
 from B2_ConverterHelpers import *
 
 def getRoundFiles(yr, rn, fileNum):
-
-    # open csv for year
     eventWeather = []
     with open(f"{csvWeatherDir}{yr}_EventWeather.csv", "r", encoding = "utf8") as werkFile:
         i = csv.reader(werkFile, delimiter=",")
@@ -17,8 +15,15 @@ def getRoundFiles(yr, rn, fileNum):
         for r in i:
             seasonRiders.append(r)
 
-    eventWeather.pop(0)
-    seasonRiders.pop(0)
+    try:
+        eventWeather.pop(0)
+    except:
+        eventWeather = []
+
+    try:
+        seasonRiders.pop(0)
+    except:
+        seasonRiders = []
 
     base_url = 'http://www.motogp.com/en/Results+Statistics/'
     dest = "C:/Users/LuciusFish/Desktop/motoFiles/"
@@ -51,8 +56,10 @@ def getRoundFiles(yr, rn, fileNum):
             x = f"{SSN}, "
 
             # get weather and riders at session
-            weather, riders = getAllStats(soupSSN, yr, TRK, Track, CAT, SSN)
-            eventWeather.append(weather)
+            thisWeather, riders = getAllStats(soupSSN, yr, TRK, Track, CAT, SSN)
+            if thisWeather not in eventWeather:
+                eventWeather.append(thisWeather)
+
             for rider in riders:
                 if rider not in seasonRiders:
                     seasonRiders.append(rider)
@@ -70,61 +77,56 @@ def getRoundFiles(yr, rn, fileNum):
             print(x)
 
     wHeader = ["Year", "Date", "Track", "League", "Session_Type", "Track_Conditions", "Track_Temp", "Air_Temp", "Humidity"]
-    yName = f"{dest}moto_csv/{yr}_EventWeather.csv"
+    yName = f"{dest}csvFiles/weather/{yr}_EventWeather.csv"
     saveCSV(eventWeather, yName, wHeader)
 
     rHeader = ["Year", "League", "Number", "Name", "Nation", "Team", "Bike"]
-    rName = f"{dest}moto_csv/{yr}_Riders.csv"
+    rName = f"{dest}csvFiles/riders/{yr}_Riders.csv"
     saveCSV(seasonRiders, rName, rHeader)
 
 def getFiles(yr):
+    # if yr == "all":
+    #     yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009",
+    #            "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+    #     base_url = 'http://www.motogp.com/en/Results+Statistics/'
+    #     dest = "C:/Users/LuciusFish/Desktop/motoFiles/"
+    #
+    #     for yr in yrs:
+    #         time.sleep(0 + np.random.random())
+    #         eventWeather = []
+    #         seasonRiders = []
+    #
+    #         fileNum = 0
+    #         url_yr = base_url + yr
+    #         soupYr = soup_special(url_yr)
+    #         rounds = getAllRounds(soupYr)
+    #
+    #         for rn in rounds:
+    #             fileNum += 1
+    #             getRoundFiles(rn, fileNum)
+    #
+    #         print("")
 
-    if yr == "all":
-        yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009",
-               "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
-        base_url = 'http://www.motogp.com/en/Results+Statistics/'
-        dest = "C:/Users/LuciusFish/Desktop/motoFiles/"
-
-        for yr in yrs:
-            time.sleep(0 + np.random.random())
-            eventWeather = []
-            seasonRiders = []
-
-            fileNum = 0
-            url_yr = base_url + yr
-            soupYr = soup_special(url_yr)
-            rounds = getAllRounds(soupYr)
-
-            for rn in rounds:
-                fileNum += 1
-                getRoundFiles(rn, fileNum)
-
-            print("")
-
-    else:
-        base_url = 'http://www.motogp.com/en/Results+Statistics/'
-        dest = "C:/Users/LuciusFish/Desktop/motoFiles/"
-        url_yr = base_url + yr
-        soupYr = soup_special(url_yr)
-        rounds = getAllRounds(soupYr)
-
-        # user input for round
-        rndIn = input("retrieve files from round: ")
-        rndReq = int(rndIn)
-        rnIndx = rndReq - 1
-        rn = rounds[rnIndx]
-        print("")
-
-        getRoundFiles(yr, rn, rndReq)
+    # else:
+    #     base_url = 'http://www.motogp.com/en/Results+Statistics/'
+    #     dest = "C:/Users/LuciusFish/Desktop/motoFiles/"
+    #     url_yr = base_url + yr
+    #     soupYr = soup_special(url_yr)
+    #     rounds = getAllRounds(soupYr)
+    rndIn = input("retrieve files from round: ")
+    #     print("")
+    #     rndReq = int(rndIn)
+    #     rnIndx = rndReq - 1
+    #     rn = rounds[rnIndx]
+    #     getRoundFiles(yr, rn, rndReq)
 
 def convertYrPdfs(yr):
     now = datetime.now()
     startTime = now.strftime("%H:%M:%S")
     badFiles = []
-    print("B1_PdfToCsvConverter.py")
 
     for lge in lges:
-        rcFiles = getFiles(pdfDir, f"{yr}*Round_*{lge}*nalysis.pdf")
+        rcFiles = getFiles(f"{pdfDir}{yr}*Round_*{lge}*nalysis.pdf")
 
         if len(rcFiles) != 0:
             print("")
