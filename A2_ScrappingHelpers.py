@@ -26,16 +26,6 @@ def get_date(soup):
         r = ','.join(find.text.replace(',',' ').split()[-3:])
     return r
 
-def get_tr_con(soup):
-    """ Returns the track condition during a race, or 'n/a' if
-        information does not exist in the provided soup """
-    find = soup.find(class_='sprite_weather track_condition')
-    if find is None:
-        r = 'n/a'
-    else:
-        r = find.findNext().text.split()[2]
-    return r
-
 def get_tr_tmp(soup):
     """ Returns the track temperature during a race, or 'n/a' if
         information does not exist in the provided soup """
@@ -221,8 +211,6 @@ def get_tr_con(soup):
     find = soup.find(class_='sprite_weather track_condition')
     if find is None:
         r = 'n/a'
-    elif len(find) < 3:
-        r = "n/a"
     else:
         r = find.findNext().text.split()[2]
     return r

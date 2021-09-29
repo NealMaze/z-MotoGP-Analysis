@@ -990,7 +990,6 @@ def saveCSV(mat, file, headers):
     # saves the matrix to a csv file using the headers as column headers
     df = pd.DataFrame(mat)
     df.to_csv(file, index=False, header = headers)
-    print("\nsaving file:")
     print(file.replace(csvSesDir, ""))
 
 def printer(lis):
