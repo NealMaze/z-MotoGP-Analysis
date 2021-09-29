@@ -26,10 +26,10 @@ else: rnds = "all"
 grabFiles(yr, rnds)
 
 # get testing files
-   ###  GET TESTING FILES  ###
+#  GET TESTING FILES
 
 # convert PDFs to CSVs
+print("Step 2 - PDF conversion")
 print(f"\nConverting {yr} pdf files into csv files")
 convertYrPdfs(yr)
 print("converted")
-

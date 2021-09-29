@@ -60,8 +60,9 @@ def getRoundFiles(yr, rn, fileNum):
     try:
         with open(f"{csvWeatherDir}{yr}_EventWeather.csv", "r", encoding = "utf8") as werkFile:
             i = csv.reader(werkFile, delimiter=",")
-            for r in i[1:]:
+            for r in i:
                 eventWeather.append(r)
+            eventWeather.pop(0)
     except:
         wHeader = []
         print("\ncreating file:")
@@ -86,7 +87,9 @@ def getRoundFiles(yr, rn, fileNum):
     urlWk = base_url + yr + '/' + TRK + '/'
     soupWk = soup_special(urlWk)
     categories = get_all_cats(soupWk)
-    print(f"\n{yr} Round: {fileNum}")
+    print(f"\n{yr}")
+    print(f"round: {fileNum}")
+    print(f"track: {Track}")
 
     for cat in categories:
         time.sleep(0 + np.random.random())
@@ -260,7 +263,7 @@ def convertYrPdfs(yr):
                 print(f"\nFailed Parsing:\n{fileName}\n")
                 badFiles.append(fileName)
 
-    print("\nFailed Files: ")
-    for i in badFiles:
-        print(i)
-
+    if len(badFiles) > 0:
+        print("\nFailed Files: ")
+        for i in badFiles:
+            print(i)
