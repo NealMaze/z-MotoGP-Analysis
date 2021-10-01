@@ -173,25 +173,24 @@ def getAllRounds(soup):
     return r
 
 ########################################################################################################################
-# 3) function to get testing sessions
-# def changeHandleSeason():
 
 def getAllTests(soup, yr):
     """ Returns all the tests that took place during the season
         of the soup object it's passed"""
+    links = []
+
     find = soup.find(id = f"testoffseason{yr}")
     if find is None:
-        r = []
         print(f"no tests were found in {yr}")
     else:
-        r = find.find_all(href = True)
+        q = find.find_all(href=True)
+        for i in q:
+            x = i["href"]
+            y = "http://motogp.com" + x
+            links.append(y)
+    return links
 
-    print("")
-    for i in r:
-        print(i)
-    print("")
-
-    return r
+    return links
 
 ########################################################################################################################
 
@@ -300,27 +299,6 @@ def getAllStats(soup, year, trk, track, cat, ssn):
 
 ########################################################################################################################
 
-def getSessPDFs(soup):
-    """ Returns all the PDFs associated with the selected session"""
-    links = []
-    find = soup.find(id="results_menu")
-
-    if find is None:
-        links = []
-        print("no PDFs Found")
-        find = soup.find_all(href=True)
-        for i in find:
-            x = i["href"]
-            if "resources" in x:
-                print(x)
-    else:
-        q = find.find_all(href=True)
-        for i in q:
-            x = i["href"]
-            if "https" in x:
-                links.append(x)
-    return links
-
 def getPDFs(soup):
     """ Returns all the PDFs associated with the selected session"""
     links = []
@@ -328,7 +306,6 @@ def getPDFs(soup):
 
     if find is None:
         links = []
-        print("no PDFs Found")
         find = soup.find_all(href=True)
         for i in find:
             x = i["href"]
@@ -342,9 +319,22 @@ def getPDFs(soup):
                 links.append(x)
     return links
 
-def saveCSV(mat, file):
-    # """accepts a matrix, and a file destination, and saves
-    # the matrix as a csv file"""
+def getTestPDFs(soup):
+    """ Returns all the PDFs associated with the selected session"""
+    links = []
+    find = soup.find(id="content")
 
-    df = pd.DataFrame(mat)
-    df.to_csv(file, index = False)
+    if find is None:
+        links = []
+        find = soup.find_all(href=True)
+        for i in find:
+            x = i["href"]
+            if "resources" in x:
+                print(x)
+    else:
+        q = find.find_all(href=True)
+        for i in q:
+            x = i["href"]
+            if "https" in x:
+                links.append(x)
+    return links

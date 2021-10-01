@@ -988,9 +988,13 @@ def matFormat(mat, id):
 
 def saveCSV(mat, file, headers):
     # saves the matrix to a csv file using the headers as column headers
+    cols = len(headers)
+    for item in mat:
+        if len(item) > cols:
+            exit(f"\n\nerror here:\ntoo many items / not enough headers\nprovided headers:  {headers}\nitems in line:  {item}\n\n")
+
     df = pd.DataFrame(mat)
     df.to_csv(file, index=False, header = headers)
-    print(file.replace(csvSesDir, ""))
 
 def printer(lis):
     # takes the text value out of each dicionary in the argued list and prints them in a list
