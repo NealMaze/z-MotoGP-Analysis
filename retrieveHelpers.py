@@ -75,6 +75,7 @@ def getRoundFiles(yr, rn, fileNum):
             i = csv.reader(workFile, delimiter=",")
             for r in i:
                 seasonRiders.append(r)
+            seasonRiders.pop(0)
     except:
         rHeader = []
         print("\ncreating file:")
