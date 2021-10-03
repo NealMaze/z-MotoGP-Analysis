@@ -75,7 +75,8 @@ def getRoundFiles(yr, rn, fileNum):
         with open(f"{csvRidersDir}{yr}_Riders.csv", "r", encoding = "utf8") as workFile:
             i = csv.reader(workFile, delimiter=",")
             for r in i:
-                seasonRiders.append(r)
+                if r not in seasonRiders:
+                    seasonRiders.append(r)
             seasonRiders.pop(0)
     except:
         rHeader = []
@@ -213,6 +214,7 @@ def convertYrPdfs(yr):
 
         for file in rcFiles:
             fileName = file.replace(pdfDir, "")
+            print(fileName)
             # try:
             for i in ses:
                 if i in file:
