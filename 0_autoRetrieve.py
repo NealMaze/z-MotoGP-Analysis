@@ -34,5 +34,5 @@ if testConf == "y":
 # convert PDFs to CSVs
 print("\n          Step 3 - PDF conversion")
 print(f"\nConverting {yr} pdf files into csv files")
-convertYrPdfs(yr)
+convertYrPdfs(yr, rnds)
 print("converted")
