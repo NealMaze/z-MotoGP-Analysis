@@ -1,6 +1,8 @@
 # import necessary modules
 from A2_ScrappingHelpers import *
 from B2_ConverterHelpers import *
+from C2_GridConverterHelpers import *
+from D2_DataCleaningHelpers import *
 from lists import *
 
 def getRidersData(yr):

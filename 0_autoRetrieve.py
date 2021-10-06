@@ -18,21 +18,32 @@ inRnd = input('\nenter numerals of requested rounds, separated by \n'
 
 if ", " in inRnd:
     rnds = inRnd.split(", ")
-
 else: rnds = [inRnd]
 
 grabFiles(yr, rnds)
 
 # get testing files
-
 print("\n          Step 2 - Test PDF Retrieval")
-testConf = input("do you wish to retrieve testing data? (y/n): ")
+testConf = input("\ndo you wish to retrieve testing data? (y/n): ")
 if testConf == "y":
     print("getting test PDFs from year")
     getTestFiles(yr)
 
 # convert PDFs to CSVs
-print("\n          Step 3 - PDF conversion")
-print(f"\nConverting {yr} pdf files into csv files")
+print("\n          Step 3 - PDF Conversion")
+print(f"Converting {yr} session analysis files into csv files")
 convertYrPdfs(yr, rnds)
 print("converted")
+
+# convert grid files to CSVs
+print("\n          Step 4 - Grid Conversion")
+print(f"Converting {yr} qualifying files into csv files")
+convertGrid
+print("converted")
+
+# clean data
+print("\n          Step 5 - Data Cleaning")
+print(f"Converting {yr} pdf files into csv files")
+uIn = input("do you wish to clean data in all seasons? (y/n): ")
+cleanData(uIn, yr)
+print("cleaned")

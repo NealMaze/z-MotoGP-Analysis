@@ -40,6 +40,8 @@ csvRidersDir = (f"{csvDir}riders/")
 csvWeatherDir = (f"{csvDir}weather/")
 csvTracksDir = (f"{csvDir}tracks/")
 csvSeasonDir = (f"{csvDir}wholeSeasons/")
+csvFinalDir = (f"{csvDir}final/")
+csvGridDir = (f"{csvDir}startGrids/")
 
 position = re.compile("^\d{1,2}(st|nd|rd|th)$")
 name = re.compile("^[\-a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð.']+$")
