@@ -43,6 +43,8 @@ def cleanData(uIn, year):
                         for rdr in rdrs:
                             rdrFrame = nf[nf["rdr_num"] == rdr]
 
+
+
                             avgSpeed = rdrFrame["avg_spd"].mean()
                             avgLap = rdrFrame["lap_seconds"].mean()
                             avgOne = rdrFrame["one_seconds"].mean()
@@ -78,4 +80,4 @@ def cleanData(uIn, year):
                         rndFrames.append(sesFrame)
 
                     rndFr = pd.concat(rndFrames)
-                    rndFr.to_csv(f"{csvFinalDir}{fName}", index=False)
+                    rndFr.to_csv(f"{csvFinalDir}{fName}", index = False)
