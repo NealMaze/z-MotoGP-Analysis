@@ -59,7 +59,7 @@ if retrieveSesFilesBin == "y":
     for yr in rSFYs:
         for rnd in rSFRs:
             grabFiles(yr, rnd)
-else: print("          Skipping Step 2 - Session PDF Retrieval")
+else: print("\n          Skipping Step 2 - Session PDF Retrieval")
 
 # get testing files
 if retrieveTestFilesBin == "y":
@@ -67,10 +67,10 @@ if retrieveTestFilesBin == "y":
     for yr in rTFYs:
         print(f"getting test PDFs from {yr}")
         getTestFiles(yr)
-else: print("          Skipping Step 3 - Test PDF Retrieval")
+else: print("\n          Skipping Step 3 - Test PDF Retrieval")
 
 # convert PDFs to CSVs
-print("\n\n          Step 4 - PDF Conversion")
+print("\n          Step 4 - PDF Conversion")
 if convertSesFilesBin == "y":
     for yr in allYrs:
         print(f"Converting {yr} session analysis files into csv files")
@@ -78,10 +78,16 @@ if convertSesFilesBin == "y":
             convertYrPdfs(yr, rnd)
     print("converted")
 else:
-    for yr in rSFYs:
-        print(f"Converting {yr} session analysis files into csv files")
-        for rnd in rSFRs:
-            convertYrPdfs(yr, rnd)
+    if convertSesFilesBin == "y":
+        for yr in rSFYs:
+            print(f"Converting {yr} session analysis files into csv files")
+            for rnd in rSFRs:
+                convertYrPdfs(yr, rnd)
+    else:
+        for yr in allYrs:
+            print(f"Converting {yr} session analysis files into csv files")
+            for rnd in allRnds:
+                convertYrPdfs(yr, rnd)
     print("converted")
 
 # clean data

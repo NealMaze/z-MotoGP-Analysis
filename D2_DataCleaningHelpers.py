@@ -131,9 +131,9 @@ def cleanData(yr, rnds):
                         if "Q1" in file:
                             Q1Res = getQRes(file)
 
-                        qRes = []
+                        grid = []
                         if len(Q2Res) > 0:
-                            qRes = getWholeQRes(Q2Res, Q1Res)
+                            grid = getWholeQRes(Q2Res, Q1Res)
 
                         if "QP" in file:
                             grid = getQRes(file)
