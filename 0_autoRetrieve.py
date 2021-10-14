@@ -1,55 +1,98 @@
 # imports
 from retrieveHelpers import *
 
+allYrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008",
+       "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
+allRnds = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+         "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36",
+         "37", "38", "39"]
+
 print("\n          Data Retrieval System")
 print("          Step 1 - Set Parameters")
-# get year from user
-yr = "x"
-yrs = ["2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008",
-       "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998"]
 
-getFilesQ = input("\ndo you want to retrieve new round files? (y/n): ")
-testConf = input("\ndo you wish to retrieve testing data? (y/n): ")
-while yr not in yrs:
-    yr = input("\nplease enter a year from 1998 to the present from which to retrieve files\nretrieve files from year: ")
-    if yr not in yrs: print("invalid selection\n")
-inRnd = input('\nenter numerals of requested rounds, separated by \n'
-              'a comma and a space, or request a range like "4-10"\nretrieve files from rounds: ')
-uIn = input("do you wish to clean data in all seasons? (y/n): ")
+print("\ndo you wish to retrieve pdf session files?")
+retrieveSesFilesBin = input("y/n: ")
+if retrieveSesFilesBin == "y":
+    print("\nfrom what year do you want to retrieve?")
+    print('(separate different years with ", ")')
+    retrieveSesFilesYr = input("year: ")
+    print("\nwhat rounds do you want to retrieve?")
+    print('(separate different rounds with ", ")')
+    retrieveSesFilesRnd = input("rounds: ")
 
-if ", " in inRnd:
-    rnds = inRnd.split(", ")
-else: rnds = [inRnd]
+    if ", " in retrieveSesFilesYr: rSFYs = retrieveSesFilesYr.split(", ")
+    elif retrieveSesFilesYr == "all":
+        rSFYs = allYrs
+    else: rSFYs = [retrieveSesFilesYr]
+
+    if ", " in retrieveSesFilesRnd: rSFRs = retrieveSesFilesRnd.split(", ")
+    elif retrieveSesFilesRnd == "all":
+        rSFRs = allRnds
+    else: rSFRs = [retrieveSesFilesRnd]
+
+print("\ndo you wish to retrieve pdf testing files?")
+print("(this program will retrieve all test files from given year)")
+retrieveTestFilesBin = input("y/n: ")
+if retrieveTestFilesBin == "y":
+    print("\nfrom what year do you want to retrieve?")
+    print('(separate different years with ", ")')
+    retrieveTestFilesYr = input("year: ")
+
+    if ", " in retrieveTestFilesYr: rTFYs = retrieveTestFilesYr.split(", ")
+    else: rTFYs = [retrieveTestFilesYr]
+
+print("\ndo you wish to convert all pdf session files?")
+convertSesFilesBin = input("y/n: ")
+
+if convertSesFilesBin != "y":
+    print("\ndo you wish to clean all csv session files?")
+    cleanSesFilesBin = input("y/n: ")
+
+else: cleanSesFilesBin = "y"
+
+########################################################################################################################
 
 # retrieve PDF files
-if getFilesQ == "y":
-    print("          Step 2 - Session PDF Retrieval")
-    grabFiles(yr, rnds)
+if retrieveSesFilesBin == "y":
+    print(""
+          "\n          Step 2 - Session PDF Retrieval")
+    for yr in rSFYs:
+        for rnd in rSFRs:
+            grabFiles(yr, rnd)
 else: print("          Skipping Step 2 - Session PDF Retrieval")
 
 # get testing files
-if testConf == "y":
-    print("\n          Step 3 - Test PDF Retrieval")
-    print("getting test PDFs from year")
-    getTestFiles(yr)
+if retrieveTestFilesBin == "y":
+    print("\n\n          Step 3 - Test PDF Retrieval")
+    for yr in rTFYs:
+        print(f"getting test PDFs from {yr}")
+        getTestFiles(yr)
 else: print("          Skipping Step 3 - Test PDF Retrieval")
 
 # convert PDFs to CSVs
-print("\n          Step 4 - PDF Conversion")
-print(f"Converting {yr} session analysis files into csv files")
-convertYrPdfs(yr, rnds)
-print("converted")
-
-# convert grid files to CSVs
-print("\n          Step 5 - Grid Conversion")
-print(f"Converting {yr} qualifying files into csv files")
-convertGrid
-print("converted")
+print("\n\n          Step 4 - PDF Conversion")
+if convertSesFilesBin == "y":
+    for yr in allYrs:
+        print(f"Converting {yr} session analysis files into csv files")
+        for rnd in allRnds:
+            convertYrPdfs(yr, rnd)
+    print("converted")
+else:
+    for yr in rSFYs:
+        print(f"Converting {yr} session analysis files into csv files")
+        for rnd in rSFRs:
+            convertYrPdfs(yr, rnd)
+    print("converted")
 
 # clean data
-print("\n          Step 6 - Data Cleaning")
-print(f"Converting {yr} pdf files into csv files")
-cleanData(uIn, yr)
-print("cleaned")
-
-# establish start/finish columns
+print("\n          Step 5 - Data Cleaning")
+if cleanSesFilesBin == "y":
+    for yr in allYrs:
+        print(f"Cleaning {yr} csv files")
+        cleanData(yr, allRnds)
+    print("cleaned")
+else:
+    for yr in rSFYs:
+        print(f"cleaning {yr} session analysis files into csv files")
+        cleanData(yr, rnds)
+    print("cleaned")
