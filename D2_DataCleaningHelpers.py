@@ -15,38 +15,38 @@ from C2_GridConverterHelpers import *
 rnds = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         "21", "22", "23", "24", "24"]
 
-# gets start positions from pdf files
-def getStartPositions(yr, lge, rnd):
-    rnds = [rnd]
 
-    for rnd in rnds:
-        grdFiles3 = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}*EP_Session.pdf")
-        grdFiles2 = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}*QP_Session.pdf")
-        grdFiles = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}*QualifyingResults.pdf")
-        for file in grdFiles2: grdFiles.append(file)
-        for file in grdFiles3: grdFiles.append(file)
-
-        if len(grdFiles) == 1:
-            for file in grdFiles:
-                page = openGridPDF(file)
-                page = stripHeader(page)
-                page = getRows(page)
-                page = stripFooter(page)
-                page = stripExtra(page)
-                page = lowerCase(page)
-
-            return page
-
-        elif len(grdFiles) > 1:
-            print("\n\n\nProblem")
-            print(f"{yr} {lge} {rnd}")
-            for i in grdFiles:
-                print(i)
-            print("\n\n\n")
-            return "nope"
-
-        else:
-            return "no files"
+# def getStartPositions(yr, lge, rnd):
+#     rnds = [rnd]
+#
+#     for rnd in rnds:
+#         grdFiles3 = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}*EP_Session.pdf")
+#         grdFiles2 = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}*QP_Session.pdf")
+#         grdFiles = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}*QualifyingResults.pdf")
+#         for file in grdFiles2: grdFiles.append(file)
+#         for file in grdFiles3: grdFiles.append(file)
+#
+#         if len(grdFiles) == 1:
+#             for file in grdFiles:
+#                 page = openGridPDF(file)
+#                 page = stripHeader(page)
+#                 page = getRows(page)
+#                 page = stripFooter(page)
+#                 page = stripExtra(page)
+#                 page = lowerCase(page)
+#
+#             return page
+#
+#         elif len(grdFiles) > 1:
+#             print("\n\n\nProblem")
+#             print(f"{yr} {lge} {rnd}")
+#             for i in grdFiles:
+#                 print(i)
+#             print("\n\n\n")
+#             return "nope"
+#
+#         else:
+#             return "no files"
 
 # calculates start positions from Qualifying CSVs
 def getQRes(file):
@@ -108,116 +108,39 @@ def getWholeQRes(Q2Res, Q1Res):
 
     return Q2Res
 
-#
+# gets start positions from pdf files
+def getGrid(yr, lge, rnd):
+    grid = []
 
-# combine years and leagues into separate files
-def cleanData(yr, rnds):
-        print(f"\n{yr}")
-        for lge in lges:
-            for rnd in rnds:
-                rndFrames = []
+    grdFiles = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}-*RACE_LapChart.pdf")
+    grdFiles2 = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}-*RACE2_LapChart.pdf")
+    if len(grdFiles2) > 0:
+        grdFiles = grdFiles2
 
-                files = getFiles(csvSesDir, f"{yr}-{lge}-Round_{rnd}-*.csv")
-                if len(files) > 0:
-                    for file in files:
-                        # this creates a dataframe
-                        nf = pd.read_csv(file)
+    if len(grdFiles) > 1:
+        print("\n\n\nProblem")
+        for i in grdFiles:
+            print(i)
+        print("\n\n\n")
 
-                        Q2Res = []
-                        if "Q2" in file:
-                            Q2Res = getQRes(file)
+    for file in grdFiles:
+        saveName = f"{yr}-{lge}-Round_{rnd}-StartGrid.csv"
 
-                        Q1Res = []
-                        if "Q1" in file:
-                            Q1Res = getQRes(file)
+        page = openGridPDF(file)
+        page = stripHeader(page)
+        lenPos, posLis = getPos(page)
+        lenNum, numLis = getNum(page)
 
-                        grid = []
-                        if len(Q2Res) > 0:
-                            grid = getWholeQRes(Q2Res, Q1Res)
+        while len(posLis) != 0:
+            rdr = [posLis[0], numLis[0]]
+            posLis.pop(0)
+            numLis.pop(0)
+            grid.append(rdr)
 
-                        if "QP" in file:
-                            grid = getQRes(file)
+        headers = ["pos", "num"]
+        saveCSV(grid, f"{csvGridDir}{saveName}", headers)
 
-                        sName = file.split("-")
-                        fName = f"{yr}-{lge}-{sName[2]}-{sName[3]}.csv"
+    if len(grid) < 2:
+        grid = "none"
 
-                        # get list of rider numbers in session
-                        rdrs = nf.rdr_num.unique()
-                        frames = []
-
-                        for rdr in rdrs:
-                            rdrFrame = nf[nf["rdr_num"] == rdr]
-
-
-
-                            avgSpeed = rdrFrame["avg_spd"].mean()
-                            avgLap = rdrFrame["lap_seconds"].mean()
-                            avgOne = rdrFrame["one_seconds"].mean()
-                            avgTwo = rdrFrame["two_seconds"].mean()
-                            avgThr = rdrFrame["thr_seconds"].mean()
-                            avgFour = rdrFrame["four_seconds"].mean()
-
-                            # fillna with the average values
-                            _ = rdrFrame.fillna(
-                                {"lap_seconds": avgLap, "one_seconds": avgOne, "two_seconds": avgTwo, "thr_seconds": avgThr,
-                                 "four_seconds": avgFour, "avg_spd": avgSpeed}, inplace=True)
-
-                            # append created rider frame to nueFrame
-                            frames.append(rdrFrame)
-
-                        sesFrame = pd.concat(frames)
-
-                        sesFrame["start"] = np.nan
-
-                        # create normalized columns for lap time, section times, and top speed
-                        sesFrame["lap_scaled"] = sesFrame["lap_seconds"] / sesFrame["lap_seconds"].abs().max()
-                        sesFrame["one_scaled"] = sesFrame["one_seconds"] / sesFrame["one_seconds"].abs().max()
-                        sesFrame["two_scaled"] = sesFrame["two_seconds"] / sesFrame["two_seconds"].abs().max()
-                        sesFrame["thr_scaled"] = sesFrame["thr_seconds"] / sesFrame["thr_seconds"].abs().max()
-                        sesFrame["four_scaled"] = sesFrame["four_seconds"] / sesFrame["four_seconds"].abs().max()
-                        sesFrame["avgSpd_scaled"] = sesFrame["avg_spd"] / sesFrame["avg_spd"].abs().max()
-
-                        if "RAC" not in file:
-                            sesFrame["results"] = np.nan
-                        else:
-                            sesFrame["results"] = sesFrame["pos"]
-
-                        rndFrames.append(sesFrame)
-
-                    rndFr = pd.concat(rndFrames)
-
-                    rdrs = rndFr.rdr_num.unique()
-                    frames = []
-
-########################################################################################################################
-                    # check if grid value is valid
-                    # if grid value is not valid
-                    # use:
-                    # getStartPositions(yr, lge, rnd)
-                    # function to retrieve start positions from other PDF file
-########################################################################################################################
-
-                    for rdr in rdrs:
-                        intRdr = int(rdr)
-                        rdrStartPos = ""
-
-                        for place in grid:
-                            intPlace = place[1]
-                            try:
-                                iP = int(intPlace)
-                            except:
-                                iP = ""
-                            if intRdr == iP:
-                                rdrStartPos = place[0]
-
-                        rdrFrame = rndFr[rndFr["rdr_num"] == rdr]
-
-                        rdrFrame["start"] = rdrFrame["start"].fillna(rdrStartPos)
-                        rdrFrame["results"] = rdrFrame["results"].fillna(method="bfill")
-                        rdrFrame["results"] = rdrFrame["results"].fillna(method="ffill")
-
-                        frames.append(rdrFrame)
-
-                    rndFrame = pd.concat(frames)
-                    print(fName)
-                    rndFrame.to_csv(f"{csvFinalDir}{fName}", index = False)
+    return grid

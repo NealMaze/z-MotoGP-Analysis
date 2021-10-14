@@ -47,7 +47,6 @@ convertSesFilesBin = input("y/n: ")
 if convertSesFilesBin != "y":
     print("\ndo you wish to clean all csv session files?")
     cleanSesFilesBin = input("y/n: ")
-
 else: cleanSesFilesBin = "y"
 
 ########################################################################################################################
@@ -70,25 +69,20 @@ if retrieveTestFilesBin == "y":
 else: print("\n          Skipping Step 3 - Test PDF Retrieval")
 
 # convert PDFs to CSVs
-print("\n          Step 4 - PDF Conversion")
 if convertSesFilesBin == "y":
+    print("\n          Step 4 - PDF Conversion")
     for yr in allYrs:
         print(f"Converting {yr} session analysis files into csv files")
         for rnd in allRnds:
             convertYrPdfs(yr, rnd)
     print("converted")
-else:
-    if convertSesFilesBin == "y":
-        for yr in rSFYs:
-            print(f"Converting {yr} session analysis files into csv files")
-            for rnd in rSFRs:
-                convertYrPdfs(yr, rnd)
-    else:
-        for yr in allYrs:
-            print(f"Converting {yr} session analysis files into csv files")
-            for rnd in allRnds:
-                convertYrPdfs(yr, rnd)
-    print("converted")
+elif retrieveSesFilesBin == "y":
+    print("\n          Step 4 - PDF Conversion")
+    for yr in rSFYs:
+        print(f"Converting {yr} session analysis files into csv files")
+        for rnd in rSFRs:
+            convertYrPdfs(yr, rnd)
+else: print("\n          Skipping Step 4 - PDF Conversion")
 
 # clean data
 print("\n          Step 5 - Data Cleaning")

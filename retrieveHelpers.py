@@ -209,9 +209,6 @@ def convertYrPdfs(yr, rnd):
     for lge in lges:
         rcFiles = getFiles(pdfDir, f"{yr}*Round_{rnd}-*{lge}*nalysis.pdf")
 
-        if len(rcFiles) != 0:
-            print(f"\n{lge}")
-
         for file in rcFiles:
             fileName = file.replace(pdfDir, "")
             print(fileName)
@@ -284,3 +281,122 @@ def convertYrPdfs(yr, rnd):
         print("\nFailed Files: ")
         for i in badFiles:
             print(i)
+
+# combine years and leagues into separate files
+def cleanData(yr, rnds):
+        for rnd in rnds:
+            for lge in lges:
+                rndFrames = []
+
+                files = getFiles(csvSesDir, f"{yr}-{lge}-Round_{rnd}-*.csv")
+                try:
+                    chGrid = getGrid(yr, lge, rnd)
+                except:
+                    chGrid = "none"
+
+                if len(files) > 0:
+                    for file in files:
+                        # this creates a dataframe
+                        nf = pd.read_csv(file)
+
+                        Q2Res = []
+                        if "Q2" in file:
+                            Q2Res = getQRes(file)
+
+                        Q1Res = []
+                        if "Q1" in file:
+                            Q1Res = getQRes(file)
+
+                        grid = []
+                        if len(Q2Res) > 0:
+                            grid = getWholeQRes(Q2Res, Q1Res)
+
+                        if "QP" in file:
+                            grid = getQRes(file)
+
+                        if chGrid != "none":
+                            grid = chGrid
+
+                        sName = file.split("-")
+                        fName = f"{yr}-{lge}-{sName[2]}-{sName[3]}.csv"
+
+                        # get list of rider numbers in session
+                        rdrs = nf.rdr_num.unique()
+                        frames = []
+
+                        for rdr in rdrs:
+                            rdrFrame = nf[nf["rdr_num"] == rdr]
+
+
+
+                            avgSpeed = rdrFrame["avg_spd"].mean()
+                            avgLap = rdrFrame["lap_seconds"].mean()
+                            avgOne = rdrFrame["one_seconds"].mean()
+                            avgTwo = rdrFrame["two_seconds"].mean()
+                            avgThr = rdrFrame["thr_seconds"].mean()
+                            avgFour = rdrFrame["four_seconds"].mean()
+
+                            # fillna with the average values
+                            _ = rdrFrame.fillna(
+                                {"lap_seconds": avgLap, "one_seconds": avgOne, "two_seconds": avgTwo, "thr_seconds": avgThr,
+                                 "four_seconds": avgFour, "avg_spd": avgSpeed}, inplace=True)
+
+                            # append created rider frame to nueFrame
+                            frames.append(rdrFrame)
+
+                        sesFrame = pd.concat(frames)
+
+                        sesFrame["start"] = np.nan
+
+                        # create normalized columns for lap time, section times, and top speed
+                        sesFrame["lap_scaled"] = sesFrame["lap_seconds"] / sesFrame["lap_seconds"].abs().max()
+                        sesFrame["one_scaled"] = sesFrame["one_seconds"] / sesFrame["one_seconds"].abs().max()
+                        sesFrame["two_scaled"] = sesFrame["two_seconds"] / sesFrame["two_seconds"].abs().max()
+                        sesFrame["thr_scaled"] = sesFrame["thr_seconds"] / sesFrame["thr_seconds"].abs().max()
+                        sesFrame["four_scaled"] = sesFrame["four_seconds"] / sesFrame["four_seconds"].abs().max()
+                        sesFrame["avgSpd_scaled"] = sesFrame["avg_spd"] / sesFrame["avg_spd"].abs().max()
+
+                        if "RAC" not in file:
+                            sesFrame["results"] = np.nan
+                        else:
+                            sesFrame["results"] = sesFrame["pos"]
+
+                        rndFrames.append(sesFrame)
+
+                    rndFr = pd.concat(rndFrames)
+
+                    rdrs = rndFr.rdr_num.unique()
+                    frames = []
+
+########################################################################################################################
+                    # check if grid value is valid
+                    # if grid value is not valid
+                    # use:
+                    # getStartPositions(yr, lge, rnd)
+                    # function to retrieve start positions from other PDF file
+########################################################################################################################
+
+                    for rdr in rdrs:
+                        intRdr = int(rdr)
+                        rdrStartPos = ""
+
+                        for place in grid:
+                            intPlace = place[1]
+                            try:
+                                iP = int(intPlace)
+                            except:
+                                iP = ""
+                            if intRdr == iP:
+                                rdrStartPos = place[0]
+
+                        rdrFrame = rndFr[rndFr["rdr_num"] == rdr]
+
+                        rdrFrame["start"] = rdrFrame["start"].fillna(rdrStartPos)
+                        rdrFrame["results"] = rdrFrame["results"].fillna(method="bfill")
+                        rdrFrame["results"] = rdrFrame["results"].fillna(method="ffill")
+
+                        frames.append(rdrFrame)
+
+                    rndFrame = pd.concat(frames)
+                    print(fName)
+                    rndFrame.to_csv(f"{csvFinalDir}{fName}", index = False)
