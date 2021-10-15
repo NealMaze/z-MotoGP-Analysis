@@ -299,12 +299,24 @@ def cleanData(yr, rnds):
                         # this creates a dataframe
                         nf = pd.read_csv(file)
 
+                        # create normalized columns for lap time, section times, and top speed
+                        nf["lap_scaled"] = nf["lap_seconds"] / nf["lap_seconds"].abs().max()
+                        nf["one_scaled"] = nf["one_seconds"] / nf["one_seconds"].abs().max()
+                        nf["two_scaled"] = nf["two_seconds"] / nf["two_seconds"].abs().max()
+                        nf["thr_scaled"] = nf["thr_seconds"] / nf["thr_seconds"].abs().max()
+                        nf["four_scaled"] = nf["four_seconds"] / nf["four_seconds"].abs().max()
+                        nf["avgSpd_scaled"] = nf["avg_spd"] / nf["avg_spd"].abs().max()
+
                         Q2Res = []
                         if "Q2" in file:
+                            Q2Res = getQRes(file)
+                        if "QP2" in file:
                             Q2Res = getQRes(file)
 
                         Q1Res = []
                         if "Q1" in file:
+                            Q1Res = getQRes(file)
+                        if "QP1" in file:
                             Q1Res = getQRes(file)
 
                         grid = []
@@ -347,14 +359,6 @@ def cleanData(yr, rnds):
                         sesFrame = pd.concat(frames)
 
                         sesFrame["start"] = np.nan
-
-                        # create normalized columns for lap time, section times, and top speed
-                        sesFrame["lap_scaled"] = sesFrame["lap_seconds"] / sesFrame["lap_seconds"].abs().max()
-                        sesFrame["one_scaled"] = sesFrame["one_seconds"] / sesFrame["one_seconds"].abs().max()
-                        sesFrame["two_scaled"] = sesFrame["two_seconds"] / sesFrame["two_seconds"].abs().max()
-                        sesFrame["thr_scaled"] = sesFrame["thr_seconds"] / sesFrame["thr_seconds"].abs().max()
-                        sesFrame["four_scaled"] = sesFrame["four_seconds"] / sesFrame["four_seconds"].abs().max()
-                        sesFrame["avgSpd_scaled"] = sesFrame["avg_spd"] / sesFrame["avg_spd"].abs().max()
 
                         if "RAC" not in file:
                             sesFrame["results"] = np.nan
