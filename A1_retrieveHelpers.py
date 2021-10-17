@@ -284,123 +284,122 @@ def convertYrPdfs(yr, rnd):
 
 # combine years and leagues into separate files
 def cleanData(yr, rnds):
+    causeSes = ["Q2", "Q1", "QP-", "QP1", "QP2", "FP1", "FP2", "FP3", "FP4", "EP"]
+    effectSes = ["RACE", "RACE1", "RACE2", "RAC", "RAC1", "RAC2"]
+    sRnds = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+    for lge in lges:
+        xLis = getFiles(csvSesDir, f"{yr}-{lge}-Round_*.csv")
+        if len(xLis) > 0:
+            print(f"\n{yr} {lge}")
         for rnd in rnds:
-            for lge in lges:
-                rndFrames = []
+            gotQ = False
 
-                files = getFiles(csvSesDir, f"{yr}-{lge}-Round_{rnd}-*.csv")
+            Q1Res = []
+            Q2Res = []
+            files = getFiles(csvSesDir, f"{yr}-{lge}-Round_{rnd}-*.csv")
+
+            if len(files) > 0:
                 try:
-                    chGrid = getGrid(yr, lge, rnd)
+                    grid = getGrid(yr, lge, rnd)
+                    gdf = pd.DataFrame.from_dict(grid)
+                    gotGrid = True
                 except:
-                    chGrid = "none"
+                    gotGrid = False
 
-                if len(files) > 0:
-                    for file in files:
-                        # this creates a dataframe
-                        nf = pd.read_csv(file)
+                causeFrames = []
+                effectFrames = []
 
-                        # create normalized columns for lap time, section times, and top speed
-                        nf["lap_scaled"] = nf["lap_seconds"] / nf["lap_seconds"].abs().max()
-                        nf["one_scaled"] = nf["one_seconds"] / nf["one_seconds"].abs().max()
-                        nf["two_scaled"] = nf["two_seconds"] / nf["two_seconds"].abs().max()
-                        nf["thr_scaled"] = nf["thr_seconds"] / nf["thr_seconds"].abs().max()
-                        nf["four_scaled"] = nf["four_seconds"] / nf["four_seconds"].abs().max()
-                        nf["avgSpd_scaled"] = nf["avg_spd"] / nf["avg_spd"].abs().max()
+                for file in files:
+                    race = False
+                    if "RAC" in file:
+                        race = True
 
-                        Q2Res = []
+
+                    df = pd.read_csv(file)
+                    df['rdr_num'] = df['rdr_num'].astype(int)
+                    appended = False
+
+                    if gotGrid == True:
+                        nueFrame = df
+                    else:
+                        nueFrame = df
                         if "Q2" in file:
                             Q2Res = getQRes(file)
-                        if "QP2" in file:
+                            if len(Q2Res) > 3:
+                                gotQ = True
+                        elif "QP2" in file:
                             Q2Res = getQRes(file)
+                            if len(Q2Res) > 3:
+                                gotQ = True
+                        elif "QP-" in file:
+                            Q2Res = getQRes(file)
+                            if len(Q2Res) > 3:
+                                gotQ = True
 
-                        Q1Res = []
-                        if "Q1" in file:
+                        elif "Q1" in file:
                             Q1Res = getQRes(file)
-                        if "QP1" in file:
+                        elif "QP1" in file:
                             Q1Res = getQRes(file)
 
-                        grid = []
-                        if len(Q2Res) > 0:
+                        if gotQ == True:
                             grid = getWholeQRes(Q2Res, Q1Res)
+                            gdf = pd.DataFrame.from_dict(grid)
 
-                        if "QP" in file:
-                            grid = getQRes(file)
-
-                        if chGrid != "none":
-                            grid = chGrid
-
-                        sName = file.split("-")
-                        fName = f"{yr}-{lge}-{sName[2]}-{sName[3]}.csv"
-
-                        # get list of rider numbers in session
-                        rdrs = nf.rdr_num.unique()
-                        frames = []
-
-                        for rdr in rdrs:
-                            rdrFrame = nf[nf["rdr_num"] == rdr]
-
-
-
-                            avgSpeed = rdrFrame["avg_spd"].mean()
-                            avgLap = rdrFrame["lap_seconds"].mean()
-                            avgOne = rdrFrame["one_seconds"].mean()
-                            avgTwo = rdrFrame["two_seconds"].mean()
-                            avgThr = rdrFrame["thr_seconds"].mean()
-                            avgFour = rdrFrame["four_seconds"].mean()
-
-                            # fillna with the average values
-                            _ = rdrFrame.fillna(
-                                {"lap_seconds": avgLap, "one_seconds": avgOne, "two_seconds": avgTwo, "thr_seconds": avgThr,
-                                 "four_seconds": avgFour, "avg_spd": avgSpeed}, inplace=True)
-
-                            # append created rider frame to nueFrame
-                            frames.append(rdrFrame)
-
-                        sesFrame = pd.concat(frames)
-
-                        sesFrame["start"] = np.nan
-
-                        if "RAC" not in file:
-                            sesFrame["results"] = np.nan
-                        else:
-                            sesFrame["results"] = sesFrame["pos"]
-
-                        rndFrames.append(sesFrame)
-
-                    rndFr = pd.concat(rndFrames)
-
-                    rdrs = rndFr.rdr_num.unique()
-                    frames = []
-
-########################################################################################################################
-                    # check if grid value is valid
-                    # if grid value is not valid
-                    # use:
-                    # getStartPositions(yr, lge, rnd)
-                    # function to retrieve start positions from other PDF file
-########################################################################################################################
+                    rdrs = df.rdr_num.unique()
 
                     for rdr in rdrs:
-                        intRdr = int(rdr)
-                        rdrStartPos = ""
+                        cols = ["lap_seconds", "one_seconds", "two_seconds", "thr_seconds", "four_seconds"]
+                        for col in cols:
+                            xdf = df.loc[df["rdr_num"] == rdr]
+                            tdf = xdf.loc[~xdf[col].isnull()]
 
-                        for place in grid:
-                            intPlace = place[1]
-                            try:
-                                iP = int(intPlace)
-                            except:
-                                iP = ""
-                            if intRdr == iP:
-                                rdrStartPos = place[0]
+                            lapStd = tdf[col].std()
+                            thrStd = lapStd * 3
+                            lapMean = tdf[col].mean()
+                            upLim = lapMean + thrStd
+                            loLim = lapMean - thrStd
 
-                        rdrFrame = rndFr[rndFr["rdr_num"] == rdr]
+                            if race == True:
+                                nueFrame.loc[(df["rdr_num"] == rdr) & (df[col] > upLim), col] = upLim
+                                nueFrame.loc[(df["rdr_num"] == rdr) & (df[col] < loLim), col] = loLim
+                            xdf = df.loc[df["rdr_num"] == rdr]
+                            tdf = xdf.loc[~xdf[col].isnull()]
+                            lapMean = tdf[col].mean()
+                            nueFrame.loc[(df["rdr_num"] == rdr) & (df[col].isnull()), col] = lapMean
 
-                        rdrFrame["start"] = rdrFrame["start"].fillna(rdrStartPos)
-                        rdrFrame["results"] = rdrFrame["results"].fillna(method="bfill")
-                        rdrFrame["results"] = rdrFrame["results"].fillna(method="ffill")
+                    nueFrame["lap_scaled"] = nueFrame["lap_seconds"] / nueFrame["lap_seconds"].abs().max()
+                    nueFrame["one_scaled"] = nueFrame["one_seconds"] / nueFrame["one_seconds"].abs().max()
+                    nueFrame["two_scaled"] = nueFrame["two_seconds"] / nueFrame["two_seconds"].abs().max()
+                    nueFrame["thr_scaled"] = nueFrame["thr_seconds"] / nueFrame["thr_seconds"].abs().max()
+                    nueFrame["fr_scaled"] = nueFrame["four_seconds"] / nueFrame["four_seconds"].abs().max()
 
-                        frames.append(rdrFrame)
+                    for ses in causeSes:
+                        if ses in file:
+                            if appended == False:
+                                causeFrames.append(nueFrame)
+                                appended = True
+                    for ses in effectSes:
+                        if ses in file:
+                            if appended == False:
+                                effectFrames.append(nueFrame)
+                                appended = True
 
-                    rndFrame = pd.concat(frames)
-                    print(fName)
-                    rndFrame.to_csv(f"{csvFinalDir}{fName}", index = False)
+                if rnd in sRnds:
+                    nRnd = f"0{rnd}"
+                else:
+                    nRnd = rnd
+
+                if len(causeFrames) > 0:
+                    cName = f"{yr}-{lge}-Rnd_{nRnd}-PreRace.csv"
+                    cFrame = pd.concat(causeFrames)
+                    dFrame = cFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
+                    dFrame.to_csv(f"{csvFinalDir}{cName}", index=False)
+                    print(cName)
+
+                if len(effectFrames) > 0:
+                    eName = f"{yr}-{lge}-Rnd_{nRnd}-Result.csv"
+                    eFrame = pd.concat(effectFrames)
+                    fFrame = eFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
+                    fFrame.to_csv(f"{csvFinalDir}{eName}", index=False)
+                    print(eName)

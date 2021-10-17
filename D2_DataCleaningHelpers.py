@@ -106,14 +106,21 @@ def getWholeQRes(Q2Res, Q1Res):
                 Q2Res.append(line)
                 x = x + 1
 
-    return Q2Res
+    nPos = []
+    nRdr = []
+    for i in Q2Res:
+        nPos.append(int(i[0]))
+        nRdr.append(int(i[1]))
+
+    grid = {"start_pos": nPos, "rdr_num": nRdr}
+
+    return grid
 
 # gets start positions from pdf files
 def getGrid(yr, lge, rnd):
-    grid = []
-
     grdFiles = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}-*RACE_LapChart.pdf")
     grdFiles2 = getFiles(pdfDir, f"{yr}-Round_{rnd}-{lge}-*RACE2_LapChart.pdf")
+
     if len(grdFiles2) > 0:
         grdFiles = grdFiles2
 
@@ -128,19 +135,24 @@ def getGrid(yr, lge, rnd):
 
         page = openGridPDF(file)
         page = stripHeader(page)
-        lenPos, posLis = getPos(page)
-        lenNum, numLis = getNum(page)
+        lenPos, position = getPos(page)
+        lenNum, rider = getNum(page)
 
-        while len(posLis) != 0:
-            rdr = [posLis[0], numLis[0]]
-            posLis.pop(0)
-            numLis.pop(0)
-            grid.append(rdr)
+    position.pop(0)
+    position.pop(0)
+    rider.pop(0)
+    rider.pop(0)
 
-        headers = ["pos", "num"]
-        saveCSV(grid, f"{csvGridDir}{saveName}", headers)
+    nPos = []
+    nRdr = []
+    for i in position:
+        nPos.append(int(i))
+    for i in rider:
+        nRdr.append(int(i))
 
-    if len(grid) < 2:
+    grid = {"start_pos": nPos, "rdr_num": nRdr}
+
+    if len(position) < 2:
         grid = "none"
 
     return grid

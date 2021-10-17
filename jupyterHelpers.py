@@ -50,7 +50,7 @@ def getWholeFrame():
         frames.append(df)
 
     wholeFrame = pd.concat(frames)
-    newFrame = wholeFrame.drop(["pos", "lap_val", "lap_time", "sec_one", "one_val", "sec_two", "two_val", "sec_thr", "thr_val",
-                     "sec_four", "four_val"], axis = 1)
+    newFrame = wholeFrame.drop(["pos", "lap_val", "lap_time", "sec_one", "one_val", "sec_two", "two_val", "sec_thr",
+                                "thr_val", "sec_four", "four_val"], axis = 1)
 
     return newFrame
