@@ -34,12 +34,11 @@ def toSecs(receive):
 
     return ret
 
-def updateSes(yr, rnd):
-    rnds = [rnd]
-
-    grabFiles(yr, rnd)
-    convertYrPdfs(yr, rnd)
-    cleanData(yr, rnds)
+def updateSes(yr, rnds):
+    for rnd in rnds:
+        grabFiles(yr, rnd)
+        convertYrPdfs(yr, rnd)
+        cleanData(yr, rnds)
 
 def getWholeFrame():
     files = getFiles(csvFinalDir, "*.csv")
