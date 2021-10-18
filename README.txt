@@ -13,7 +13,7 @@ learning in a predictive role.
 This project *currently* requires the following modules:
 
  * requests
- * BeautifulSoup or bs4
+ * BeautifulSoup (bs4)
  * numpy
  * pandas
  * selenium
