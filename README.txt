@@ -1,9 +1,9 @@
 
  INTRODUCTION
  ------------
-This MotoGP project, as yet, only retrieves pdf files from the MotoGP website, process and
-cleans the data and saves it as csvs.  Goals moving forward are to create functions so that
-pre-race analysis can be performed quickly the night before a race, and to use machine
+This MotoGP project, as yet, only retrieves pdf files from the MotoGP website, processes
+and cleans the data and saves it as csvs.  Goals moving forward are to create functions so
+that pre-race analysis can be performed quickly the night before a race, and to use machine
 learning in a predictive role.
 
 
@@ -50,7 +50,7 @@ will be saved to and read from, all of the file locations can be viewed and edit
 
 
   MAINTAINER
-  -----------
+  ----------
 
 Current maintainers:
  * Neal Maze - nealwmaze@gmail.com
