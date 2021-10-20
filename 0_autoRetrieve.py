@@ -13,10 +13,10 @@ print("          Step 1 - Set Parameters")
 print("\ndo you wish to retrieve pdf session files?")
 retrieveSesFilesBin = input("y/n: ")
 if retrieveSesFilesBin == "y":
-    print("\nfrom what year do you want to retrieve?")
+    print("\nfrom what year do you want to retrieve session files?")
     print('(separate different years with ", ")')
     retrieveSesFilesYr = input("year: ")
-    print("\nwhat rounds do you want to retrieve?")
+    print("\nwhat rounds do you want to retrieve session files?")
     print('(separate different rounds with ", ")')
     retrieveSesFilesRnd = input("rounds: ")
 
@@ -34,7 +34,7 @@ print("\ndo you wish to retrieve pdf testing files?")
 print("(this program will retrieve all test files from given year)")
 retrieveTestFilesBin = input("y/n: ")
 if retrieveTestFilesBin == "y":
-    print("\nfrom what year do you want to retrieve?")
+    print("\nfrom what year do you want to retrieve testing files?")
     print('(separate different years with ", ")')
     retrieveTestFilesYr = input("year: ")
 

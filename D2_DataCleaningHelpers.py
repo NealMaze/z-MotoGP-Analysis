@@ -1,16 +1,15 @@
 from lists import *
-from jupyterHelpers import *
+from E2_AnalysisHelpers import *
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 from scipy.stats import norm
 import warnings
-warnings.filterwarnings('ignore')
-
 from B2_ConverterHelpers import getFiles
 from C2_GridConverterHelpers import *
 
 # %matplotlib inline
+warnings.filterwarnings('ignore')
 
 rnds = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         "21", "22", "23", "24", "24"]
