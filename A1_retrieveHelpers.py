@@ -210,12 +210,20 @@ def convertYrPdfs(yr, rnd):
 
         for file in rcFiles:
             fileName = file.replace(pdfDir, "")
-            print(fileName)
             for i in ses:
                 if i in file:
                     sesType = i
                     sesType = sesType.replace("_", "")
-                    sesType = sesType.replace("RACE2", "RAC2")
+
+            if "RAC" in file:
+                sesType = "RAC"
+            if "RACE2" in file:
+                sesType = "RAC2"
+            if "RAC2" in file:
+                sesType = "RAC2"
+            if "RACE1" in file:
+                sesType = "RAC1"
+
 
             saveName, track, round = getSaveName(file, sesType)
             col, date = openPDF(file)
@@ -270,6 +278,8 @@ def convertYrPdfs(yr, rnd):
                        "laps_on_r", "lap_num", "lap_time", "lap_seconds", "lap_val", "pit", "sec_one",
                        "one_seconds", "one_val", "sec_two", "two_seconds", "two_val", "sec_thr", "thr_seconds",
                        "thr_val", "sec_four", "four_seconds", "four_val", "avg_spd"]
+            xyz = saveName.replace(csvDir, "")
+            print(xyz)
             saveCSV(secMat, saveName, headers)
 
             del rows
@@ -285,7 +295,6 @@ def convertYrPdfs(yr, rnd):
 def cleanData(yr, rnds):
     causeSes = ["Q2", "Q1", "QP-", "QP1", "QP2", "FP1", "FP2", "FP3", "FP4", "EP"]
     effectSes = ["RACE", "RACE1", "RACE2", "RAC", "RAC1", "RAC2"]
-    sRnds = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
     for lge in lges:
         xLis = getFiles(csvSesDir, f"{yr}-{lge}-Round_*.csv")
@@ -317,6 +326,11 @@ def cleanData(yr, rnds):
 
                     df = pd.read_csv(file)
                     df['rdr_num'] = df['rdr_num'].astype(int)
+
+                    bStrs = ["st", "nd", "rd", "th"]
+                    for bStr in bStrs:
+                        df["pos"] = df["pos"].map(lambda a: a.replace(bStr, ""))
+
                     appended = False
 
                     if gotGrid == True:
@@ -354,7 +368,7 @@ def cleanData(yr, rnds):
                             tdf = xdf.loc[~xdf[col].isnull()]
 
                             lapStd = tdf[col].std()
-                            thrStd = lapStd * 3
+                            thrStd = lapStd * 4
                             lapMean = tdf[col].mean()
                             upLim = lapMean + thrStd
                             loLim = lapMean - thrStd
@@ -384,20 +398,15 @@ def cleanData(yr, rnds):
                                 effectFrames.append(nueFrame)
                                 appended = True
 
-                if rnd in sRnds:
-                    nRnd = f"0{rnd}"
-                else:
-                    nRnd = rnd
-
                 if len(causeFrames) > 0:
-                    cName = f"{yr}-{lge}-Rnd_{nRnd}-PreRace.csv"
+                    cName = f"{yr}-{lge}-Rnd_{rnd}-PreRace.csv"
                     cFrame = pd.concat(causeFrames)
                     dFrame = cFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
                     dFrame.to_csv(f"{csvFinalDir}{cName}", index=False)
                     print(cName)
 
                 if len(effectFrames) > 0:
-                    eName = f"{yr}-{lge}-Rnd_{nRnd}-Result.csv"
+                    eName = f"{yr}-{lge}-Rnd_{rnd}-Result.csv"
                     eFrame = pd.concat(effectFrames)
                     fFrame = eFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
                     fFrame.to_csv(f"{csvFinalDir}{eName}", index=False)
