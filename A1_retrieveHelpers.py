@@ -306,7 +306,6 @@ def cleanData(yr, rnds):
             Q1Res = []
             Q2Res = []
             files = getFiles(csvSesDir, f"{yr}-{lge}-Round_{rnd}-*.csv")
-
             if len(files) > 0:
                 try:
                     grid = getGrid(yr, lge, rnd)
@@ -402,6 +401,27 @@ def cleanData(yr, rnds):
                     cName = f"{yr}-{lge}-Rnd_{rnd}-PreRace.csv"
                     cFrame = pd.concat(causeFrames)
                     dFrame = cFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
+
+                    oldNames = ["Losail International Circuit", "Autódromo Internacional do Algarve",
+                                "Circuito de Jerez", "Autodromo Internazionale del Mugello", "Circuit de Barcelona",
+                                "TT Circuit Assen", "Silverstone Circuit", "MotorLand Aragón", "Misano World Circuit",
+                                "Circuit Of The Americas", "Automotodrom Brno", "Circuit Ricardo Tormo",
+                                "Termas de Río Hondo", "Chang International Circuit", "Twin Ring Motegi",
+                                "Sepang International Circuit", "Indianapolis Motor Speedway",
+                                "Mazda Raceway Laguna Seca", "Estoril Circuit", "Donington Park Circuit",
+                                "Shanghai Circuit", "Istanbul Circuit", "Style de Aragon"]
+                    newNames = ["Losail", "Algarve", "Jerez", "Mugello", "Catalunya", "Assen", "Silverstone", "Aragón",
+                                "Misano", "COTA", "Brno", "Valencia", "Argentina", "Chang", "Motegi", "Sepang",
+                                "Indianapolis", "Laguna Seca", "Estoril", "Donington Park", "Shanghai", "Istanbul",
+                                "Aragón"]
+
+                    x = 0
+                    for name in oldNames:
+                        oName = oldNames[x]
+                        nName = newNames[x]
+                        dFrame.loc[dFrame["trk"] == oName, "trk"] = nName
+                        x = x + 1
+
                     dFrame.to_csv(f"{csvFinalDir}{cName}", index=False)
                     print(cName)
 
@@ -409,5 +429,25 @@ def cleanData(yr, rnds):
                     eName = f"{yr}-{lge}-Rnd_{rnd}-Result.csv"
                     eFrame = pd.concat(effectFrames)
                     fFrame = eFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
+
+                    oldNames = ["Losail International Circuit", "Autódromo Internacional do Algarve",
+                                "Circuito de Jerez", "Autodromo Internazionale del Mugello", "Circuit de Barcelona",
+                                "TT Circuit Assen", "Silverstone Circuit", "MotorLand Aragón", "Misano World Circuit",
+                                "Circuit Of The Americas", "Automotodrom Brno", "Circuit Ricardo Tormo",
+                                "Termas de Río Hondo", "Chang International Circuit", "Twin Ring Motegi",
+                                "Sepang International Circuit", "Indianapolis Motor Speedway",
+                                "Mazda Raceway Laguna Seca", "Estoril Circuit", "Donington Park Circuit",
+                                "Shanghai Circuit", "Istanbul Circuit"]
+                    newNames = ["Losail", "Algarve", "Jerez", "Mugello", "Catalunya", "Assen", "Silverstone", "Aragón",
+                                "Misano", "COTA", "Brno", "Valencia", "Argentina", "Chang", "Motegi", "Sepang",
+                                "Indianapolis", "Laguna Seca", "Estoril", "Donington Park", "Shanghai", "Istanbul"]
+
+                    x = 0
+                    for name in oldNames:
+                        oName = oldNames[x]
+                        nName = newNames[x]
+                        fFrame.loc[fFrame["trk"] == oName, "trk"] = nName
+                        x = x + 1
+
                     fFrame.to_csv(f"{csvFinalDir}{eName}", index=False)
                     print(eName)
