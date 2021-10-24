@@ -153,6 +153,11 @@ def getRoundFiles(yr, rn, fileNum):
     yName = f"{csvWeatherDir}{yr}_EventWeather.csv"
     if eventWeather == "failed Weather":
         eventWeather = ["failed"]
+
+    for weather in eventWeather:
+        if weather == "failed Weather":
+            weather = "failed"
+
     saveCSV(eventWeather, yName, wHeader)
 
     rHeader = ["Year", "League", "Number", "Name", "Nation", "Team", "Bike"]
@@ -223,7 +228,6 @@ def convertYrPdfs(yr, rnd):
                 sesType = "RAC2"
             if "RACE1" in file:
                 sesType = "RAC1"
-
 
             saveName, track, round = getSaveName(file, sesType)
             col, date = openPDF(file)

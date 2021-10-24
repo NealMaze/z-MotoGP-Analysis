@@ -90,6 +90,7 @@ if convertSesFilesBin == "y":
                 print(f"\nRound {rnd}")
                 convertYrPdfs(yr, rnd)
     print("converted")
+
 elif retrieveSesFilesBin == "y":
     print("\n          Step 4 - PDF Conversion")
     for yr in rSFYs:

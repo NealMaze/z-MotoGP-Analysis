@@ -21,6 +21,7 @@ def getFiles(dir, string):
 def getSaveName(file, sesType):
     # calculates a new file name, round, and track name for the csv file
     y = file.replace(pdfDir, "")
+    y = y.replace("Emilia-Romagna", "")
     t = y.split("-")
     round = t[1]
     lge = t[2]
