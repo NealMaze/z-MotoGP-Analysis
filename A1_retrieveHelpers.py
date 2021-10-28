@@ -367,28 +367,32 @@ def cleanData(yr, rnds):
                     for rdr in rdrs:
                         cols = ["lap_seconds", "one_seconds", "two_seconds", "thr_seconds", "four_seconds"]
                         for col in cols:
-                            xdf = df.loc[df["rdr_num"] == rdr]
-                            tdf = xdf.loc[~xdf[col].isnull()]
+                            iCol = col.replace("_seconds", "")
+                            jCol = f"{iCol}_cleaned"
+                            nueFrame[jCol] = nueFrame[col]
 
-                            lapStd = tdf[col].std()
-                            thrStd = lapStd * 4
-                            lapMean = tdf[col].mean()
+                            xdf = df.loc[df["rdr_num"] == rdr]
+                            tdf = xdf.loc[~xdf[jCol].isnull()]
+
+                            lapStd = tdf[jCol].std()
+                            thrStd = lapStd * 3
+                            lapMean = tdf[jCol].mean()
                             upLim = lapMean + thrStd
-                            loLim = lapMean - thrStd
 
-                            if race == True:
-                                nueFrame.loc[(df["rdr_num"] == rdr) & (df[col] > upLim), col] = upLim
-                                nueFrame.loc[(df["rdr_num"] == rdr) & (df[col] < loLim), col] = loLim
+
+                            nueFrame.loc[(df["rdr_num"] == rdr) & (df[jCol] > upLim), jCol] = lapMean
+                            ### droped this line because lower values should not be outliers
+                            # nueFrame.loc[(df["rdr_num"] == rdr) & (df[col] < loLim), col] = loLim
                             xdf = df.loc[df["rdr_num"] == rdr]
                             tdf = xdf.loc[~xdf[col].isnull()]
-                            lapMean = tdf[col].mean()
+                            lapMean = tdf[jCol].mean()
                             nueFrame.loc[(df["rdr_num"] == rdr) & (df[col].isnull()), col] = lapMean
 
                     nueFrame["lap_scaled"] = nueFrame["lap_seconds"] / nueFrame["lap_seconds"].abs().max()
                     nueFrame["one_scaled"] = nueFrame["one_seconds"] / nueFrame["one_seconds"].abs().max()
                     nueFrame["two_scaled"] = nueFrame["two_seconds"] / nueFrame["two_seconds"].abs().max()
                     nueFrame["thr_scaled"] = nueFrame["thr_seconds"] / nueFrame["thr_seconds"].abs().max()
-                    nueFrame["fr_scaled"] = nueFrame["four_seconds"] / nueFrame["four_seconds"].abs().max()
+                    nueFrame["four_scaled"] = nueFrame["four_seconds"] / nueFrame["four_seconds"].abs().max()
 
                     for ses in causeSes:
                         if ses in file:
@@ -416,7 +420,7 @@ def cleanData(yr, rnds):
                                 "Shanghai Circuit", "Istanbul Circuit", "Style de Aragon"]
                     newNames = ["Losail", "Algarve", "Jerez", "Mugello", "Catalunya", "Assen", "Silverstone", "Aragón",
                                 "Misano", "COTA", "Brno", "Valencia", "Argentina", "Chang", "Motegi", "Sepang",
-                                "Indianapolis", "Laguna Seca", "Estoril", "Donington Park", "Shanghai", "Istanbul",
+                                "Indianapolis", "Laguna Seca", "Estoril", "Donington", "Shanghai", "Istanbul",
                                 "Aragón"]
 
                     x = 0
