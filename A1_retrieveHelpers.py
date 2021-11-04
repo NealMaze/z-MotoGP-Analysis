@@ -395,15 +395,26 @@ def cleanData(yr, rnds):
                         nueFrame[limCol] = nueFrame[col]
 
                         sesMin = df[cleanCol].min()
-                        sesMean = df[cleanCol].mean()
-                        minDF = df.loc[df[cleanCol] < (sesMin + 30)]
-                        lapStd = minDF[cleanCol].std()
+                        #
+                        #
+                        #
+                        #
+                        #
                         if "RAC" in session:
-                            twoStd = lapStd * 2
+                            minDF = df.loc[df[cleanCol] < (sesMin + 15)]
+                            lapStd = minDF[cleanCol].std()
+                            twoStd = lapStd * 3
                             upLim = sesMin + twoStd
+                        #
+                        #
+                        #
+                        #
+                        #
                         else:
-                            twoStd = lapStd * 2
-                            upLim = sesMean + twoStd
+                            minDF = df.loc[df[cleanCol] < (sesMin + 30)]
+                            lapStd = minDF[cleanCol].std()
+                            thrStd = lapStd * 3
+                            upLim = sesMin + thrStd
 
                         for rdr in rdrs:
                             sdf = nueFrame.loc[nueFrame["rdr_num"] == rdr]
@@ -499,6 +510,6 @@ def cleanData(yr, rnds):
                     fFrame.to_csv(f"{csvFinalDir}{eName}", index=False)
 
             if trk != "none":
-                space = 13 - len(trk)
+                space = 20 - len(trk)
                 x = " " * int(space)
                 print(f"{x}{trk} - Round {rnd}")
