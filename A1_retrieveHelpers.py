@@ -375,10 +375,10 @@ def cleanData(yr, rnds):
                             tdf = xdf.loc[~xdf[jCol].isnull()]
 
                             lapStd = tdf[jCol].std()
-                            thrStd = lapStd * 3
+                            twoStd = lapStd * 2
                             lapMean = tdf[jCol].mean()
-                            upLim = lapMean + thrStd
-
+                            nueFrame[f"{jCol}_avg"] = lapMean
+                            upLim = lapMean + twoStd
 
                             nueFrame.loc[(df["rdr_num"] == rdr) & (df[jCol] > upLim), jCol] = lapMean
                             ### droped this line because lower values should not be outliers

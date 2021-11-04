@@ -60,8 +60,7 @@ def mergeWeather(df):
     wf["yr"] = dateData[2]
     wf.drop(columns=["date", "track", "year"], inplace=True)
 
-    wf = wf[["month", "day", "yr", "league", "session_type",
-                       "track_conditions", "track_temp", "air_temp", "humidity"]]
+    wf = wf[["month", "day", "yr", "league", "session_type", "track_conditions", "track_temp", "air_temp", "humidity"]]
     wf = wf.rename(columns={"league": "lge", "session_type": "session", "track_conditions": "conditions"})
     wf["yr"] = wf["yr"].astype(int)
     wf["day"] = wf["day"].astype(int)
