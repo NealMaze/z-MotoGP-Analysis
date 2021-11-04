@@ -303,8 +303,9 @@ def cleanData(yr, rnds):
     for lge in lges:
         xLis = getFiles(csvSesDir, f"{yr}-{lge}-Round_*.csv")
         if len(xLis) > 0:
-            print(f"\n{yr} {lge}")
+            print(f"\n         {yr} - {lge}")
         for rnd in rnds:
+            trk = "none"
             gotQ = False
 
             Q1Res = []
@@ -322,13 +323,34 @@ def cleanData(yr, rnds):
                 effectFrames = []
 
                 for file in files:
-                    race = False
-                    if "RAC" in file:
-                        race = True
-
-
                     df = pd.read_csv(file)
-                    df['rdr_num'] = df['rdr_num'].astype(int)
+                    df["rdr_num"] = df["rdr_num"].astype(int)
+
+                    oldNames = ["Losail International Circuit", "Autódromo Internacional do Algarve",
+                                "Circuito de Jerez", "Autodromo Internazionale del Mugello", "Circuit de Barcelona",
+                                "TT Circuit Assen", "Silverstone Circuit", "MotorLand Aragón", "Misano World Circuit",
+                                "Circuit Of The Americas", "Automotodrom Brno", "Circuit Ricardo Tormo",
+                                "Termas de Río Hondo", "Chang International Circuit", "Twin Ring Motegi",
+                                "Sepang International Circuit", "Indianapolis Motor Speedway",
+                                "Mazda Raceway Laguna Seca", "Estoril Circuit", "Donington Park Circuit",
+                                "Shanghai Circuit", "Istanbul Circuit", "Style de Aragon", "Romagna"]
+                    newNames = ["Losail", "Algarve", "Jerez", "Mugello", "Catalunya", "Assen", "Silverstone", "Aragon",
+                                "Misano", "COTA", "Brno", "Valencia", "Argentina", "Chang", "Motegi", "Sepang",
+                                "Indianapolis", "Laguna Seca", "Estoril", "Donington", "Shanghai", "Istanbul",
+                                "Aragon", "Misano"]
+
+                    x = 0
+                    for name in oldNames:
+                        oName = oldNames[x]
+                        nName = newNames[x]
+                        df.loc[df["trk"] == oName, "trk"] = nName
+                        x = x + 1
+
+                    trkDF = df["trk"]
+                    trk = trkDF.iloc[0]
+
+                    sesDF = df["session"]
+                    session = sesDF.iloc[0]
 
                     bStrs = ["st", "nd", "rd", "th"]
                     for bStr in bStrs:
@@ -362,43 +384,100 @@ def cleanData(yr, rnds):
                             grid = getWholeQRes(Q2Res, Q1Res)
                             gdf = pd.DataFrame.from_dict(grid)
 
-                    rdrs = df.rdr_num.unique()
+                    rdrs = nueFrame.rdr_num.unique()
+                    cols = ["lap_seconds", "one_seconds", "two_seconds", "thr_seconds", "four_seconds"]
 
-                    for rdr in rdrs:
-                        cols = ["lap_seconds", "one_seconds", "two_seconds", "thr_seconds", "four_seconds"]
-                        for col in cols:
-                            iCol = col.replace("_seconds", "")
-                            jCol = f"{iCol}_cleaned"
-                            nueFrame[jCol] = nueFrame[col]
+                    for col in cols:
+                        nueFrame[col] = pd.to_numeric(nueFrame[col], downcast = "float")
+                        cleanCol = col.replace("_seconds", "_clean")
+                        limCol = col.replace("_seconds", "_lim")
+                        nueFrame[cleanCol] = nueFrame[col]
+                        nueFrame[limCol] = nueFrame[col]
 
-                            xdf = df.loc[df["rdr_num"] == rdr]
-                            tdf = xdf.loc[~xdf[jCol].isnull()]
-
-                            lapStd = tdf[jCol].std()
+                        sesMin = df[cleanCol].min()
+                        sesMean = df[cleanCol].mean()
+                        minDF = df.loc[df[cleanCol] < (sesMin + 30)]
+                        lapStd = minDF[cleanCol].std()
+                        if "RAC" in session:
                             twoStd = lapStd * 2
-                            lapMean = tdf[jCol].mean()
-                            nueFrame[f"{jCol}_avg"] = lapMean
-                            upLim = lapMean + twoStd
+                            upLim = sesMin + twoStd
+                        else:
+                            twoStd = lapStd * 2
+                            upLim = sesMean + twoStd
 
-                            nueFrame.loc[(df["rdr_num"] == rdr) & (df[jCol] > upLim), jCol] = lapMean
-                            ### droped this line because lower values should not be outliers
-                            # nueFrame.loc[(df["rdr_num"] == rdr) & (df[col] < loLim), col] = loLim
-                            xdf = df.loc[df["rdr_num"] == rdr]
-                            tdf = xdf.loc[~xdf[col].isnull()]
-                            lapMean = tdf[jCol].mean()
-                            nueFrame.loc[(df["rdr_num"] == rdr) & (df[col].isnull()), col] = lapMean
+                        for rdr in rdrs:
+                            sdf = nueFrame.loc[nueFrame["rdr_num"] == rdr]
+                            tdf = sdf.loc[~sdf[cleanCol].isnull()]
+                            udf = tdf.loc[tdf[cleanCol] < (sesMin + 20)]
+                            rdrMean = udf[cleanCol].mean()
+                            nueFrame[limCol] = upLim
 
-                    nueFrame["lap_scaled"] = nueFrame["lap_seconds"] / nueFrame["lap_seconds"].abs().max()
-                    nueFrame["one_scaled"] = nueFrame["one_seconds"] / nueFrame["one_seconds"].abs().max()
-                    nueFrame["two_scaled"] = nueFrame["two_seconds"] / nueFrame["two_seconds"].abs().max()
-                    nueFrame["thr_scaled"] = nueFrame["thr_seconds"] / nueFrame["thr_seconds"].abs().max()
-                    nueFrame["four_scaled"] = nueFrame["four_seconds"] / nueFrame["four_seconds"].abs().max()
+                            if "RAC" not in session:
+                                nueFrame.loc[nueFrame[col].isnull(), col] = rdrMean
+                                seconds = nueFrame[col]
+                                nueFrame.loc[(~nueFrame[col].isnull())
+                                             & (nueFrame[col] <= nueFrame[limCol]),
+                                             cleanCol] = seconds
+                                nueFrame.loc[(~nueFrame[col].isnull())
+                                             & (nueFrame[col] > nueFrame[limCol]),
+                                             cleanCol] = upLim
+
+                            else:
+                                nueFrame.loc[(nueFrame[col].isnull())
+                                             & (nueFrame["lap_num"] != 1),
+                                             col] = rdrMean
+                                seconds = nueFrame[col]
+                                nueFrame.loc[(~nueFrame[col].isnull())
+                                             & (nueFrame[col] <= nueFrame[limCol])
+                                             & (nueFrame["lap_num"] != 1),
+                                             cleanCol] = seconds
+                                nueFrame.loc[(~nueFrame[col].isnull())
+                                             & (nueFrame[col] > nueFrame[limCol])
+                                             & (nueFrame["lap_num"] != 1),
+                                             cleanCol] = upLim
+
+                    nueFrame["lap_scaled"] = nueFrame["lap_clean"] / nueFrame["lap_clean"].abs().max()
+                    nueFrame["one_scaled"] = nueFrame["one_clean"] / nueFrame["one_clean"].abs().max()
+                    nueFrame["two_scaled"] = nueFrame["two_clean"] / nueFrame["two_clean"].abs().max()
+                    nueFrame["thr_scaled"] = nueFrame["thr_clean"] / nueFrame["thr_clean"].abs().max()
+                    nueFrame["four_scaled"] = nueFrame["four_clean"] / nueFrame["four_clean"].abs().max()
+
+                    ### This would be a good place to more accurately normalize the first lap values
+                    for ses in effectSes:
+                        if ses in file:
+                            firstFrame = nueFrame.loc[nueFrame["lap_num"] == 1]
+                            for col in cols:
+                                cleanCol = col.replace("_seconds", "_clean")
+                                scaleCol = col.replace("_seconds", "_scaled")
+                                seconds = firstFrame[col]
+                                firstFrame.loc[~firstFrame[col].isnull(), cleanCol] = seconds
+                                firstFrame[scaleCol] = firstFrame[cleanCol] / firstFrame[cleanCol].abs().max()
+                                nueFrame.loc[nueFrame["lap_num"] == 1, scaleCol] = firstFrame[scaleCol]
+
+                    nueFrame = nueFrame[["index", "month", "day", "yr", "lge", "rnd", "session", "trk", "pos",
+                                         "rdr_num", "f_name", "l_name", "nat", "team", "manu", "num_of_laps", "run_num",
+                                         "f_tire", "r_tire", "laps_on_f", "laps_on_r", "pit", "avg_spd",
+
+                                         "lap_time", "lap_val",
+                                         "sec_one", "one_val",
+                                         "sec_two", "two_val",
+                                         "sec_thr", "thr_val",
+                                         "sec_four", "four_val",
+                                         "lap_num",
+
+                                         "lap_seconds", "lap_lim", "lap_clean", "lap_scaled",
+                                         "one_seconds", "one_lim", "one_clean", "one_scaled",
+                                         "two_seconds", "two_lim", "two_clean", "two_scaled",
+                                         "thr_seconds", "thr_lim", "thr_clean", "thr_scaled",
+                                         "four_seconds", "four_lim", "four_clean", "four_scaled"
+                                         ]]
 
                     for ses in causeSes:
                         if ses in file:
                             if appended == False:
                                 causeFrames.append(nueFrame)
                                 appended = True
+
                     for ses in effectSes:
                         if ses in file:
                             if appended == False:
@@ -406,56 +485,20 @@ def cleanData(yr, rnds):
                                 appended = True
 
                 if len(causeFrames) > 0:
-                    cName = f"{yr}-{lge}-Rnd_{rnd}-PreRace.csv"
+                    cName = f"{yr}-{lge}-Rnd_{rnd}-{trk}-PreRace.csv"
                     cFrame = pd.concat(causeFrames)
                     dFrame = cFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
 
-                    oldNames = ["Losail International Circuit", "Autódromo Internacional do Algarve",
-                                "Circuito de Jerez", "Autodromo Internazionale del Mugello", "Circuit de Barcelona",
-                                "TT Circuit Assen", "Silverstone Circuit", "MotorLand Aragón", "Misano World Circuit",
-                                "Circuit Of The Americas", "Automotodrom Brno", "Circuit Ricardo Tormo",
-                                "Termas de Río Hondo", "Chang International Circuit", "Twin Ring Motegi",
-                                "Sepang International Circuit", "Indianapolis Motor Speedway",
-                                "Mazda Raceway Laguna Seca", "Estoril Circuit", "Donington Park Circuit",
-                                "Shanghai Circuit", "Istanbul Circuit", "Style de Aragon"]
-                    newNames = ["Losail", "Algarve", "Jerez", "Mugello", "Catalunya", "Assen", "Silverstone", "Aragón",
-                                "Misano", "COTA", "Brno", "Valencia", "Argentina", "Chang", "Motegi", "Sepang",
-                                "Indianapolis", "Laguna Seca", "Estoril", "Donington", "Shanghai", "Istanbul",
-                                "Aragón"]
-
-                    x = 0
-                    for name in oldNames:
-                        oName = oldNames[x]
-                        nName = newNames[x]
-                        dFrame.loc[dFrame["trk"] == oName, "trk"] = nName
-                        x = x + 1
-
                     dFrame.to_csv(f"{csvFinalDir}{cName}", index=False)
-                    print(cName)
 
                 if len(effectFrames) > 0:
-                    eName = f"{yr}-{lge}-Rnd_{rnd}-Result.csv"
+                    eName = f"{yr}-{lge}-Rnd_{rnd}-{trk}-Result.csv"
                     eFrame = pd.concat(effectFrames)
                     fFrame = eFrame.join(gdf.set_index('rdr_num'), on='rdr_num')
 
-                    oldNames = ["Losail International Circuit", "Autódromo Internacional do Algarve",
-                                "Circuito de Jerez", "Autodromo Internazionale del Mugello", "Circuit de Barcelona",
-                                "TT Circuit Assen", "Silverstone Circuit", "MotorLand Aragón", "Misano World Circuit",
-                                "Circuit Of The Americas", "Automotodrom Brno", "Circuit Ricardo Tormo",
-                                "Termas de Río Hondo", "Chang International Circuit", "Twin Ring Motegi",
-                                "Sepang International Circuit", "Indianapolis Motor Speedway",
-                                "Mazda Raceway Laguna Seca", "Estoril Circuit", "Donington Park Circuit",
-                                "Shanghai Circuit", "Istanbul Circuit"]
-                    newNames = ["Losail", "Algarve", "Jerez", "Mugello", "Catalunya", "Assen", "Silverstone", "Aragón",
-                                "Misano", "COTA", "Brno", "Valencia", "Argentina", "Chang", "Motegi", "Sepang",
-                                "Indianapolis", "Laguna Seca", "Estoril", "Donington Park", "Shanghai", "Istanbul"]
-
-                    x = 0
-                    for name in oldNames:
-                        oName = oldNames[x]
-                        nName = newNames[x]
-                        fFrame.loc[fFrame["trk"] == oName, "trk"] = nName
-                        x = x + 1
-
                     fFrame.to_csv(f"{csvFinalDir}{eName}", index=False)
-                    print(eName)
+
+            if trk != "none":
+                space = 13 - len(trk)
+                x = " " * int(space)
+                print(f"{x}{trk} - Round {rnd}")

@@ -87,8 +87,8 @@ def getWholeFrame(pas, df, yr):
 
     for lge in lges:
         for rnd in rnds:
-            preFiles = getFiles(csvFinalDir, f"{yr}-{lge}-Rnd_{rnd}-PreRace.csv")
-            resFiles = getFiles(csvFinalDir, f"{yr}-{lge}-Rnd_{rnd}-Result.csv")
+            preFiles = getFiles(csvFinalDir, f"{yr}-{lge}-Rnd_{rnd}-*-PreRace.csv")
+            resFiles = getFiles(csvFinalDir, f"{yr}-{lge}-Rnd_{rnd}-*-Result.csv")
 
             if len(resFiles) > 0:
                 resFile = resFiles[-1]
