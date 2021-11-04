@@ -398,24 +398,26 @@ def cleanData(yr, rnds):
                         #
                         #
                         #
-                        #
-                        #
-                        if "RAC" in session:
-                            minDF = df.loc[df[cleanCol] < (sesMin + 15)]
+                        elif "lap" in col:
+                            minDF = df.loc[df[cleanCol] < (sesMin + 30)]
                             lapStd = minDF[cleanCol].std()
                             twoStd = lapStd * 3
                             upLim = sesMin + twoStd
                         #
-                        #
-                        #
-                        #
+                        elif "RAC" in session:
+                            minDF = df.loc[df[cleanCol] < (sesMin + 10)]
+                            lapStd = minDF[cleanCol].std()
+                            twoStd = lapStd * 3
+                            upLim = sesMin + twoStd
                         #
                         else:
-                            minDF = df.loc[df[cleanCol] < (sesMin + 30)]
+                            minDF = df.loc[df[cleanCol] < (sesMin + 20)]
                             lapStd = minDF[cleanCol].std()
                             thrStd = lapStd * 3
                             upLim = sesMin + thrStd
-
+                        #
+                        #
+                        #
                         for rdr in rdrs:
                             sdf = nueFrame.loc[nueFrame["rdr_num"] == rdr]
                             tdf = sdf.loc[~sdf[cleanCol].isnull()]
