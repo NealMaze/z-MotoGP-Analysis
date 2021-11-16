@@ -27,8 +27,33 @@ def getSaveName(file, sesType):
     lge = t[2]
     track = t[4].strip()
     fTrack = track.replace(" Marco Simoncelli", "")
+
+    oldNames = ["Losail International Circuit", "Autódromo Internacional do Algarve",
+                "Circuito de Jerez", "Autodromo Internazionale del Mugello", "Circuit de Barcelona",
+                "TT Circuit Assen", "Silverstone Circuit", "MotorLand Aragón", "Misano World Circuit",
+                "Circuit Of The Americas", "Automotodrom Brno", "Circuit Ricardo Tormo",
+                "Termas de Río Hondo", "Chang International Circuit", "Twin Ring Motegi",
+                "Sepang International Circuit", "Indianapolis Motor Speedway",
+                "Mazda Raceway Laguna Seca", "Estoril Circuit", "Donington Park Circuit",
+                "Shanghai Circuit", "Istanbul Circuit", "Style de Aragon", "Romagna"]
+    newNames = ["Losail", "Algarve", "Jerez", "Mugello", "Catalunya", "Assen", "Silverstone", "Aragon",
+                "Misano", "COTA", "Brno", "Valencia", "Argentina", "Chang", "Motegi", "Sepang",
+                "Indianapolis", "Laguna Seca", "Estoril", "Donington", "Shanghai", "Istanbul",
+                "Aragon", "Misano"]
+
+    x = 0
+    for name in oldNames:
+        oName = oldNames[x]
+        nName = newNames[x]
+
+        if fTrack == oName:
+            fTrack = nName
+
+        x = x + 1
+
+
     yr = t[0].replace("/", "")
-    saveName = f"{yr}-{lge}-{round}-{fTrack}-{sesType}-Analysis.csv"
+    saveName = f"{yr}-{lge}-{round}-{fTrack}-{sesType}.csv"
     z = csvSesDir + saveName
 
     return z, fTrack, round

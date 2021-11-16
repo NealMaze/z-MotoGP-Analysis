@@ -39,7 +39,7 @@ def updateSes(yr, rnds):
         grabFiles(yr, rnd)
         convertYrPdfs(yr, rnd)
         cleanData(yr, rnds)
-
+  
 def mergeWeather(df):
     weatherFiles = getFiles(csvWeatherDir, f"*.csv")
     weatherFrames = []

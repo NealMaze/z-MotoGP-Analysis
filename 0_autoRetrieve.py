@@ -76,6 +76,8 @@ if retrieveTestFilesBin == "y":
 else:
     print("\n          Skipping Step 3 - Test PDF Retrieval")
 
+
+
 # convert PDFs to CSVs
 if convertSesFilesBin == "y":
     print("\n          Step 4 - PDF Conversion")
@@ -96,13 +98,18 @@ elif retrieveSesFilesBin == "y":
         print(f"Converting {yr} session analysis files into csv files")
         for rnd in rSFRs:
             convertYrPdfs(yr, rnd)
+    print("converted")
 else:
     print("\n          Skipping Step 4 - PDF Conversion")
+
+
 
 # clean data
 print("\n          Step 5 - Data Cleaning")
 if cleanSesFilesBin == "y":
     for yr in allYrs:
+        if yr == 2018:
+            break
         print(f"\nCleaning {yr} csv files")
         cleanData(yr, allRnds)
     print("cleaned")

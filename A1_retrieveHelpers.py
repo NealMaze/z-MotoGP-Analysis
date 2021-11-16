@@ -52,6 +52,7 @@ def fixRidersData(yr):
             rs.append(len(i))
 
     df = pd.DataFrame(riders)
+    df.drop_duplicates()
     df.to_csv(f"{csvRidersDir}{yr}RidersV2.csv", index = False, header = False)
 
 def getRoundFiles(yr, rn, fileNum):
@@ -282,7 +283,7 @@ def convertYrPdfs(yr, rnd):
                        "laps_on_r", "lap_num", "lap_time", "lap_seconds", "lap_val", "pit", "sec_one",
                        "one_seconds", "one_val", "sec_two", "two_seconds", "two_val", "sec_thr", "thr_seconds",
                        "thr_val", "sec_four", "four_seconds", "four_val", "avg_spd"]
-            xyz = saveName.replace(csvDir, "")
+            xyz = saveName.replace(csvSesDir, "")
             print(xyz)
             saveCSV(secMat, saveName, headers)
 
@@ -398,7 +399,7 @@ def cleanData(yr, rnds):
                         #
                         #
                         #
-                        elif "lap" in col:
+                        if "lap" in col:
                             minDF = df.loc[df[cleanCol] < (sesMin + 30)]
                             lapStd = minDF[cleanCol].std()
                             twoStd = lapStd * 3
