@@ -142,3 +142,19 @@ def getWholeFrame(pas, df, yr):
     wF = pd.concat(retFrames)
 
     return wF, pas
+
+def getResFrame(df, yr):
+    frames = []
+    if df == "empty": pass
+    else: frames.append(df)
+
+
+    for lge in lges:
+        for rnd in rnds:
+            resFiles = getFiles(csvFinalDir, f"{yr}-{lge}-Rnd_{rnd}-*-Result.csv")
+            for file in resFiles:
+                df = pd.read_csv(file)
+                frames.append(df)
+
+    df = pd.concat(frames)
+    return df
